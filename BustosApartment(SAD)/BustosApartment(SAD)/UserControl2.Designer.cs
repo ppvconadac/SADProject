@@ -1,4 +1,4 @@
-﻿namespace BustosApartment_SAD_
+namespace BustosApartment_SAD_
 {
     partial class UserControl2
     {
@@ -31,9 +31,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelMain2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.panelMain2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 32);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Add Guest";
+            this.button1.Text = "Manage";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -59,7 +59,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 32);
             this.button2.TabIndex = 1;
-            this.button2.Text = "List of Guest";
+            this.button2.Text = "Summary";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -74,14 +74,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(859, 65);
             this.panel1.TabIndex = 2;
-            // 
-            // panelMain2
-            // 
-            this.panelMain2.Location = new System.Drawing.Point(0, 71);
-            this.panelMain2.Name = "panelMain2";
-            this.panelMain2.Size = new System.Drawing.Size(840, 511);
-            this.panelMain2.TabIndex = 3;
-            this.panelMain2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain2_Paint);
             // 
             // button3
             // 
@@ -112,6 +104,14 @@
             this.button4.TabIndex = 12;
             this.button4.Text = "X";
             this.button4.UseVisualStyleBackColor = false;
+            // 
+            // panelMain2
+            // 
+            this.panelMain2.Location = new System.Drawing.Point(0, 71);
+            this.panelMain2.Name = "panelMain2";
+            this.panelMain2.Size = new System.Drawing.Size(840, 511);
+            this.panelMain2.TabIndex = 3;
+            this.panelMain2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain2_Paint);
             // 
             // UserControl2
             // 
