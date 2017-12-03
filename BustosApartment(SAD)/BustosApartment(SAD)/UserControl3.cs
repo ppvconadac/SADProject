@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 
 namespace BustosApartment_SAD_
 {
-   
+
     public partial class UserControl3 : UserControl
     {
         MySqlConnection conn;
@@ -34,7 +34,7 @@ namespace BustosApartment_SAD_
         {
             InitializeComponent();
             conn = new MySqlConnection("Server=localhost;Database=ba_db;uid=root; pwd =root; ");
-            
+
         }
 
         private void UserControl3_Load(object sender, EventArgs e)
@@ -77,10 +77,12 @@ namespace BustosApartment_SAD_
             string name = textBox1.Text;
             string contac = textBox3.Text;
             string add = textBox2.Text;
-            if (name == "" || contac =="" || add =="") {
+            if (name == "" || contac == "" || add == "")
+            {
                 label3.Text = "Please Input the required fields";
             }
-            else {
+            else
+            {
                 string query = "insert into profile values(NULL,'" + name + "','" + add + "','" + contac + "',0)";
                 c.insert(query);
                 label3.Text = "";
@@ -110,8 +112,9 @@ namespace BustosApartment_SAD_
             {
                 label3.Text = "Please Input the required fields";
             }
-            else {
-                string quer = "Update profile set Profile_name = '" + name + "', Profile_address = '" + add + "', Profile_cpnumber = '" + contac + "' where User_ID ="+a+"";
+            else
+            {
+                string quer = "Update profile set Profile_name = '" + name + "', Profile_address = '" + add + "', Profile_cpnumber = '" + contac + "' where User_ID =" + a + "";
                 c.insert(quer);
                 tablecall();
                 label3.Text = "";
@@ -134,11 +137,11 @@ namespace BustosApartment_SAD_
 
         private void button3_Click(object sender, EventArgs e)
         {
-      
-                string query = "delete from profile where User_id = " + a + "";
-                c.insert(query);
-                tablecall();
-            
+
+            string query = "delete from profile where User_id = " + a + "";
+            c.insert(query);
+            tablecall();
+
         }
     }
 }
