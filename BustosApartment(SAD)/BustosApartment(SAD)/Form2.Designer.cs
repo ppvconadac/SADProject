@@ -1,4 +1,4 @@
-﻿namespace BustosApartment_SAD_
+namespace BustosApartment_SAD_
 {
     partial class Form2
     {
@@ -76,7 +76,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(195, 635);
+            this.panel4.Size = new System.Drawing.Size(195, 596);
             this.panel4.TabIndex = 9;
             // 
             // button2
@@ -175,7 +175,7 @@
             this.panelMain.BackColor = System.Drawing.Color.Gainsboro;
             this.panelMain.Location = new System.Drawing.Point(195, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(859, 635);
+            this.panelMain.Size = new System.Drawing.Size(859, 596);
             this.panelMain.TabIndex = 0;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
@@ -184,7 +184,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1053, 635);
+            this.ClientSize = new System.Drawing.Size(1053, 596);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
