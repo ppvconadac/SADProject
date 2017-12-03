@@ -93,5 +93,10 @@ namespace BustosApartment_SAD_
                 UserControl5.Instance.BringToFront();
             }
         }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

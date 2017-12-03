@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace BustosApartment_SAD_
 {
     public partial class Form1 : Form
     {
+        MySqlConnection conn;
+        public static String name;
+        public static String id;
+
         public Form1()
         {
             InitializeComponent();
+            conn = new MySqlConnection("Server=localhost;Database=ba_db;uid=root; pwd =root; ");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,9 +30,36 @@ namespace BustosApartment_SAD_
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Form2 nextform = new Form2();
-            nextform.Show();
-            this.Hide();
+            String username = textBox1.Text;
+            String password = textBox2.Text;
+            String query = "select * from owner where username = '" + username + "' and password='" + password + "'";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            if (dt.Rows.Count == 1)
+            {
+                Form2 nextform = new Form2();
+                name = dt.Rows[0]["Owner_name"].ToString();
+                id = dt.Rows[0]["Owner_ID"].ToString();
+                MessageBox.Show("Welcome " + name);            
+                nextform.Show();
+                this.Hide();
+
+            }
+            else
+            {
+                label5.Text = "Wrong Username or Password Try again";
+
+            }
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.AcceptButton = LoginButton;
         }
     }
 }
