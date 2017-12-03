@@ -143,5 +143,15 @@ namespace BustosApartment_SAD_
             tablecall();
 
         }
+        
+          private void search(string a) {
+            string quer = "select * from profile where profile_name like '%" + a + "%'";
+            MySqlCommand comm = new MySqlCommand(quer, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
     }
 }
