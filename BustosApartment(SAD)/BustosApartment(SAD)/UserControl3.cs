@@ -124,10 +124,12 @@ namespace BustosApartment_SAD_
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            a = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["User_id"].Value.ToString());
-            textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["Profile_name"].Value.ToString();
-            textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["Profile_cpnumber"].Value.ToString();
-            textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells["Profile_Address"].Value.ToString();
+             if (e.RowIndex > -1){
+                a = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["User_id"].Value.ToString());
+                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["Profile_name"].Value.ToString();
+                textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["Profile_cpnumber"].Value.ToString();
+                textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells["Profile_Address"].Value.ToString();
+                }
         }
 
         private void label3_Click(object sender, EventArgs e)
