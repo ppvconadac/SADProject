@@ -100,6 +100,11 @@ namespace BustosApartment_SAD_
             DataTable dt = new DataTable();
             adp.Fill(dt);
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns["User_id"].Visible = false;
+            dataGridView1.Columns["Profile_balance"].Visible = false;
+            dataGridView1.Columns["Profile_name"].HeaderText = "Name";
+            dataGridView1.Columns["Profile_cpnumber"].HeaderText = "Contact";
+            dataGridView1.Columns["Profile_Address"].HeaderText = "Address";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -124,12 +129,13 @@ namespace BustosApartment_SAD_
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-             if (e.RowIndex > -1){
+            if (e.RowIndex > -1)
+            {
                 a = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["User_id"].Value.ToString());
                 textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["Profile_name"].Value.ToString();
                 textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["Profile_cpnumber"].Value.ToString();
                 textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells["Profile_Address"].Value.ToString();
-                }
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -145,8 +151,8 @@ namespace BustosApartment_SAD_
             tablecall();
 
         }
-        
-         private void textBox5_TextChanged(object sender, EventArgs e)
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
         {
             string quer = "select * from profile where profile_name like '%" + textBox5.Text + "%'";
             MySqlCommand comm = new MySqlCommand(quer, conn);
