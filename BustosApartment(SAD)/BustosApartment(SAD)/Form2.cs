@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,7 +31,7 @@ namespace BustosApartment_SAD_
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -46,7 +46,7 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-    
+
         }
 
         private void button3_Click(object sender, EventArgs e)
