@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -33,6 +33,7 @@ namespace BustosApartment_SAD_
                 panelMain2.Controls.Add(UserControl3.Instance);
                 UserControl3.Instance.Dock = DockStyle.Fill;
                 UserControl3.Instance.BringToFront();
+                
             }
             else
             {
@@ -61,15 +62,17 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!panelMain2.Controls.Contains(UserControl1.Instance))
+            if (!panelMain2.Controls.Contains(UserControl4.Instance))
             {
-                panelMain2.Controls.Add(UserControl1.Instance);
-                UserControl1.Instance.Dock = DockStyle.Fill;
-                UserControl1.Instance.BringToFront();
+                panelMain2.Controls.Add(UserControl4.Instance);
+                UserControl4.Instance.Dock = DockStyle.Fill;
+                UserControl4.Instance.BringToFront();
+
+                
             }
             else
             {
-                UserControl1.Instance.BringToFront();
+                UserControl4.Instance.BringToFront();
             }
         }
 
