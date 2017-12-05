@@ -13,8 +13,15 @@ namespace BustosApartment_SAD_
     public partial class UserControl8 : UserControl
 
     {
+        private int b;
+        private string n;
 
         private static UserControl8 _instance;
+
+        public void acceptor(int a, string c) {
+            label7.Text = c;
+
+        }
 
         public static UserControl8 Instance
         {
@@ -32,7 +39,7 @@ namespace BustosApartment_SAD_
 
         private void UserControl8_Load(object sender, EventArgs e)
         {
-
+           
         }
     }
 }
