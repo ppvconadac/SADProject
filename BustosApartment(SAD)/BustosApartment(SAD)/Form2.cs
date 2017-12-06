@@ -98,5 +98,18 @@ namespace BustosApartment_SAD_
         {
 
         }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (!panelMain.Controls.Contains(UserControl9.Instance))
+            {
+                panelMain.Controls.Add(UserControl9.Instance);
+                UserControl9.Instance.Dock = DockStyle.Fill;
+                UserControl9.Instance.BringToFront();
+            }
+            else
+            {
+                UserControl9.Instance.BringToFront();
+            }
+        }
     }
 }
