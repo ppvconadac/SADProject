@@ -86,9 +86,13 @@ namespace BustosApartment_SAD_
             dataGridView1.DataSource = dt;
             dataGridView1.Columns["User_id"].Visible = false;
             dataGridView1.Columns["Profile_balance"].Visible = false;
+            dataGridView1.Columns["profile_idt"].Visible = false;
+            dataGridView1.Columns["profile_idn"].Visible = false;
             dataGridView1.Columns["Profile_name"].HeaderText = "Name";
             dataGridView1.Columns["Profile_cpnumber"].HeaderText = "Contact";
             dataGridView1.Columns["Profile_Address"].HeaderText = "Address";
+            dataGridView1.Columns["profile_fname"].HeaderText = "First Name";
+            dataGridView1.Columns["profile_lname"].HeaderText = "Last Name";
         }
 
       
@@ -106,7 +110,7 @@ namespace BustosApartment_SAD_
                 }
                 else if (c==2)
                 {
-                    b = "Driver's Licence";
+                    b = "Driver's License";
                 }
                 else
                 {
@@ -167,7 +171,7 @@ namespace BustosApartment_SAD_
             if (comboBox1.Text =="Passport") {
                 idt = 1;
             }
-            else if (comboBox1.Text=="Driver's Licence") {
+            else if (comboBox1.Text=="Driver's License") {
                 idt = 2;
             }
             else {
@@ -199,7 +203,7 @@ namespace BustosApartment_SAD_
             {
                 idt = 1;
             }
-            else if (comboBox2.Text == "Driver's Licence")
+            else if (comboBox2.Text == "Driver's License")
             {
                 idt = 2;
             }
