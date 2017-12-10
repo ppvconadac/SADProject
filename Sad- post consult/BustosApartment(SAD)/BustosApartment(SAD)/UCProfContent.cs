@@ -145,7 +145,7 @@ namespace BustosApartment_SAD_
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            string quer = "select * from profile where profile_name like '%" + textBox5.Text + "%'";
+            string quer = "select * from profile where profile_name like '%" + textBox5.Text + "%' or profile_fname like '%" + textBox5.Text + "%' or profile_lname like '%" + textBox5.Text + "%'";
             MySqlCommand comm = new MySqlCommand(quer, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
