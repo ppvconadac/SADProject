@@ -146,13 +146,33 @@ namespace BustosApartment_SAD_
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            string quer = "select * from profile where profile_name like '%" + textBox5.Text + "%' or profile_fname like '%" + textBox5.Text + "%' or profile_lname like '%" + textBox5.Text + "%'";
-            MySqlCommand comm = new MySqlCommand(quer, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            dataGridView1.DataSource = dt;
+            var sp = textBox5.Text.Split(' ');
+            string quer = "";
+            if (sp.Length == 1)
+            {
+                quer = "select * from profile where profile_name like '%" + sp[0] + "%' " +
+                    "or profile_fname like '%" + sp[0] + "%' or profile_lname like '%" + sp[0] + "%'";
+                
+                MySqlCommand comm = new MySqlCommand(quer, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                conn.Close();
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            else {
+                quer = "select * from profile where profile_name like '%" + sp[0] + "%' " +
+                     "or profile_fname like '%" + sp[0] + "%' or profile_lname like '%" + sp[0] + "%' " +
+                     "or  profile_fname like '%" + sp[0] + "%' and profile_lname like '%" + sp[sp.Length-1] + "%' ";
+
+                MySqlCommand comm = new MySqlCommand(quer, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                conn.Close();
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+          
         }
 
         private void label5_Click(object sender, EventArgs e)
