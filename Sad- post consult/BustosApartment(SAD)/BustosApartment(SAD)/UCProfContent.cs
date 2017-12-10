@@ -163,9 +163,8 @@ namespace BustosApartment_SAD_
             }
             else {
   
-                quer = "select * from profile where profile_name like '%" + sp[0] + "%' " +
-                  "or  profile_fname like '%" + sp[0]  + "%' and profile_lname like '%" + sp[sp.Length-1] + "%' ";
-
+                quer = "select *, concat(profile_fname, ' ', profile_lname) as " +
+                    "fn from profile where concat(profile_fname, ' ', profile_lname) like '%" + textBox5.Text + "%' or profile_fname like '%" + textBox5.Text + "%' ";               
                 MySqlCommand comm = new MySqlCommand(quer, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 conn.Close();
