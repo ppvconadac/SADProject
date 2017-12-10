@@ -1,2 +1,0 @@
-1. Solution Explorer -> Right click project -> Add -> Existing items -> add files (class.cs and usercontrol8 files)
-2. Usercontrol3 -> search box effects -> textchanged ->textbox5_textchanged
