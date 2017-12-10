@@ -36,3 +36,23 @@ C:\Users\shagitee\Desktop\SADProject-master\BustosApartment(SAD)\BustosApartment
 C:\Users\shagitee\Desktop\SADProject-master\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfHeader.resources
 C:\Users\shagitee\Desktop\SADProject-master\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfContent.resources
 C:\Users\shagitee\Desktop\SADProject-master\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCOverHeader.resources
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\BustosApartment(SAD).exe.config
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\BustosApartment(SAD).exe
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\BustosApartment(SAD).pdb
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\MetroFramework.Design.dll
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\MetroFramework.dll
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\MySql.Data.dll
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\MySql.Data.xml
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).csprojResolveAssemblyReference.cache
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.FmLogin.resources
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.FmMain.resources
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.Properties.Resources.resources
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfHeader.resources
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfContent.resources
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCOverHeader.resources
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UserControl8.resources
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).csproj.GenerateResource.Cache
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).csproj.CoreCompileInputs.cache
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).exe
+C:\Users\shagitee\Documents\GitHub\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).pdb
