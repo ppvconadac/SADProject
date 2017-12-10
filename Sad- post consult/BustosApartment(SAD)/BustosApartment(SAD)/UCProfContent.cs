@@ -148,6 +148,7 @@ namespace BustosApartment_SAD_
         {
             var sp = textBox5.Text.Split(' ');
             string quer = "";
+          
             if (sp.Length == 1)
             {
                 quer = "select * from profile where profile_name like '%" + sp[0] + "%' " +
@@ -161,9 +162,9 @@ namespace BustosApartment_SAD_
                 dataGridView1.DataSource = dt;
             }
             else {
+  
                 quer = "select * from profile where profile_name like '%" + sp[0] + "%' " +
-                     "or profile_fname like '%" + sp[0] + "%' or profile_lname like '%" + sp[0] + "%' " +
-                     "or  profile_fname like '%" + sp[0] + "%' and profile_lname like '%" + sp[sp.Length-1] + "%' ";
+                  "or  profile_fname like '%" + sp[0]  + "%' and profile_lname like '%" + sp[sp.Length-1] + "%' ";
 
                 MySqlCommand comm = new MySqlCommand(quer, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
