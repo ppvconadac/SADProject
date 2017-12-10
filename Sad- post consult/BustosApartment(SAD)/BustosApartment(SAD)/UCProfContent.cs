@@ -34,6 +34,7 @@ namespace BustosApartment_SAD_
         {
             InitializeComponent();
             conn = new MySqlConnection("Server=localhost;Database=ba_db;uid=root; pwd =root; ");
+            tablecall();
 
         }
 
@@ -49,7 +50,7 @@ namespace BustosApartment_SAD_
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            tablecall();
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
