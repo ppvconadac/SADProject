@@ -91,7 +91,6 @@ C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\Bust
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfHeader.resources
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfContent.resources
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCOverHeader.resources
-C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UserControl8.resources
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).csproj.GenerateResource.Cache
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).csproj.CoreCompileInputs.cache
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).exe

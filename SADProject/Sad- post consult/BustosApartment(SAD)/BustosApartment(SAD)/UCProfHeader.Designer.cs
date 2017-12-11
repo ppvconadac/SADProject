@@ -45,7 +45,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(808, 17);
+            this.button4.Location = new System.Drawing.Point(1068, 17);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(28, 22);
             this.button4.TabIndex = 12;
@@ -60,7 +60,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(774, 17);
+            this.button3.Location = new System.Drawing.Point(1034, 17);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(28, 22);
             this.button3.TabIndex = 13;
@@ -76,7 +76,7 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(859, 65);
+            this.panel1.Size = new System.Drawing.Size(1104, 65);
             this.panel1.TabIndex = 2;
             // 
             // button1
@@ -110,7 +110,7 @@
             this.panelMain2.BackColor = System.Drawing.SystemColors.Control;
             this.panelMain2.Location = new System.Drawing.Point(0, 71);
             this.panelMain2.Name = "panelMain2";
-            this.panelMain2.Size = new System.Drawing.Size(859, 525);
+            this.panelMain2.Size = new System.Drawing.Size(1104, 607);
             this.panelMain2.TabIndex = 3;
             this.panelMain2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain2_Paint);
             // 
@@ -122,7 +122,7 @@
             this.Controls.Add(this.panelMain2);
             this.Controls.Add(this.panel1);
             this.Name = "UCProfHeader";
-            this.Size = new System.Drawing.Size(859, 596);
+            this.Size = new System.Drawing.Size(1104, 678);
             this.Load += new System.EventHandler(this.UserControl2_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

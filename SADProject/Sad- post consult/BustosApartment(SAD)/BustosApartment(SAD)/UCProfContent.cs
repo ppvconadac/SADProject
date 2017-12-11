@@ -253,5 +253,10 @@ namespace BustosApartment_SAD_
                 label18.Text = "Incomplete Input: Please Fill the Form";
             }
         }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
