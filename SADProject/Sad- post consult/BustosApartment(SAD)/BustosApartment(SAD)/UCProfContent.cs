@@ -171,6 +171,7 @@ namespace BustosApartment_SAD_
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
                 dataGridView1.DataSource = dt;
+                dataGridView1.Columns["fn"].Visible = false;
             }
           
         }
