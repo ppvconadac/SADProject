@@ -32,6 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -49,6 +51,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -66,11 +70,15 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label30 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label33 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -85,14 +93,6 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.eventLog1 = new System.Diagnostics.EventLog();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -162,6 +162,23 @@
             this.tabPage1.Size = new System.Drawing.Size(395, 494);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Create Profile";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.textBox15.Location = new System.Drawing.Point(20, 131);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(358, 24);
+            this.textBox15.TabIndex = 45;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(16, 107);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(116, 20);
+            this.label19.TabIndex = 44;
+            this.label19.Text = "Middle Name :";
             // 
             // label17
             // 
@@ -343,6 +360,23 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Update Profile";
             // 
+            // textBox16
+            // 
+            this.textBox16.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.textBox16.Location = new System.Drawing.Point(20, 131);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(358, 24);
+            this.textBox16.TabIndex = 60;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(16, 107);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(116, 20);
+            this.label29.TabIndex = 59;
+            this.label29.Text = "Middle Name :";
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -523,6 +557,16 @@
             this.tabPage3.Text = "Profile Details";
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.label30.Location = new System.Drawing.Point(109, 35);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(92, 19);
+            this.label30.TabIndex = 71;
+            this.label30.Text = "Placeholder";
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.White;
@@ -546,6 +590,16 @@
             this.textBox14.Size = new System.Drawing.Size(358, 94);
             this.textBox14.TabIndex = 66;
             // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.label31.Location = new System.Drawing.Point(159, 11);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(92, 19);
+            this.label31.TabIndex = 70;
+            this.label31.Text = "Placeholder";
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -554,6 +608,15 @@
             this.label16.Size = new System.Drawing.Size(78, 20);
             this.label16.TabIndex = 65;
             this.label16.Text = "Remarks :";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(16, 35);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(87, 20);
+            this.label32.TabIndex = 69;
+            this.label32.Text = "Full Name :";
             // 
             // label28
             // 
@@ -582,6 +645,15 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(358, 135);
             this.dataGridView2.TabIndex = 63;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(16, 11);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(137, 20);
+            this.label33.TabIndex = 68;
+            this.label33.Text = "Company Name :";
             // 
             // label27
             // 
@@ -724,78 +796,6 @@
             // eventLog1
             // 
             this.eventLog1.SynchronizingObject = this;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.textBox15.Location = new System.Drawing.Point(20, 131);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(358, 24);
-            this.textBox15.TabIndex = 45;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(16, 107);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(116, 20);
-            this.label19.TabIndex = 44;
-            this.label19.Text = "Middle Name :";
-            // 
-            // textBox16
-            // 
-            this.textBox16.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.textBox16.Location = new System.Drawing.Point(20, 131);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(358, 24);
-            this.textBox16.TabIndex = 60;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(16, 107);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(116, 20);
-            this.label29.TabIndex = 59;
-            this.label29.Text = "Middle Name :";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.label30.Location = new System.Drawing.Point(109, 35);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(92, 19);
-            this.label30.TabIndex = 71;
-            this.label30.Text = "Placeholder";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.label31.Location = new System.Drawing.Point(159, 11);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(92, 19);
-            this.label31.TabIndex = 70;
-            this.label31.Text = "Placeholder";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(16, 35);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(87, 20);
-            this.label32.TabIndex = 69;
-            this.label32.Text = "Full Name :";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(16, 11);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(137, 20);
-            this.label33.TabIndex = 68;
-            this.label33.Text = "Company Name :";
             // 
             // UCProfContent
             // 

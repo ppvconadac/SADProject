@@ -92,6 +92,24 @@
     <Compile Include="UCOverHeader.Designer.cs">
       <DependentUpon>UCOverHeader.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCRoomAContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCRoomAContent.Designer.cs">
+      <DependentUpon>UCRoomAContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCRoomContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCRoomContent.Designer.cs">
+      <DependentUpon>UCRoomContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCRoomHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCRoomHeader.Designer.cs">
+      <DependentUpon>UCRoomHeader.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FmLogin.resx">
       <DependentUpon>FmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +133,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCOverHeader.resx">
       <DependentUpon>UCOverHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCRoomAContent.resx">
+      <DependentUpon>UCRoomAContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCRoomContent.resx">
+      <DependentUpon>UCRoomContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCRoomHeader.resx">
+      <DependentUpon>UCRoomHeader.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
