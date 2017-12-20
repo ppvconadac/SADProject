@@ -356,7 +356,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(395, 496);
+            this.tabPage2.Size = new System.Drawing.Size(395, 505);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Update Profile";
             // 
@@ -552,7 +552,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(395, 496);
+            this.tabPage3.Size = new System.Drawing.Size(395, 505);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Profile Details";
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);

@@ -29,6 +29,13 @@ namespace BustosApartment_SAD_
         {
             InitializeComponent();
             conn = new MySqlConnection("Server=localhost;Database=ba_db;uid=root; pwd =root; ");
+            String query = "select owner_name from owner";
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataSet dt = new DataSet();
+
             onload();
         }
 
@@ -40,7 +47,7 @@ namespace BustosApartment_SAD_
 
         private void UCRoomContent_Load(object sender, EventArgs e)
         {
-            String query = "select * from owner";
+            String query = "select * from room";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -63,6 +70,8 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // desc- tb1 id tb2 own- cb3 type- 4
+      
 
         }
 
