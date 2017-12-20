@@ -122,6 +122,7 @@
             this.tabPage1.Size = new System.Drawing.Size(395, 496);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Create Room";
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // comboBox3
             // 
@@ -129,12 +130,7 @@
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
-            "",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
+            ""});
             this.comboBox3.Location = new System.Drawing.Point(20, 80);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(358, 25);
@@ -172,7 +168,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(17, 373);
+            this.label17.Location = new System.Drawing.Point(17, 463);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(0, 15);
             this.label17.TabIndex = 43;
@@ -258,13 +254,8 @@
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
-            "",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.comboBox4.Location = new System.Drawing.Point(20, 80);
+            ""});
+            this.comboBox4.Location = new System.Drawing.Point(19, 79);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(358, 25);
             this.comboBox4.TabIndex = 77;
@@ -341,7 +332,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(17, 442);
+            this.label18.Location = new System.Drawing.Point(17, 463);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(0, 15);
             this.label18.TabIndex = 58;
@@ -409,6 +400,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(670, 548);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // UCRoomContent
