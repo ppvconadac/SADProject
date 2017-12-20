@@ -177,7 +177,7 @@
             this.panelMain.BackColor = System.Drawing.SystemColors.Control;
             this.panelMain.Location = new System.Drawing.Point(195, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1104, 678);
+            this.panelMain.Size = new System.Drawing.Size(1104, 690);
             this.panelMain.TabIndex = 0;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
