@@ -26,7 +26,6 @@ CREATE TABLE `profile` (
   `user_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Profile_name` varchar(45) DEFAULT NULL,
   `profile_fname` varchar(45) DEFAULT NULL,
-  `profile_mname` varchar(45) DEFAULT NULL,
   `profile_lname` varchar(45) DEFAULT NULL,
   `Profile_Address` varchar(45) DEFAULT NULL,
   `Profile_cpnumber` varchar(11) DEFAULT NULL,
