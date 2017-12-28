@@ -97,7 +97,7 @@
             this.panelMain2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelMain2.Location = new System.Drawing.Point(0, 71);
             this.panelMain2.Name = "panelMain2";
-            this.panelMain2.Size = new System.Drawing.Size(1104, 607);
+            this.panelMain2.Size = new System.Drawing.Size(1104, 619);
             this.panelMain2.TabIndex = 4;
             // 
             // UCRoomHeader
@@ -107,7 +107,7 @@
             this.Controls.Add(this.panelMain2);
             this.Controls.Add(this.panel1);
             this.Name = "UCRoomHeader";
-            this.Size = new System.Drawing.Size(1104, 678);
+            this.Size = new System.Drawing.Size(1104, 690);
             this.Load += new System.EventHandler(this.UCRoomHeader_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

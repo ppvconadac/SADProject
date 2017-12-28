@@ -87,7 +87,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1104, 607);
+            this.panel1.Size = new System.Drawing.Size(1104, 619);
             this.panel1.TabIndex = 1;
             // 
             // tabControl1
@@ -95,11 +95,11 @@
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(687, 66);
+            this.tabControl1.Location = new System.Drawing.Point(687, 70);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(0, 0);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(403, 530);
+            this.tabControl1.Size = new System.Drawing.Size(403, 539);
             this.tabControl1.TabIndex = 41;
             // 
             // tabPage1
@@ -119,7 +119,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(395, 496);
+            this.tabPage1.Size = new System.Drawing.Size(395, 505);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Create Room";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
@@ -244,7 +244,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(395, 496);
+            this.tabPage2.Size = new System.Drawing.Size(395, 505);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Update Room";
             // 
@@ -255,7 +255,7 @@
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
             ""});
-            this.comboBox4.Location = new System.Drawing.Point(19, 79);
+            this.comboBox4.Location = new System.Drawing.Point(20, 80);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(358, 25);
             this.comboBox4.TabIndex = 77;
@@ -398,7 +398,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(670, 548);
+            this.dataGridView1.Size = new System.Drawing.Size(670, 560);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -409,7 +409,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "UCRoomContent";
-            this.Size = new System.Drawing.Size(1104, 607);
+            this.Size = new System.Drawing.Size(1104, 619);
             this.Load += new System.EventHandler(this.UCRoomContent_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
