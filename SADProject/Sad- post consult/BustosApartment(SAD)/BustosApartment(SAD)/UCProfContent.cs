@@ -125,6 +125,10 @@ namespace BustosApartment_SAD_
                 textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_idn"].Value.ToString();
                 textBox16.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_mname"].Value.ToString();
                 comboBox2.Text = b;
+                label30.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_fname"].Value.ToString() +" "+
+                    dataGridView1.Rows[e.RowIndex].Cells["profile_mname"].Value.ToString() +". "+
+                    dataGridView1.Rows[e.RowIndex].Cells["profile_lname"].Value.ToString();
+                label31.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_name"].Value.ToString();
                 label22.Text = b;
                 label23.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_idn"].Value.ToString(); 
                 a = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["user_ID"].Value.ToString());
@@ -205,6 +209,7 @@ namespace BustosApartment_SAD_
                 textBox3.Text = "";
                 textBox4.Text = "";
                 textBox6.Text = "";
+                textBox15.Text = "";
                 textBox8.Text = "";
                 comboBox1.Text = "";
                 tablecall();
@@ -232,13 +237,13 @@ namespace BustosApartment_SAD_
             if (textBox13.Text != "" && textBox12.Text != "" && textBox11.Text != "" && textBox10.Text != "" && textBox9.Text != "" && textBox7.Text != "" && comboBox2.Text != "")
             {
                 string q = "update profile set profile_name = '"+textBox13.Text+ "', profile_fname = '"+textBox12.Text+ "', profile_lname = '"+textBox11.Text+ "', profile_cpnumber = " +
-                    "'"+textBox10.Text+ "', profile_address = '"+textBox9.Text+ "', profile_idt = '"+idt+ "', profile_idn = '"+textBox7.Text+"', profile_mname = '"+textBox15.Text+"' where user_ID = "+a+"";
+                    "'"+textBox10.Text+ "', profile_address = '"+textBox9.Text+ "', profile_idt = '"+idt+ "', profile_idn = '"+textBox7.Text+"', profile_mname = '"+textBox16.Text+"' where user_ID = "+a+"";
                 c.insert(q);
                 MessageBox.Show("Data Updated!", "Complete");
                 textBox13.Text = "";
                 textBox12.Text = "";
                 textBox11.Text = "";
-                textBox15.Text = "";
+                textBox16.Text = "";
                 textBox10.Text = "";
                 textBox9.Text = "";
                 textBox7.Text = "";
