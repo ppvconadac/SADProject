@@ -169,7 +169,9 @@ namespace BustosApartment_SAD_
             else {
   
                 quer = "select *, concat(profile_fname, ' ', profile_lname) as " +
-                    "fn from profile where concat(profile_fname, ' ', profile_lname) like '%" + textBox5.Text + "%' or profile_fname like '%" + textBox5.Text + "%' ";               
+                    "fn, concat(profile_fname, ' ', profile_mname, ' ', profile_lname) as" +
+                    " fmn from profile where concat(profile_fname, ' ', profile_lname) like '%" + textBox5.Text + "%' or profile_fname like '%" + textBox5.Text + "%' or" +
+                    " concat(profile_fname, ' ', profile_mname, ' ', profile_lname) like '%" + textBox5.Text + "%' ";               
                 MySqlCommand comm = new MySqlCommand(quer, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 conn.Close();
@@ -177,6 +179,7 @@ namespace BustosApartment_SAD_
                 adp.Fill(dt);
                 dataGridView1.DataSource = dt;
                 dataGridView1.Columns["fn"].Visible = false;
+                dataGridView1.Columns["fmn"].Visible = false;
             }
           
         }
