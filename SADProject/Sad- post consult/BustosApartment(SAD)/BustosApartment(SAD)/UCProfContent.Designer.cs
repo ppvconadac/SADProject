@@ -555,13 +555,12 @@
             this.tabPage3.Size = new System.Drawing.Size(395, 505);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Profile Details";
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label30.Location = new System.Drawing.Point(109, 35);
+            this.label30.Location = new System.Drawing.Point(159, 35);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(83, 17);
             this.label30.TabIndex = 71;
@@ -707,7 +706,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label22.Location = new System.Drawing.Point(92, 59);
+            this.label22.Location = new System.Drawing.Point(159, 60);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(83, 17);
             this.label22.TabIndex = 57;
@@ -749,7 +748,6 @@
             this.label5.Size = new System.Drawing.Size(267, 25);
             this.label5.TabIndex = 39;
             this.label5.Text = "CUSTOMER PROFILING";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pictureBox1
             // 

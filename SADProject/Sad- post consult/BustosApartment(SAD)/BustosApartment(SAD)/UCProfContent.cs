@@ -146,7 +146,7 @@ namespace BustosApartment_SAD_
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            var sp = textBox5.Text.Split(' ');
+            var sp = textBox5.Text.Split(' ');           
             string quer = "";
           
             if (sp.Length == 1)
@@ -175,12 +175,7 @@ namespace BustosApartment_SAD_
             }
           
         }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void button3_Click_1(object sender, EventArgs e)
         {
 
@@ -254,9 +249,6 @@ namespace BustosApartment_SAD_
             }
         }
 
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }

@@ -93,8 +93,8 @@ namespace BustosApartment_SAD_
         private void button1_Click(object sender, EventArgs e)
         {
             // desc- tb1 id tb2 own- cb3 type- 4
-            if (textBox1.Text != "" && textBox2.Text != "" && comboBox3.Text != "" && comboBox1.Text != "") {
-                string desc = textBox1.Text;
+            if (txtDesc.Text != "" && textBox2.Text != "" && comboBox3.Text != "" && comboBox1.Text != "") {
+                string desc = txtDesc.Text;
                 int id = int.Parse(textBox2.Text);
                 string owner = comboBox3.Text;
                 
@@ -115,7 +115,7 @@ namespace BustosApartment_SAD_
                 string query1 = "Insert into Room values(" + id + ", " + idr + ",'" + desc + "', " + type + ")";
                 c.insert(query1);
                 MessageBox.Show("Data Added!", "Complete");
-                textBox1.Text = "";
+                txtDesc.Text = "";
                 textBox2.Text = "";
                 comboBox3.Text = "";
                 comboBox1.Text = "";
@@ -134,6 +134,7 @@ namespace BustosApartment_SAD_
             if (textBox3.Text != "" && textBox6.Text != "" && comboBox2.Text != "" && comboBox4.Text != "")
             {
                 string desc = textBox3.Text;
+                
                 int id = int.Parse(textBox6.Text);
                 string owner = comboBox4.Text;
 
@@ -193,6 +194,11 @@ namespace BustosApartment_SAD_
                 textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["room_desc"].Value.ToString();
 
             }
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
