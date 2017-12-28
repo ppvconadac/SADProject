@@ -93,6 +93,7 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["Profile_cpnumber"].HeaderText = "Contact";
             dataGridView1.Columns["Profile_Address"].HeaderText = "Address";
             dataGridView1.Columns["profile_fname"].HeaderText = "First Name";
+            dataGridView1.Columns["profile_mname"].HeaderText = "Middle Name";
             dataGridView1.Columns["profile_lname"].HeaderText = "Last Name";
         }
 
@@ -126,8 +127,8 @@ namespace BustosApartment_SAD_
                 textBox16.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_mname"].Value.ToString();
                 comboBox2.Text = b;
                 label30.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_fname"].Value.ToString() +" "+
-                    dataGridView1.Rows[e.RowIndex].Cells["profile_mname"].Value.ToString() +". "+
-                    dataGridView1.Rows[e.RowIndex].Cells["profile_lname"].Value.ToString();
+                dataGridView1.Rows[e.RowIndex].Cells["profile_mname"].Value.ToString() +". "+
+                dataGridView1.Rows[e.RowIndex].Cells["profile_lname"].Value.ToString();
                 label31.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_name"].Value.ToString();
                 label22.Text = b;
                 label23.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_idn"].Value.ToString(); 
