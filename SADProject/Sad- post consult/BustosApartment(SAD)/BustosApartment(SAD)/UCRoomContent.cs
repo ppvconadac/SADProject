@@ -41,7 +41,7 @@ namespace BustosApartment_SAD_
 
         }
         public void tablecall() {
-            String query = "SELECT * FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID";
+            String query = "SELECT room_id, room_number, room_desc, owner_name, room_time FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -49,14 +49,7 @@ namespace BustosApartment_SAD_
             DataTable dt = new DataTable();
             adp.Fill(dt);
             dataGridView1.DataSource = dt;
-            dataGridView1.Columns["Owner_Owner_ID"].Visible = false;
-            dataGridView1.Columns["Room_classification_classification_ID"].Visible = false;
-            dataGridView1.Columns["Owner_ID"].Visible = false;
-            dataGridView1.Columns["username"].Visible = false;
-            dataGridView1.Columns["password"].Visible = false;
-            dataGridView1.Columns["remarks"].Visible = false;
-            dataGridView1.Columns["classification_ID"].Visible = false;
-            dataGridView1.Columns["RC_Rate"].Visible = false;
+            dataGridView1.Columns["room_ID"].Visible = false;
         }
         private void UCRoomContent_Load(object sender, EventArgs e)
         {
@@ -112,7 +105,7 @@ namespace BustosApartment_SAD_
                     type = 1;
                 else
                     type = 2;
-                string query1 = "Insert into Room values(" + id + ", " + idr + ",'" + desc + "', " + type + ")";
+                string query1 = "Insert into Room values(" + idr + ",'" + desc + "', " + type + ",'"+ id +"')";
                 c.insert(query1);
                 MessageBox.Show("Data Added!", "Complete");
                 txtDesc.Text = "";
@@ -152,7 +145,7 @@ namespace BustosApartment_SAD_
                     type = 1;
                 else
                     type = 2;
-                string query1 = "update Room set room_ID = " + id + ", Owner_Owner_ID = " + idr + ", room_desc = '" + desc + "'," +
+                string query1 = "update Room set room_number = " + id + ", Owner_Owner_ID = " + idr + ", room_desc = '" + desc + "'," +
                     " Room_classification_classification_ID = " + type + " where room_ID = "+id1+" ";
                 c.insert(query1);
                 MessageBox.Show("Data Updated!", "Complete");
@@ -179,7 +172,7 @@ namespace BustosApartment_SAD_
             if (e.RowIndex > -1) {
 
                 id1 = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["room_id"].Value.ToString());
-                string query = "SELECT * FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID and Room_ID = "+id1+"";
+                string query = "SELECT room_number, Room_classification_classification_ID, Owner_Owner_ID, room_desc, owner_name, room_time FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID and Room_ID = " + id1+"";
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -188,7 +181,7 @@ namespace BustosApartment_SAD_
                 adp.Fill(dt);
                 string name = dt.Rows[0]["Owner_name"].ToString(); 
                 string day = dt.Rows[0]["room_time"].ToString();
-                textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells["room_ID"].Value.ToString();
+                textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells["room_number"].Value.ToString();
                 comboBox4.Text = name;
                 comboBox2.Text = day;
                 textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["room_desc"].Value.ToString();

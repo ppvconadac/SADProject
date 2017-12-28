@@ -123,6 +123,7 @@ namespace BustosApartment_SAD_
                 textBox10.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_cpnumber"].Value.ToString();
                 textBox9.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_address"].Value.ToString();
                 textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_idn"].Value.ToString();
+                textBox16.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_mname"].Value.ToString();
                 comboBox2.Text = b;
                 label22.Text = b;
                 label23.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_idn"].Value.ToString(); 
@@ -194,9 +195,9 @@ namespace BustosApartment_SAD_
             else {
                 idt = 3;
             }
-            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox6.Text != "" && textBox8.Text != "" && comboBox1.Text != "")
+            if (textBox1.Text != "" && textBox2.Text != "" && textBox15.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox6.Text != "" && textBox8.Text != "" && comboBox1.Text != "")
             {
-                string q = "insert into profile values(NULL, '" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox6.Text + "','" + textBox4.Text + "', 0 , " + idt + ",'" + textBox8.Text + "')";
+                string q = "insert into profile values(NULL, '" + textBox1.Text + "','" + textBox2.Text + "', '" + textBox15.Text + "', '" + textBox3.Text + "','" + textBox6.Text + "','" + textBox4.Text + "', 0 , " + idt + ",'" + textBox8.Text + "')";
                 c.insert(q);
                 MessageBox.Show("Data Added!", "Complete");
                 textBox1.Text = "";
@@ -231,12 +232,13 @@ namespace BustosApartment_SAD_
             if (textBox13.Text != "" && textBox12.Text != "" && textBox11.Text != "" && textBox10.Text != "" && textBox9.Text != "" && textBox7.Text != "" && comboBox2.Text != "")
             {
                 string q = "update profile set profile_name = '"+textBox13.Text+ "', profile_fname = '"+textBox12.Text+ "', profile_lname = '"+textBox11.Text+ "', profile_cpnumber = " +
-                    "'"+textBox10.Text+ "', profile_address = '"+textBox9.Text+ "', profile_idt = '"+idt+ "', profile_idn = '"+textBox7.Text+"' where user_ID = "+a+"";
+                    "'"+textBox10.Text+ "', profile_address = '"+textBox9.Text+ "', profile_idt = '"+idt+ "', profile_idn = '"+textBox7.Text+"', profile_mname = '"+textBox15.Text+"' where user_ID = "+a+"";
                 c.insert(q);
                 MessageBox.Show("Data Updated!", "Complete");
                 textBox13.Text = "";
                 textBox12.Text = "";
                 textBox11.Text = "";
+                textBox15.Text = "";
                 textBox10.Text = "";
                 textBox9.Text = "";
                 textBox7.Text = "";
