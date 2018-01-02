@@ -61,7 +61,7 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-          
+            
         }
 
         private void panelMain2_Paint(object sender, PaintEventArgs e)

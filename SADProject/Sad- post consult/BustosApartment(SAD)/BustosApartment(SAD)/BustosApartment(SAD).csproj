@@ -92,6 +92,12 @@
     <Compile Include="UCOverHeader.Designer.cs">
       <DependentUpon>UCOverHeader.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCProfOwnersCont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCProfOwnersCont.Designer.cs">
+      <DependentUpon>UCProfOwnersCont.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCRoomAContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCOverHeader.resx">
       <DependentUpon>UCOverHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCProfOwnersCont.resx">
+      <DependentUpon>UCProfOwnersCont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCRoomAContent.resx">
       <DependentUpon>UCRoomAContent.cs</DependentUpon>
