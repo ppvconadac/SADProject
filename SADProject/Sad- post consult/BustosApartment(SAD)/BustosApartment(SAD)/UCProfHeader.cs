@@ -61,7 +61,16 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            if (!panelMain2.Controls.Contains(UCProfOwnersCont.Instance))
+            {
+                panelMain2.Controls.Add(UCProfOwnersCont.Instance);
+                UCProfOwnersCont.Instance.Dock = DockStyle.Fill;
+                UCProfOwnersCont.Instance.BringToFront();
+            }
+            else
+            {
+                UCProfContent.Instance.BringToFront();
+            }
         }
 
         private void panelMain2_Paint(object sender, PaintEventArgs e)

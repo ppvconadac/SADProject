@@ -15,6 +15,17 @@ namespace BustosApartment_SAD_
     {
         Class1 c1 = new Class1();
         public string id;
+
+        private static UCProfOwnersCont _instance;
+        public static UCProfOwnersCont Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new UCProfOwnersCont();
+                return _instance;
+            }
+        }
         public UCProfOwnersCont()
         {
            
