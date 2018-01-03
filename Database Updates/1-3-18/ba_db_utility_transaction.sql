@@ -16,31 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `restock`
+-- Table structure for table `utility_transaction`
 --
 
-DROP TABLE IF EXISTS `restock`;
+DROP TABLE IF EXISTS `utility_transaction`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `restock` (
-  `restock_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `restock_date` datetime DEFAULT NULL,
-  `restock_quantity` int(11) DEFAULT NULL,
-  `restock_price` varchar(45) DEFAULT NULL,
-  `nonborrowable_item_nitem_ID` int(11) NOT NULL,
-  PRIMARY KEY (`restock_ID`,`nonborrowable_item_nitem_ID`),
-  KEY `fk_Restock_nonborrowable_item1_idx` (`nonborrowable_item_nitem_ID`),
-  CONSTRAINT `fk_Restock_nonborrowable_item1` FOREIGN KEY (`nonborrowable_item_nitem_ID`) REFERENCES `nonborrowable_item` (`nitem_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `utility_transaction` (
+  `uTrans_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ut_date` datetime DEFAULT NULL,
+  `ut_price` int(11) DEFAULT NULL,
+  `ut_pay_status` varchar(45) DEFAULT NULL,
+  `Profile_user_ID` int(11) NOT NULL,
+  `Room_Room_ID` int(11) NOT NULL,
+  PRIMARY KEY (`uTrans_ID`),
+  KEY `fk_Utility_Transaction_Profile1_idx` (`Profile_user_ID`),
+  KEY `fk_Room_Profile3_idx` (`Room_Room_ID`),
+  CONSTRAINT `fk_Room_Profile3` FOREIGN KEY (`Room_Room_ID`) REFERENCES `room` (`Room_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Utility_Transaction_Profile1` FOREIGN KEY (`Profile_user_ID`) REFERENCES `profile` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `restock`
+-- Dumping data for table `utility_transaction`
 --
 
-LOCK TABLES `restock` WRITE;
-/*!40000 ALTER TABLE `restock` DISABLE KEYS */;
-/*!40000 ALTER TABLE `restock` ENABLE KEYS */;
+LOCK TABLES `utility_transaction` WRITE;
+/*!40000 ALTER TABLE `utility_transaction` DISABLE KEYS */;
+/*!40000 ALTER TABLE `utility_transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-28 14:02:14
+-- Dump completed on 2018-01-03 17:01:40

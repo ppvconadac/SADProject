@@ -74,6 +74,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCInventBCont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCInventBCont.Designer.cs">
+      <DependentUpon>UCInventBCont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCInventHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCInventHeader.Designer.cs">
+      <DependentUpon>UCInventHeader.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCProfHeader.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -131,6 +143,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UCInventBCont.resx">
+      <DependentUpon>UCInventBCont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCInventHeader.resx">
+      <DependentUpon>UCInventHeader.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCProfHeader.resx">
       <DependentUpon>UCProfHeader.cs</DependentUpon>
     </EmbeddedResource>

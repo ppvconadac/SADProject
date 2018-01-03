@@ -16,31 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `borrowable_item`
+-- Table structure for table `room_transaction`
 --
 
-DROP TABLE IF EXISTS `borrowable_item`;
+DROP TABLE IF EXISTS `room_transaction`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `borrowable_item` (
-  `bitem_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `bitem_name` varchar(45) DEFAULT NULL,
-  `bitem_status` varchar(45) DEFAULT NULL,
-  `bitem_dmg_status` varchar(45) DEFAULT NULL,
-  `bitem_type_bitem_type_ID` int(11) NOT NULL,
-  PRIMARY KEY (`bitem_ID`,`bitem_type_bitem_type_ID`),
-  KEY `fk_borrowable_item_bitem_type1_idx` (`bitem_type_bitem_type_ID`),
-  CONSTRAINT `fk_borrowable_item_bitem_type1` FOREIGN KEY (`bitem_type_bitem_type_ID`) REFERENCES `bitem_type` (`bitem_type_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `room_transaction` (
+  `rTrans_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `rt_date` datetime DEFAULT NULL,
+  `rt_date_start` datetime DEFAULT NULL,
+  `rt_date_expire` datetime DEFAULT NULL,
+  `rt_price` int(11) DEFAULT NULL,
+  `rt_discount` int(11) DEFAULT NULL,
+  `Profile_user_ID` int(11) NOT NULL,
+  `Room_Room_ID` int(11) NOT NULL,
+  PRIMARY KEY (`rTrans_ID`),
+  KEY `fk_Room_transaction_Profile1_idx` (`Profile_user_ID`),
+  KEY `fk_Room_Profile1_idx` (`Room_Room_ID`),
+  CONSTRAINT `fk_Room_Profile2` FOREIGN KEY (`Room_Room_ID`) REFERENCES `room` (`Room_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Room_transaction_Profile1` FOREIGN KEY (`Profile_user_ID`) REFERENCES `profile` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `borrowable_item`
+-- Dumping data for table `room_transaction`
 --
 
-LOCK TABLES `borrowable_item` WRITE;
-/*!40000 ALTER TABLE `borrowable_item` DISABLE KEYS */;
-/*!40000 ALTER TABLE `borrowable_item` ENABLE KEYS */;
+LOCK TABLES `room_transaction` WRITE;
+/*!40000 ALTER TABLE `room_transaction` DISABLE KEYS */;
+/*!40000 ALTER TABLE `room_transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-28 14:02:13
+-- Dump completed on 2018-01-03 17:01:41

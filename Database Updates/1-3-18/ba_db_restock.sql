@@ -16,27 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `bitem_type`
+-- Table structure for table `restock`
 --
 
-DROP TABLE IF EXISTS `bitem_type`;
+DROP TABLE IF EXISTS `restock`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bitem_type` (
-  `bitem_type_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `item_br_price` varchar(45) DEFAULT NULL,
-  `item_dmg_price` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`bitem_type_ID`)
+CREATE TABLE `restock` (
+  `restock_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `restock_date` datetime DEFAULT NULL,
+  `restock_quantity` int(11) DEFAULT NULL,
+  `restock_price` varchar(45) DEFAULT NULL,
+  `nonborrowable_item_nitem_ID` int(11) NOT NULL,
+  PRIMARY KEY (`restock_ID`,`nonborrowable_item_nitem_ID`),
+  KEY `fk_Restock_nonborrowable_item1_idx` (`nonborrowable_item_nitem_ID`),
+  CONSTRAINT `fk_Restock_nonborrowable_item1` FOREIGN KEY (`nonborrowable_item_nitem_ID`) REFERENCES `nonborrowable_item` (`nitem_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bitem_type`
+-- Dumping data for table `restock`
 --
 
-LOCK TABLES `bitem_type` WRITE;
-/*!40000 ALTER TABLE `bitem_type` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bitem_type` ENABLE KEYS */;
+LOCK TABLES `restock` WRITE;
+/*!40000 ALTER TABLE `restock` DISABLE KEYS */;
+/*!40000 ALTER TABLE `restock` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-28 14:02:10
+-- Dump completed on 2018-01-03 17:01:44

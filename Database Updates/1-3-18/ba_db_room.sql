@@ -16,28 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `room_classification`
+-- Table structure for table `room`
 --
 
-DROP TABLE IF EXISTS `room_classification`;
+DROP TABLE IF EXISTS `room`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `room_classification` (
-  `classification_ID` int(11) NOT NULL,
-  `RC_Rate` int(11) DEFAULT NULL,
-  `room_time` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`classification_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `room` (
+  `Room_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Owner_Owner_ID` int(11) NOT NULL,
+  `Room_desc` varchar(100) DEFAULT NULL,
+  `Room_classification_classification_ID` int(11) NOT NULL,
+  `Room_number` varchar(45) NOT NULL,
+  PRIMARY KEY (`Room_ID`,`Owner_Owner_ID`,`Room_classification_classification_ID`),
+  UNIQUE KEY `Room_ID_UNIQUE` (`Room_ID`),
+  KEY `fk_Room_Owner_idx` (`Owner_Owner_ID`),
+  KEY `fk_Room_Room_classification1_idx` (`Room_classification_classification_ID`),
+  CONSTRAINT `fk_Room_Owner` FOREIGN KEY (`Owner_Owner_ID`) REFERENCES `owner` (`Owner_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Room_Room_classification1` FOREIGN KEY (`Room_classification_classification_ID`) REFERENCES `room_classification` (`classification_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `room_classification`
+-- Dumping data for table `room`
 --
 
-LOCK TABLES `room_classification` WRITE;
-/*!40000 ALTER TABLE `room_classification` DISABLE KEYS */;
-INSERT INTO `room_classification` VALUES (1,10000,'Daily'),(2,20000,'Monthly');
-/*!40000 ALTER TABLE `room_classification` ENABLE KEYS */;
+LOCK TABLES `room` WRITE;
+/*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` VALUES (1,1,'Hello',2,'43'),(2,2,'Hi',1,'34');
+/*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-28 14:02:12
+-- Dump completed on 2018-01-03 17:01:41

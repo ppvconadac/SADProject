@@ -16,30 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `misc_transaction`
+-- Table structure for table `nitem_transaction`
 --
 
-DROP TABLE IF EXISTS `misc_transaction`;
+DROP TABLE IF EXISTS `nitem_transaction`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `misc_transaction` (
-  `mtrans_ID` int(11) NOT NULL,
-  `mt_date` datetime DEFAULT NULL,
-  `mt_price` int(11) DEFAULT NULL,
-  `Owner_Owner_ID` int(11) NOT NULL,
-  PRIMARY KEY (`mtrans_ID`,`Owner_Owner_ID`),
-  KEY `fk_misc_Transaction_Owner1_idx` (`Owner_Owner_ID`),
-  CONSTRAINT `fk_misc_Transaction_Owner1` FOREIGN KEY (`Owner_Owner_ID`) REFERENCES `owner` (`Owner_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `nitem_transaction` (
+  `ntrans_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `nt_date` datetime DEFAULT NULL,
+  `nt_quantity` int(11) DEFAULT NULL,
+  `Profile_user_ID` int(11) NOT NULL,
+  `nonborrowable_item_nitem_ID` int(11) NOT NULL,
+  PRIMARY KEY (`ntrans_ID`),
+  KEY `fk_nitem_transaction_Profile1_idx` (`Profile_user_ID`),
+  KEY `fk_nitem_transaction_nonborrowable_item1_idx` (`nonborrowable_item_nitem_ID`),
+  CONSTRAINT `fk_nitem_transaction_Profile1` FOREIGN KEY (`Profile_user_ID`) REFERENCES `profile` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_nitem_transaction_nonborrowable_item1` FOREIGN KEY (`nonborrowable_item_nitem_ID`) REFERENCES `nonborrowable_item` (`nitem_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `misc_transaction`
+-- Dumping data for table `nitem_transaction`
 --
 
-LOCK TABLES `misc_transaction` WRITE;
-/*!40000 ALTER TABLE `misc_transaction` DISABLE KEYS */;
-/*!40000 ALTER TABLE `misc_transaction` ENABLE KEYS */;
+LOCK TABLES `nitem_transaction` WRITE;
+/*!40000 ALTER TABLE `nitem_transaction` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nitem_transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-28 14:02:13
+-- Dump completed on 2018-01-03 17:01:40

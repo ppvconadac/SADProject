@@ -16,26 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `nonborrowable_item`
+-- Table structure for table `room_classification`
 --
 
-DROP TABLE IF EXISTS `nonborrowable_item`;
+DROP TABLE IF EXISTS `room_classification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `nonborrowable_item` (
-  `nitem_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `nitem_name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`nitem_ID`)
+CREATE TABLE `room_classification` (
+  `classification_ID` int(11) NOT NULL,
+  `RC_Rate` int(11) DEFAULT NULL,
+  `room_time` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`classification_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `nonborrowable_item`
+-- Dumping data for table `room_classification`
 --
 
-LOCK TABLES `nonborrowable_item` WRITE;
-/*!40000 ALTER TABLE `nonborrowable_item` DISABLE KEYS */;
-/*!40000 ALTER TABLE `nonborrowable_item` ENABLE KEYS */;
+LOCK TABLES `room_classification` WRITE;
+/*!40000 ALTER TABLE `room_classification` DISABLE KEYS */;
+INSERT INTO `room_classification` VALUES (1,10000,'Daily'),(2,20000,'Monthly');
+/*!40000 ALTER TABLE `room_classification` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-28 14:02:13
+-- Dump completed on 2018-01-03 17:01:41

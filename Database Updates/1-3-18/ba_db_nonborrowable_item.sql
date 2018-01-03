@@ -16,33 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `bitem_damage_transaction`
+-- Table structure for table `nonborrowable_item`
 --
 
-DROP TABLE IF EXISTS `bitem_damage_transaction`;
+DROP TABLE IF EXISTS `nonborrowable_item`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bitem_damage_transaction` (
-  `bdtrans_ID` int(11) NOT NULL,
-  `bdt_date` datetime DEFAULT NULL,
-  `bdt_price` varchar(45) DEFAULT NULL,
-  `Profile_user_ID` int(11) NOT NULL,
-  `borrowable_item_bitem_ID` int(11) NOT NULL,
-  PRIMARY KEY (`bdtrans_ID`),
-  KEY `fk_bitem_damage_transaction_Profile1_idx` (`Profile_user_ID`),
-  KEY `fk_bitem_damage_transaction_borrowable_item1_idx` (`borrowable_item_bitem_ID`),
-  CONSTRAINT `fk_bitem_damage_transaction_Profile1` FOREIGN KEY (`Profile_user_ID`) REFERENCES `profile` (`user_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_bitem_damage_transaction_borrowable_item1` FOREIGN KEY (`borrowable_item_bitem_ID`) REFERENCES `borrowable_item` (`bitem_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `nonborrowable_item` (
+  `nitem_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `nitem_name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`nitem_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bitem_damage_transaction`
+-- Dumping data for table `nonborrowable_item`
 --
 
-LOCK TABLES `bitem_damage_transaction` WRITE;
-/*!40000 ALTER TABLE `bitem_damage_transaction` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bitem_damage_transaction` ENABLE KEYS */;
+LOCK TABLES `nonborrowable_item` WRITE;
+/*!40000 ALTER TABLE `nonborrowable_item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nonborrowable_item` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-28 14:02:12
+-- Dump completed on 2018-01-03 17:01:42

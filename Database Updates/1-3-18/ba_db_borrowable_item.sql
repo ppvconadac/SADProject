@@ -16,30 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `owner`
+-- Table structure for table `borrowable_item`
 --
 
-DROP TABLE IF EXISTS `owner`;
+DROP TABLE IF EXISTS `borrowable_item`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `owner` (
-  `Owner_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Owner_name` varchar(45) DEFAULT NULL,
-  `username` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  `remarks` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`Owner_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+CREATE TABLE `borrowable_item` (
+  `bitem_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `bitem_name` varchar(45) DEFAULT NULL,
+  `bitem_status` varchar(45) DEFAULT NULL,
+  `bitem_dmg_status` varchar(45) DEFAULT NULL,
+  `bitem_type_bitem_type_ID` int(11) NOT NULL,
+  PRIMARY KEY (`bitem_ID`,`bitem_type_bitem_type_ID`),
+  KEY `fk_borrowable_item_bitem_type1_idx` (`bitem_type_bitem_type_ID`),
+  CONSTRAINT `fk_borrowable_item_bitem_type1` FOREIGN KEY (`bitem_type_bitem_type_ID`) REFERENCES `bitem_type` (`bitem_type_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `owner`
+-- Dumping data for table `borrowable_item`
 --
 
-LOCK TABLES `owner` WRITE;
-/*!40000 ALTER TABLE `owner` DISABLE KEYS */;
-INSERT INTO `owner` VALUES (1,'Admin','admin','admin',NULL),(2,'Jamel','jam ','jam',NULL),(3,'Martin','mart','mart',NULL);
-/*!40000 ALTER TABLE `owner` ENABLE KEYS */;
+LOCK TABLES `borrowable_item` WRITE;
+/*!40000 ALTER TABLE `borrowable_item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `borrowable_item` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-28 14:02:14
+-- Dump completed on 2018-01-03 17:01:43
