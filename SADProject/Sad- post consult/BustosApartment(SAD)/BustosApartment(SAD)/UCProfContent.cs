@@ -207,7 +207,7 @@ namespace BustosApartment_SAD_
             {
                 string q = "insert into profile values(NULL, '" + textBox1.Text + "','" + textBox2.Text + "', '" + textBox15.Text + "', '" + textBox3.Text + "','" + textBox6.Text + "','" + textBox4.Text + "', 0 , " + idt + ",'" + textBox8.Text + "')";
                 c.insert(q);
-                MessageBox.Show("Data Added!", "Complete");
+                MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
@@ -243,7 +243,7 @@ namespace BustosApartment_SAD_
                 string q = "update profile set profile_name = '"+textBox13.Text+ "', profile_fname = '"+textBox12.Text+ "', profile_lname = '"+textBox11.Text+ "', profile_cpnumber = " +
                     "'"+textBox10.Text+ "', profile_address = '"+textBox9.Text+ "', profile_idt = '"+idt+ "', profile_idn = '"+textBox7.Text+"', profile_mname = '"+textBox16.Text+"' where user_ID = "+a+"";
                 c.insert(q);
-                MessageBox.Show("Data Updated!", "Complete");
+                MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox13.Text = "";
                 textBox12.Text = "";
                 textBox11.Text = "";

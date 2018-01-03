@@ -41,7 +41,7 @@ namespace BustosApartment_SAD_
 
         }
         public void tablecall() {
-            String query = "SELECT room_id, room_number, room_desc, owner_name, room_time FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID";
+            String query = "SELECT room_id, room_number, room_desc, owner_fname, room_time FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -55,7 +55,7 @@ namespace BustosApartment_SAD_
         {
            
 
-            String query1 = "select owner_name from owner";
+            String query1 = "select owner_fname from owner";
             conn.Open();
             MySqlCommand comm1 = new MySqlCommand(query1, conn);
             MySqlDataAdapter adp1 = new MySqlDataAdapter(comm1);
@@ -91,7 +91,7 @@ namespace BustosApartment_SAD_
                 int id = int.Parse(textBox2.Text);
                 string owner = comboBox3.Text;
                 
-                    String query = "select owner_id from owner where owner_name= '" + owner + "'";
+                    String query = "select owner_id from owner where owner_fname= '" + owner + "'";
                     conn.Open();
                     MySqlCommand comm = new MySqlCommand(query, conn);
                     MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -107,7 +107,7 @@ namespace BustosApartment_SAD_
                     type = 2;
                 string query1 = "Insert into Room values(" + idr + ",'" + desc + "', " + type + ",'"+ id +"')";
                 c.insert(query1);
-                MessageBox.Show("Data Added!", "Complete");
+                MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDesc.Text = "";
                 textBox2.Text = "";
                 comboBox3.Text = "";
@@ -131,7 +131,7 @@ namespace BustosApartment_SAD_
                 int id = int.Parse(textBox6.Text);
                 string owner = comboBox4.Text;
 
-                String query = "select owner_id from owner where owner_name= '" + owner + "'";
+                String query = "select owner_id from owner where owner_fname= '" + owner + "'";
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -148,7 +148,7 @@ namespace BustosApartment_SAD_
                 string query1 = "update Room set room_number = " + id + ", Owner_Owner_ID = " + idr + ", room_desc = '" + desc + "'," +
                     " Room_classification_classification_ID = " + type + " where room_ID = "+id1+" ";
                 c.insert(query1);
-                MessageBox.Show("Data Updated!", "Complete");
+                MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox6.Text = "";
                 textBox3.Text = "";
                 comboBox2.Text = "";
@@ -172,14 +172,14 @@ namespace BustosApartment_SAD_
             if (e.RowIndex > -1) {
 
                 id1 = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["room_id"].Value.ToString());
-                string query = "SELECT room_number, Room_classification_classification_ID, Owner_Owner_ID, room_desc, owner_name, room_time FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID and Room_ID = " + id1+"";
+                string query = "SELECT room_number, Room_classification_classification_ID, Owner_Owner_ID, room_desc, owner_fname, room_time FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID and Room_ID = " + id1+"";
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 conn.Close();
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
-                string name = dt.Rows[0]["Owner_name"].ToString(); 
+                string name = dt.Rows[0]["Owner_fname"].ToString(); 
                 string day = dt.Rows[0]["room_time"].ToString();
                 textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells["room_number"].Value.ToString();
                 comboBox4.Text = name;
@@ -190,6 +190,11 @@ namespace BustosApartment_SAD_
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

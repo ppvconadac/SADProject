@@ -42,7 +42,7 @@ namespace BustosApartment_SAD_
             if (dt.Rows.Count == 1)
             {
                 FmMain nextform = new FmMain();
-                name = dt.Rows[0]["Owner_name"].ToString();
+                name = dt.Rows[0]["Owner_fname"].ToString() +" "+dt.Rows[0]["Owner_lname"].ToString();
                 id = dt.Rows[0]["Owner_ID"].ToString();
                 MessageBox.Show("Welcome " + name);
                 nextform.Show();
