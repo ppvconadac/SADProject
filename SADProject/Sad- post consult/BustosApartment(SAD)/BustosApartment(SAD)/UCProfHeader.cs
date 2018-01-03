@@ -69,7 +69,7 @@ namespace BustosApartment_SAD_
             }
             else
             {
-                UCProfContent.Instance.BringToFront();
+                UCProfOwnersCont.Instance.BringToFront();
             }
         }
 

@@ -164,3 +164,5 @@ C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApa
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).pdb
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfOwnersCont.resources
 D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfOwnersCont.resources
+D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventBCont.resources
+D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventHeader.resources
