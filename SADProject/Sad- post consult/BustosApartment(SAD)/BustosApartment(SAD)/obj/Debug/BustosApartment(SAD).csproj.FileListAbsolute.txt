@@ -166,6 +166,7 @@ C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApa
 D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfOwnersCont.resources
 D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventBCont.resources
 D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventHeader.resources
+<<<<<<< HEAD
 C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\BustosApartment(SAD).exe.config
 C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\BustosApartment(SAD).exe
 C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\BustosApartment(SAD).pdb
@@ -190,3 +191,8 @@ C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosA
 C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).csproj.CoreCompileInputs.cache
 C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).exe
 C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).pdb
+=======
+C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventBCont.resources
+C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventHeader.resources
+C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfOwnersCont.resources
+>>>>>>> 2c3437f8b02f0eeb50223e80e0e284d33d357dd1
