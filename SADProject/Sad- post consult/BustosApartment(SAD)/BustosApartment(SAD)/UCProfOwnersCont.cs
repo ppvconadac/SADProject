@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace BustosApartment_SAD_
 {
     
@@ -15,7 +16,7 @@ namespace BustosApartment_SAD_
     {
         Class1 c1 = new Class1();
         public string id;
-
+    
         private static UCProfOwnersCont _instance;
         public static UCProfOwnersCont Instance
         {
@@ -30,6 +31,7 @@ namespace BustosApartment_SAD_
         {
            
             InitializeComponent();
+            tablecall();
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
@@ -62,6 +64,15 @@ namespace BustosApartment_SAD_
         {
 
         }
+        public void tablecall() {
+            string quer = "select * from owner";         
+            dataGridView1.DataSource = c1.select(quer);
+            dataGridView1.Columns["username"].Visible = false;
+            dataGridView1.Columns["password"].Visible = false;
+            dataGridView1.Columns["remarks"].Visible = false;
+
+
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -69,7 +80,7 @@ namespace BustosApartment_SAD_
             {
                 
                 string quer = "update owner set owner_fname = '" + txtfname2.Text + "', owner_manme = '" + txtmname2.Text + "', owner_lname" +
-                    "= '" + txtlname2.Text + "', username = '" + txtuser2.Text + "', password = '" + txtpass2.Text + "' where owner_id = " + id + "";
+                    "= '" + txtlname2.Text + "', username = '" + txtuser2.Text + "', password = '" + txtpass2.Text + "' where owner_id= " + id + "";
                 c1.insert(quer);
                 MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtfname2.Text = "";
@@ -77,7 +88,7 @@ namespace BustosApartment_SAD_
                 txtlname2.Text = "";
                 txtuser2.Text = "";
                 txtpass2.Text = "";
-
+                tablecall();
             }
             else {
                 label18.Text = "Incomplete Input: Please Fill the Form";
