@@ -12,6 +12,18 @@ namespace BustosApartment_SAD_
 {
     public partial class UCInventBCont : UserControl
     {
+
+        private static UCInventBCont _instance;
+
+        public static UCInventBCont Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new UCInventBCont();
+                return _instance;
+            }
+        }
         public UCInventBCont()
         {
             InitializeComponent();
