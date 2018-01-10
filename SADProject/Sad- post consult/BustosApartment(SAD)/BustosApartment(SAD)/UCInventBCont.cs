@@ -42,15 +42,27 @@ namespace BustosApartment_SAD_
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["bitem_ID"].Visible = false;
             dataGridView1.Columns["bitem_type_bitem_type_ID"].Visible = false;
+            comboBox1.Items.Clear();
+            string query = "select bitem_type_name from bitem_type ";
+            foreach (DataRow row in c1.select(query).Rows)
+            {
+                for (int i = 0; i < row.ItemArray.Length; i++)
+                {
+                    comboBox1.Items.Add(row.ItemArray[0].ToString());
+                }
+            }
 
         }
         public void tablecall2() {
             string quer = "select * from bitem_type";
             dataGridView2.DataSource = c1.select(quer);
+            dataGridView2.Columns["bitem_type_ID"].Visible = false;
         }
         public void tablecall3() {
             string quer = "select * from borrowable_item";
             dataGridView3.DataSource = c1.select(quer);
+            dataGridView3.Columns["bitem_ID"].Visible = false;
+            dataGridView3.Columns["bitem_type_bitem_type_ID"].Visible = false;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -94,9 +106,13 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string quer2 = "select bitem_type_id from bitem_type where bitem_type_name = '" + comboBox1.Text + "'";
-            DataTable dt = c1.select(quer2);
-            int id3 =  int.Parse(dt.Rows[0][0].ToString());
+            try
+            {
+                string quer2 = "select bitem_type_id from bitem_type where bitem_type_name = '" + comboBox1.Text + "'";
+                DataTable dt = c1.select(quer2);
+
+                int id3 = int.Parse(dt.Rows[0][0].ToString());
+            
 
             if (txtin.Text != "")
             {
@@ -109,6 +125,11 @@ namespace BustosApartment_SAD_
             }
             else {
                 label18.Text = "Incomplete Input: Please Fill the Form";
+            }
+            }
+            catch
+            {
+                MessageBox.Show("Please fill up the form", "NANI!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -129,22 +150,15 @@ namespace BustosApartment_SAD_
 
         private void UCInventBCont_Load(object sender, EventArgs e)
         {
-            string query = "select bitem_type_name from bitem_type ";
-            foreach (DataRow row in c1.select(query).Rows)
-            {
-                for (int i = 0; i < row.ItemArray.Length; i++)
-                {
-                    comboBox1.Items.Add(row.ItemArray[0].ToString());
-                }
-                }
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (txtuit.Text != "" && txtuin.Text != "" && txtuis.Text != "" && txtuids.Text != "") {
-                string quer = "update borrowable_item set bitem_name = '" + txtuin.Text + "', bitem_status = '" + txtuis.Text + "', bitem_dmg_status = '" + txtuids.Text + "' where id = " + id + " ";
+                string quer = "update borrowable_item set bitem_name = '" + txtuin.Text + "', bitem_status = '" + txtuis.Text + "', bitem_dmg_status = '" + txtuids.Text + "' where  bitem_id = " + id + " ";
                 c1.insert(quer);
-                string quer2 = "select bitem_type_bitem_type_id from bitem_type where bitem_id = " + id + "";
+                string quer2 = "select bitem_type_bitem_type_ID from borrowable_item where bitem_id = " + id + "";
                 DataTable dt = c1.select(quer2);
                 int id2 = int.Parse(dt.Rows[0][0].ToString());
                 string quer3 = "update bitem_type set bitem_type_name = '" + txtuit.Text + "' where bitem_type_id = " + id2 + "";
@@ -158,3 +172,4 @@ namespace BustosApartment_SAD_
         }
     }
 }
+    
