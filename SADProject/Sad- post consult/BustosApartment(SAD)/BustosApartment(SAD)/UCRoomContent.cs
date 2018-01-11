@@ -41,28 +41,17 @@ namespace BustosApartment_SAD_
 
         }
         public void tablecall() {
-            String query = "SELECT room_id, room_number, room_desc, owner_fname, room_time FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID";
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            dataGridView1.DataSource = dt;
+            String query = "SELECT room_id, room_number, room_desc, owner_fname, room_time FROM room inner join owner inner join room_classification " +
+                "where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID";
+            dataGridView1.DataSource = c.select(query);
             dataGridView1.Columns["room_ID"].Visible = false;
         }
         private void UCRoomContent_Load(object sender, EventArgs e)
         {
-           
+            dataGridView1.ClearSelection();
 
             String query1 = "select owner_fname from owner";
-            conn.Open();
-            MySqlCommand comm1 = new MySqlCommand(query1, conn);
-            MySqlDataAdapter adp1 = new MySqlDataAdapter(comm1);
-            conn.Close();
-            DataTable dt1 = new DataTable();
-            adp1.Fill(dt1);
-            foreach (DataRow row in dt1.Rows)
+            foreach (DataRow row in c.select(query1).Rows)
             {
                 for (int i = 0; i < row.ItemArray.Length; i++)
                 {

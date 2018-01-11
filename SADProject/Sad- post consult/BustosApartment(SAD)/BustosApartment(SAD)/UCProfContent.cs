@@ -40,7 +40,7 @@ namespace BustosApartment_SAD_
 
         private void UserControl3_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.ClearSelection();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -77,14 +77,8 @@ namespace BustosApartment_SAD_
 
         public void tablecall()
         {
-            String query = "select * from profile";
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            dataGridView1.DataSource = dt;
+            String query = "select * from profile";          
+            dataGridView1.DataSource = c.select(query);
             dataGridView1.Columns["User_id"].Visible = false;
             dataGridView1.Columns["Profile_balance"].Visible = false;
             dataGridView1.Columns["profile_idt"].Visible = false;
@@ -159,26 +153,16 @@ namespace BustosApartment_SAD_
             {
                 quer = "select * from profile where profile_name like '%" + sp[0] + "%' " +
                     "or profile_fname like '%" + sp[0] + "%' or profile_lname like '%" + sp[0] + "%'";
-                
-                MySqlCommand comm = new MySqlCommand(quer, conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                conn.Close();
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-                dataGridView1.DataSource = dt;
+
+                dataGridView1.DataSource = c.select(quer);
             }
             else {
   
                 quer = "select *, concat(profile_fname, ' ', profile_lname) as " +
                     "fn, concat(profile_fname, ' ', profile_mname, ' ', profile_lname) as" +
                     " fmn from profile where concat(profile_fname, ' ', profile_lname) like '%" + textBox5.Text + "%' or profile_fname like '%" + textBox5.Text + "%' or" +
-                    " concat(profile_fname, ' ', profile_mname, ' ', profile_lname) like '%" + textBox5.Text + "%' ";               
-                MySqlCommand comm = new MySqlCommand(quer, conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                conn.Close();
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-                dataGridView1.DataSource = dt;
+                    " concat(profile_fname, ' ', profile_mname, ' ', profile_lname) like '%" + textBox5.Text + "%' ";                           
+                dataGridView1.DataSource = c.select(quer);
                 dataGridView1.Columns["fn"].Visible = false;
                 dataGridView1.Columns["fmn"].Visible = false;
             }

@@ -41,12 +41,13 @@ namespace BustosApartment_SAD_
             string quer = "select * from borrowable_item inner join bitem_type where bitem_type_id = bitem_type_bitem_type_id";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["bitem_ID"].Visible = false;
+            dataGridView1.Columns["bitem_type_ID"].Visible = false;
             dataGridView1.Columns["bitem_type_bitem_type_ID"].Visible = false;
-            comboBox1.Items.Clear();
+            comboBox1.Items.Clear();        
             string query = "select bitem_type_name from bitem_type ";
             foreach (DataRow row in c1.select(query).Rows)
             {
-                for (int i = 0; i < row.ItemArray.Length; i++)
+                for (int i = 0; i < row.ItemArray.Length; i++)          
                 {
                     comboBox1.Items.Add(row.ItemArray[0].ToString());
                 }
@@ -60,7 +61,7 @@ namespace BustosApartment_SAD_
         }
         public void tablecall3() {
             string quer = "select * from borrowable_item";
-            dataGridView3.DataSource = c1.select(quer);
+            dataGridView3.DataSource = c1.select(quer);;
             dataGridView3.Columns["bitem_ID"].Visible = false;
             dataGridView3.Columns["bitem_type_bitem_type_ID"].Visible = false;
         }
@@ -148,9 +149,11 @@ namespace BustosApartment_SAD_
 
         }
 
-        private void UCInventBCont_Load(object sender, EventArgs e)
+        private void UCInventBCont_Load(object sender, EventArgs e)     
         {
-
+            dataGridView1.ClearSelection();
+            dataGridView2.ClearSelection();
+            dataGridView3.ClearSelection();
         }
 
         private void button3_Click(object sender, EventArgs e)

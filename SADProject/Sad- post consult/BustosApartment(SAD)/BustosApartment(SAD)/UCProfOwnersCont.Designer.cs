@@ -611,6 +611,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "UCProfOwnersCont";
             this.Size = new System.Drawing.Size(1104, 619);
+            this.Load += new System.EventHandler(this.UCProfOwnersCont_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);

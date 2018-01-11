@@ -131,5 +131,10 @@ namespace BustosApartment_SAD_
         {
 
         }
+
+        private void UCProfOwnersCont_Load(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
     }
 }

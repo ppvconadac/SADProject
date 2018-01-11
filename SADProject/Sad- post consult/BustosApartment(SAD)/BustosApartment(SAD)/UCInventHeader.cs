@@ -53,5 +53,10 @@ namespace BustosApartment_SAD_
                 UCInventBCont.Instance.BringToFront();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }   
 }
