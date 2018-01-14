@@ -115,15 +115,23 @@ namespace BustosApartment_SAD_
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox14.Text != "")
+            try
             {
-                string quer = "insert into owner(remarks) values('" + textBox14.Text + "') where owner_id = " + id + "";
-                c1.insert(quer);
-                MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (textBox14.Text != "")
+                {
+                    string quer = "update owner set remarks = '" + textBox14.Text + "' where owner_id = " + id + "";
+                    c1.insert(quer);
+                    tablecall();
+                    MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                }
+                else
+                {
+                    label12.Text = "Incomplete Input: Please Fill the Form";
+                }
             }
-            else {
-                label12.Text = "Incomplete Input: Please Fill the Form";
+            catch {
+                MessageBox.Show("Please click a data from the table", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

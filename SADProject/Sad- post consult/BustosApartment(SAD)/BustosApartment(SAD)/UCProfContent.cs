@@ -83,6 +83,7 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["Profile_balance"].Visible = false;
             dataGridView1.Columns["profile_idt"].Visible = false;
             dataGridView1.Columns["profile_idn"].Visible = false;
+            dataGridView1.Columns["profile_remark"].Visible = false;
             dataGridView1.Columns["Profile_name"].HeaderText = "Name";
             dataGridView1.Columns["Profile_cpnumber"].HeaderText = "Contact";
             dataGridView1.Columns["Profile_Address"].HeaderText = "Address";
@@ -116,6 +117,7 @@ namespace BustosApartment_SAD_
                 textBox12.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_fname"].Value.ToString();
                 textBox11.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_lname"].Value.ToString();
                 textBox10.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_cpnumber"].Value.ToString();
+                textBox14.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_remark"].Value.ToString();
                 textBox9.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_address"].Value.ToString();
                 textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_idn"].Value.ToString();
                 textBox16.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_mname"].Value.ToString();
@@ -171,13 +173,30 @@ namespace BustosApartment_SAD_
         
         private void button3_Click_1(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (textBox14.Text != "")
+                {
+                    string quer = "update profile set profile_remark = '" + textBox14.Text + "' where user_id = " + a + "";
+                    c.insert(quer);
+                    label34.Text = "";
+                    MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tablecall();
+                }
+                else
+                {
+                    label34.Text = "Incomplete Input: Please Fill the Form";
+                }
+            }
+            catch {
+                MessageBox.Show("Please click a data from the table", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // cn -1 fn- 2 ln- 3 nu-4 add- 6 id-8
-            int idt;
+            int idt;    
             if (comboBox1.Text =="Passport") {
                 idt = 1;
             }
