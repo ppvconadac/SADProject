@@ -74,11 +74,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCInventAssign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCInventAssign.Designer.cs">
+      <DependentUpon>UCInventAssign.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCInventBCont.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UCInventBCont.Designer.cs">
       <DependentUpon>UCInventBCont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCInventCCont.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UCInventHeader.cs">
       <SubType>UserControl</SubType>
@@ -143,8 +152,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UCInventAssign.resx">
+      <DependentUpon>UCInventAssign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCInventBCont.resx">
       <DependentUpon>UCInventBCont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCInventCCont.resx">
+      <DependentUpon>UCInventCCont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCInventHeader.resx">
       <DependentUpon>UCInventHeader.cs</DependentUpon>
