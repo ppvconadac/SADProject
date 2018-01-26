@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BustosApartment_SAD_
 {
-    public partial class UCInventAssign : UserControl
+    public partial class UCInventLending : UserControl
     {
-        public UCInventAssign()
+        public UCInventLending()
         {
             InitializeComponent();
         }
