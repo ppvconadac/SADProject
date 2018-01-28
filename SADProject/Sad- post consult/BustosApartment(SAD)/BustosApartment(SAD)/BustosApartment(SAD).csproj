@@ -137,6 +137,12 @@
     <Compile Include="UCRoomHeader.Designer.cs">
       <DependentUpon>UCRoomHeader.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCRoomRContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCRoomRContent.Designer.cs">
+      <DependentUpon>UCRoomRContent.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FmLogin.resx">
       <DependentUpon>FmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCRoomHeader.resx">
       <DependentUpon>UCRoomHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCRoomRContent.resx">
+      <DependentUpon>UCRoomRContent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

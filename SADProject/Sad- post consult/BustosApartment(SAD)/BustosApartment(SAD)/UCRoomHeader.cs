@@ -36,6 +36,8 @@ namespace BustosApartment_SAD_
             {
                 UCRoomContent.Instance.BringToFront();
             }
+
+            
         }
 
         private void UCRoomHeader_Load(object sender, EventArgs e)
@@ -59,21 +61,26 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!panelMain2.Controls.Contains(UCRoomAContent.Instance))
-            {
-                panelMain2.Controls.Add(UCRoomAContent.Instance);
-                UCRoomAContent.Instance.Dock = DockStyle.Fill;
-                UCRoomAContent.Instance.BringToFront();
-            }
-            else
-            {
-                UCRoomAContent.Instance.BringToFront();
-            }
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (!panelMain2.Controls.Contains(UCRoomRContent.Instance))
+            {
+                panelMain2.Controls.Add(UCRoomRContent.Instance);
+                UCRoomRContent.Instance.Dock = DockStyle.Fill;
+                UCRoomRContent.Instance.BringToFront();
+            }
+            else
+            {
+                UCRoomRContent.Instance.BringToFront();
+            }
         }
     }
 }
