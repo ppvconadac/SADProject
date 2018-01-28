@@ -125,6 +125,12 @@
     <Compile Include="UCRoomAContent.Designer.cs">
       <DependentUpon>UCRoomAContent.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCRoomAsContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCRoomAsContent.Designer.cs">
+      <DependentUpon>UCRoomAsContent.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCRoomContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCRoomAContent.resx">
       <DependentUpon>UCRoomAContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCRoomAsContent.resx">
+      <DependentUpon>UCRoomAsContent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCRoomContent.resx">
       <DependentUpon>UCRoomContent.cs</DependentUpon>

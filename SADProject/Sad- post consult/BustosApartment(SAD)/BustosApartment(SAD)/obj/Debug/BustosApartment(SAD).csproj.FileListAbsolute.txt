@@ -76,3 +76,4 @@ C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\Bust
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventLending.resources
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventCCont.resources
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCRoomRContent.resources
+C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCRoomAsContent.resources
