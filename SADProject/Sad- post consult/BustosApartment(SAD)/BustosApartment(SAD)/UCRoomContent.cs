@@ -94,7 +94,7 @@ namespace BustosApartment_SAD_
                     type = 1;
                 else
                     type = 2;
-                string query1 = "Insert into Room values(" + idr + ",'" + desc + "', " + type + ",'"+ id +"')";
+                string query1 = "Insert into Room values( NULL, " + idr + ",'" + desc + "', " + type + ",'"+ id +"', 'Available')";
                 c.insert(query1);
                 MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDesc.Text = "";

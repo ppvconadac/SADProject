@@ -58,7 +58,7 @@ namespace BustosApartment_SAD_
         }
         public void tablecall2()
         {
-            string quer = "select room_number, room_id from room";
+            string quer = "select room_number, room_id from room where room_status  = 'Available'";
             dataGridView3.DataSource = c1.select(quer);
             dataGridView3.Columns["room_id"].Visible = false;
         }
@@ -89,16 +89,26 @@ namespace BustosApartment_SAD_
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            DateTime check;
             if (txtName.Text != "" && txtRoom.Text != "") {
-          
-                string quer = "insert into reservation values(NULL, '"+ DateTime.Now.ToString("M/d/yyyy")+"', "+id+", "+id1+"  )";
-                c1.insert(quer);
-                MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtName.Text = "";
-                txtRoom.Text = "";
-                tablecall();
-                tablecall2();
-                tablecall3();
+                if (DateTime.TryParse(dateTimePicker1.Text, out check) && check < DateTime.Now)
+                {
+                    MessageBox.Show("Date has passed!", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                  
+                }
+                else {
+                    string quer = "insert into reservation values(NULL, '" + dateTimePicker1.Text + "', " + id + ", " + id1 + "  )";
+                    c1.insert(quer);
+                    string quer2 = "update room set room_status = 'Reserved' where room_id = "+id1+"" ;
+                    c1.insert(quer2);
+                    MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtName.Text = "";
+                    txtRoom.Text = "";
+                    tablecall();
+                    tablecall2();
+                    tablecall3();
+
+                }
             }
 
         }
