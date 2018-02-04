@@ -112,5 +112,10 @@ namespace BustosApartment_SAD_
             }
 
         }
+
+        private void UCRoomRContent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

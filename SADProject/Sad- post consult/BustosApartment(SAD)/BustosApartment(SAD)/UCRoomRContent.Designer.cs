@@ -236,6 +236,7 @@
             this.Controls.Add(this.label5);
             this.Name = "UCRoomRContent";
             this.Size = new System.Drawing.Size(1104, 607);
+            this.Load += new System.EventHandler(this.UCRoomRContent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();

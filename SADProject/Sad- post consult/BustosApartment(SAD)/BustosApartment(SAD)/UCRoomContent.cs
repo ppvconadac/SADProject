@@ -37,7 +37,7 @@ namespace BustosApartment_SAD_
 
         public void onload()
         {
-
+            
 
         }
         public void tablecall() {
@@ -184,6 +184,11 @@ namespace BustosApartment_SAD_
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
