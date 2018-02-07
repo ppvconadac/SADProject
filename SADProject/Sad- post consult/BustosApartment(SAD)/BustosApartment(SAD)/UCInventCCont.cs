@@ -104,6 +104,8 @@ namespace BustosApartment_SAD_
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -118,8 +120,6 @@ namespace BustosApartment_SAD_
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -506,6 +506,26 @@ namespace BustosApartment_SAD_
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Provision",
+            "Loss"});
+            this.comboBox2.Location = new System.Drawing.Point(20, 220);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(358, 26);
+            this.comboBox2.TabIndex = 96;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(16, 199);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(87, 18);
+            this.label12.TabIndex = 95;
+            this.label12.Text = "Reasoning :";
+            // 
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
@@ -655,26 +675,6 @@ namespace BustosApartment_SAD_
             this.textBox5.Size = new System.Drawing.Size(183, 24);
             this.textBox5.TabIndex = 14;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Provision",
-            "Loss"});
-            this.comboBox2.Location = new System.Drawing.Point(20, 220);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(358, 26);
-            this.comboBox2.TabIndex = 96;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 199);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(87, 18);
-            this.label12.TabIndex = 95;
-            this.label12.Text = "Reasoning :";
             // 
             // UCInventCCont
             // 
