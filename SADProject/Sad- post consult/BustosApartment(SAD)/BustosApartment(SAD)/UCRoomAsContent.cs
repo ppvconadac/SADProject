@@ -137,6 +137,18 @@ namespace BustosApartment_SAD_
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            reserve rs = new reserve();
+            rs.a3 = this;
+            DialogResult result = rs.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                tablecall();
+            }
+
+        }
     }
 }
 

@@ -54,7 +54,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(352, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(352, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 24);
             this.pictureBox1.TabIndex = 17;
@@ -63,7 +63,7 @@
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox5.Location = new System.Drawing.Point(386, 16);
+            this.textBox5.Location = new System.Drawing.Point(386, 12);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(183, 24);
             this.textBox5.TabIndex = 16;

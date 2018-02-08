@@ -96,7 +96,7 @@ namespace BustosApartment_SAD_
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            UCRoomAsContent ur = new UCRoomAsContent();
+           
             int a = UCRoomAsContent.id; 
             string date;
             DialogResult dialogResult = MessageBox.Show("Are you sure to assign this person to this room?", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -125,7 +125,7 @@ namespace BustosApartment_SAD_
                 c.insert(quer);
                 string quer2 = "update room set room_status = 'Using' where room_id = " + a + "";
                 c.insert(quer2);
-                ur.onload();
+              
 
 
                 //  this.Close();
