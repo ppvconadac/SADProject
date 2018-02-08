@@ -131,11 +131,11 @@
     <Compile Include="UCProfOwnersCont.Designer.cs">
       <DependentUpon>UCProfOwnersCont.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCRoomAContent.cs">
+    <Compile Include="UCInventStInOut.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCRoomAContent.Designer.cs">
-      <DependentUpon>UCRoomAContent.cs</DependentUpon>
+    <Compile Include="UCInventStInOut.Designer.cs">
+      <DependentUpon>UCInventStInOut.cs</DependentUpon>
     </Compile>
     <Compile Include="UCRoomAsContent.cs">
       <SubType>UserControl</SubType>
@@ -206,8 +206,8 @@
     <EmbeddedResource Include="UCProfOwnersCont.resx">
       <DependentUpon>UCProfOwnersCont.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCRoomAContent.resx">
-      <DependentUpon>UCRoomAContent.cs</DependentUpon>
+    <EmbeddedResource Include="UCInventStInOut.resx">
+      <DependentUpon>UCInventStInOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCRoomAsContent.resx">
       <DependentUpon>UCRoomAsContent.cs</DependentUpon>

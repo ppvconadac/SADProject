@@ -1,6 +1,6 @@
 ﻿namespace BustosApartment_SAD_
 {
-    partial class UCInventLending
+    partial class UCInventStInOut
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,43 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.label5.Location = new System.Drawing.Point(492, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 25);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "ITEM LENDING";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel2.Location = new System.Drawing.Point(15, 49);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1075, 10);
-            this.panel2.TabIndex = 40;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -76,27 +55,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1104, 619);
-            this.panel1.TabIndex = 3;
-            // 
-            // button5
-            // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(692, 507);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(398, 53);
-            this.button5.TabIndex = 48;
-            this.button5.Text = "Archive Entry";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(692, 399);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(398, 53);
-            this.button4.TabIndex = 47;
-            this.button4.Text = "Report Damages";
-            this.button4.UseVisualStyleBackColor = true;
+            this.panel1.TabIndex = 4;
             // 
             // button3
             // 
@@ -105,7 +64,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(398, 53);
             this.button3.TabIndex = 46;
-            this.button3.Text = "Update Payment Status";
+            this.button3.Text = "Record Loss";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -115,7 +74,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(398, 53);
             this.button2.TabIndex = 45;
-            this.button2.Text = "Return Item";
+            this.button2.Text = "Stock-out";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -125,7 +84,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(398, 53);
             this.button1.TabIndex = 44;
-            this.button1.Text = "Assign Item";
+            this.button1.Text = "Stock-in";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
@@ -147,12 +106,41 @@
             this.dataGridView1.Size = new System.Drawing.Size(671, 520);
             this.dataGridView1.TabIndex = 43;
             // 
-            // UCInventLending
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panel2.Location = new System.Drawing.Point(15, 49);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1075, 10);
+            this.panel2.TabIndex = 40;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.label5.Location = new System.Drawing.Point(490, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(173, 25);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "STOCK-IN/OUT";
+            // 
+            // button5
+            // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(692, 399);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(398, 53);
+            this.button5.TabIndex = 49;
+            this.button5.Text = "Archive Entry";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // UCInventStInOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Name = "UCInventLending";
+            this.Name = "UCInventStInOut";
             this.Size = new System.Drawing.Size(1104, 619);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -163,14 +151,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -34,6 +34,7 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,13 +48,13 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 84);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 78);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(917, 521);
+            this.dataGridView1.Size = new System.Drawing.Size(671, 520);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -62,9 +63,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel2.Location = new System.Drawing.Point(367, 50);
+            this.panel2.Location = new System.Drawing.Point(15, 49);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(398, 10);
+            this.panel2.Size = new System.Drawing.Size(1075, 10);
             this.panel2.TabIndex = 42;
             // 
             // label5
@@ -81,27 +82,27 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.BackColor = System.Drawing.Color.White;
+            this.btnCreate.BackColor = System.Drawing.SystemColors.Control;
             this.btnCreate.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(960, 84);
+            this.btnCreate.Location = new System.Drawing.Point(692, 78);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(113, 32);
+            this.btnCreate.Size = new System.Drawing.Size(398, 53);
             this.btnCreate.TabIndex = 57;
-            this.btnCreate.Text = "Checkin";
+            this.btnCreate.Text = "Check-in";
             this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(960, 157);
+            this.button1.Location = new System.Drawing.Point(692, 185);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 32);
+            this.button1.Size = new System.Drawing.Size(398, 53);
             this.button1.TabIndex = 58;
             this.button1.Text = "Checkout";
             this.button1.UseVisualStyleBackColor = false;
@@ -109,22 +110,34 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.BackColor = System.Drawing.SystemColors.Control;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(960, 238);
+            this.button2.Location = new System.Drawing.Point(692, 292);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 32);
+            this.button2.Size = new System.Drawing.Size(398, 53);
             this.button2.TabIndex = 59;
             this.button2.Text = "Reserve";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button5
+            // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.button5.Location = new System.Drawing.Point(692, 399);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(398, 53);
+            this.button5.TabIndex = 60;
+            this.button5.Text = "Archive Entry";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // UCRoomAsContent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCreate);
@@ -132,7 +145,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView1);
             this.Name = "UCRoomAsContent";
-            this.Size = new System.Drawing.Size(1104, 607);
+            this.Size = new System.Drawing.Size(1104, 619);
             this.Load += new System.EventHandler(this.UCRoomAsContent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -148,5 +161,6 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button5;
     }
 }

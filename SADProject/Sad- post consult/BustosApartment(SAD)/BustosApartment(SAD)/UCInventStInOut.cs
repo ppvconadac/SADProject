@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace BustosApartment_SAD_
 {
-    public partial class UCRoomAContent : UserControl
+    public partial class UCInventStInOut : UserControl
     {
-        private static UCRoomAContent _instance;
+        private static UCInventStInOut _instance;
 
-        public static UCRoomAContent Instance
+        public static UCInventStInOut Instance
         {
             get
             {
                 if (_instance == null)
-                    _instance = new UCRoomAContent();
+                    _instance = new UCInventStInOut();
                 return _instance;
             }
         }
-        public UCRoomAContent()
+        public UCInventStInOut()
         {
             InitializeComponent();
         }
