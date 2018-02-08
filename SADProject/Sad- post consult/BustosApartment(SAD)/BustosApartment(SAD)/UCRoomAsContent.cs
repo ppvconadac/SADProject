@@ -54,9 +54,11 @@ namespace BustosApartment_SAD_
         {
             checkin ch = new checkin();
             ch.a3 = this;
-            ch.Show();
-            tablecall();
-           
+            DialogResult result = ch.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                tablecall();
+            }
            
 
 
@@ -73,7 +75,7 @@ namespace BustosApartment_SAD_
 
         private void UCRoomAsContent_Load(object sender, EventArgs e)
         {
-            tablecall();
+            dataGridView1.ClearSelection();
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -129,6 +131,11 @@ namespace BustosApartment_SAD_
             else {
                 MessageBox.Show("Cannot check out since room is "+a+"", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
