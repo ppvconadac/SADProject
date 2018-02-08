@@ -20,6 +20,7 @@ namespace BustosApartment_SAD_
         {
             InitializeComponent();
             tablecall();
+            placeholder();
         }
         public void tablecall()
         {
@@ -36,6 +37,22 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["profile_fname"].HeaderText = "First Name";
             dataGridView1.Columns["profile_mname"].HeaderText = "Middle Name";
             dataGridView1.Columns["profile_lname"].HeaderText = "Last Name";
+        }
+        public void placeholder() {
+            string quer = "select owner_fname, owner_mname, owner_lname, rc_rate, room_number, room_time" +
+                " from room inner join room_classification" +
+                " inner join owner where Room_classification_classification_ID =" +
+                " classification_ID and owner_id = owner_owner_id and room_id = " + UCRoomAsContent.id + "";
+            // dt.Rows[0]["Owner_fname"].ToString() +" "+dt.Rows[0]["Owner_lname"].ToString();
+            DataTable dt =  c.select(quer);
+            if (dt.Rows.Count == 1) {
+                txtroom.Text = "ROOM " + dt.Rows[0]["room_number"].ToString();
+                txtown.Text = dt.Rows[0]["owner_fname"].ToString() +" "+ dt.Rows[0]["owner_mname"].ToString() +". "+ dt.Rows[0]["owner_lname"].ToString();
+                txtrate.Text = dt.Rows[0]["rc_rate"].ToString();
+                txttime.Text = dt.Rows[0]["room_time"].ToString();
+            }
+
+
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -118,12 +135,17 @@ namespace BustosApartment_SAD_
 
             }
             else {
-                this.Close();
+                
                 
             }
         }
 
         private void checkin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
