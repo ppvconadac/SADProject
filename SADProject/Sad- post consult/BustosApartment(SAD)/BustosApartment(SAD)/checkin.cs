@@ -108,9 +108,9 @@ namespace BustosApartment_SAD_
                 c.insert(quer);
                 string quer2 = "update room set room_status = 'Using' where room_id = " + a + "";
                 c.insert(quer2);
-                UCRoomAsContent.Instance.Refresh();
-
-
+                ur.onload();
+                
+                
                 this.Close();
         
 

@@ -96,10 +96,5 @@ namespace BustosApartment_SAD_
                 UCRoomAsContent.Instance.BringToFront();
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
