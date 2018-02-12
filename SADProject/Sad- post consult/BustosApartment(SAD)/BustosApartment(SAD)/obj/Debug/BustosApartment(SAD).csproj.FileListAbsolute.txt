@@ -57,7 +57,6 @@ C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\Bust
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfContent.resources
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCOverHeader.resources
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCProfOwnersCont.resources
-C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCRoomAContent.resources
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCRoomContent.resources
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCRoomHeader.resources
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).csproj.GenerateResource.Cache
@@ -119,3 +118,5 @@ C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosA
 C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventStInOut.resources
 C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCRoomAsContent.resources
 C:\Users\kbdlim\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCRoomRContent.resources
+C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.reserve.resources
+C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventStInOut.resources

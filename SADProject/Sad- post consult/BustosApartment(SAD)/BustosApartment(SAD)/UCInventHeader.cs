@@ -28,15 +28,15 @@ namespace BustosApartment_SAD_
         public UCInventHeader()
         {
             InitializeComponent();
-            if (!panelMain2.Controls.Contains(UCInventBCont.Instance))
+            if (!panelMain2.Controls.Contains(UCInventLending.Instance))
             {
-                panelMain2.Controls.Add(UCInventBCont.Instance);
-                UCInventBCont.Instance.Dock = DockStyle.Fill;
-                UCInventBCont.Instance.BringToFront();
+                panelMain2.Controls.Add(UCInventLending.Instance);
+                UCInventLending.Instance.Dock = DockStyle.Fill;
+                UCInventLending.Instance.BringToFront();
             }
             else
             {
-                UCInventBCont.Instance.BringToFront();
+                UCInventLending.Instance.BringToFront();
             }
         }
 
@@ -57,6 +57,34 @@ namespace BustosApartment_SAD_
         private void button4_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (!panelMain2.Controls.Contains(UCInventLending.Instance))
+            {
+                panelMain2.Controls.Add(UCInventLending.Instance);
+                UCInventLending.Instance.Dock = DockStyle.Fill;
+                UCInventLending.Instance.BringToFront();
+            }
+            else
+            {
+                UCInventLending.Instance.BringToFront();
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (!panelMain2.Controls.Contains(UCInventStInOut.Instance))
+            {
+                panelMain2.Controls.Add(UCInventStInOut.Instance);
+                UCInventStInOut.Instance.Dock = DockStyle.Fill;
+                UCInventStInOut.Instance.BringToFront();
+            }
+            else
+            {
+                UCInventStInOut.Instance.BringToFront();
+            }
         }
     }   
 }

@@ -31,12 +31,12 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panelMain2 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +86,19 @@
             this.panel1.Size = new System.Drawing.Size(1104, 65);
             this.panel1.TabIndex = 4;
             // 
+            // button7
+            // 
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(138, 17);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(123, 32);
+            this.button7.TabIndex = 3;
+            this.button7.Text = "Stock-In/Out";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // button5
             // 
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonShadow;
@@ -97,6 +110,7 @@
             this.button5.TabIndex = 2;
             this.button5.Text = "Lending";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -142,18 +156,6 @@
             this.panelMain2.Name = "panelMain2";
             this.panelMain2.Size = new System.Drawing.Size(1104, 619);
             this.panelMain2.TabIndex = 5;
-            // 
-            // button7
-            // 
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(138, 17);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(123, 32);
-            this.button7.TabIndex = 3;
-            this.button7.Text = "Stock-In/Out";
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // UCInventHeader
             // 

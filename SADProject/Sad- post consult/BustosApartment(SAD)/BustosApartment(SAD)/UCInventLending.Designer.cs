@@ -46,7 +46,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.label5.Location = new System.Drawing.Point(492, 21);
+            this.label5.Location = new System.Drawing.Point(492, 11);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(172, 25);
             this.label5.TabIndex = 39;
@@ -55,7 +55,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel2.Location = new System.Drawing.Point(15, 49);
+            this.panel2.Location = new System.Drawing.Point(15, 39);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1075, 10);
             this.panel2.TabIndex = 40;
