@@ -38,6 +38,19 @@ namespace BustosApartment_SAD_
         private Label label23;
         private TextBox textBox5;
 
+
+        private static UCInventCCont _instance;
+
+        public static UCInventCCont Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new UCInventCCont();
+                return _instance;
+            }
+        }
+
         public UCInventCCont()
         {
             InitializeComponent();
