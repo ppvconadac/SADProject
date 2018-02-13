@@ -111,7 +111,7 @@ namespace BustosApartment_SAD_
                     string rc = d.Rows[0]["RC_rate"].ToString();
                     string time = d.Rows[0]["room_time"].ToString();
                     if (time == "Monthly")
-                    {
+                    { 
                         date = DateTime.Now.AddMonths(1).ToString("M/d/yyyy");
                     }
                     else
