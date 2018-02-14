@@ -31,7 +31,6 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.txtin = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,6 +38,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // dateTimePicker2
@@ -67,22 +67,16 @@
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.textBox4.Location = new System.Drawing.Point(20, 84);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(398, 24);
             this.textBox4.TabIndex = 110;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox6.Location = new System.Drawing.Point(20, 134);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(398, 24);
-            this.textBox6.TabIndex = 107;
             // 
             // txtin
             // 
             this.txtin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.txtin.Location = new System.Drawing.Point(20, 38);
             this.txtin.Name = "txtin";
+            this.txtin.ReadOnly = true;
             this.txtin.Size = new System.Drawing.Size(398, 24);
             this.txtin.TabIndex = 104;
             // 
@@ -112,9 +106,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.label6.Location = new System.Drawing.Point(16, 110);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 18);
+            this.label6.Size = new System.Drawing.Size(206, 18);
             this.label6.TabIndex = 106;
-            this.label6.Text = "Payment Method :";
+            this.label6.Text = "Payment Method (Damages) :";
             // 
             // label14
             // 
@@ -147,15 +141,27 @@
             this.button1.Text = "Process";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Paid",
+            "Pending"});
+            this.comboBox2.Location = new System.Drawing.Point(19, 134);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(399, 26);
+            this.comboBox2.TabIndex = 113;
+            // 
             // lendingdamage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 528);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.txtin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -176,7 +182,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox txtin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -184,5 +189,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
