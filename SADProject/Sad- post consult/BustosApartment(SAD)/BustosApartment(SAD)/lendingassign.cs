@@ -13,6 +13,8 @@ namespace BustosApartment_SAD_
     public partial class lendingassign : Form
     {
         public UserControl a3;
+        public int id;
+        public int id2;
         Class1 c = new Class1();
         public lendingassign()
         {
@@ -45,6 +47,46 @@ namespace BustosApartment_SAD_
         {
             string quer = "select * from borrowable_item";
             dataGridView2.DataSource = c.select(quer);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            string date;
+            DialogResult dialogResult = MessageBox.Show("Confirm lending", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+
+            if (dialogResult == DialogResult.Yes)
+            {
+
+                
+
+
+                //  this.Close();
+                this.DialogResult = DialogResult.Yes;
+
+
+
+            }
+            else
+            {
+
+
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["User_id"].Value.ToString());
+                
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id2 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
         }
     }
 }

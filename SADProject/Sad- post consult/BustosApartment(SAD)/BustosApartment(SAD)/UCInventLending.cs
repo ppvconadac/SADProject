@@ -46,7 +46,11 @@ namespace BustosApartment_SAD_
         {
             lendingassign ch = new lendingassign();
             ch.a3 = this;
-            ch.Show();
+            DialogResult result = ch.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                tablecall();
+            }
         }
     }
 
