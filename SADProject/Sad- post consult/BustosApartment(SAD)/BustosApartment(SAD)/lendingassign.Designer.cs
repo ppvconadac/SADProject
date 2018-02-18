@@ -70,7 +70,7 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(531, 212);
             this.dataGridView2.TabIndex = 76;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // dataGridView1
             // 
@@ -90,7 +90,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(531, 212);
             this.dataGridView1.TabIndex = 77;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // pictureBox1
             // 
@@ -196,9 +196,9 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.label14.Location = new System.Drawing.Point(550, 62);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(66, 18);
+            this.label14.Size = new System.Drawing.Size(52, 18);
             this.label14.TabIndex = 85;
-            this.label14.Text = "User ID :";
+            this.label14.Text = "User  :";
             // 
             // label15
             // 
@@ -212,6 +212,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -224,6 +225,7 @@
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.Enabled = false;
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.Location = new System.Drawing.Point(553, 232);
@@ -233,6 +235,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {

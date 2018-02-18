@@ -29,19 +29,14 @@ namespace BustosApartment_SAD_
 
         }
         public void tablecall() {
-            String query = "select * from profile";
+            String query = "select concat(profile_fname,profile_mname,profile_lname) as full_name, User_id, Profile_cpnumber,Profile_Address from profile";
             dataGridView1.DataSource = c.select(query);
             dataGridView1.Columns["User_id"].Visible = false;
-            dataGridView1.Columns["Profile_balance"].Visible = false;
-            dataGridView1.Columns["profile_idt"].Visible = false;
-            dataGridView1.Columns["profile_idn"].Visible = false;
-            dataGridView1.Columns["profile_remark"].Visible = false;
-            dataGridView1.Columns["Profile_name"].HeaderText = "Name";
+            dataGridView1.Columns["full_name"].HeaderText = "Name";
             dataGridView1.Columns["Profile_cpnumber"].HeaderText = "Contact";
             dataGridView1.Columns["Profile_Address"].HeaderText = "Address";
-            dataGridView1.Columns["profile_fname"].HeaderText = "First Name";
-            dataGridView1.Columns["profile_mname"].HeaderText = "Middle Name";
-            dataGridView1.Columns["profile_lname"].HeaderText = "Last Name";
+           
+            
         }
         public void tablecall2()
         {
@@ -75,18 +70,28 @@ namespace BustosApartment_SAD_
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+      
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex > -1)
             {
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["User_id"].Value.ToString());
+                textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["full_name"].Value.ToString();
                 
             }
+            
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            id2 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
+            if (e.RowIndex > -1)
+            {
+                txtin.Text = dataGridView2.Rows[e.RowIndex].Cells["bitem_name"].Value.ToString();
+                id2 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
+            }
         }
     }
 }
