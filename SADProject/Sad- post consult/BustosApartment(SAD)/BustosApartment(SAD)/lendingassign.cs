@@ -12,6 +12,7 @@ namespace BustosApartment_SAD_
 {
     public partial class lendingassign : Form
     {
+        public int x=0;
         public UserControl a3;
         public int id;
         public int id2;
@@ -92,6 +93,13 @@ namespace BustosApartment_SAD_
                 txtin.Text = dataGridView2.Rows[e.RowIndex].Cells["bitem_name"].Value.ToString();
                 id2 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
             }
+        }
+
+        private void txtin_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.Text = x.ToString();
+            x = x + 1;
+
         }
     }
 }
