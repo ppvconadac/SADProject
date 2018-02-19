@@ -63,7 +63,7 @@ namespace BustosApartment_SAD_
             if (e.RowIndex > -1)
             {
                 txtuin.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_name"].Value.ToString();
-                txtuis.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_status"].Value.ToString();
+                
                 txtuids.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_dmg_status"].Value.ToString();
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bitem_id"].Value.ToString());
 
@@ -98,8 +98,8 @@ namespace BustosApartment_SAD_
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (txtuit.Text != "" && txtuin.Text != "" && txtuis.Text != "" && txtuids.Text != "") {
-                string quer = "update borrowable_item set bitem_name = '" + txtuin.Text + "', bitem_status = '" + txtuis.Text + "', bitem_dmg_status = '" + txtuids.Text + "' where  bitem_id = " + id + " ";
+            if (txtuit.Text != "" && txtuin.Text != "" && txtuids.Text != "") {
+                string quer = "update borrowable_item set bitem_name = '" + txtuin.Text + "', bitem_dmg_status = '" + txtuids.Text + "' where  bitem_id = " + id + " ";
                 c1.insert(quer);
                 string quer2 = "select bitem_type_bitem_type_ID from borrowable_item where bitem_id = " + id + "";
                 DataTable dt = c1.select(quer2);

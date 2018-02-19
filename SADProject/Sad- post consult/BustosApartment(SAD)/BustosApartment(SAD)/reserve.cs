@@ -69,7 +69,7 @@ namespace BustosApartment_SAD_
 
         private void reserve_Load(object sender, EventArgs e)
         {
-
+            dateTimePicker1.CustomFormat = "yyy-M-d";
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -123,15 +123,19 @@ namespace BustosApartment_SAD_
                 }
                 else
                 {
-                    string quer = "insert into reservation values(NULL, '" + dateTimePicker1.Text + "', " + pid + ", " + a + "  )";
+                    string quer = "insert into reservation values(NULL, '" + dateTimePicker1.Text + "', " + pid + ", " + a + " , '1'  )";
                     c.insert(quer);
-                    string quer2 = "update room set room_status = 'Reserved' where room_id = " + a + "";
-                    c.insert(quer2);             
+                             
                     this.DialogResult = DialogResult.Yes;
 
 
                 }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -102,11 +102,7 @@ namespace BustosApartment_SAD_
                             this.dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGreen;
 
                         }
-                        if (CNumColour == "Reserved")
-                        {
-                            this.dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
-
-                        }
+                       
                         if (CNumColour == "Using")
                         {
                             this.dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Orange;
@@ -140,12 +136,22 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            reserve rs = new reserve();
-            rs.a3 = this;
-            DialogResult result = rs.ShowDialog();
-            if (result == DialogResult.Yes)
+            string quer = "select room_time from room_classification inner join room where room_id = " + id + " and classification_id = Room_classification_classification_ID ";
+            DataTable d = c.select(quer);
+            string a = d.Rows[0]["room_time"].ToString();
+            if (a == "Monthly")
             {
-                tablecall();
+                MessageBox.Show("Cant reserve on Monthly rooms", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                reserve rs = new reserve();
+                rs.a3 = this;
+                DialogResult result = rs.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    tablecall();
+                }
             }
 
         }

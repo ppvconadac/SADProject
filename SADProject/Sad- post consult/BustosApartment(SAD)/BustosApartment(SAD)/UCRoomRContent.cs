@@ -50,17 +50,29 @@ namespace BustosApartment_SAD_
         {
 
         }
-       
+
         public void tablecall3()
         {
-            string quer = "select room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
-                ", re_date from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id";
+            string quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
+                ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND re_date > curdate() AND re_status = 0";
+            string q = "select re_date from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id";
+            DataTable d = c1.select(q);
             dataGridView2.DataSource = c1.select(quer);
+            DateTime check;
+            int i = 0;
+            dataGridView2.Columns["re_status"].Visible = false;
+            foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+            {
+                if (DateTime.TryParse(d.Rows[i]["re_date"].ToString(), out check) && check < DateTime.Now)
+                {
+                    dataGridView2.Rows.Remove(row);
+                }
+                i++;
+            }
+        
+            
+
         }
-
-     
-
-      
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
@@ -73,6 +85,22 @@ namespace BustosApartment_SAD_
         private void UCRoomRContent_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure to Archive reservation?", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes) {
+                string quer = "update reservation set re_status = 1 where reservation_id = " + id1 + " ";
+                c1.insert(quer);
+                tablecall3();
+            }
+
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id1 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["reservation_id"].Value.ToString());
         }
     }
 }
