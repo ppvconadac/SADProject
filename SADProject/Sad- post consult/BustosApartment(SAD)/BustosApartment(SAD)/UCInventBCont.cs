@@ -35,11 +35,10 @@ namespace BustosApartment_SAD_
         }
         public void tablecall()
         {
-            string quer = "select * from borrowable_item inner join bitem_type where bitem_type_id = bitem_type_bitem_type_id";
+            string quer = "select * from borrowable_item";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["bitem_ID"].Visible = false;
-            dataGridView1.Columns["bitem_type_ID"].Visible = false;
-            dataGridView1.Columns["bitem_type_bitem_type_ID"].Visible = false;
+
 
         }
 
@@ -64,7 +63,6 @@ namespace BustosApartment_SAD_
             if (e.RowIndex > -1)
             {
                 txtuin.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_name"].Value.ToString();
-                txtuit.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_type_name"].Value.ToString();
                 txtuis.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_status"].Value.ToString();
                 txtuids.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_dmg_status"].Value.ToString();
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bitem_id"].Value.ToString());
