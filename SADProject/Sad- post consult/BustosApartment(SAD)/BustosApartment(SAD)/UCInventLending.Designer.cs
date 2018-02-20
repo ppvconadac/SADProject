@@ -85,7 +85,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(398, 53);
             this.button5.TabIndex = 48;
-            this.button5.Text = "Archive Entry";
+            this.button5.Text = "Delete Entry";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button4

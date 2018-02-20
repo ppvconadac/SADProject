@@ -12,7 +12,7 @@ namespace BustosApartment_SAD_
 {
     public partial class lendingassign : Form
     {
-        public int x=0;
+        public string rate;
         public UserControl a3;
         public int id;
         public int id2;
@@ -47,15 +47,19 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-         
+
+            string date;
             DialogResult dialogResult = MessageBox.Show("Confirm lending", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
 
             if (dialogResult == DialogResult.Yes)
             {
+                date = DateTime.Now.AddDays(1).ToString("yyyy/M/d");
+                string quer = "insert into bitem_transaction values(NULL, '" + date + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + id + "','" + id2 + "', 0 , NULL )";
 
-                
+                c.insert(quer);
+                string quer2 = "update borrowable_item set bitem_status = 'Using' where bitem_ID = " + id2 + "";
+                c.insert(quer2);
 
 
                 //  this.Close();
@@ -92,14 +96,16 @@ namespace BustosApartment_SAD_
             {
                 txtin.Text = dataGridView2.Rows[e.RowIndex].Cells["bitem_name"].Value.ToString();
                 id2 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
+                rate = dataGridView2.Rows[e.RowIndex].Cells["bitem_rate"].Value.ToString();
+                textBox2.Text = rate;
             }
+
         }
 
         private void txtin_TextChanged(object sender, EventArgs e)
         {
-            textBox2.Text = x.ToString();
-            x = x + 1;
-
+            
+            
         }
     }
 }
