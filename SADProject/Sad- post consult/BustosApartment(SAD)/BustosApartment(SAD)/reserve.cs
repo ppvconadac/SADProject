@@ -112,23 +112,42 @@ namespace BustosApartment_SAD_
         {
             int a = UCRoomAsContent.id;
             DateTime check;
-            DialogResult dialogResult = 
-                MessageBox.Show("Are you sure to reserve this person to this room?", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes) {
            
-                if (DateTime.TryParse(dateTimePicker1.Text, out check) && check < DateTime.Now)
+            string e3 = dateTimePicker1.Text;
+            string quer = "select re_date from reservation where re_date = '" + e3+ "'";
+            DataTable d = c.select(quer);
+            if (d.Rows.Count > 0)
+            {
+                MessageBox.Show("Date Has already been Reserved!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+          
+          
+
+            else
+            {
+                DialogResult dialogResult =
+             MessageBox.Show("Are you sure to reserve this person to this room?", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);   
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Date has passed!", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                }
-                else
-                {
-                    string quer = "insert into reservation values(NULL, '" + dateTimePicker1.Text + "', " + pid + ", " + a + " , '1'  )";
-                    c.insert(quer);
-                             
-                    this.DialogResult = DialogResult.Yes;
 
 
+
+                    if (DateTime.TryParse(dateTimePicker1.Text, out check) && check < DateTime.Now)
+                    {
+                        MessageBox.Show("Date has passed!", "Input error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+
+                    else
+                    {
+                        quer = "insert into reservation values(NULL, '" + dateTimePicker1.Text + "', " + pid + ", " + a + " , '0'  )";
+                        c.insert(quer);
+
+                        this.DialogResult = DialogResult.Yes;
+
+
+                    }
                 }
             }
         }

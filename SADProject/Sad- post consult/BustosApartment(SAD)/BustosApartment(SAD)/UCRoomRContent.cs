@@ -55,23 +55,27 @@ namespace BustosApartment_SAD_
         {
             string quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
                 ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND re_date > curdate() AND re_status = 0";
-            string q = "select re_date from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id";
-            DataTable d = c1.select(q);
+       
+          
             dataGridView2.DataSource = c1.select(quer);
-            DateTime check;
-            int i = 0;
             dataGridView2.Columns["re_status"].Visible = false;
-            foreach (DataGridViewRow row in dataGridView2.SelectedRows)
-            {
-                if (DateTime.TryParse(d.Rows[i]["re_date"].ToString(), out check) && check < DateTime.Now)
-                {
-                    dataGridView2.Rows.Remove(row);
-                }
-                i++;
-            }
+    
         
             
 
+        }
+        public void tablecall2() {
+            string quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
+             ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND re_date < curdate() AND re_status = 0";
+            dataGridView2.DataSource = c1.select(quer);
+            dataGridView2.Columns["re_status"].Visible = false;
+
+        }
+        public void tablecall() {
+            string quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
+            ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id  AND Room_Room_ID = room_id AND re_status = 1";
+            dataGridView2.DataSource = c1.select(quer);
+            dataGridView2.Columns["re_status"].Visible = false;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -101,6 +105,36 @@ namespace BustosApartment_SAD_
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             id1 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["reservation_id"].Value.ToString());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (button2.Text == "Reservation History")
+            {
+                tablecall2();
+                button2.Text = "Current Reservation List";
+                button3.Text = "Archived";
+            }
+            else {
+                tablecall3();
+                button2.Text = "Reservation History";
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (button3.Text == "Archived")
+            {
+                tablecall();
+                button3.Text = "Current Reservation List";
+                button2.Text = "Reservation History";
+            }
+            else
+            {
+                tablecall3();
+                button3.Text = "Archived";
+            }
+
         }
     }
 }

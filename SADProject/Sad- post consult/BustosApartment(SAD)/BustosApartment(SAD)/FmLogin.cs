@@ -61,5 +61,10 @@ namespace BustosApartment_SAD_
         {
             this.AcceptButton = LoginButton;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

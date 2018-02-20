@@ -48,7 +48,7 @@ namespace BustosApartment_SAD_
         private void button1_Click(object sender, EventArgs e)
         {
             
-            string date;
+         
             DialogResult dialogResult = MessageBox.Show("Confirm lending", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
 
