@@ -33,10 +33,11 @@ namespace BustosApartment_SAD_
 
         public void tablecall()
         {
-            string quer = "select bitem_name,  concat(profile_fname,profile_mname,profile_lname) as full_name, btrans_id,bt_date,bt_pay_method,bt_pay_status,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and bt_archive = 0 and user_id = profile_user_id";
+            string quer = "select bitem_name, bitem_status,  concat(profile_fname,profile_mname,profile_lname) as full_name, btrans_id,bt_date,bt_pay_method,bt_pay_status,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and bt_archive = 0 and user_id = profile_user_id and bitem_status= 'In Use'";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["bitem_ID"].Visible = false;
             dataGridView1.Columns["User_id"].Visible = false;
+            dataGridView1.Columns["bitem_status"].Visible = false;
             dataGridView1.Columns["Profile_user_ID"].Visible = false;
             dataGridView1.Columns["borrowable_item_bitem_ID"].Visible = false;
 

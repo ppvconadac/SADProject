@@ -80,7 +80,7 @@ namespace BustosApartment_SAD_
             String query = "select * from profile";          
             dataGridView1.DataSource = c.select(query);
             dataGridView1.Columns["User_id"].Visible = false;
-            dataGridView1.Columns["Profile_balance"].Visible = false;
+            
             dataGridView1.Columns["profile_idt"].Visible = false;
             dataGridView1.Columns["profile_idn"].Visible = false;
             dataGridView1.Columns["profile_remark"].Visible = false;
@@ -90,6 +90,7 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["profile_fname"].HeaderText = "First Name";
             dataGridView1.Columns["profile_mname"].HeaderText = "Middle Name";
             dataGridView1.Columns["profile_lname"].HeaderText = "Last Name";
+            dataGridView1.Columns["Profile_balance"].HeaderText = "Balance";
         }
 
       
