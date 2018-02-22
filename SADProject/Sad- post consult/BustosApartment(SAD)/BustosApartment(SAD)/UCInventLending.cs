@@ -12,7 +12,10 @@ namespace BustosApartment_SAD_
 {
     public partial class UCInventLending : UserControl
     {
-
+        public int id;
+        public int id2;
+        public string paystat;
+        public string paymeth;
         private static UCInventLending _instance;
          Class1 c1 = new Class1();
         public static UCInventLending Instance
@@ -53,6 +56,87 @@ namespace BustosApartment_SAD_
                 tablecall();
             }
         }
-    }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["btrans_id"].Value.ToString());
+                id2= int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
+                paystat = dataGridView1.Rows[e.RowIndex].Cells["bt_pay_status"].Value.ToString();
+                paymeth = dataGridView1.Rows[e.RowIndex].Cells["bt_pay_method"].Value.ToString();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dialogResult = MessageBox.Show("Confirm return", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (paystat == "Paid")
+                {
+                    string date;
+                    string quer = "update borrowable_item set bitem_status = 'Available' where bitem_ID = " + id2 + "";
+                    c1.insert(quer);
+                    date = DateTime.Now.AddDays(1).ToString("yyyy/M/d");
+                    string quer2 = "update bitem_transaction set bt_ret= '" + date + "' where btrans_ID = " + id + "";
+                    c1.insert(quer2);
+                    tablecall();
+                    MessageBox.Show("Return Completed");
+                }
+
+                else
+                {
+                    MessageBox.Show("Cannot return item on unpaid transaction");
+                }
+
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Mark transaction as paid.", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                string quer = "update bitem_transaction set bt_pay_status= 'Paid' where btrans_ID = " + id + "";
+                c1.insert(quer);
+                tablecall();
+                
+
+            }
+            MessageBox.Show("Transaction successfully marked as paid");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Confirm change.", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (paymeth == "Cash" )
+                {
+                    string quer = "update bitem_transaction set bt_pay_method= 'Check' where btrans_ID = " + id + "";
+                    c1.insert(quer);
+                    tablecall();
+                }
+
+                else
+                {
+                    string quer = "update bitem_transaction set bt_pay_method= 'Cash' where btrans_ID = " + id + "";
+                    c1.insert(quer);
+                    tablecall();
+                }
+                MessageBox.Show("Payment method successfully changed");
+
+            }
+        }
+    }
 }
+
+
+

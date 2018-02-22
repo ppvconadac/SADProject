@@ -96,16 +96,27 @@ namespace BustosApartment_SAD_
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (txtuit.Text != "" && txtuin.Text != "" && comboBox4.Text != "") {
-                string quer = "update borrowable_item set bitem_name = '" + txtuin.Text + "', bitem_dmg_status = '" + comboBox4.Text + "' where  bitem_id = " + id + " ";
+
+            if (txtuin.Text == "" || txtuit.Text == "" || textBox1.Text == "" || textBox7.Text == "" || comboBox1.Text == "" || comboBox4.Text == "" || textBox9.Text == "")
+            {
+                MessageBox.Show("No empty fields, try again.");
+            }
+
+            else if (comboBox3.Text == "Out of Order" && comboBox2.Text != "Unavailable")
+            {
+                MessageBox.Show("Out of Order item must be set to Unavailable.");
+                comboBox2.Text = "Unavailable";
+            }
+
+            else
+            {
+
+                string quer = "update borrowable_item set bitem_name = '" + txtuin.Text + "', bitem_dmg_status = '" + comboBox4.Text + "', bitem_desc = '" + txtuit.Text + "', bitem_actual = '" + textBox1.Text + "',  bitem_rate = '" + textBox7.Text + "', bitem_status = '" + comboBox1.Text + "', bitem_dmg_rate = '" + textBox9.Text + "'  where  bitem_id = " + id + " ";
                 c1.insert(quer);
-              
                 MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tablecall();
-                
-            }
-            else {
-            }
+            }     
+    
         }
 
     }
