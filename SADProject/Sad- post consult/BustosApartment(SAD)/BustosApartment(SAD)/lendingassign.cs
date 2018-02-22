@@ -55,7 +55,7 @@ namespace BustosApartment_SAD_
 
                 if (comboBox2.Text == "Check" && comboBox1.Text == "Paid")
                 {
-                    MessageBox.Show("Check payment. Status set to pending.");
+                    MessageBox.Show("Payment by check. Status set to pending.");
                     comboBox1.Text = "Pending";
                 }
 
@@ -121,17 +121,11 @@ namespace BustosApartment_SAD_
             {
                 txtin.Text = dataGridView2.Rows[e.RowIndex].Cells["bitem_name"].Value.ToString();
                 id2 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
-                textBox2.Text = dataGridView2.Rows[e.RowIndex].Cells["bitem_rate"].Value.ToString();
                 rate= dataGridView2.Rows[e.RowIndex].Cells["bitem_rate"].Value.ToString();
+                textBox2.Text = rate;
                 b_avail =dataGridView2.Rows[e.RowIndex].Cells["bitem_status"].Value.ToString();
             }
 
-        }
-
-        private void txtin_TextChanged(object sender, EventArgs e)
-        {
-            
-            
         }
     }
 }

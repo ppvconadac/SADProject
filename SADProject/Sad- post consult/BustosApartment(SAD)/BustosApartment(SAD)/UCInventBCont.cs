@@ -42,17 +42,6 @@ namespace BustosApartment_SAD_
 
         }
 
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
            
@@ -63,8 +52,13 @@ namespace BustosApartment_SAD_
             if (e.RowIndex > -1)
             {
                 txtuin.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_name"].Value.ToString();
-                
-                txtuids.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_dmg_status"].Value.ToString();
+                comboBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_dmg_status"].Value.ToString();
+                txtuit.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_desc"].Value.ToString();
+                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_actual"].Value.ToString();
+                textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_rate"].Value.ToString();
+                comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_status"].Value.ToString();
+                comboBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_dmg_status"].Value.ToString();
+                textBox9.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_dmg_rate"].Value.ToString();
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bitem_id"].Value.ToString());
 
 
@@ -73,22 +67,26 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (txtin.Text== "" || textBox4.Text == "" || comboBox2.Text== "" || comboBox3.Text == "" || textBox3.Text =="" || textBox2.Text == "" || textBox8.Text == "") {
+                MessageBox.Show("No empty fields, try again.");
+            }
+
+            else if (comboBox3.Text == "Out of Order" && comboBox2.Text != "Unavailable") {
+                MessageBox.Show("Out of Order item must be set to Unavailable.");
+                comboBox2.Text = "Unavailable";
+            }
+
+            else
+            {
+                string quer = "insert into borrowable_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + textBox3.Text + "','" + textBox2.Text + "','" + textBox8.Text + "' )";
+                c1.insert(quer);
+                MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tablecall();
+            }
+
+
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void UCInventBCont_Load(object sender, EventArgs e)     
         {
@@ -98,13 +96,10 @@ namespace BustosApartment_SAD_
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (txtuit.Text != "" && txtuin.Text != "" && txtuids.Text != "") {
-                string quer = "update borrowable_item set bitem_name = '" + txtuin.Text + "', bitem_dmg_status = '" + txtuids.Text + "' where  bitem_id = " + id + " ";
+            if (txtuit.Text != "" && txtuin.Text != "" && comboBox4.Text != "") {
+                string quer = "update borrowable_item set bitem_name = '" + txtuin.Text + "', bitem_dmg_status = '" + comboBox4.Text + "' where  bitem_id = " + id + " ";
                 c1.insert(quer);
-                string quer2 = "select bitem_type_bitem_type_ID from borrowable_item where bitem_id = " + id + "";
-                DataTable dt = c1.select(quer2);
-                int id2 = int.Parse(dt.Rows[0][0].ToString());
-                string quer3 = "update bitem_type set bitem_type_name = '" + txtuit.Text + "' where bitem_type_id = " + id2 + "";
+              
                 MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tablecall();
                 
@@ -113,160 +108,6 @@ namespace BustosApartment_SAD_
             }
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label18_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtin_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtuids_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtuit_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtuis_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtuin_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label21_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
     

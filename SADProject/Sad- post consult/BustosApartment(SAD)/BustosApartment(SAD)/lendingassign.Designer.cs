@@ -163,7 +163,6 @@
             this.txtin.ReadOnly = true;
             this.txtin.Size = new System.Drawing.Size(398, 24);
             this.txtin.TabIndex = 84;
-            this.txtin.TextChanged += new System.EventHandler(this.txtin_TextChanged);
             // 
             // label3
             // 
