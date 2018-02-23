@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelMain2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Status";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -106,20 +107,21 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // panel2
+            // panelMain2
             // 
-            this.panel2.Location = new System.Drawing.Point(0, 71);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1104, 607);
-            this.panel2.TabIndex = 6;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.panelMain2.BackColor = System.Drawing.SystemColors.Control;
+            this.panelMain2.Location = new System.Drawing.Point(0, 71);
+            this.panelMain2.Name = "panelMain2";
+            this.panelMain2.Size = new System.Drawing.Size(1104, 607);
+            this.panelMain2.TabIndex = 6;
+            this.panelMain2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // UCOverHeader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
-            this.Controls.Add(this.panel2);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.panelMain2);
             this.Controls.Add(this.panel1);
             this.Name = "UCOverHeader";
             this.Size = new System.Drawing.Size(1104, 678);
@@ -134,7 +136,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelMain2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
     }

@@ -26,6 +26,16 @@ namespace BustosApartment_SAD_
         public UCOverHeader()
         {
             InitializeComponent();
+            if (!panelMain2.Controls.Contains(UCOverStatusCont.Instance))
+            {
+                panelMain2.Controls.Add(UCOverStatusCont.Instance);
+                UCOverStatusCont.Instance.Dock = DockStyle.Fill;
+                UCOverStatusCont.Instance.BringToFront();
+            }
+            else
+            {
+                UCOverStatusCont.Instance.BringToFront();
+            }
         }
 
         private void UserControl5_Load(object sender, EventArgs e)
@@ -56,6 +66,20 @@ namespace BustosApartment_SAD_
         private void button3_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!panelMain2.Controls.Contains(UCOverStatusCont.Instance))
+            {
+                panelMain2.Controls.Add(UCOverStatusCont.Instance);
+                UCOverStatusCont.Instance.Dock = DockStyle.Fill;
+                UCOverStatusCont.Instance.BringToFront();
+            }
+            else
+            {
+                UCOverStatusCont.Instance.BringToFront();
+            }
         }
     }
 }

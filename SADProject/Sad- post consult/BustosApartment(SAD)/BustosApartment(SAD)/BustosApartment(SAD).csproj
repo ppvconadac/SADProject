@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Calendar.NET">
+      <HintPath>..\packages\Calendar.NET.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -124,6 +127,12 @@
     </Compile>
     <Compile Include="UCInventHeader.Designer.cs">
       <DependentUpon>UCInventHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCOverStatusCont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCOverStatusCont.Designer.cs">
+      <DependentUpon>UCOverStatusCont.cs</DependentUpon>
     </Compile>
     <Compile Include="UCProfHeader.cs">
       <SubType>UserControl</SubType>
@@ -226,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCInventHeader.resx">
       <DependentUpon>UCInventHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCOverStatusCont.resx">
+      <DependentUpon>UCOverStatusCont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCProfHeader.resx">
       <DependentUpon>UCProfHeader.cs</DependentUpon>
