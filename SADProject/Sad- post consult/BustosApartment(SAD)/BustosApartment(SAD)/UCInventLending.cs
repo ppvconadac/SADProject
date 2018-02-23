@@ -12,10 +12,12 @@ namespace BustosApartment_SAD_
 {
     public partial class UCInventLending : UserControl
     {
-        public int id;
-        public int id2;
+        public static int id;
+        public static int id2;
         public string paystat;
         public string paymeth;
+        public static string fullname;
+        public static string itemname;
         private static UCInventLending _instance;
          Class1 c1 = new Class1();
         public static UCInventLending Instance
@@ -65,6 +67,8 @@ namespace BustosApartment_SAD_
                 id2= int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
                 paystat = dataGridView1.Rows[e.RowIndex].Cells["bt_pay_status"].Value.ToString();
                 paymeth = dataGridView1.Rows[e.RowIndex].Cells["bt_pay_method"].Value.ToString();
+                fullname = dataGridView1.Rows[e.RowIndex].Cells["full_name"].Value.ToString();
+                itemname = dataGridView1.Rows[e.RowIndex].Cells["bitem_name"].Value.ToString();
             }
         }
 
@@ -134,6 +138,12 @@ namespace BustosApartment_SAD_
                 MessageBox.Show("Payment method successfully changed");
 
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            lendingdamages1 ld = new lendingdamages1();
+            ld.Show();
         }
     }
 }
