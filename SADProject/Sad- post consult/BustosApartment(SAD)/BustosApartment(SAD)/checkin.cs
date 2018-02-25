@@ -14,6 +14,7 @@ namespace BustosApartment_SAD_
     {
     
         Class1 c = new Class1();
+ 
         public UserControl a3;
         public int pid;
         public checkin()
@@ -112,14 +113,14 @@ namespace BustosApartment_SAD_
                     string time = d.Rows[0]["room_time"].ToString();
                     if (time == "Monthly")
                     { 
-                        date = DateTime.Now.AddMonths(1).ToString("M/d/yyyy");
+                        date = DateTime.Now.AddMonths(1).ToString("yyy-M-d");
                     }
                     else
                     {
-                        date = DateTime.Now.AddDays(1).ToString("M/d/yyyy");
+                        date = DateTime.Now.AddDays(1).ToString("yyy-M-d");
                     }
                     
-                    string quer = "insert into room_transaction values(NULL, '" + DateTime.Now.ToString("M/d/yyyy") + "', '" + DateTime.Now.ToString("M/d/yyyy") + "'," +
+                    string quer = "insert into room_transaction values(NULL, '" + DateTime.Now.ToString("yyy-M-d") + "', '" + DateTime.Now.ToString("yyy-M-d") + "'," +
                         " '" + date + "','"+rc+"', '"+textBox1.Text+"',"+pid+","+a+" )";
 
                 c.insert(quer);

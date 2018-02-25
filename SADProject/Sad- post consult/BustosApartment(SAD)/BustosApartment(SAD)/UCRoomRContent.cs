@@ -93,11 +93,14 @@ namespace BustosApartment_SAD_
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            DateTime a = DateTime.Now;
+           
             DialogResult dialogResult = MessageBox.Show("Are you sure to Archive reservation?", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes) {
-                string quer = "update reservation set re_status = 1 where reservation_id = " + id1 + " ";
+                string quer = "update reservation set re_status = 1 and re_ardate = '"+DateTime.Now.ToString("yyy-M-d")+"'  where reservation_id = " + id1 + " ";
                 c1.insert(quer);
                 tablecall3();
+                
             }
 
         }
@@ -109,16 +112,7 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (button2.Text == "Reservation History")
-            {
-                tablecall2();
-                button2.Text = "Current Reservation List";
-                button3.Text = "Archived";
-            }
-            else {
-                tablecall3();
-                button2.Text = "Reservation History";
-            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -127,12 +121,18 @@ namespace BustosApartment_SAD_
             {
                 tablecall();
                 button3.Text = "Current Reservation List";
-                button2.Text = "Reservation History";
+                label5.Text = "ARCHIVED DATA";
+                label5.Location = new Point(797, 19);
+
+
+
             }
             else
             {
                 tablecall3();
                 button3.Text = "Archived";
+                label5.Text = "RESERVATION";
+                label5.Location = new Point(810, 19);
             }
 
         }

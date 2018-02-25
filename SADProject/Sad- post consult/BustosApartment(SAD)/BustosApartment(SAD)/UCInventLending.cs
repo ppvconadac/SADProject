@@ -153,6 +153,18 @@ namespace BustosApartment_SAD_
             lendingdamages1 ld = new lendingdamages1();
             ld.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Confirm Archive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (dialogResult == DialogResult.Yes) {
+                string quer = "update bitem_transaction set bt_trans_stat = 2 , bt_archive_date =" +
+                    " '"+DateTime.Now.ToString("yyy-M-d")+"', bt_archive_loggedin = "+FmLogin.id+" where btrans_ID = "+id+"";
+                c1.insert(quer);
+                tablecall();
+            }
+        }
     }
 }
 
