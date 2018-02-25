@@ -38,7 +38,7 @@ namespace BustosApartment_SAD_
         private Label label23;
         private TextBox textBox5;
 
-
+        Class1 c1 = new Class1();
         private static UCInventCCont _instance;
 
         public static UCInventCCont Instance
@@ -54,7 +54,9 @@ namespace BustosApartment_SAD_
         public UCInventCCont()
         {
             InitializeComponent();
+            tablecall();
         }
+        public string id;
 
         private void UCInventCCont_Load(object sender, EventArgs e)
         {
@@ -115,6 +117,7 @@ namespace BustosApartment_SAD_
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(670, 557);
             this.dataGridView1.TabIndex = 43;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // panel1
             // 
@@ -393,20 +396,67 @@ namespace BustosApartment_SAD_
 
         }
 
+        public void tablecall()
+        {
+            string quer = "select * from nonborrowable_item";
+            dataGridView1.DataSource = c1.select(quer);
+            dataGridView1.Columns["nitem_ID"].Visible = false;
+            dataGridView1.Columns["nt_archive_date"].Visible = false;
+            dataGridView1.Columns["nt_archive_loggedin"].Visible = false;
+            dataGridView1.Columns["nitem_stat"].Visible = false;
+            dataGridView1.ClearSelection();
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
+            if (txtuin.Text == "" || txtuit.Text == "" || textBox7.Text == "")
+            {
+                MessageBox.Show("No empty fields, try again.");
+            }
 
+            else
+            {
+                string quer = "update nonborrowable_item set nitem_name= '" + txtuin.Text + "', nitem_desc = '" + txtuit.Text + "', nitem_price= '" + textBox7.Text + "'";
+                c1.insert(quer);
+                MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tablecall();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (txtin.Text== "" || textBox4.Text == "" || textBox3.Text== "" ) {
+                MessageBox.Show("No empty fields, try again.");
+            }
+
+            else
+            {
+                string quer = "insert into nonborrowable_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "', '"+ textBox3.Text+"', 0, NULL,NULL )";
+                c1.insert(quer);
+                MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tablecall();
+            }
+
 
         }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                txtuin.Text = dataGridView1.Rows[e.RowIndex].Cells["nitem_name"].Value.ToString();
+                textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells["nitem_desc"].Value.ToString();
+                txtuit.Text = dataGridView1.Rows[e.RowIndex].Cells["nitem_price"].Value.ToString();
+                id = dataGridView1.Rows[e.RowIndex].Cells["nitem_ID"].Value.ToString();
+
+
+            }
+        }
     }
 }
