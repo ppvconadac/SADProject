@@ -173,6 +173,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "UCInventLending";
             this.Size = new System.Drawing.Size(1104, 619);
+            this.Load += new System.EventHandler(this.UCInventLending_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

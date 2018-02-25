@@ -15,8 +15,10 @@ namespace BustosApartment_SAD_
     {
         public static int id;
         public static int id2;
+        public int id3;
         public string paystat;
         public string paymeth;
+        public string rate;
         public static string fullname;
         public static string itemname;
         private static UCInventLending _instance;
@@ -39,7 +41,8 @@ namespace BustosApartment_SAD_
 
         public void tablecall()
         {
-            string quer = "select bitem_name, bitem_status,  concat(profile_fname,profile_mname,profile_lname) as full_name, btrans_id,bt_date,bt_pay_method,bt_pay_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and user_id = profile_user_id and bitem_status= 'In Use' and bt_trans_stat =0";
+            
+            string quer = "select bitem_name, bitem_status,  concat(profile_fname,profile_mname,profile_lname) as full_name, btrans_id,bt_date,bt_pay_method,bt_pay_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID,bitem_rate from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and user_id = profile_user_id and bitem_status= 'In Use' and bt_trans_stat =0";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["bitem_ID"].Visible = false;
             dataGridView1.Columns["User_id"].Visible = false;
@@ -48,6 +51,8 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["borrowable_item_bitem_ID"].Visible = false;
             dataGridView1.Columns["bt_trans_stat"].Visible = false;
             dataGridView1.Columns["btrans_id"].Visible = false;
+            dataGridView1.Columns["bitem_rate"].Visible = false;
+            dataGridView1.ClearSelection();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,10 +72,12 @@ namespace BustosApartment_SAD_
             {
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["btrans_id"].Value.ToString());
                 id2= int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
+                id3 = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["Profile_user_ID"].Value.ToString());
                 paystat = dataGridView1.Rows[e.RowIndex].Cells["bt_pay_status"].Value.ToString();
                 paymeth = dataGridView1.Rows[e.RowIndex].Cells["bt_pay_method"].Value.ToString();
                 fullname = dataGridView1.Rows[e.RowIndex].Cells["full_name"].Value.ToString();
                 itemname = dataGridView1.Rows[e.RowIndex].Cells["bitem_name"].Value.ToString();
+                rate = dataGridView1.Rows[e.RowIndex].Cells["bitem_rate"].Value.ToString();
             }
         }
 
@@ -118,11 +125,22 @@ namespace BustosApartment_SAD_
                 string date = date = DateTime.Now.ToString("yyyy/M/d");
                 string quer2 = "update bitem_transaction set bt_pay_date= '" + date + "' where btrans_ID = " + id + "";
                 c1.insert(quer2);
+
+                string quer3 = "select Profile_balance from profile where user_ID = '" + id3 + "'";
+                DataTable d = c1.select(quer3);
+                string balance = d.Rows[0]["Profile_balance"].ToString();
+                int bal = int.Parse(balance);
+                int rt = int.Parse(rate);
+                bal = bal - rt;
+                string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id3 + "";
+                c1.insert(quer4);
+
+                MessageBox.Show("Transaction successfully marked as paid");
                 tablecall();
                 
 
             }
-            MessageBox.Show("Transaction successfully marked as paid");
+           
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -158,7 +176,7 @@ namespace BustosApartment_SAD_
         private void button5_Click(object sender, EventArgs e)
         {
 
-            lendingpass ch = new lendingpass();
+            authorizearch ch = new authorizearch();
             ch.a3 = this;
             DialogResult result = ch.ShowDialog();
             if (result == DialogResult.Yes)
@@ -170,6 +188,19 @@ namespace BustosApartment_SAD_
                     string quer = "update bitem_transaction set bt_trans_stat = 2 , bt_archive_date =" +
                         " '" + DateTime.Now.ToString("yyy-M-d") + "', bt_archive_loggedin = " + FmLogin.id + " where btrans_ID = " + id + "";
                     c1.insert(quer);
+
+                    string quer2 = "update borrowable_item set bitem_status = 'Available' where bitem_ID = " + id2 + "";
+                    c1.insert(quer2);
+
+                    string quer3 = "select Profile_balance from profile where user_ID = '" + id3 + "'";
+                    DataTable d = c1.select(quer3);
+                    string balance = d.Rows[0]["Profile_balance"].ToString();
+                    int bal = int.Parse(balance);
+                    int rt = int.Parse(rate);
+                    bal = bal - rt;
+                    string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id3 + "";
+                    c1.insert(quer4);
+
                     tablecall();
                 }
 
@@ -177,6 +208,11 @@ namespace BustosApartment_SAD_
 
 
            
+        }
+
+        private void UCInventLending_Load(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }
