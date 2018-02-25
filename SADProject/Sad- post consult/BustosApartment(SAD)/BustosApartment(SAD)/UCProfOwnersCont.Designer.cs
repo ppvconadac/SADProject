@@ -76,6 +76,10 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -131,11 +135,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.label5.Location = new System.Drawing.Point(773, 19);
+            this.label5.Location = new System.Drawing.Point(763, 19);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(224, 25);
+            this.label5.Size = new System.Drawing.Size(264, 25);
             this.label5.TabIndex = 39;
-            this.label5.Text = "OWNER PROFILING";
+            this.label5.Text = "EMPLOYEE PROFILING";
             // 
             // panel2
             // 
@@ -162,6 +166,8 @@
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage1.Controls.Add(this.label13);
+            this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.txtlname);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.label17);
@@ -296,6 +302,8 @@
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.comboBox2);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.txtlname2);
             this.tabPage2.Controls.Add(this.label6);
@@ -604,6 +612,47 @@
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Owner",
+            "Employee"});
+            this.comboBox1.Location = new System.Drawing.Point(19, 276);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(359, 26);
+            this.comboBox1.TabIndex = 46;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(17, 255);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(114, 18);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "Employee Type:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 255);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(114, 18);
+            this.label14.TabIndex = 71;
+            this.label14.Text = "Employee Type:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Owner",
+            "Employee"});
+            this.comboBox2.Location = new System.Drawing.Point(19, 276);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(359, 26);
+            this.comboBox2.TabIndex = 70;
+            // 
             // UCProfOwnersCont
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -677,5 +726,9 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

@@ -77,7 +77,7 @@ namespace BustosApartment_SAD_
 
         public void tablecall()
         {
-            String query = "select * from profile";          
+            string query = "select * from profile";          
             dataGridView1.DataSource = c.select(query);
             dataGridView1.Columns["User_id"].Visible = false;
             
@@ -92,7 +92,11 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["profile_lname"].HeaderText = "Last Name";
             dataGridView1.Columns["Profile_balance"].HeaderText = "Balance";
         }
-
+        public void histcall() {
+            string quer = "select rtrans_ID, room_number, rt_date_start, rt_date_expire from room_transaction inner join room inner join profile" +
+                " where room_room_id = room_id and profile_user_id = user_id and user_id =  " + a + "";
+            dataGridView2.DataSource = c.select(quer);
+        }
       
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -130,6 +134,7 @@ namespace BustosApartment_SAD_
                 label22.Text = b;
                 label23.Text = dataGridView1.Rows[e.RowIndex].Cells["profile_idn"].Value.ToString(); 
                 a = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["user_ID"].Value.ToString());
+                histcall();
             }
         }
 
@@ -282,6 +287,9 @@ namespace BustosApartment_SAD_
             }
         }
 
-    
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

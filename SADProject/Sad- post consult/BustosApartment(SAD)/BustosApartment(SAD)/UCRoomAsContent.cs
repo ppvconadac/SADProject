@@ -30,11 +30,38 @@ namespace BustosApartment_SAD_
         {
             InitializeComponent();
             tablecall();
+            check();
         }
         public void onload() {
             tablecall();
             this.Refresh();
 
+        }
+        public void check() {
+            DataTable d = new DataTable();
+            int count = 0;
+            
+            string quer = "SELECT rtrans_id,rt_date_expire, room_number FROM room_transaction inner join room inner join profile where" +
+                " profile_user_id = user_id and room_room_id = room_id and room_status = 'Using'";
+            d = c.select(quer);
+            string[] arr = new string[d.Rows.Count];
+            if (d.Rows.Count > 0)
+            {
+                for (int i = 0; i < d.Rows.Count; i++)
+                {
+                    if (Convert.ToDateTime(d.Rows[i]["rt_date_expire"].ToString()) >= DateTime.Now)
+                    {
+                        count++;
+                        arr[i] = d.Rows[i]["room_number"].ToString();
+                    }
+                    
+                }
+                string message ="The following Room/s had passed the expiration date of the room:" + Environment.NewLine;
+                for (int k =0; k< count; k++) {
+                    message = message + arr[k] + Environment.NewLine;
+                }
+                MessageBox.Show(message, "Expired", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         public void tablecall()
         {
