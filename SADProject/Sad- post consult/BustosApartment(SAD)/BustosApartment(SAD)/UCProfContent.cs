@@ -197,7 +197,13 @@ namespace BustosApartment_SAD_
         private void button1_Click(object sender, EventArgs e)
         {
             // cn -1 fn- 2 ln- 3 nu-4 add- 6 id-8
-            int idt;    
+            int idt;
+            try {
+                int.Parse(textBox4.Text);
+            }
+            catch{
+                MessageBox.Show("Invalid Input: Must Contain Numbers", "Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             if (comboBox1.Text =="Passport") {
                 idt = 1;
             }
@@ -210,10 +216,10 @@ namespace BustosApartment_SAD_
             if (textBox1.Text != "" && textBox2.Text != "" && textBox15.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox6.Text != "" && textBox8.Text != "" && comboBox1.Text != "")
             {
                 if (textBox4.Text.Length != 11) {
-                    MessageBox.Show("Invalid Input", "Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Invalid Input: Must contain 11 Numbers", "Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else {
-                    string q = "insert into profile values(NULL, '" + textBox1.Text + "','" + textBox2.Text + "', '" + textBox15.Text + "', '" + textBox3.Text + "','" + textBox6.Text + "','" + textBox4.Text + "', 0 , " + idt + ",'" + textBox8.Text + "')";
+                    string q = "insert into profile values(NULL, '" + textBox1.Text + "','" + textBox2.Text + "', '" + textBox15.Text + "', '" + textBox3.Text + "','" + textBox6.Text + "','" + textBox4.Text + "', 0 , " + idt + ",'" + textBox8.Text + "', '')";
                     c.insert(q);
                     MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     textBox1.Text = "";
