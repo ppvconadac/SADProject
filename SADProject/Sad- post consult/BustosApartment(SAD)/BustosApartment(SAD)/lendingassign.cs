@@ -60,30 +60,43 @@ namespace BustosApartment_SAD_
                 }
 
               
-                    DialogResult dialogResult = MessageBox.Show("Confirm lending", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    DialogResult dialogResult = MessageBox.Show("Confirm lending", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                        date = DateTime.Now.AddDays(1).ToString("yyyy/M/d");
-                        string quer = "insert into bitem_transaction values(NULL, '" + date + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + id + "','" + id2 + "', 0 , NULL )";
+                    string quer;
+                    date = DateTime.Now.ToString("yyyy/M/d");
 
-                        c.insert(quer);
-                        string quer2 = "update borrowable_item set bitem_status = 'In Use' where bitem_ID = " + id2 + "";
+                    if (comboBox1.Text == "Paid")
+                    {
+
+                         quer = "insert into bitem_transaction values(NULL, '" + date + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + id + "','" + id2 + "', 0 , NULL, '"+date+"', 0, NULL, NULL )";
+
+                    }
+
+                    else
+                    {
+                        quer = "insert into bitem_transaction values(NULL, '" + date + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + id + "','" + id2 + "', 0 , NULL, NULL, 0, NULL, NULL )";
+
+                    }
+
+
+                    c.insert(quer);
+                    string quer2 = "update borrowable_item set bitem_status = 'In Use' where bitem_ID = " + id2 + "";
                         c.insert(quer2);
 
                         if(comboBox1.Text == "Pending")
-                    {
-                        int bal = int.Parse(balance);
-                        int rt = int.Parse(rate);
-                        bal = bal + rt;
+                        {
+                            int bal = int.Parse(balance);
+                            int rt = int.Parse(rate);
+                            bal = bal + rt;
+                            string quer3 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = "+id+"";
+                            c.insert(quer3);
+                        }
+
                         
 
-                        string quer3 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = "+id+"";
-                        c.insert(quer3);
-
-                        
-                    }
 
                         //  this.Close();
                         this.DialogResult = DialogResult.Yes;

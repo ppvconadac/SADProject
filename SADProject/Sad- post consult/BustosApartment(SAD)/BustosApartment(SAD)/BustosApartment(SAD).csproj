@@ -93,12 +93,6 @@
     <Compile Include="lendingdamages1.Designer.cs">
       <DependentUpon>lendingdamages1.cs</DependentUpon>
     </Compile>
-    <Compile Include="lendingpaystatcs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="lendingpaystatcs.Designer.cs">
-      <DependentUpon>lendingpaystatcs.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reserve.cs">
@@ -208,9 +202,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="lendingdamages1.resx">
       <DependentUpon>lendingdamages1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="lendingpaystatcs.resx">
-      <DependentUpon>lendingpaystatcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

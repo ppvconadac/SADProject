@@ -37,17 +37,33 @@ namespace BustosApartment_SAD_
         {
             string date;
            
-                DialogResult dialogResult = MessageBox.Show("Confirm report", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show("Confirm report", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    date = DateTime.Now.AddDays(1).ToString("yyyy/M/d");
+                    date = DateTime.Now.ToString("yyyy/M/d");
                     string quer = "insert into bitem_damage_transaction values(NULL, '" + date + "','" + textBox2.Text + "','" + UCInventLending.id + "','" + UCInventLending.id2 + "','" + comboBox2.Text + "','" +comboBox1.Text+"',  NULL )";
 
                     c1.insert(quer);
                     string quer2 = "update borrowable_item set bitem_dmg_status = '"+comboBox3.Text+"' where bitem_ID = " + UCInventLending.id2 + "";
                     c1.insert(quer2);
+
+                    if (comboBox3.Text == "Out of Order")
+                {
+                    string quer3 = "update borrowable_item set bitem_status = 'Unavailable' where bitem_ID = " + UCInventLending.id2 + "";
+                    c1.insert(quer3);
+                }
+                else
+                {
+                    DialogResult dialogResult2 = MessageBox.Show("Set item as unavailable?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (dialogResult2 == DialogResult.Yes)
+                    {
+                        String quer3 = "update borrowable_item set bitem_status = 'Unavailable' where bitem_ID = " + UCInventLending.id2 + "";
+                        c1.insert(quer3);
+                    }
+           
+                }
 
                   
 

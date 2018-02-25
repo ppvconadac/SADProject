@@ -50,7 +50,6 @@
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.textBox2.Location = new System.Drawing.Point(12, 176);
             this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(398, 24);
             this.textBox2.TabIndex = 128;
             // 
@@ -186,7 +185,6 @@
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
-            "Functional",
             "Damaged",
             "Out of Order"});
             this.comboBox3.Location = new System.Drawing.Point(12, 126);
