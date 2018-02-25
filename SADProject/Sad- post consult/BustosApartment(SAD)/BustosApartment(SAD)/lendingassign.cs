@@ -71,13 +71,13 @@ namespace BustosApartment_SAD_
                     if (comboBox1.Text == "Paid")
                     {
 
-                         quer = "insert into bitem_transaction values(NULL, '" + date + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + id + "','" + id2 + "', 0 , NULL, '"+date+"', 0, NULL, NULL )";
+                         quer = "insert into bitem_transaction values(NULL, '" + date + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + id + "','" + id2 + "', NULL, '"+date+"', 0, NULL, NULL )";
 
                     }
 
                     else
                     {
-                        quer = "insert into bitem_transaction values(NULL, '" + date + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + id + "','" + id2 + "', 0 , NULL, NULL, 0, NULL, NULL )";
+                        quer = "insert into bitem_transaction values(NULL, '" + date + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + id + "','" + id2 + "', NULL , NULL, 0, NULL, NULL )";
 
                     }
 

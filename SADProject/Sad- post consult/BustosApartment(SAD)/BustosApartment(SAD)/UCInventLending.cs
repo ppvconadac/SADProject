@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace BustosApartment_SAD_
 {
     public partial class UCInventLending : UserControl
@@ -38,7 +39,7 @@ namespace BustosApartment_SAD_
 
         public void tablecall()
         {
-            string quer = "select bitem_name, bitem_status,  concat(profile_fname,profile_mname,profile_lname) as full_name, btrans_id,bt_date,bt_pay_method,bt_pay_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and bt_archive = 0 and user_id = profile_user_id and bitem_status= 'In Use' and bt_trans_stat =0";
+            string quer = "select bitem_name, bitem_status,  concat(profile_fname,profile_mname,profile_lname) as full_name, btrans_id,bt_date,bt_pay_method,bt_pay_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and user_id = profile_user_id and bitem_status= 'In Use' and bt_trans_stat =0";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["bitem_ID"].Visible = false;
             dataGridView1.Columns["User_id"].Visible = false;
@@ -156,14 +157,26 @@ namespace BustosApartment_SAD_
 
         private void button5_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Confirm Archive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-            if (dialogResult == DialogResult.Yes) {
-                string quer = "update bitem_transaction set bt_trans_stat = 2 , bt_archive_date =" +
-                    " '"+DateTime.Now.ToString("yyy-M-d")+"', bt_archive_loggedin = "+FmLogin.id+" where btrans_ID = "+id+"";
-                c1.insert(quer);
-                tablecall();
+            lendingpass ch = new lendingpass();
+            ch.a3 = this;
+            DialogResult result = ch.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                DialogResult dialogResult = MessageBox.Show("Confirm Archive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string quer = "update bitem_transaction set bt_trans_stat = 2 , bt_archive_date =" +
+                        " '" + DateTime.Now.ToString("yyy-M-d") + "', bt_archive_loggedin = " + FmLogin.id + " where btrans_ID = " + id + "";
+                    c1.insert(quer);
+                    tablecall();
+                }
+
             }
+
+
+           
         }
     }
 }

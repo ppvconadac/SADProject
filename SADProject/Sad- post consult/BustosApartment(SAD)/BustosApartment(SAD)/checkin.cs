@@ -135,10 +135,7 @@ namespace BustosApartment_SAD_
 
 
             }
-            else {
-                
-                
-            }
+            
         }
 
         private void checkin_Load(object sender, EventArgs e)
