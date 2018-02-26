@@ -75,6 +75,7 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["username"].Visible = false;
             dataGridView1.Columns["password"].Visible = false;
             dataGridView1.Columns["remarks"].Visible = false;
+            dataGridView1.ClearSelection();
 
 
         }

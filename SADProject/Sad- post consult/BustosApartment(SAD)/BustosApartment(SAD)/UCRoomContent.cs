@@ -45,6 +45,7 @@ namespace BustosApartment_SAD_
                 "where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID";
             dataGridView1.DataSource = c.select(query);
             dataGridView1.Columns["room_ID"].Visible = false;
+            dataGridView1.ClearSelection();
         }
         private void UCRoomContent_Load(object sender, EventArgs e)
         {

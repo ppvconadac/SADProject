@@ -69,6 +69,7 @@ namespace BustosApartment_SAD_
             String query = "SELECT room_id, room_number, room_desc, owner_fname, room_time, room_status FROM room inner join owner inner join room_classification " +
                 "where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID";
             dataGridView1.DataSource = c.select(query);
+            dataGridView1.ClearSelection();
 
 
         }

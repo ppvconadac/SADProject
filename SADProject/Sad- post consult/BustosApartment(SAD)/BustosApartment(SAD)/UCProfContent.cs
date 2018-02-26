@@ -91,11 +91,13 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["profile_mname"].HeaderText = "Middle Name";
             dataGridView1.Columns["profile_lname"].HeaderText = "Last Name";
             dataGridView1.Columns["Profile_balance"].HeaderText = "Balance";
+            dataGridView1.ClearSelection();
         }
         public void histcall() {
             string quer = "select rtrans_ID, room_number, rt_date_start, rt_date_expire from room_transaction inner join room inner join profile" +
                 " where room_room_id = room_id and profile_user_id = user_id and user_id =  " + a + "";
             dataGridView2.DataSource = c.select(quer);
+            dataGridView2.ClearSelection();
         }
       
 

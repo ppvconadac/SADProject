@@ -59,6 +59,7 @@ namespace BustosApartment_SAD_
           
             dataGridView2.DataSource = c1.select(quer);
             dataGridView2.Columns["re_status"].Visible = false;
+            dataGridView2.ClearSelection();
     
         
             
@@ -69,6 +70,7 @@ namespace BustosApartment_SAD_
              ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND re_date < curdate() AND re_status = 0";
             dataGridView2.DataSource = c1.select(quer);
             dataGridView2.Columns["re_status"].Visible = false;
+            dataGridView2.ClearSelection();
 
         }
         public void tablecall() {
@@ -76,6 +78,7 @@ namespace BustosApartment_SAD_
             ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id  AND Room_Room_ID = room_id AND re_status = 1";
             dataGridView2.DataSource = c1.select(quer);
             dataGridView2.Columns["re_status"].Visible = false;
+            dataGridView2.ClearSelection();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
