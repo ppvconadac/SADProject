@@ -398,7 +398,7 @@ namespace BustosApartment_SAD_
 
         public void tablecall()
         {
-            string quer = "select * from nonborrowable_item";
+            string quer = "select * from nonborrowable_item where nitem_stat = 0";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["nitem_ID"].Visible = false;
             dataGridView1.Columns["nt_archive_date"].Visible = false;
@@ -418,6 +418,9 @@ namespace BustosApartment_SAD_
             {
                 string quer = "update nonborrowable_item set nitem_name= '" + txtuin.Text + "', nitem_desc = '" + txtuit.Text + "', nitem_price= '" + textBox7.Text + "'";
                 c1.insert(quer);
+                txtuin.Text = "";
+                textBox7.Text = "";
+                txtuit.Text = "";
                 MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tablecall();
             }
@@ -431,9 +434,12 @@ namespace BustosApartment_SAD_
 
             else
             {
-                string quer = "insert into nonborrowable_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "', '"+ textBox3.Text+"', 0, NULL,NULL )";
+                string quer = "insert into nonborrowable_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "', '"+ textBox3.Text+"', 0, NULL,NULL, 0)";
                 c1.insert(quer);
                 MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtin.Text = "";
+                textBox4.Text = "";
+                textBox3.Text = "";
                 tablecall();
             }
 
@@ -443,7 +449,27 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            authorizearch ch = new authorizearch();
+            ch.a3 = this;
+            DialogResult result = ch.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                DialogResult dialogResult = MessageBox.Show("Confirm Archive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string quer = "update nonborrowable_item set nitem_stat = 1 , nt_archive_date =" +
+                        " '" + DateTime.Now.ToString("yyy-M-d") + "', nt_archive_loggedin = " + FmLogin.id + " where nitem_ID = " + id + "";
+                    c1.insert(quer);
+
+                    txtuin.Text = "";
+                    textBox7.Text = "";
+                    txtuit.Text = "";
+
+                    tablecall();
+                }
+
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
