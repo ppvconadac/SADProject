@@ -110,18 +110,19 @@ namespace BustosApartment_SAD_
                 DataTable d = c.select(q);
            
                     string rc = d.Rows[0]["RC_rate"].ToString();
+                int rc2 = int.Parse(numericUpDown1.Text) * int.Parse(d.Rows[0]["RC_rate"].ToString());
                     string time = d.Rows[0]["room_time"].ToString();
                     if (time == "Monthly")
                     { 
-                        date = DateTime.Now.AddMonths(1).ToString("yyy-M-d");
+                        date = DateTime.Now.AddMonths(int.Parse(numericUpDown1.Text)).ToString("yyy-M-d");
                     }
                     else
                     {
-                        date = DateTime.Now.AddDays(1).ToString("yyy-M-d");
+                        date = DateTime.Now.AddDays(int.Parse(numericUpDown1.Text)).ToString("yyy-M-d");
                     }
                     
-                    string quer = "insert into room_transaction values(NULL, '" + DateTime.Now.ToString("yyy-M-d") + "', '" + DateTime.Now.ToString("yyy-M-d") + "'," +
-                        " '" + date + "','"+rc+"', '"+textBox1.Text+"',"+pid+","+a+" )";
+                    string quer = "insert into room_transaction values(NULL, '" + "Assigned" + "', '" + DateTime.Now.ToString("yyy-M-d") + "'," +
+                        " '" + date + "','"+rc2+"', '"+textBox1.Text+"',"+pid+","+a+",NULL )";
 
                 c.insert(quer);
                 string quer2 = "update room set room_status = 'Using' where room_id = " + a + "";

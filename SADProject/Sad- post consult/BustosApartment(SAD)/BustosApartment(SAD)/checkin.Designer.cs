@@ -44,8 +44,11 @@
             this.txtown = new System.Windows.Forms.Label();
             this.txtrate = new System.Windows.Forms.Label();
             this.txttime = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -101,7 +104,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox1.Location = new System.Drawing.Point(575, 149);
+            this.textBox1.Location = new System.Drawing.Point(575, 143);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(185, 23);
             this.textBox1.TabIndex = 20;
@@ -118,7 +121,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(575, 133);
+            this.label1.Location = new System.Drawing.Point(572, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 22;
@@ -202,11 +205,29 @@
             this.txttime.TabIndex = 66;
             this.txttime.Text = "PLACE HOLDER";
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(578, 202);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(182, 20);
+            this.numericUpDown1.TabIndex = 67;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(575, 186);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 68;
+            this.label4.Text = "Days/Months:";
+            // 
             // checkin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 326);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.txttime);
             this.Controls.Add(this.txtrate);
             this.Controls.Add(this.txtown);
@@ -227,6 +248,7 @@
             this.Load += new System.EventHandler(this.checkin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +271,7 @@
         private System.Windows.Forms.Label txtown;
         private System.Windows.Forms.Label txtrate;
         private System.Windows.Forms.Label txttime;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label4;
     }
 }
