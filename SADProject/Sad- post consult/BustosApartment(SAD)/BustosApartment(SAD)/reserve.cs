@@ -70,6 +70,7 @@ namespace BustosApartment_SAD_
         private void reserve_Load(object sender, EventArgs e)
         {
             dateTimePicker1.CustomFormat = "yyy-M-d";
+            dateTimePicker2.CustomFormat = "yyy-M-d";
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -112,22 +113,32 @@ namespace BustosApartment_SAD_
         {
             int a = UCRoomAsContent.id;
             DateTime check;
-           
-            string e3 = dateTimePicker1.Text;
-            string quer = "select re_date from reservation where re_date = '" + e3+ "'";
-            DataTable d = c.select(quer);
-            if (d.Rows.Count > 0)
+            DateTime d1 = Convert.ToDateTime(dateTimePicker1.Text);
+            DateTime d2 = Convert.ToDateTime(dateTimePicker2.Text);
+            bool b = true;
+            string quer = "";
+            int gap = int.Parse((d2 - d1).TotalDays.ToString());
+         
+            for (int i = 0; gap > i; i++) {
+                string quer1 = "select re_date from reservation where re_date = '" + Convert.ToDateTime(dateTimePicker1.Text).AddDays(i).ToString("yyy-M-d") + "'";
+                DataTable d = c.select(quer1);
+                if (d.Rows.Count > 0)
+                {
+                    b = false;
+                  
+                }
+            }
+
+
+            if (d2 < d1)
             {
-                MessageBox.Show("Date Has already been Reserved!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ending date has passed the beginning date!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-          
-          
-
-            else
+            else if (b == true)
             {
                 DialogResult dialogResult =
-             MessageBox.Show("Are you sure to reserve this person to this room?", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);   
+             MessageBox.Show("Are you sure to reserve this person to this room?", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.Yes)
                 {
 
@@ -141,7 +152,7 @@ namespace BustosApartment_SAD_
 
                     else
                     {
-                        quer = "insert into reservation values(NULL, '" + dateTimePicker1.Text + "', " + pid + ", " + a + " , '0'  )";
+                        quer = "insert into reservation values(NULL, '" + dateTimePicker1.Text + "','" + dateTimePicker2.Text + "' ,  " + pid + ", " + a + " , '0', '0'  )";
                         c.insert(quer);
 
                         this.DialogResult = DialogResult.Yes;
@@ -149,6 +160,9 @@ namespace BustosApartment_SAD_
 
                     }
                 }
+            }
+            else {
+                MessageBox.Show("Date Has already been Reserved!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

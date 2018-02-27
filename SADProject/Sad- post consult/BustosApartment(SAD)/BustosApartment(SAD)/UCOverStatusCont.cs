@@ -47,20 +47,48 @@ namespace BustosApartment_SAD_
         }
         public void calendarcall() {
             DataTable d = new DataTable();
-            string quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
+            DataTable d2 = new DataTable();
+            string quer = "select reservation_id, re_dateexp, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
                ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND re_date > curdate() AND re_status = 0";
             d = c.select(quer);
-
+            string quer2 = "select CONCAT(profile_fname, profile_mname, profile_lname) as Name, room_number, rt_date_start, rt_date_expire " +
+                "from room_transaction inner join room inner join profile where Profile_user_ID = user_id AND Room_Room_ID = room_id and rt_type = 'Assigned'";
+            d2 = c.select(quer2);
             for (int i = 0; i < d.Rows.Count; i++)
             {
                 DateTime a = Convert.ToDateTime(d.Rows[i]["re_date"]);
-                var exerciseEvent = new CustomEvent
+                DateTime b = Convert.ToDateTime(d.Rows[i]["re_dateexp"]);
+                int c = int.Parse((b - a).TotalDays.ToString());
+                for (int j =0; j<c; j++) {
+                    var exerciseEvent = new CustomEvent
+                    {
+                        Date = a.AddDays(j),
+                        EventText = "RESERVE: " + d.Rows[i]["Name"] + " " + Environment.NewLine + " ROOM:" + d.Rows[i]["room_number"] + ""
+                    };
+                    calendar1.AddEvent(exerciseEvent);
+                }            
+            }
+            for (int i = 0; i < d.Rows.Count; i++)
+            {
+                DateTime a = Convert.ToDateTime(d2.Rows[i]["rt_date_start"]);
+                DateTime b = Convert.ToDateTime(d2.Rows[i]["rt_date_expire"]);
+            
+               
+                  
+                    var exerciseEvent = new CustomEvent
+                    {
+                        Date = a,
+                        EventText = "ASSIGNED: " + d2.Rows[i]["Name"] + " " + Environment.NewLine + " ROOM:" + d2.Rows[i]["room_number"] + ""
+                    };
+                    calendar1.AddEvent(exerciseEvent);
+                var exerciseEvent2 = new CustomEvent
                 {
-                    Date = a,
-                    EventText = "RESERVE: " + d.Rows[i]["Name"] + ""
+                    Date = b,
+                    EventText = "Assigned Until: " + d2.Rows[i]["Name"] + " " + Environment.NewLine + " ROOM:" + d2.Rows[i]["room_number"] + ""
                 };
+                calendar1.AddEvent(exerciseEvent2);
 
-                calendar1.AddEvent(exerciseEvent);
+
             }
         }
         private void calendar1_Load(object sender, EventArgs e)

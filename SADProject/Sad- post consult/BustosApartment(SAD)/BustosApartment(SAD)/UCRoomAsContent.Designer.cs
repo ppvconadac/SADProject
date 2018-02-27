@@ -135,6 +135,7 @@
             this.button5.TabIndex = 60;
             this.button5.Text = "Archive Entry";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // dataGridView2
             // 

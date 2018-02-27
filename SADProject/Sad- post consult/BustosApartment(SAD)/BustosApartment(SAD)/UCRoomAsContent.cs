@@ -91,7 +91,7 @@ namespace BustosApartment_SAD_
         {
 
             String query = "SELECT room_id, room_number, room_time, room_status FROM room  inner join room_classification" +
-                " where Room_classification_classification_ID = classification_ID and room_status = 'Available'";
+                " where Room_classification_classification_ID = classification_ID ";
             dataGridView1.DataSource = c.select(query);
             dataGridView1.ClearSelection();
 
@@ -105,15 +105,24 @@ namespace BustosApartment_SAD_
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            checkin ch = new checkin();
-            ch.a3 = this;
-            DialogResult result = ch.ShowDialog();
-            if (result == DialogResult.Yes)
-            {
-                tablecall();
-                tablecall2();
+            string quer = "select room_status from room where room_id = "+id+"";
+            DataTable d = c.select(quer);
+            if (id == 0) {
+                MessageBox.Show("please select a row", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
+            else if (d.Rows[0]["room_status"].ToString() == "Using") {
+                MessageBox.Show("Room is Using", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else {
+                checkin ch = new checkin();
+                ch.a3 = this;
+                DialogResult result = ch.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    tablecall();
+                    tablecall2();
+                }
+            }
 
 
         }
@@ -170,21 +179,31 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string q = "select room_status from room where room_id = " + id3 + "";
-            DataTable d = c.select(q);
-            string a = d.Rows[0]["room_status"].ToString();
-            if (a == "Using")
+            if (id5 == 0)
             {
-                string quer = "update room set room_status = 'Available' where room_id = " + id3 + "";
-                c.insert(quer);
-                string quer2 = "update room_transaction set rt_type = 'Expire' where rtrans_id = " + id4 + "";
-                c.insert(quer2);
-                tablecall();
-                tablecall2();
+                MessageBox.Show("please select a row", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Cannot check out since room is " + a + "", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string q = "select room_status from room where room_id = " + id3 + "";
+                DataTable d = c.select(q);
+                string a = d.Rows[0]["room_status"].ToString();
+                if (a == "Using")
+                {
+                    string quer = "update room set room_status = 'Available' where room_id = " + id3 + "";
+                    c.insert(quer);
+                    string quer2 = "update room_transaction set rt_type = 'Expire' where rtrans_id = " + id4 + "";
+                    c.insert(quer2);
+                    id = 0;
+                    id5 = 0;
+                    tablecall();
+                    tablecall2();
+                }
+                else
+                {
+                    MessageBox.Show("Cannot check out since room is " + a + "", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -195,24 +214,31 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string quer = "select room_time from room_classification inner join room where room_id = " + id + " and classification_id = Room_classification_classification_ID ";
-            DataTable d = c.select(quer);
-            string a = d.Rows[0]["room_time"].ToString();
-            if (a == "Monthly")
+            if (id == 0)
             {
-                MessageBox.Show("Cant reserve on Monthly rooms", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("please select a row", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                reserve rs = new reserve();
-                rs.a3 = this;
-                DialogResult result = rs.ShowDialog();
-                if (result == DialogResult.Yes)
+                string quer = "select room_time from room_classification inner join room where room_id = " + id + " and classification_id = Room_classification_classification_ID ";
+                DataTable d = c.select(quer);
+                string a = d.Rows[0]["room_time"].ToString();
+                if (a == "Monthly")
                 {
-                    tablecall();
+                    MessageBox.Show("Cant reserve on Monthly rooms", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    reserve rs = new reserve();
+                    rs.a3 = this;
+                    DialogResult result = rs.ShowDialog();
+                    if (result == DialogResult.Yes)
+                    {
+                        tablecall();
+                        tablecall2();
+                    }
                 }
             }
-
         }
 
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -255,15 +281,26 @@ namespace BustosApartment_SAD_
 
         private void button3_Click(object sender, EventArgs e)
         {
-            extend ex = new extend();
-            ex.a3 = this;
-            DialogResult result = ex.ShowDialog();
-            if (result == DialogResult.Yes)
+            if (id5 == 0)
             {
-                tablecall();
-                tablecall2();
+                MessageBox.Show("please select a row", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+                extend ex = new extend();
+                ex.a3 = this;
+                DialogResult result = ex.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    tablecall();
+                    tablecall2();
+                }
 
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
 
         }
     }
