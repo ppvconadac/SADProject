@@ -124,9 +124,9 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.label14.Location = new System.Drawing.Point(550, 12);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 18);
+            this.label14.Size = new System.Drawing.Size(58, 18);
             this.label14.TabIndex = 119;
-            this.label14.Text = "User  :";
+            this.label14.Text = "Room :";
             // 
             // label15
             // 

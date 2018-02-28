@@ -38,5 +38,16 @@ namespace BustosApartment_SAD_
                 
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            stinstockin ch = new stinstockin();
+            ch.a3 = this;
+            DialogResult result = ch.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+
+            }
+        }
     }
 }

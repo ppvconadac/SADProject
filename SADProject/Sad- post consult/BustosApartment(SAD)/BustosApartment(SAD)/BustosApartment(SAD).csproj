@@ -113,6 +113,12 @@
     <Compile Include="reserve.Designer.cs">
       <DependentUpon>reserve.cs</DependentUpon>
     </Compile>
+    <Compile Include="stinstockin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stinstockin.Designer.cs">
+      <DependentUpon>stinstockin.cs</DependentUpon>
+    </Compile>
     <Compile Include="stinstockout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     </Compile>
     <EmbeddedResource Include="reserve.resx">
       <DependentUpon>reserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stinstockin.resx">
+      <DependentUpon>stinstockin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="stinstockout.resx">
       <DependentUpon>stinstockout.cs</DependentUpon>
