@@ -78,7 +78,7 @@ namespace BustosApartment_SAD_
             }
             else
             {              
-                UCOverStatusCont.Instance.Refresh();
+              
                 UCOverStatusCont.Instance.BringToFront();
             }
         }

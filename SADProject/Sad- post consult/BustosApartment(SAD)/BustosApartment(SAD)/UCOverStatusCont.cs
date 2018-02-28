@@ -23,6 +23,7 @@ namespace BustosApartment_SAD_
                     _instance = new UCOverStatusCont();
                 return _instance;
             }
+            
         }
         public UCOverStatusCont()
         {

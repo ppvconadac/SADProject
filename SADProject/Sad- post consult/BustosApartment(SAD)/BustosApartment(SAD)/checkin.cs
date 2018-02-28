@@ -17,6 +17,7 @@ namespace BustosApartment_SAD_
  
         public UserControl a3;
         public int pid;
+        public static int h;
         public checkin()
         {
             InitializeComponent();
@@ -147,6 +148,33 @@ namespace BustosApartment_SAD_
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+        decimal lol = 0;
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            
+
+            string quer = "select rc_rate from room_classification inner join room where room_classification_classification_id = classification_id " +
+                "and room_id = "+UCRoomAsContent.id+" ";
+            DataTable d = c.select(quer);
+
+            if (numericUpDown1.Value > lol)
+            {
+                int c2 = int.Parse(numericUpDown1.Text) + 1;
+                int c3 = int.Parse(d.Rows[0]["rc_rate"].ToString());
+                int c1 = c2 * c3;
+
+                txtrate.Text = c1.ToString();
+            }
+            else if (numericUpDown1.Value < lol)
+            {
+                int c2 = int.Parse(numericUpDown1.Text) - 1;
+                int c3 = int.Parse(d.Rows[0]["rc_rate"].ToString());
+                int c1 = c2 * c3;
+
+                txtrate.Text = c1.ToString();
+            }
+            lol = numericUpDown1.Value;
         }
     }
 }

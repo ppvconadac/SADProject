@@ -94,6 +94,31 @@ namespace BustosApartment_SAD_
                 }
             }
         }
+        decimal lol = 0;
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            string quer = "select rc_rate from room inner join room_transaction inner join room_classification where  room_id = room_room_id and " +
+                "Room_classification_classification_ID = classification_ID and rTrans_ID = " + UCRoomAsContent.id5 + ""; ;
+            DataTable d = c.select(quer);
+
+            if (numericUpDown1.Value > lol)
+            {
+                int c2 = int.Parse(numericUpDown1.Text) + 1;
+                int c3 = int.Parse(d.Rows[0]["rc_rate"].ToString());
+                int c1 = c2 * c3;
+
+                txtrate.Text = c1.ToString();
+            }
+            else if (numericUpDown1.Value < lol)
+            {
+                int c2 = int.Parse(numericUpDown1.Text) - 1;
+                int c3 = int.Parse(d.Rows[0]["rc_rate"].ToString());
+                int c1 = c2 * c3;
+
+                txtrate.Text = c1.ToString();
+            }
+            lol = numericUpDown1.Value;
+        }
     }
     
 }
