@@ -26,15 +26,15 @@ namespace BustosApartment_SAD_
         public UCRoomHeader()
         {
             InitializeComponent();
-            if (!panelMain2.Controls.Contains(UCRoomContent.Instance))
+            if (!panelMain2.Controls.Contains(UCRoomAsContent.Instance))
             {
-                panelMain2.Controls.Add(UCRoomContent.Instance);
-                UCRoomContent.Instance.Dock = DockStyle.Fill;
-                UCRoomContent.Instance.BringToFront();
+                panelMain2.Controls.Add(UCRoomAsContent.Instance);
+                UCRoomAsContent.Instance.Dock = DockStyle.Fill;
+                UCRoomAsContent.Instance.BringToFront();
             }
             else
             {
-                UCRoomContent.Instance.BringToFront();
+                UCRoomAsContent.Instance.BringToFront();
             }
 
             

@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panelMain2 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button1);
@@ -54,12 +54,25 @@
             this.panel1.Size = new System.Drawing.Size(1104, 65);
             this.panel1.TabIndex = 3;
             // 
+            // button6
+            // 
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(370, 17);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(113, 32);
+            this.button6.TabIndex = 16;
+            this.button6.Text = "History";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // button5
             // 
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(251, 17);
+            this.button5.Location = new System.Drawing.Point(13, 17);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(113, 32);
             this.button5.TabIndex = 15;
@@ -72,7 +85,7 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(13, 17);
+            this.button2.Location = new System.Drawing.Point(251, 17);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 32);
             this.button2.TabIndex = 14;
@@ -132,19 +145,6 @@
             this.panelMain2.Name = "panelMain2";
             this.panelMain2.Size = new System.Drawing.Size(1104, 607);
             this.panelMain2.TabIndex = 4;
-            // 
-            // button6
-            // 
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(370, 17);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(113, 32);
-            this.button6.TabIndex = 16;
-            this.button6.Text = "History";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // UCRoomHeader
             // 
