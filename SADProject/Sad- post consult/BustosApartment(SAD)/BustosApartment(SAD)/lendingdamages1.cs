@@ -18,6 +18,8 @@ namespace BustosApartment_SAD_
         {
             InitializeComponent();
             textinit();
+            
+            
 
         }
 

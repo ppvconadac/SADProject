@@ -68,7 +68,6 @@ C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\Bust
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\MetroFramework.Design.dll
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\MetroFramework.dll
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\MetroFramework.Fonts.dll
-C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\MySql.Data.dll
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\bin\Debug\MySql.Data.xml
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventLending.resources
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventCCont.resources
@@ -185,3 +184,8 @@ C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\Bust
 C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCManageHeader.resources
 C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCOEContent.resources
 C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCUEContent.resources
+C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.stinstockin.resources
+C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCIncomeContent.resources
+C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCManageHeader.resources
+C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCOEContent.resources
+C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCUEContent.resources

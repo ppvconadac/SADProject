@@ -15,6 +15,7 @@ namespace BustosApartment_SAD_
     {
         public static int id;
         public static int id2;
+        public int ida = 0;
         public int id3;
         public string paystat;
         public string paymeth;
@@ -71,7 +72,8 @@ namespace BustosApartment_SAD_
             if (e.RowIndex > -1)
             {
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["btrans_id"].Value.ToString());
-                id2= int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
+                ida = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["btrans_id"].Value.ToString());
+                id2 = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
                 id3 = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["Profile_user_ID"].Value.ToString());
                 paystat = dataGridView1.Rows[e.RowIndex].Cells["bt_pay_status"].Value.ToString();
                 paymeth = dataGridView1.Rows[e.RowIndex].Cells["bt_pay_method"].Value.ToString();
@@ -83,32 +85,40 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(paystat != "Paid")
+            if (ida == 0)
             {
-                MessageBox.Show("Cannot return item on unpaid transaction");
+                MessageBox.Show("No Entry Detected");
             }
 
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Confirm return", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-
-                if (dialogResult == DialogResult.Yes)
+                if (paystat != "Paid")
                 {
-                    if (paystat == "Paid")
-                    {
-                        string date;
-                        string quer = "update borrowable_item set bitem_status = 'Available' where bitem_ID = " + id2 + "";
-                        c1.insert(quer);
-                        date = DateTime.Now.ToString("yyyy/M/d");
-                        string quer2 = "update bitem_transaction set bt_ret= '" + date + "' where btrans_ID = " + id + "";
-                        c1.insert(quer2);
-                        string quer3 = "update bitem_transaction set bt_trans_stat= 1 where btrans_ID = " + id + "";
-                        c1.insert(quer3);
-                        tablecall();
-                        MessageBox.Show("Return Completed");
-                    }
+                    MessageBox.Show("Cannot return item on unpaid transaction");
+                }
 
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Confirm return", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        if (paystat == "Paid")
+                        {
+                            string date;
+                            string quer = "update borrowable_item set bitem_status = 'Available' where bitem_ID = " + id2 + "";
+                            c1.insert(quer);
+                            date = DateTime.Now.ToString("yyyy/M/d");
+                            string quer2 = "update bitem_transaction set bt_ret= '" + date + "' where btrans_ID = " + id + "";
+                            c1.insert(quer2);
+                            string quer3 = "update bitem_transaction set bt_trans_stat= 1 where btrans_ID = " + id + "";
+                            c1.insert(quer3);
+                            tablecall();
+                            MessageBox.Show("Return Completed");
+                        }
+
+                    }
                 }
             }
 
@@ -116,80 +126,22 @@ namespace BustosApartment_SAD_
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Mark transaction as paid.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-            if (dialogResult == DialogResult.Yes)
+            if (ida == 0)
             {
-                string quer = "update bitem_transaction set bt_pay_status= 'Paid' where btrans_ID = " + id + "";
-                c1.insert(quer);
-                string date = date = DateTime.Now.ToString("yyyy/M/d");
-                string quer2 = "update bitem_transaction set bt_pay_date= '" + date + "' where btrans_ID = " + id + "";
-                c1.insert(quer2);
-
-                string quer3 = "select Profile_balance from profile where user_ID = '" + id3 + "'";
-                DataTable d = c1.select(quer3);
-                string balance = d.Rows[0]["Profile_balance"].ToString();
-                int bal = int.Parse(balance);
-                int rt = int.Parse(rate);
-                bal = bal - rt;
-                string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id3 + "";
-                c1.insert(quer4);
-
-                MessageBox.Show("Transaction successfully marked as paid");
-                tablecall();
-                
-
+                MessageBox.Show("No Entry Detected");
             }
-           
-        }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Confirm change.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-            if (dialogResult == DialogResult.Yes)
+            else
             {
-                if (paymeth == "Cash" )
-                {
-                    string quer = "update bitem_transaction set bt_pay_method= 'Check' where btrans_ID = " + id + "";
-                    c1.insert(quer);
-                    tablecall();
-                }
 
-                else
-                {
-                    string quer = "update bitem_transaction set bt_pay_method= 'Cash' where btrans_ID = " + id + "";
-                    c1.insert(quer);
-                    tablecall();
-                }
-                MessageBox.Show("Payment method successfully changed");
-
-            }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            lendingdamages1 ld = new lendingdamages1();
-            ld.Show();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-            authorizearch ch = new authorizearch();
-            ch.a3 = this;
-            DialogResult result = ch.ShowDialog();
-            if (result == DialogResult.Yes)
-            {
-                DialogResult dialogResult = MessageBox.Show("Confirm Archive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show("Mark transaction as paid.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    string quer = "update bitem_transaction set bt_trans_stat = 2 , bt_archive_date =" +
-                        " '" + DateTime.Now.ToString("yyy-M-d") + "', bt_archive_loggedin = " + FmLogin.id + " where btrans_ID = " + id + "";
+                    string quer = "update bitem_transaction set bt_pay_status= 'Paid' where btrans_ID = " + id + "";
                     c1.insert(quer);
-
-                    string quer2 = "update borrowable_item set bitem_status = 'Available' where bitem_ID = " + id2 + "";
+                    string date = date = DateTime.Now.ToString("yyyy/M/d");
+                    string quer2 = "update bitem_transaction set bt_pay_date= '" + date + "' where btrans_ID = " + id + "";
                     c1.insert(quer2);
 
                     string quer3 = "select Profile_balance from profile where user_ID = '" + id3 + "'";
@@ -201,11 +153,100 @@ namespace BustosApartment_SAD_
                     string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id3 + "";
                     c1.insert(quer4);
 
+                    MessageBox.Show("Transaction successfully marked as paid");
                     tablecall();
-                }
 
+
+                }
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (ida == 0)
+            {
+                MessageBox.Show("No Entry Detected");
             }
 
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Confirm change.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (paymeth == "Cash")
+                    {
+                        string quer = "update bitem_transaction set bt_pay_method= 'Check' where btrans_ID = " + id + "";
+                        c1.insert(quer);
+                        tablecall();
+                    }
+
+                    else
+                    {
+                        string quer = "update bitem_transaction set bt_pay_method= 'Cash' where btrans_ID = " + id + "";
+                        c1.insert(quer);
+                        tablecall();
+                    }
+                    MessageBox.Show("Payment method successfully changed");
+
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (ida == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+                lendingdamages1 ld = new lendingdamages1();
+                ld.Show();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (ida == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+
+                authorizearch ch = new authorizearch();
+                ch.a3 = this;
+                DialogResult result = ch.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Confirm Archive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string quer = "update bitem_transaction set bt_trans_stat = 2 , bt_archive_date =" +
+                            " '" + DateTime.Now.ToString("yyy-M-d") + "', bt_archive_loggedin = " + FmLogin.id + " where btrans_ID = " + id + "";
+                        c1.insert(quer);
+
+                        string quer2 = "update borrowable_item set bitem_status = 'Available' where bitem_ID = " + id2 + "";
+                        c1.insert(quer2);
+
+                        string quer3 = "select Profile_balance from profile where user_ID = '" + id3 + "'";
+                        DataTable d = c1.select(quer3);
+                        string balance = d.Rows[0]["Profile_balance"].ToString();
+                        int bal = int.Parse(balance);
+                        int rt = int.Parse(rate);
+                        bal = bal - rt;
+                        string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id3 + "";
+                        c1.insert(quer4);
+
+                        tablecall();
+                    }
+
+                }
+            }
 
            
         }
