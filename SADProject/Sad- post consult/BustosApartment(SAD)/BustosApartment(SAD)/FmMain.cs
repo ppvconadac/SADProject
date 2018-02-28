@@ -115,7 +115,16 @@ namespace BustosApartment_SAD_
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            if (!panelMain.Controls.Contains(UCManageHeader.Instance))
+            {
+                panelMain.Controls.Add(UCManageHeader.Instance);
+                UCManageHeader.Instance.Dock = DockStyle.Fill;
+                UCManageHeader.Instance.BringToFront();
+            }
+            else
+            {
+                UCManageHeader.Instance.BringToFront();
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)

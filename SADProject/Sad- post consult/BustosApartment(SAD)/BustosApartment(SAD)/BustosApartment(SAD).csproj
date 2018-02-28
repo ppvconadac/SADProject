@@ -125,6 +125,12 @@
     <Compile Include="stinstockout.Designer.cs">
       <DependentUpon>stinstockout.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCIncomeContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCIncomeContent.Designer.cs">
+      <DependentUpon>UCIncomeContent.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCInventLending.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,6 +151,18 @@
     </Compile>
     <Compile Include="UCInventHeader.Designer.cs">
       <DependentUpon>UCInventHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCManageHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCManageHeader.Designer.cs">
+      <DependentUpon>UCManageHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCOEContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCOEContent.Designer.cs">
+      <DependentUpon>UCOEContent.cs</DependentUpon>
     </Compile>
     <Compile Include="UCOverStatusCont.cs">
       <SubType>UserControl</SubType>
@@ -212,6 +230,12 @@
     <Compile Include="UCRoomRContent.Designer.cs">
       <DependentUpon>UCRoomRContent.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCUEContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCUEContent.Designer.cs">
+      <DependentUpon>UCUEContent.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="checkin.resx">
       <DependentUpon>checkin.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +275,9 @@
     <EmbeddedResource Include="stinstockout.resx">
       <DependentUpon>stinstockout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UCIncomeContent.resx">
+      <DependentUpon>UCIncomeContent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCInventLending.resx">
       <DependentUpon>UCInventLending.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +289,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCInventHeader.resx">
       <DependentUpon>UCInventHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCManageHeader.resx">
+      <DependentUpon>UCManageHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCOEContent.resx">
+      <DependentUpon>UCOEContent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCOverStatusCont.resx">
       <DependentUpon>UCOverStatusCont.cs</DependentUpon>
@@ -295,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCRoomRContent.resx">
       <DependentUpon>UCRoomRContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCUEContent.resx">
+      <DependentUpon>UCUEContent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

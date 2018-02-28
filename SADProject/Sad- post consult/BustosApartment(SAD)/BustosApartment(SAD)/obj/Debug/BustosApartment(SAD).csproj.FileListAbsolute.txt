@@ -141,7 +141,6 @@ C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\Bust
 C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.FmMain.resources
 C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.lendingassign.resources
 C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.lendingdamages1.resources
-C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.lendingpaystatcs.resources
 C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.Properties.Resources.resources
 C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.reserve.resources
 C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventLending.resources
@@ -178,3 +177,11 @@ C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\Bust
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.authorizearch.resources
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.stinstockout.resources
 C:\Users\ppvcadano\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCOverStatusCont.resources
+C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.extend.resources
+C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.authorizearch.resources
+C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.stinstockin.resources
+C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.stinstockout.resources
+C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCIncomeContent.resources
+C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCManageHeader.resources
+C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCOEContent.resources
+C:\Users\ehbgimena\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCUEContent.resources
