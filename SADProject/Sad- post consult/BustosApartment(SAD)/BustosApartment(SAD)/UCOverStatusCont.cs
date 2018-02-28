@@ -46,6 +46,7 @@ namespace BustosApartment_SAD_
 
         }
         public void calendarcall() {
+            
             DataTable d = new DataTable();
             DataTable d2 = new DataTable();
             string quer = "select reservation_id, re_dateexp, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
@@ -56,44 +57,52 @@ namespace BustosApartment_SAD_
             d2 = c.select(quer2);
             for (int i = 0; i < d.Rows.Count; i++)
             {
+
                 DateTime a = Convert.ToDateTime(d.Rows[i]["re_date"]);
-                DateTime b = Convert.ToDateTime(d.Rows[i]["re_dateexp"]);
-                int c = int.Parse((b - a).TotalDays.ToString());
-                for (int j =0; j<c; j++) {
-                    var exerciseEvent = new CustomEvent
-                    {
-                        Date = a.AddDays(j),
-                        EventText = "RESERVE: " + d.Rows[i]["Name"] + " " + Environment.NewLine + " ROOM:" + d.Rows[i]["room_number"] + ""
-                    };
-                    calendar1.AddEvent(exerciseEvent);
-                }            
-            }
-            for (int i = 0; i < d.Rows.Count; i++)
-            {
-                DateTime a = Convert.ToDateTime(d2.Rows[i]["rt_date_start"]);
-                DateTime b = Convert.ToDateTime(d2.Rows[i]["rt_date_expire"]);
-            
-               
-                  
+                
+                
                     var exerciseEvent = new CustomEvent
                     {
                         Date = a,
-                        EventText = "ASSIGNED: " + d2.Rows[i]["Name"] + " " + Environment.NewLine + " ROOM:" + d2.Rows[i]["room_number"] + ""
+                        EventColor = Color.Yellow,
+                        EventTextColor = Color.Black,
+                        IgnoreTimeComponent = true,
+                        EventText = "RESERVE THIS DAY"
                     };
                     calendar1.AddEvent(exerciseEvent);
-                var exerciseEvent2 = new CustomEvent
-                {
-                    Date = b,
-                    EventText = "Assigned Until: " + d2.Rows[i]["Name"] + " " + Environment.NewLine + " ROOM:" + d2.Rows[i]["room_number"] + ""
-                };
-                calendar1.AddEvent(exerciseEvent2);
+                          
+            }
+            for (int i = 0; i < d2.Rows.Count; i++)
+            {
+                DateTime a = Convert.ToDateTime(d2.Rows[i]["rt_date_start"]);
+               
+             
 
 
             }
+            for (int i = 0; i < d2.Rows.Count; i++)
+            {
+                DateTime b = Convert.ToDateTime(d2.Rows[i]["rt_date_expire"]);
+                var exerciseEvent2 = new CustomEvent
+                {
+                    Date = b,
+                    EventColor = Color.Orange,
+                    EventTextColor = Color.Black,
+                    IgnoreTimeComponent = true,
+                    EventText = "Check-Out This day"
+                };
+                calendar1.AddEvent(exerciseEvent2);
+            }
+          
         }
         private void calendar1_Load(object sender, EventArgs e)
         {
         
+        }
+
+        private void calendar1_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }
