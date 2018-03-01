@@ -14,6 +14,7 @@ namespace BustosApartment_SAD_
     {
         private static UCRoomHContent _instance;
         Class1 c1 = new Class1();
+        public bool b = true;
         public string quer;
 
         public static UCRoomHContent Instance
@@ -36,11 +37,18 @@ namespace BustosApartment_SAD_
         public void tablecall() {
             quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
               ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND re_date < curdate() AND re_status = 0";
+            call(quer);
+
+        }
+        public void call(string quer) {
             dataGridView2.DataSource = c1.select(quer);
             dataGridView2.Columns["re_status"].Visible = false;
             dataGridView2.ClearSelection();
+        }
 
-
+        public void tablecall2() {
+            quer = "SELECT room_number, profile_name, rt_date_start, rt_date_expire FROM room_transaction inner join room inner join ba_db.profile where rt_type = 'Expire' and room_room_id =room_id and Profile_user_ID = user_id";
+            call(quer);
         }
         public void dates() {
             DateTime d = DateTime.Now;
@@ -100,59 +108,46 @@ namespace BustosApartment_SAD_
                 mo = 12;
             else
                 mo = 0;
+        
             if (m !="" && d!=""&& y !="") {
                 quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
              ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND  re_date like '" + y + "-"+mo+"-"+d+"'  AND re_date < curdate() AND re_status = 0";
-                dataGridView2.DataSource = c1.select(quer);
-                dataGridView2.Columns["re_status"].Visible = false;
-                dataGridView2.ClearSelection();
+            
             }
             else if (m =="" && d =="") {
                 quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
               ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND  re_date like '" + y+ "-%'  AND re_date < curdate() AND re_status = 0";
-                dataGridView2.DataSource = c1.select(quer);
-                dataGridView2.Columns["re_status"].Visible = false;
-                dataGridView2.ClearSelection();
+               
             }
             else if (y=="" && d=="") {
                 quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
                ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND  re_date like '%-" + mo + "-%' AND re_date < curdate() AND re_status = 0";
-                dataGridView2.DataSource = c1.select(quer);
-                dataGridView2.Columns["re_status"].Visible = false;
-                dataGridView2.ClearSelection();
+               
             }
             else if (y=="" && m=="") {
                 quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
               ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND re_date like '-%" + d + "' AND re_date < curdate() AND re_status = 0";
-                dataGridView2.DataSource = c1.select(quer);
-                dataGridView2.Columns["re_status"].Visible = false;
-                dataGridView2.ClearSelection();
+     
             }
             else if (d=="") {
                 quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
                ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND  re_date like '" + y + "-"+mo+ "-%' AND re_date < curdate() AND re_status = 0";
-                dataGridView2.DataSource = c1.select(quer);
-                dataGridView2.Columns["re_status"].Visible = false;
-                dataGridView2.ClearSelection();
+              
             }
             else if (m=="") {
                 quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
               ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND  re_date like '" + y + "-%%-" + d + "' AND re_date < curdate() AND re_status = 0";
-                dataGridView2.DataSource = c1.select(quer);
-                dataGridView2.Columns["re_status"].Visible = false;
-                dataGridView2.ClearSelection();
+               
             }
             else if (y=="") {
                 quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
                  ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = room_id AND re_date like '%-" + mo + "-" + d + "' AND re_date < curdate() AND re_status = 0 ";
-                dataGridView2.DataSource = c1.select(quer);
-                dataGridView2.Columns["re_status"].Visible = false;
-                dataGridView2.ClearSelection();
+              
             }
             else {
                 tablecall();
             }
-
+            call(quer);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -216,6 +211,11 @@ namespace BustosApartment_SAD_
                 }
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

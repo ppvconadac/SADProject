@@ -41,7 +41,7 @@ namespace BustosApartment_SAD_
 
         }
         public void tablecall() {
-            String query = "SELECT room_id, room_number, room_desc, owner_fname, room_time FROM room inner join owner inner join room_classification " +
+            String query = "SELECT room_id, room_number, room_desc, owner_fname, room_time, rc_rate FROM room inner join owner inner join room_classification " +
                 "where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID";
             dataGridView1.DataSource = c.select(query);
             dataGridView1.Columns["room_ID"].Visible = false;
@@ -162,7 +162,7 @@ namespace BustosApartment_SAD_
             if (e.RowIndex > -1) {
 
                 id1 = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["room_id"].Value.ToString());
-                string query = "SELECT room_number, Room_classification_classification_ID, Owner_Owner_ID, room_desc, owner_fname, room_time FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID and Room_ID = " + id1+"";
+                string query = "SELECT room_number, Room_classification_classification_ID, Owner_Owner_ID, room_desc, owner_fname, room_time, rc_rate FROM room inner join owner inner join room_classification where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID and Room_ID = " + id1+"";
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -172,6 +172,8 @@ namespace BustosApartment_SAD_
                 string name = dt.Rows[0]["Owner_fname"].ToString(); 
                 string day = dt.Rows[0]["room_time"].ToString();
                 textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells["room_number"].Value.ToString();
+                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["room_number"].Value.ToString();
+                textBox4.Text = dt.Rows[0]["rc_rate"].ToString();
                 comboBox4.Text = name;
                 comboBox2.Text = day;
                 textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["room_desc"].Value.ToString();
@@ -193,5 +195,32 @@ namespace BustosApartment_SAD_
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            int pr = 0;
+            try
+            {
+                 pr = int.Parse(textBox4.Text);
+            }
+            catch {
+                MessageBox.Show("Invalid input!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            string quer = "select room_classification_classification_id from room where room_number = " + textBox1.Text + "";
+            DataTable d = c.select(quer);
+            if (d.Rows.Count == 0)
+            {
+                MessageBox.Show("please select a row!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else {
+                string up = "update room_classification set rc_rate = "+pr+" where" +
+                    " classification_id = "+d.Rows[0]["room_classification_classification_id"].ToString() +"";
+                c.insert(up);
+                MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            tablecall();
+        }
+      
+
     }
 }

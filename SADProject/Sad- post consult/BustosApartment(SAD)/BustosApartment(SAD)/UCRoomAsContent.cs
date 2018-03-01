@@ -79,11 +79,13 @@ namespace BustosApartment_SAD_
         public void tablecall()
         {
 
-            String query = "SELECT rtrans_id, room_id, room_number, room_time, room_status, rt_date_start, rt_date_expire, profile_name FROM room inner join owner inner join room_classification inner join room_transaction inner" +
+            String query = "SELECT rtrans_id, room_id, room_number, room_time, room_status, rt_date_start, rt_date_expire, profile_name ,profile_user_id, room_room_id FROM room inner join owner inner join room_classification inner join room_transaction inner" +
                 " join profile" +
                 " where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID and profile_user_id = user_id and room_room_id = room_id and room_status = 'Using' and rt_type = 'Assigned'";
             dataGridView2.DataSource = c.select(query);
             dataGridView2.ClearSelection();
+            dataGridView2.Columns["room_room_id"].Visible = false;
+            dataGridView2.Columns["profile_user_id"].Visible = false;
 
 
         }
@@ -267,7 +269,9 @@ namespace BustosApartment_SAD_
         {
 
         }
-
+        public string puid;
+        public string rrid;
+        public string rtde;
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -275,6 +279,9 @@ namespace BustosApartment_SAD_
                 id3 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["room_id"].Value.ToString());
                 id4 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["rtrans_id"].Value.ToString());
                 id5 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["rtrans_id"].Value.ToString());
+                puid = dataGridView2.Rows[e.RowIndex].Cells["profile_user_id"].Value.ToString();
+                rrid = dataGridView2.Rows[e.RowIndex].Cells["room_room_id"].Value.ToString();
+                rtde = dataGridView2.Rows[e.RowIndex].Cells["rt_date_expire"].Value.ToString(); 
             }
 
         }
@@ -301,7 +308,41 @@ namespace BustosApartment_SAD_
 
         private void button5_Click(object sender, EventArgs e)
         {
+            DialogResult dia = new DialogResult();
+            if (id5 == 0)
+            {
+                MessageBox.Show("please select a row", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else {
+                MessageBox.Show("Are you Sure to archive this transaction?", "Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            }
+            if (dia == DialogResult.Yes)
+            {
 
+                string quer = "SELECT rtrans_id, rt_date_start FROM ba_db.room_transaction where rt_date_expire = '" + rtde + "' and Profile_user_ID = " + puid + " and Room_Room_ID =" + rrid + " and rt_type = 'Extend'";
+                DataTable d = c.select(quer);
+                int iddd;
+                if (d.Rows.Count == 1)
+                {
+
+
+                    iddd = int.Parse(d.Rows[0]["rtrans_id"].ToString());
+                    string ds = d.Rows[0]["rt_date_start"].ToString();
+                    string up = "update room_transaction set rt_type = 'Archive' where rtrans_id =" + iddd + " ";
+                    string up4 = "update room_transaction set rt_date_expire = '" + ds + "' where rtrans_id =" + id5 + " ";
+                    c.insert(up);
+                    c.insert(up4);
+                }
+                else
+                {
+                    string up2 = "update room_transaction set rt_type = 'Archive' where rtrans_id =" + id5 + " ";
+                    string up3 = "update room set room_status = 'Available' where room_id =" + id3 + " ";
+                    c.insert(up2);
+                    c.insert(up3);
+                }
+                tablecall();
+                tablecall2();
+            }
         }
     }
 }

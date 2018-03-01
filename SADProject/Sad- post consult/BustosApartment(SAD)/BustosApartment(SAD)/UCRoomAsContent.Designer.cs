@@ -57,7 +57,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(652, 246);
+            this.dataGridView1.Size = new System.Drawing.Size(652, 236);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -103,7 +103,7 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(692, 260);
+            this.button1.Location = new System.Drawing.Point(692, 429);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(398, 53);
             this.button1.TabIndex = 58;
@@ -117,7 +117,7 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(692, 363);
+            this.button2.Location = new System.Drawing.Point(692, 155);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(398, 53);
             this.button2.TabIndex = 59;
@@ -129,7 +129,7 @@
             // 
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.button5.Location = new System.Drawing.Point(692, 464);
+            this.button5.Location = new System.Drawing.Point(692, 531);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(398, 53);
             this.button5.TabIndex = 60;
@@ -166,7 +166,7 @@
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(692, 157);
+            this.button3.Location = new System.Drawing.Point(692, 330);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(398, 53);
             this.button3.TabIndex = 62;
