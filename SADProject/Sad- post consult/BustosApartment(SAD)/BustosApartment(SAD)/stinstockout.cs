@@ -84,7 +84,7 @@ namespace BustosApartment_SAD_
                     string quer;
                     date = DateTime.Now.ToString("yyyy/M/d");
 
-                    quer = "insert into nitem_transaction values(NULL, '" + date + "','" + textBox2.Text + "','" + id2+ "', 'Stock-out', NULL, NULL, '" +id+"')";
+                    quer = "insert into nitem_transaction values(NULL, '" + date + "','" + textBox2.Text + "','" + id2+ "', 'Stock-out', NULL, NULL, '" +id+"',0)";
                     c.insert(quer);
 
                     string quer2 = "select nt_quantity from nonborrowable_item where nitem_ID = '"+id2+"'";

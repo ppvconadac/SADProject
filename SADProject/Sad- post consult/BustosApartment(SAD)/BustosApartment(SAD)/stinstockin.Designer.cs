@@ -191,7 +191,8 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.button1);
             this.Name = "stinstockin";
-            this.Text = "stinstockin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Stock-in";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);

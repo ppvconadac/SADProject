@@ -262,6 +262,7 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.button1);
             this.Name = "stinstockout";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Stock-out";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
