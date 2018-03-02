@@ -75,7 +75,7 @@ namespace BustosApartment_SAD_
                     //  this.Close();
                     this.DialogResult = DialogResult.Yes;
 
-
+                    UCInventRecords.Instance.dgclear();
                 }
             }
         }

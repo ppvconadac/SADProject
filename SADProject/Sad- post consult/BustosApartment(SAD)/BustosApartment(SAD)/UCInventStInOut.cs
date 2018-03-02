@@ -50,7 +50,7 @@ namespace BustosApartment_SAD_
             DialogResult result = ch.ShowDialog();
             if (result == DialogResult.Yes)
             {
-                
+                tablecall();
             }
         }
 
@@ -61,7 +61,7 @@ namespace BustosApartment_SAD_
             DialogResult result = ch.ShowDialog();
             if (result == DialogResult.Yes)
             {
-
+                tablecall();
             }
         }
 
@@ -72,7 +72,7 @@ namespace BustosApartment_SAD_
             DialogResult result = ch.ShowDialog();
             if (result == DialogResult.Yes)
             {
-
+                tablecall();
             }
         }
 

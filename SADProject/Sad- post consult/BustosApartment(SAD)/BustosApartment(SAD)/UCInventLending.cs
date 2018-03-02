@@ -155,8 +155,8 @@ namespace BustosApartment_SAD_
 
                     MessageBox.Show("Transaction successfully marked as paid");
                     tablecall();
-
-
+         
+                    
                 }
             }
         }
