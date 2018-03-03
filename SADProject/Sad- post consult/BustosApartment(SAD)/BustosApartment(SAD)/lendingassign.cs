@@ -13,12 +13,13 @@ namespace BustosApartment_SAD_
     public partial class lendingassign : Form
     {
         public string b_avail;
-        public string rate;
+        public static string rate;
         public UserControl a3;
         public int id;
         public int id2;
         public string balance;
         Class1 c = new Class1();
+        string date;
         public lendingassign()
         {
            
@@ -50,14 +51,8 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string date;
+            
             if (b_avail == "Available") {
-
-                if (comboBox2.Text == "Check" && comboBox1.Text == "Paid")
-                {
-                    MessageBox.Show("Payment by check. Status set to pending.");
-                    comboBox1.Text = "Pending";
-                }
 
               
                     DialogResult dialogResult = MessageBox.Show("Confirm lending", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -67,39 +62,46 @@ namespace BustosApartment_SAD_
                     {
                     string quer;
                     date = DateTime.Now.ToString("yyyy/M/d");
+        
+                        quer = "insert into bitem_transaction values(NULL, '" + date + "','Pending','" + comboBox2.Text + "','"+rate+"','" + id + "','" + id2 + "', NULL , NULL, 0, NULL, NULL )";
 
-                    if (comboBox1.Text == "Paid")
-                    {
-
-                         quer = "insert into bitem_transaction values(NULL, '" + date + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + id + "','" + id2 + "', NULL, '"+date+"', 0, NULL, NULL )";
-
-                    }
-
-                    else
-                    {
-                        quer = "insert into bitem_transaction values(NULL, '" + date + "','" + comboBox1.Text + "','" + comboBox2.Text + "','" + id + "','" + id2 + "', NULL , NULL, 0, NULL, NULL )";
-
-                    }
 
 
                     c.insert(quer);
                     string quer2 = "update borrowable_item set bitem_status = 'In Use' where bitem_ID = " + id2 + "";
                         c.insert(quer2);
 
-                        if(comboBox1.Text == "Pending")
+
+                    if(comboBox2.Text == "Check")
+                    {
+                        int bal = int.Parse(balance);
+                        int rt = int.Parse(rate);
+                        bal = bal + rt;
+                        string quer3 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id + "";
+                        c.insert(quer3);
+                    }
+                            
+
+                    if(comboBox2.Text == "Cash")
+                    {
+                       string quer4 = "select btrans_ID from bitem_transaction where Profile_user_ID = "+id+ " and borrowable_item_bitem_ID = "+id2+" and bt_pay_status = 'Pending'";
+                        DataTable d = c.select(quer4);
+                        int btrans_id = int.Parse(d.Rows[0]["btrans_ID"].ToString());
+                        Payment ch = new Payment();
+                        ch.getdeets(rate,btrans_id, "bitem_transaction", id );
+                        DialogResult result = ch.ShowDialog();
+                        if (result == DialogResult.Yes)
                         {
-                            int bal = int.Parse(balance);
-                            int rt = int.Parse(rate);
-                            bal = bal + rt;
-                            string quer3 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = "+id+"";
-                            c.insert(quer3);
+                            this.DialogResult = DialogResult.Yes;
                         }
+                    }
 
-                        
-
-
-                        //  this.Close();
+                    else
+                    {
                         this.DialogResult = DialogResult.Yes;
+                    }
+                   
+
                     }              
 
             }

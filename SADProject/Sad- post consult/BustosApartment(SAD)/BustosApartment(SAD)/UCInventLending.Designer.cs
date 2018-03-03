@@ -38,6 +38,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +65,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
@@ -83,7 +85,7 @@
             // button6
             // 
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(692, 352);
+            this.button6.Location = new System.Drawing.Point(692, 382);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(398, 53);
             this.button6.TabIndex = 49;
@@ -94,7 +96,7 @@
             // button5
             // 
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(692, 527);
+            this.button5.Location = new System.Drawing.Point(692, 545);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(398, 53);
             this.button5.TabIndex = 48;
@@ -105,7 +107,7 @@
             // button4
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(692, 438);
+            this.button4.Location = new System.Drawing.Point(692, 461);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(398, 53);
             this.button4.TabIndex = 47;
@@ -116,7 +118,7 @@
             // button3
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(692, 260);
+            this.button3.Location = new System.Drawing.Point(692, 303);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(398, 53);
             this.button3.TabIndex = 46;
@@ -127,7 +129,7 @@
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(692, 168);
+            this.button2.Location = new System.Drawing.Point(692, 152);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(398, 53);
             this.button2.TabIndex = 45;
@@ -166,6 +168,17 @@
             this.dataGridView1.TabIndex = 43;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // button7
+            // 
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(692, 228);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(398, 53);
+            this.button7.TabIndex = 50;
+            this.button7.Text = "Payment";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // UCInventLending
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,5 +206,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }

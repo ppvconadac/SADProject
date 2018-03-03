@@ -133,31 +133,40 @@ namespace BustosApartment_SAD_
 
             else
             {
-
-                DialogResult dialogResult = MessageBox.Show("Mark transaction as paid.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                if (dialogResult == DialogResult.Yes)
+                if (paymeth == "Check")
                 {
-                    string quer = "update bitem_transaction set bt_pay_status= 'Paid' where btrans_ID = " + id + "";
-                    c1.insert(quer);
-                    string date = date = DateTime.Now.ToString("yyyy/M/d");
-                    string quer2 = "update bitem_transaction set bt_pay_date= '" + date + "' where btrans_ID = " + id + "";
-                    c1.insert(quer2);
 
-                    string quer3 = "select Profile_balance from profile where user_ID = '" + id3 + "'";
-                    DataTable d = c1.select(quer3);
-                    string balance = d.Rows[0]["Profile_balance"].ToString();
-                    int bal = int.Parse(balance);
-                    int rt = int.Parse(rate);
-                    bal = bal - rt;
-                    string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id3 + "";
-                    c1.insert(quer4);
+                    DialogResult dialogResult = MessageBox.Show("Mark transaction as paid.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                    MessageBox.Show("Transaction successfully marked as paid");
-                    tablecall();
-         
-                    
+                    if (dialogResult == DialogResult.Yes)
+                    {
+
+                        string quer = "update bitem_transaction set bt_pay_status= 'Paid' where btrans_ID = " + id + "";
+                        c1.insert(quer);
+                        string date = date = DateTime.Now.ToString("yyyy/M/d");
+                        string quer2 = "update bitem_transaction set bt_pay_date= '" + date + "' where btrans_ID = " + id + "";
+                        c1.insert(quer2);
+
+                        string quer3 = "select Profile_balance from profile where user_ID = '" + id3 + "'";
+                        DataTable d = c1.select(quer3);
+                        string balance = d.Rows[0]["Profile_balance"].ToString();
+                        int bal = int.Parse(balance);
+                        int rt = int.Parse(rate);
+                        bal = bal - rt;
+                        string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id3 + "";
+                        c1.insert(quer4);
+
+                        MessageBox.Show("Transaction successfully marked as paid");
+                        tablecall();
+                    }
+                   
                 }
+                else
+                {
+                    MessageBox.Show("Cannot mark cash transactions, please select payment button option");
+
+                }
+
             }
         }
 
@@ -174,21 +183,27 @@ namespace BustosApartment_SAD_
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (paymeth == "Cash")
+                    if (paystat == "Pending")
                     {
-                        string quer = "update bitem_transaction set bt_pay_method= 'Check' where btrans_ID = " + id + "";
-                        c1.insert(quer);
-                        tablecall();
-                    }
+                        if (paymeth == "Cash")
+                        {
+                            string quer = "update bitem_transaction set bt_pay_method= 'Check' where btrans_ID = " + id + "";
+                            c1.insert(quer);
+                            tablecall();
+                        }
 
+                        else
+                        {
+                            string quer = "update bitem_transaction set bt_pay_method= 'Cash' where btrans_ID = " + id + "";
+                            c1.insert(quer);
+                            tablecall();
+                        }
+                        MessageBox.Show("Payment method successfully changed");
+                    }
                     else
                     {
-                        string quer = "update bitem_transaction set bt_pay_method= 'Cash' where btrans_ID = " + id + "";
-                        c1.insert(quer);
-                        tablecall();
+                        MessageBox.Show("Cannot change payment method of this transaction");
                     }
-                    MessageBox.Show("Payment method successfully changed");
-
                 }
             }
         }
@@ -255,8 +270,36 @@ namespace BustosApartment_SAD_
         {
             dataGridView1.ClearSelection();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string amt;
+            string quer = "select SUM(bp_amount) from btrans_partial where bp_trans_id = "+id+"";
+            DataTable d = c1.select(quer);
+            if (d.Rows[0]["SUM(bp_amount)"].ToString() == "")
+            {
+                amt = "0";
+            }
+            else
+            {
+
+               amt = d.Rows[0]["SUM(bp_amount)"].ToString();
+            }
+            
+            int remaining = int.Parse(rate) - int.Parse(amt);
+            Payment ch = new Payment();
+            ch.getdeets(remaining.ToString(), id, "bitem_transaction", id3);
+            DialogResult result = ch.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                tablecall();
+            }
+        }
+
+                   
     }
 }
+
 
 
 
