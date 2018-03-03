@@ -163,7 +163,7 @@ namespace BustosApartment_SAD_
                 }
                 else
                 {
-                    MessageBox.Show("Cannot mark cash transactions, please select payment button option");
+                    MessageBox.Show("Option disabled for cash payments");
 
                 }
 
@@ -273,26 +273,42 @@ namespace BustosApartment_SAD_
 
         private void button7_Click(object sender, EventArgs e)
         {
-            string amt;
-            string quer = "select SUM(bp_amount) from btrans_partial where bp_trans_id = "+id+"";
-            DataTable d = c1.select(quer);
-            if (d.Rows[0]["SUM(bp_amount)"].ToString() == "")
+
+            if (ida == 0)
             {
-                amt = "0";
+                MessageBox.Show("No Entry Detected");
             }
+
             else
             {
+                if (paymeth == "Cash")
+                {
+                    string amt;
+                    string quer = "select SUM(bp_amount) from btrans_partial where bp_trans_id = " + id + "";
+                    DataTable d = c1.select(quer);
+                    if (d.Rows[0]["SUM(bp_amount)"].ToString() == "")
+                    {
+                        amt = "0";
+                    }
+                    else
+                    {
 
-               amt = d.Rows[0]["SUM(bp_amount)"].ToString();
-            }
-            
-            int remaining = int.Parse(rate) - int.Parse(amt);
-            Payment ch = new Payment();
-            ch.getdeets(remaining.ToString(), id, "bitem_transaction", id3);
-            DialogResult result = ch.ShowDialog();
-            if (result == DialogResult.Yes)
-            {
-                tablecall();
+                        amt = d.Rows[0]["SUM(bp_amount)"].ToString();
+                    }
+
+                    int remaining = int.Parse(rate) - int.Parse(amt);
+                    Payment ch = new Payment();
+                    ch.getdeets(remaining.ToString(), id, "bitem_transaction", id3);
+                    DialogResult result = ch.ShowDialog();
+                    if (result == DialogResult.Yes)
+                    {
+                        tablecall();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Option disabled for check payments");
+                }
             }
         }
 
