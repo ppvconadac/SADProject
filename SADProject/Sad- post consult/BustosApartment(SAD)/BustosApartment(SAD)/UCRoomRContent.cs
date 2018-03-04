@@ -120,23 +120,6 @@ namespace BustosApartment_SAD_
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (button3.Text == "Archived")
-            {
-                tablecall();
-                button3.Text = "Current Reservation List";
-                label5.Text = "ARCHIVED DATA";
-                label5.Location = new Point(797, 19);
-
-
-
-            }
-            else
-            {
-                tablecall3();
-                button3.Text = "Archived";
-                label5.Text = "RESERVATION";
-                label5.Location = new Point(810, 19);
-            }
 
         }
     }
