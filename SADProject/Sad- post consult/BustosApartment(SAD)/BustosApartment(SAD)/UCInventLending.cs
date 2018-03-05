@@ -16,7 +16,7 @@ namespace BustosApartment_SAD_
         public static int id;
         public static int id2;
         public int ida = 0;
-        public int id3;
+        public static int id3;
         public string paystat;
         public string paymeth;
         public string rate;
@@ -43,7 +43,7 @@ namespace BustosApartment_SAD_
         public void tablecall()
         {
             
-            string quer = "select bitem_name, bitem_status,  concat(profile_fname,profile_mname,profile_lname) as full_name, btrans_id,bt_date,bt_pay_method,bt_pay_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID,bitem_rate from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and user_id = profile_user_id and bitem_status= 'In Use' and bt_trans_stat =0";
+            string quer = "select bitem_name, bitem_status,concat(profile_fname,profile_mname,profile_lname) as full_name, btrans_id,bt_date,bt_pay_method,bt_pay_status, bitem_dmg_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID,bitem_rate from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and user_id = profile_user_id and bt_trans_stat =0";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["bitem_ID"].Visible = false;
             dataGridView1.Columns["User_id"].Visible = false;
@@ -217,8 +217,13 @@ namespace BustosApartment_SAD_
 
             else
             {
-                lendingdamages1 ld = new lendingdamages1();
-                ld.Show();
+                lendingdamages1 ch = new lendingdamages1();
+                ch.a3 = this;
+                DialogResult result = ch.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    tablecall();
+                }
             }
         }
 

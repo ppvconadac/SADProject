@@ -79,6 +79,7 @@ namespace BustosApartment_SAD_
                         bal = bal + rt;
                         string quer3 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id + "";
                         c.insert(quer3);
+                        this.DialogResult = DialogResult.Yes;
                     }
                             
 
@@ -95,13 +96,6 @@ namespace BustosApartment_SAD_
                             this.DialogResult = DialogResult.Yes;
                         }
                     }
-
-                    else
-                    {
-                        this.DialogResult = DialogResult.Yes;
-                    }
-                   
-
                     }              
 
             }

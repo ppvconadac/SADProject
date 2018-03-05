@@ -37,6 +37,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,12 +65,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -169,8 +165,6 @@
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage2.Controls.Add(this.comboBox3);
-            this.tabPage2.Controls.Add(this.textBox8);
-            this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.comboBox2);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label7);
@@ -189,6 +183,18 @@
             this.tabPage2.Size = new System.Drawing.Size(395, 505);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Add Item";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Functional",
+            "Damaged",
+            "Out of Order"});
+            this.comboBox3.Location = new System.Drawing.Point(20, 272);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(359, 26);
+            this.comboBox3.TabIndex = 85;
             // 
             // comboBox2
             // 
@@ -307,8 +313,6 @@
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage3.Controls.Add(this.comboBox4);
-            this.tabPage3.Controls.Add(this.textBox9);
-            this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.comboBox1);
             this.tabPage3.Controls.Add(this.textBox1);
             this.tabPage3.Controls.Add(this.label1);
@@ -328,6 +332,18 @@
             this.tabPage3.Size = new System.Drawing.Size(395, 505);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Update Item";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Functional",
+            "Damaged",
+            "Out of Order"});
+            this.comboBox4.Location = new System.Drawing.Point(20, 272);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(359, 26);
+            this.comboBox4.TabIndex = 87;
             // 
             // comboBox1
             // 
@@ -370,6 +386,7 @@
             this.button1.TabIndex = 75;
             this.button1.Text = "Archive";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // textBox7
             // 
@@ -454,64 +471,6 @@
             this.label23.TabIndex = 61;
             this.label23.Text = "Item Name :";
             // 
-            // textBox8
-            // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox8.Location = new System.Drawing.Point(21, 319);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(358, 23);
-            this.textBox8.TabIndex = 84;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 298);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(135, 18);
-            this.label8.TabIndex = 83;
-            this.label8.Text = "Item Damage Rate:";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox9.Location = new System.Drawing.Point(21, 319);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(358, 23);
-            this.textBox9.TabIndex = 86;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 298);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 18);
-            this.label9.TabIndex = 85;
-            this.label9.Text = "Item Damage Rate:";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Functional",
-            "Damaged",
-            "Out of Order"});
-            this.comboBox3.Location = new System.Drawing.Point(20, 272);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(359, 26);
-            this.comboBox3.TabIndex = 85;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Functional",
-            "Damaged",
-            "Out of Order"});
-            this.comboBox4.Location = new System.Drawing.Point(20, 272);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(359, 26);
-            this.comboBox4.TabIndex = 87;
-            // 
             // UCInventBCont
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -569,10 +528,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label9;
     }
 }

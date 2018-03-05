@@ -170,6 +170,12 @@
     <Compile Include="UCInventRecords.Designer.cs">
       <DependentUpon>UCInventRecords.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCInventRICont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCInventRICont.Designer.cs">
+      <DependentUpon>UCInventRICont.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCManageHeader.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCInventRecords.resx">
       <DependentUpon>UCInventRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCInventRICont.resx">
+      <DependentUpon>UCInventRICont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCManageHeader.resx">
       <DependentUpon>UCManageHeader.cs</DependentUpon>

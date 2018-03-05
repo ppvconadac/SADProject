@@ -58,7 +58,7 @@ namespace BustosApartment_SAD_
                 textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_rate"].Value.ToString();
                 comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_status"].Value.ToString();
                 comboBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_dmg_status"].Value.ToString();
-                textBox9.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_dmg_rate"].Value.ToString();
+                
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bitem_id"].Value.ToString());
 
 
@@ -67,7 +67,7 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (txtin.Text== "" || textBox4.Text == "" || comboBox2.Text== "" || comboBox3.Text == "" || textBox3.Text =="" || textBox2.Text == "" || textBox8.Text == "") {
+            if (txtin.Text== "" || textBox4.Text == "" || comboBox2.Text== "" || comboBox3.Text == "" || textBox3.Text =="" || textBox2.Text == "" ) {
                 MessageBox.Show("No empty fields, try again.");
             }
 
@@ -78,7 +78,7 @@ namespace BustosApartment_SAD_
 
             else
             {
-                string quer = "insert into borrowable_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + textBox3.Text + "','" + textBox2.Text + "','" + textBox8.Text + "' )";
+                string quer = "insert into borrowable_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + textBox3.Text + "','" + textBox2.Text + "')";
                 c1.insert(quer);
                 MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tablecall();
@@ -97,7 +97,7 @@ namespace BustosApartment_SAD_
         private void button3_Click(object sender, EventArgs e)
         {
 
-            if (txtuin.Text == "" || txtuit.Text == "" || textBox1.Text == "" || textBox7.Text == "" || comboBox1.Text == "" || comboBox4.Text == "" || textBox9.Text == "")
+            if (txtuin.Text == "" || txtuit.Text == "" || textBox1.Text == "" || textBox7.Text == "" || comboBox1.Text == "" || comboBox4.Text == "")
             {
                 MessageBox.Show("No empty fields, try again.");
             }
@@ -111,7 +111,7 @@ namespace BustosApartment_SAD_
             else
             {
 
-                string quer = "update borrowable_item set bitem_name = '" + txtuin.Text + "', bitem_dmg_status = '" + comboBox4.Text + "', bitem_desc = '" + txtuit.Text + "', bitem_actual = '" + textBox1.Text + "',  bitem_rate = '" + textBox7.Text + "', bitem_status = '" + comboBox1.Text + "', bitem_dmg_rate = '" + textBox9.Text + "'  where  bitem_id = " + id + " ";
+                string quer = "update borrowable_item set bitem_name = '" + txtuin.Text + "', bitem_dmg_status = '" + comboBox4.Text + "', bitem_desc = '" + txtuit.Text + "', bitem_actual = '" + textBox1.Text + "',  bitem_rate = '" + textBox7.Text + "', bitem_status = '" + comboBox1.Text + "' where  bitem_id = " + id + " ";
                 c1.insert(quer);
                 MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tablecall();
@@ -119,6 +119,10 @@ namespace BustosApartment_SAD_
     
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     

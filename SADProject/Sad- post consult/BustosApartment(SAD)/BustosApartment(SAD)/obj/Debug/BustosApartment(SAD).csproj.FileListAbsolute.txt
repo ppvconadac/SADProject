@@ -210,3 +210,4 @@ D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.Payment.resources
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.stinlosses.resources
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventRecords.resources
+D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCInventRICont.resources
