@@ -37,10 +37,11 @@ namespace BustosApartment_SAD_
 
         public void tablecall()
         {
-            string quer = "select * from room_item";
+            string quer = "select ritem_ID, Room_number, ritem_name, ritem_desc, ritem_price, ritem_roomid, ritem_dmg_stat from room_item inner join room where ritem_roomid = Room_ID ";
             dataGridView1.DataSource = c.select(quer);
             dataGridView1.Columns["ritem_ID"].Visible = false;
-
+            dataGridView1.Columns["ritem_roomid"].Visible = false;
+            dataGridView1.ClearSelection();
         }
 
         private void UCInventRICont_Load(object sender, EventArgs e)
@@ -54,6 +55,7 @@ namespace BustosApartment_SAD_
                     comboBox1.Items.Add(row.ItemArray[0].ToString());
                 }
             }
+            dataGridView1.ClearSelection();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

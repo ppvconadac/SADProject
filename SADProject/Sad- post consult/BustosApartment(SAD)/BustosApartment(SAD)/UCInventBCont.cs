@@ -38,6 +38,7 @@ namespace BustosApartment_SAD_
             string quer = "select * from borrowable_item";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["bitem_ID"].Visible = false;
+            dataGridView1.ClearSelection();
 
 
         }

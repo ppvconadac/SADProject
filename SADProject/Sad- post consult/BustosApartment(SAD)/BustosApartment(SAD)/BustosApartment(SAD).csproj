@@ -62,6 +62,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeDamageStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeDamageStat.Designer.cs">
+      <DependentUpon>ChangeDamageStat.cs</DependentUpon>
+    </Compile>
     <Compile Include="checkin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,12 @@
     <Compile Include="UCInventRecords.Designer.cs">
       <DependentUpon>UCInventRecords.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCInventMaint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCInventMaint.Designer.cs">
+      <DependentUpon>UCInventMaint.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCInventRICont.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -260,6 +272,9 @@
     <Compile Include="UCUEContent.Designer.cs">
       <DependentUpon>UCUEContent.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChangeDamageStat.resx">
+      <DependentUpon>ChangeDamageStat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="checkin.resx">
       <DependentUpon>checkin.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCInventRecords.resx">
       <DependentUpon>UCInventRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCInventMaint.resx">
+      <DependentUpon>UCInventMaint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCInventRICont.resx">
       <DependentUpon>UCInventRICont.cs</DependentUpon>

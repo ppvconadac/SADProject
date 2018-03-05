@@ -76,11 +76,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button4);
@@ -108,11 +108,11 @@
             this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(783, 17);
+            this.button8.Location = new System.Drawing.Point(654, 17);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(123, 32);
             this.button8.TabIndex = 16;
-            this.button8.Text = "Records";
+            this.button8.Text = "Maintenance";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -147,11 +147,11 @@
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(654, 17);
+            this.button6.Location = new System.Drawing.Point(783, 17);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(123, 32);
             this.button6.TabIndex = 15;
-            this.button6.Text = "Maintenance";
+            this.button6.Text = "Records";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button2
