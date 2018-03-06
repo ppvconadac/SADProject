@@ -149,6 +149,12 @@
     <Compile Include="UCIncomeContent.Designer.cs">
       <DependentUpon>UCIncomeContent.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCInventHCont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCInventHCont.Designer.cs">
+      <DependentUpon>UCInventHCont.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCInventLending.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -322,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCIncomeContent.resx">
       <DependentUpon>UCIncomeContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCInventHCont.resx">
+      <DependentUpon>UCInventHCont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCInventLending.resx">
       <DependentUpon>UCInventLending.cs</DependentUpon>

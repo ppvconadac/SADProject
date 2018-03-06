@@ -128,5 +128,19 @@ namespace BustosApartment_SAD_
                 UCInventRICont.Instance.BringToFront();
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (!panelMain2.Controls.Contains(UCInventHCont.Instance))
+            {
+                panelMain2.Controls.Add(UCInventHCont.Instance);
+                UCInventHCont.Instance.Dock = DockStyle.Fill;
+                UCInventHCont.Instance.BringToFront();
+            }
+            else
+            {
+                UCInventHCont.Instance.BringToFront();
+            }
+        }
     }   
 }
