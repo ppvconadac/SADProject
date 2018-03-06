@@ -41,9 +41,10 @@ namespace BustosApartment_SAD_
             if (dialogResult == DialogResult.Yes)
             {
                 if (db == "borrowable_item")
-                {             
+                {
 
                 }
             }
+        }
     }
 }

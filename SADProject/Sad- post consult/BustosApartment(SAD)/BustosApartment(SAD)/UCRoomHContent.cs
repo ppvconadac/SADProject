@@ -14,7 +14,7 @@ namespace BustosApartment_SAD_
     {
         private static UCRoomHContent _instance;
         Class1 c1 = new Class1();
-        public int b = 0;
+        public int b = 1;
         public string quer;
 
         public static UCRoomHContent Instance
@@ -135,7 +135,10 @@ namespace BustosApartment_SAD_
             {
                 if (b == 1)
                 {
-                    if (m != "" && d != "" && y != "")
+                    if (m == "" && d == "" && y == "") {
+                        tablecall();
+                    }
+                    else if (m != "" && d != "" && y != "")
                     {
                         quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
                      ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = " +
@@ -191,7 +194,11 @@ namespace BustosApartment_SAD_
                 }
                 else if (b == 2)
                 {
-                    if (m != "" && d != "" && y != "")
+                    if (m == "" && d == "" && y == "")
+                    {
+                        tablecall2();
+                    }
+                    else if (m != "" && d != "" && y != "")
                     {
                         quer = "SELECT room_number, profile_name, rt_date_start, rt_date_expire FROM room_transaction inner join room inner " +
                             "join ba_db.profile where rt_type = 'Expire' and room_room_id = room_id and Profile_user_ID = user_id AND rt_date_start like " +
@@ -245,7 +252,11 @@ namespace BustosApartment_SAD_
             {
                 if (b == 4)
                 {
-                    if (m != "" && d != "" && y != "")
+                    if (m == "" && d == "" && y == "")
+                    {
+                        tablecall3();
+                    }
+                    else if (m != "" && d != "" && y != "")
                     {
                         quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
                      ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = " +
@@ -302,8 +313,11 @@ namespace BustosApartment_SAD_
 
                 else if (b == 3)
                 {
-
-                    if (m != "" && d != "" && y != "")
+                    if (m == "" && d == "" && y == "")
+                    {
+                        tablecall4();
+                    }
+                    else if (m != "" && d != "" && y != "")
                     {
                         quer = "SELECT room_number, profile_name, rt_date_start, rt_date_expire FROM room_transaction inner join room inner " +
                             "join ba_db.profile where rt_type = 'Archive' and room_room_id = room_id and Profile_user_ID = user_id AND rt_date_start like " +
