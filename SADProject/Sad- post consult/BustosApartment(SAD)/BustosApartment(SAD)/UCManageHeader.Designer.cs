@@ -93,6 +93,7 @@
             this.button6.TabIndex = 15;
             this.button6.Text = "BIR";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button2
             // 
@@ -105,6 +106,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Summary";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
