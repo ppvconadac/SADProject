@@ -25,7 +25,9 @@ namespace BustosApartment_SAD_
             }
         }
 
-        int bid1;
+        public int bid1;
+        public string ava;
+        public string dmg;
         public UCInventMaint()
         {
             InitializeComponent();
@@ -143,12 +145,19 @@ namespace BustosApartment_SAD_
 
         private void button18_Click(object sender, EventArgs e)
         {
-            ChangeDamageStat ch = new ChangeDamageStat();
-            ch.getdeets(bid1,"borrowable_item");
-            DialogResult result = ch.ShowDialog();
-            if (result == DialogResult.Yes)
+            if (bid1 == 0)
             {
-                tablecall();
+                MessageBox.Show("No Entry Detected");
+            }
+            else
+            {
+                ChangeDamageStat ch = new ChangeDamageStat();
+                ch.getdeets(bid1, "borrowable_item");
+                DialogResult result = ch.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    tablecall();
+                }
             }
         }
 
@@ -157,8 +166,10 @@ namespace BustosApartment_SAD_
             if (e.RowIndex > -1)
             {
                 bid1 = int.Parse(dataGridView5.Rows[e.RowIndex].Cells["bitem_ID"].Value.ToString());
-                
-               
+                ava = dataGridView5.Rows[e.RowIndex].Cells["bitem_status"].Value.ToString();
+                dmg = dataGridView5.Rows[e.RowIndex].Cells["bitem_dmg_status"].Value.ToString();
+
+
             }
         }
 
@@ -170,6 +181,53 @@ namespace BustosApartment_SAD_
             dataGridView4.ClearSelection();
             dataGridView5.ClearSelection();
             dataGridView6.ClearSelection();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            if (bid1 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+            else 
+            {
+
+                DialogResult dialogResult = MessageBox.Show("Confirm Archive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (ava == "Available")
+                    {
+                        string quer2 = "update borrowable_item set bitem_status = 'Unavailable' where bitem_ID = " + bid1 + "";
+                        c.insert(quer2);
+                    }
+
+                    else
+                    {
+                        if (dmg == "Out of Order")
+                        {
+                            MessageBox.Show("Item Out of Order, Cannot set to Available.");
+                        }
+                        else
+                        {
+                            string quer2 = "update borrowable_item set bitem_status = 'Available' where bitem_ID = " + bid1 + "";
+                            c.insert(quer2);
+                        }
+                    }
+
+                }
+            }
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            reportdamage ch = new reportdamage();
+            ch.getdeets("borrowable_item");
+            DialogResult result = ch.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                tablecall();
+            }
         }
     }
 }
