@@ -107,15 +107,15 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!panelMain2.Controls.Contains(UCIncomeContent.Instance))
+            if (!panelMain2.Controls.Contains(UCSummaryCont.Instance))
             {
-                panelMain2.Controls.Add(UCIncomeContent.Instance);
-                UCIncomeContent.Instance.Dock = DockStyle.Fill;
-                UCBIRCont.Instance.BringToFront();
+                panelMain2.Controls.Add(UCSummaryCont.Instance);
+                UCSummaryCont.Instance.Dock = DockStyle.Fill;
+                UCSummaryCont.Instance.BringToFront();
             }
             else
             {
-                UCIncomeContent.Instance.BringToFront();
+                UCSummaryCont.Instance.BringToFront();
             }
         }
     }
