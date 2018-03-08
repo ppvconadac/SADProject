@@ -317,7 +317,10 @@ namespace BustosApartment_SAD_
             }
         }
 
-                   
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

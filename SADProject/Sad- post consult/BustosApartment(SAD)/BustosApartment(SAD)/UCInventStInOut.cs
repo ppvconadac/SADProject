@@ -36,7 +36,8 @@ namespace BustosApartment_SAD_
 
         public void tablecall()
         {
-            string quer = "select ntrans_ID, nt_date, nitem_name, nitem_transaction.nt_quantity, nonborrowable_item_nitem_ID,nt_type from nonborrowable_item inner join nitem_transaction where nitem_ID = nonborrowable_item_nitem_ID and nt_trans_stat =0";
+            string quer = "select ntrans_ID, nt_date, nitem_name, nitem_transaction.nt_quantity, nonborrowable_item_nitem_ID,nt_type from nonborrowable_item inner " +
+                "join nitem_transaction where nitem_ID = nonborrowable_item_nitem_ID and nt_trans_stat =0";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["ntrans_ID"].Visible = false;
             dataGridView1.Columns["nonborrowable_item_nitem_ID"].Visible = false;

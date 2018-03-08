@@ -119,6 +119,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reportdamage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportdamage.Designer.cs">
+      <DependentUpon>reportdamage.cs</DependentUpon>
+    </Compile>
     <Compile Include="reserve.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,12 @@
     </Compile>
     <Compile Include="stinstockout.Designer.cs">
       <DependentUpon>stinstockout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCBIRCont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCBIRCont.Designer.cs">
+      <DependentUpon>UCBIRCont.cs</DependentUpon>
     </Compile>
     <Compile Include="UCIncomeContent.cs">
       <SubType>UserControl</SubType>
@@ -272,6 +284,12 @@
     <Compile Include="UCRoomRContent.Designer.cs">
       <DependentUpon>UCRoomRContent.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCSummaryCont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCSummaryCont.Designer.cs">
+      <DependentUpon>UCSummaryCont.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCUEContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -314,6 +332,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="reportdamage.resx">
+      <DependentUpon>reportdamage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reserve.resx">
       <DependentUpon>reserve.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="stinstockout.resx">
       <DependentUpon>stinstockout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCBIRCont.resx">
+      <DependentUpon>UCBIRCont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCIncomeContent.resx">
       <DependentUpon>UCIncomeContent.cs</DependentUpon>
@@ -391,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCRoomRContent.resx">
       <DependentUpon>UCRoomRContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCSummaryCont.resx">
+      <DependentUpon>UCSummaryCont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCUEContent.resx">
       <DependentUpon>UCUEContent.cs</DependentUpon>
