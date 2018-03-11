@@ -1,0 +1,62 @@
+using System.IO;
+using itextSharp.text;
+using itextSharp.text.pdf;
+
+try catch first xd
+
+==genenrating
+
+Document doc = new Document(itextSharp.text.PageSize.LETTER, 10,10,42,35);
+PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("text.pdf", FileMode.Create));
+doc.Open();
+Paragraph par = New Paragraph("XDDDDDDDDDD");
+doc.Add(par);
+doc.close();
+
+==LIST
+
+List list = new List(List.UNORDERED);
+List.Add(new ListItem("XD"));
+List.Add(":)");
+doc.Add(list);
+
+==W/INDENT
+list.IndentationLeft = 30f; <== paramenter
+
+==ROMANNUMERAL LIST
+ Romanlist rlist = new Romanlist(true, 20);
+
+==DATAGRID TO TABLE 
+
+PdfTable table =new PdfTable(.colums.count);
+
+for(.colums.count)
+table.AddCell(new Phrase(.columns[j].HeaderText));
+
+table.HeaderRows =1;
+
+for(i, .rows.count)
+	for(k, .columns.count)
+		if(dgv[k, i].value !=null)
+			table.AddCell(new Phrase(dgv[k, i].value.toString()))
+		}
+	}
+}
+
+doc.Add(table);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
