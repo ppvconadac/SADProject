@@ -26,29 +26,33 @@ namespace BustosApartment_SAD_
         }
 
         public int bid1;
+        public int rid1;
+        public int rid2;
+        public int rpid2;
         public string ava;
+        public string ava2;
         public string dmg;
+        public string dmg2;
+        public int bid2;
+        public int bpid2;
+        public string rate;
+        public string paymeth;
+        public string paystat;
+        public string rate2;
+        public string paymeth2;
+        public string paystat2;
         public UCInventMaint()
         {
             InitializeComponent();
             tablecall();
             tablecall2();
-            tablecall3();
             tablecall4();
             tablecall5();
-            tablecall6();
+
         }
 
         
-        public void dgclear()
-        {
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-            dataGridView1.Refresh();
-            dataGridView2.DataSource = null;
-            dataGridView2.Rows.Clear();
-            dataGridView2.Refresh();
-        }
+
         public void tablecall()
         {
 
@@ -64,24 +68,16 @@ namespace BustosApartment_SAD_
         public void tablecall2()
         {
 
-            string quer = "select bdtrans_ID, bdt_date, bdt_price, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, bitem_name, bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_ID and bdt_trans_stat =0 and bdt_type =0";
+            string quer = "select bdtrans_ID, bdt_date, bdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, bitem_name, bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_ID and bdt_trans_stat =0 and bdt_type =0";
             dataGridView1.DataSource = c.select(quer);
             dataGridView1.Columns["bdtrans_ID"].Visible = false;
+            dataGridView1.Columns["Profile_user_ID"].Visible = false;
             dataGridView1.ClearSelection();
 
 
         }
 
-        public void tablecall3()
-        {
-
-            string quer = "select bdtrans_ID, bdt_date, bdt_price, bitem_name from bitem_damage_transaction inner join borrowable_item where borrowable_item_bitem_ID = bitem_ID and bdt_trans_stat =0 and bdt_type =1";
-            dataGridView2.DataSource = c.select(quer);
-            dataGridView2.Columns["bdtrans_ID"].Visible = false;
-            dataGridView2.ClearSelection();
-
-
-        }
+ 
 
         public void tablecall4()
         {
@@ -104,21 +100,13 @@ namespace BustosApartment_SAD_
             dataGridView3.ClearSelection();
         }
 
-        public void tablecall6()
-        {
-            string quer = "select rdtrans_ID, rdt_date, rdt_price, ritem_name from ritem_damage_transaction inner join room_item where ritem_itemID = ritem_ID and rdt_trans_stat =0 and rdt_type =1";
-            dataGridView4.DataSource = c.select(quer);
-            dataGridView4.Columns["rdtrans_ID"].Visible = false;
-            dataGridView4.ClearSelection();
-        }
+   
 
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
-            dataGridView2.ClearSelection();
             dataGridView3.ClearSelection();
-            dataGridView4.ClearSelection();
             dataGridView5.ClearSelection();
             dataGridView6.ClearSelection();
         }
@@ -176,9 +164,7 @@ namespace BustosApartment_SAD_
         private void UCInventMaint_Load(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
-            dataGridView2.ClearSelection();
             dataGridView3.ClearSelection();
-            dataGridView4.ClearSelection();
             dataGridView5.ClearSelection();
             dataGridView6.ClearSelection();
         }
@@ -192,7 +178,7 @@ namespace BustosApartment_SAD_
             else 
             {
 
-                DialogResult dialogResult = MessageBox.Show("Confirm Archive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show("Confirm Change?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -215,6 +201,8 @@ namespace BustosApartment_SAD_
                         }
                     }
 
+                    tablecall();
+
                 }
             }
         }
@@ -226,7 +214,228 @@ namespace BustosApartment_SAD_
             DialogResult result = ch.ShowDialog();
             if (result == DialogResult.Yes)
             {
-                tablecall();
+                tablecall2();
+            }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            if (bid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+                if (paymeth == "Cash")
+                {
+                    string amt;
+                    string quer = "select SUM(bdp_amount) from bdtrans_partial where bdp_trans_id = " + bid2 + "";
+                    DataTable d = c.select(quer);
+                    if (d.Rows[0]["SUM(bdp_amount)"].ToString() == "")
+                    {
+                        amt = "0";
+                    }
+                    else
+                    {
+
+                        amt = d.Rows[0]["SUM(bdp_amount)"].ToString();
+                    }
+
+                    int remaining = int.Parse(rate) - int.Parse(amt);
+                    Payment ch = new Payment();
+                    ch.getdeets(remaining.ToString(), bid2, "bitem_damage_transaction", bpid2);
+                    DialogResult result = ch.ShowDialog();
+                    if (result == DialogResult.Yes)
+                    {
+                        tablecall2();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Option disabled for check payments");
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex > -1)
+            {
+                bid2 = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bdtrans_id"].Value.ToString());
+                bpid2 = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["Profile_user_ID"].Value.ToString());
+                paystat = dataGridView1.Rows[e.RowIndex].Cells["bdt_pay_status"].Value.ToString();
+                paymeth = dataGridView1.Rows[e.RowIndex].Cells["bdt_pay_method"].Value.ToString();
+                rate = dataGridView1.Rows[e.RowIndex].Cells["bdt_price"].Value.ToString();
+            }
+           
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (bpid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+                if (paymeth == "Check")
+                {
+
+                    DialogResult dialogResult = MessageBox.Show("Mark transaction as paid.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+
+                        string quer = "update bitem_damage_transaction set bdt_pay_status= 'Paid' where bdtrans_ID = " + bid2 + "";
+                        c.insert(quer);
+                        string date = date = DateTime.Now.ToString("yyyy/M/d");
+                        string quer2 = "update bitem_damage_transaction set bdt_pay_date= '" + date + "' where bdtrans_ID = " + bid2 + "";
+                        c.insert(quer2);
+
+                        string quer3 = "select Profile_balance from profile where user_ID = '" + bpid2 + "'";
+                        DataTable d = c.select(quer3);
+                        string balance = d.Rows[0]["Profile_balance"].ToString();
+                        int bal = int.Parse(balance);
+                        int rt = int.Parse(rate);
+                        bal = bal - rt;
+                        string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + bpid2 + "";
+                        c.insert(quer4);
+
+                        MessageBox.Show("Transaction successfully marked as paid");
+                        tablecall2();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Option disabled for cash payments");
+
+                }
+
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (bid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Confirm change.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (paystat == "Pending")
+                    {
+                        if (paymeth == "Cash")
+                        {
+                            string quer = "update bitem_damage_transaction set bdt_pay_method= 'Check' where bdtrans_ID = " + bid2 + "";
+                            c.insert(quer);
+                            tablecall2();
+                        }
+
+                        else
+                        {
+                            string quer = "update bitem_damage_transaction set bdt_pay_method= 'Cash' where bdtrans_ID = " + bid2 + "";
+                            c.insert(quer);
+                            tablecall2();
+                        }
+                        MessageBox.Show("Payment method successfully changed");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cannot change payment method of this transaction");
+                    }
+                }
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (rid1 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+            else
+            {
+                ChangeDamageStat ch = new ChangeDamageStat();
+                ch.getdeets(rid1, "room_item");
+                DialogResult result = ch.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    tablecall4();
+                }
+            }
+        }
+
+        private void dataGridView6_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                rid1 = int.Parse(dataGridView6.Rows[e.RowIndex].Cells["ritem_ID"].Value.ToString());    
+                dmg2 = dataGridView6.Rows[e.RowIndex].Cells["ritem_dmg_stat"].Value.ToString();
+
+            }
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex > -1)
+            {
+                rid2 = int.Parse(dataGridView3.Rows[e.RowIndex].Cells["rdtrans_id"].Value.ToString());
+                rpid2 = int.Parse(dataGridView3.Rows[e.RowIndex].Cells["Profile_user_ID"].Value.ToString());
+                paystat2 = dataGridView3.Rows[e.RowIndex].Cells["rdt_pay_status"].Value.ToString();
+                paymeth2 = dataGridView3.Rows[e.RowIndex].Cells["rdt_pay_method"].Value.ToString();
+                rate2 = dataGridView3.Rows[e.RowIndex].Cells["rdt_price"].Value.ToString();
+
+            }
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (rid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+                if (paymeth2 == "Cash")
+                {
+                    string amt;
+                    string quer = "select SUM(rdp_amount) from rdtrans_partial where rdp_trans_id = " + rid2 + "";
+                    DataTable d = c.select(quer);
+                    if (d.Rows[0]["SUM(rdp_amount)"].ToString() == "")
+                    {
+                        amt = "0";
+                    }
+                    else
+                    {
+
+                        amt = d.Rows[0]["SUM(rdp_amount)"].ToString();
+                    }
+
+                    int remaining = int.Parse(rate2) - int.Parse(amt);
+                    Payment ch = new Payment();
+                    ch.getdeets(remaining.ToString(), rid2, "ritem_damage_transaction", rpid2);
+                    DialogResult result = ch.ShowDialog();
+                    if (result == DialogResult.Yes)
+                    {
+                        tablecall5();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Option disabled for check payments");
+                }
             }
         }
     }
