@@ -94,7 +94,7 @@ namespace BustosApartment_SAD_
 
         public void tablecall5()
         {
-            string quer = "select rdtrans_ID, rdt_date, rdt_price, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, ritem_name, rdt_pay_method, rdt_pay_status from ritem_damage_transaction inner join profile inner join room_item where Profile_user_ID = user_ID and ritem_itemID = ritem_ID and rdt_trans_stat =0 and rdt_type =0";
+            string quer = "select rdtrans_ID, rdt_date, rdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, ritem_name, rdt_pay_method, rdt_pay_status from ritem_damage_transaction inner join profile inner join room_item where Profile_user_ID = user_ID and ritem_itemID = ritem_ID and rdt_trans_stat =0 and rdt_type =0";
             dataGridView3.DataSource = c.select(quer);
             dataGridView3.Columns["rdtrans_ID"].Visible = false;
             dataGridView3.ClearSelection();
@@ -274,7 +274,7 @@ namespace BustosApartment_SAD_
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (bpid2 == 0)
+            if (bid2 == 0)
             {
                 MessageBox.Show("No Entry Detected");
             }
@@ -435,6 +435,101 @@ namespace BustosApartment_SAD_
                 else
                 {
                     MessageBox.Show("Option disabled for check payments");
+                }
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            reportdamage ch = new reportdamage();
+            ch.getdeets("room_item");
+            DialogResult result = ch.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                tablecall5();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (rid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+                if (paymeth2 == "Check")
+                {
+
+                    DialogResult dialogResult = MessageBox.Show("Mark transaction as paid.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+
+                        string quer = "update ritem_damage_transaction set rdt_pay_status= 'Paid' where rdtrans_ID = " + rid2 + "";
+                        c.insert(quer);
+                        string date = date = DateTime.Now.ToString("yyyy/M/d");
+                        string quer2 = "update ritem_damage_transaction set rdt_pay_date= '" + date + "' where rdtrans_ID = " + rid2 + "";
+                        c.insert(quer2);
+
+                        string quer3 = "select Profile_balance from profile where user_ID = '" + rpid2 + "'";
+                        DataTable d = c.select(quer3);
+                        string balance = d.Rows[0]["Profile_balance"].ToString();
+                        int bal = int.Parse(balance);
+                        int rt = int.Parse(rate);
+                        bal = bal - rt;
+                        string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + rpid2 + "";
+                        c.insert(quer4);
+
+                        MessageBox.Show("Transaction successfully marked as paid");
+                        tablecall5();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Option disabled for cash payments");
+
+                }
+
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (rid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Confirm change.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (paystat2 == "Pending")
+                    {
+                        if (paymeth2 == "Cash")
+                        {
+                            string quer = "update ritem_damage_transaction set rdt_pay_method= 'Check' where rdtrans_ID = " + rid2 + "";
+                            c.insert(quer);
+                            tablecall5();
+                        }
+
+                        else
+                        {
+                            string quer = "update ritem_damage_transaction set rdt_pay_method= 'Cash' where rdtrans_ID = " + rid2 + "";
+                            c.insert(quer);
+                            tablecall5();
+                        }
+                        MessageBox.Show("Payment method successfully changed");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cannot change payment method of this transaction");
+                    }
                 }
             }
         }

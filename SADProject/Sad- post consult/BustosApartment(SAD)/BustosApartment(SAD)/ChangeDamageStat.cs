@@ -50,6 +50,11 @@ namespace BustosApartment_SAD_
                 {
                     string quer2 = "update borrowable_item set bitem_dmg_status = '" + comboBox3.Text + "' where bitem_ID = " + item_id + "";
                     c.insert(quer2);
+                    if (comboBox3.Text == "Out of Order")
+                    {
+                        string quer3 = "update borrowable_item set bitem_status = 'Unavailable' where bitem_ID = " + item_id + "";
+                        c.insert(quer3);
+                    }
                     this.DialogResult = DialogResult.Yes;
                 }
 

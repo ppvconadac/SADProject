@@ -36,6 +36,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -43,6 +44,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
@@ -60,11 +62,11 @@
             // button5
             // 
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(692, 399);
+            this.button5.Location = new System.Drawing.Point(692, 501);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(398, 53);
             this.button5.TabIndex = 49;
-            this.button5.Text = "Archive Entry";
+            this.button5.Text = "Void Entry";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -140,6 +142,16 @@
             this.label5.TabIndex = 39;
             this.label5.Text = "STOCK-IN/OUT";
             // 
+            // button4
+            // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(692, 395);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(398, 53);
+            this.button4.TabIndex = 50;
+            this.button4.Text = "Archive Entry";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // UCInventStInOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,5 +176,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }

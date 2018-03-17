@@ -350,6 +350,7 @@
             this.button3.TabIndex = 62;
             this.button3.Text = "Change Payment Method";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -360,6 +361,7 @@
             this.button4.TabIndex = 61;
             this.button4.Text = "Mark as Paid";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -381,6 +383,7 @@
             this.button6.TabIndex = 59;
             this.button6.Text = "Report Damages";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // dataGridView3
             // 

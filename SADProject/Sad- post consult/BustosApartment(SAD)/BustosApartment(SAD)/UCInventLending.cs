@@ -242,7 +242,7 @@ namespace BustosApartment_SAD_
                 DialogResult result = ch.ShowDialog();
                 if (result == DialogResult.Yes)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Confirm Archive?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    DialogResult dialogResult = MessageBox.Show("Confirm Void?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                     if (dialogResult == DialogResult.Yes)
                     {

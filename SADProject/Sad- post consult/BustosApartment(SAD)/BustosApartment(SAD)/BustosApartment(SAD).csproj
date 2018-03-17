@@ -158,12 +158,6 @@
     <Compile Include="stinstockout.Designer.cs">
       <DependentUpon>stinstockout.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCBIRCont.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCBIRCont.Designer.cs">
-      <DependentUpon>UCBIRCont.cs</DependentUpon>
-    </Compile>
     <Compile Include="UCIncomeContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -355,9 +349,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="stinstockout.resx">
       <DependentUpon>stinstockout.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCBIRCont.resx">
-      <DependentUpon>UCBIRCont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCIncomeContent.resx">
       <DependentUpon>UCIncomeContent.cs</DependentUpon>
