@@ -292,6 +292,7 @@
             this.Name = "reportdamage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "reportdamage";
+            this.Load += new System.EventHandler(this.reportdamage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

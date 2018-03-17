@@ -59,6 +59,9 @@ namespace BustosApartment_SAD_
             }
         }
 
+        private void reportdamage_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
