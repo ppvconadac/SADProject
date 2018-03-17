@@ -93,16 +93,7 @@ namespace BustosApartment_SAD_
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (!panelMain2.Controls.Contains(UCBIRCont.Instance))
-            {
-                panelMain2.Controls.Add(UCBIRCont.Instance);
-                UCBIRCont.Instance.Dock = DockStyle.Fill;
-                UCBIRCont.Instance.BringToFront();
-            }
-            else
-            {
-                UCBIRCont.Instance.BringToFront();
-            }
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
