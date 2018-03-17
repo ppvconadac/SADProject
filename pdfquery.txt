@@ -1,0 +1,7 @@
+select profile_name , rt_date_start ,room_number,rc_rate,rt_type from room_transaction inner join room inner join profile inner join
+ 
+ room_classification where room_transaction.Profile_user_ID = user_ID and
+ 
+room_transaction.Room_Room_ID = Room_ID and Room_classification_classification_ID = classification_ID and rt_date_start like '2018-2-%' and rt_type != 
+'Extend' and rt_type != 'Archived'
+
