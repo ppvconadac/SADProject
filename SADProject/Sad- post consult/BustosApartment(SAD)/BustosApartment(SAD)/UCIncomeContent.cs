@@ -64,11 +64,11 @@ namespace BustosApartment_SAD_
 
             for (int  i = 0; i <d.Rows.Count; i++) {
                 Paragraph l = new Paragraph();
-                iTextSharp.text.Font font = new iTextSharp.text.Font(FontFactory.GetFont("Arial", 20, iTextSharp.text.Font.BOLD));
-                iTextSharp.text.Font font2 = new iTextSharp.text.Font(FontFactory.GetFont("Arial", 13, iTextSharp.text.Font.NORMAL));
+                iTextSharp.text.Font font = new iTextSharp.text.Font(FontFactory.GetFont("Arial", 13, iTextSharp.text.Font.BOLD));
+                iTextSharp.text.Font font2 = new iTextSharp.text.Font(FontFactory.GetFont("Arial", 9, iTextSharp.text.Font.NORMAL));
                 l.IndentationLeft = 30f;
                 l.Add(new Chunk("Room " + d.Rows[i][0],font));
-                l.Add(new Paragraph("______________________________________________________________________\n"));
+                l.Add(new Paragraph("______________________________________________________________________\n\n"));
                    doc.Add(l);
                 string quer2 = "select room_number, rt_date_start, profile_name, rt_type, rt_price, rt_extend_start from room inner join room_transaction" +
             " inner join profile where room_id = Room_Room_ID and Profile_user_ID = user_ID and room_number = "+d.Rows[i][0]+" and rt_type != 'Archived' and rt_date_start like '2018-2-%'";
@@ -82,7 +82,14 @@ namespace BustosApartment_SAD_
                     l2.Add(new Chunk("No Transacions This Month\n\n", font2));
                     doc.Add(l2);
                 }
+
+                
+
+
                 for (int j = 0; j < d2.Rows.Count; j++) {
+                    PdfPTable table = new PdfPTable(4);
+                    table.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+
                     string x;
                     if (d2.Rows[j][5].ToString() == "")
                     {
@@ -91,13 +98,12 @@ namespace BustosApartment_SAD_
                     else {
                         x = "Extension";
                     }
-                        Paragraph l3 = new Paragraph();
-                        l3.IndentationLeft = 40f;
-                        l3.Add(new Chunk("Name: " + d2.Rows[j][2] + "\n", font2));
-                        l3.Add(new Chunk("Date: " + d2.Rows[j][1] + "\n", font2));
-                        l3.Add(new Chunk("Amount: " + d2.Rows[j][4] + "\n", font2));
-                        l3.Add(new Chunk("Type: " + x + "\n\n", font2));
-                        doc.Add(l3);
+                    table.AddCell(new Phrase(new Chunk("NAME:  " +d2.Rows[j][2].ToString(), font2)));
+                    table.AddCell(new Phrase(new Chunk("DATE:  "+d2.Rows[j][1].ToString(), font2)));
+                    table.AddCell(new Phrase(new Chunk("AMOUNT: "+d2.Rows[j][4].ToString(), font2)));
+                    table.AddCell(new Phrase("TYPE:  "+x, font2));
+
+                    doc.Add(table);
                 
                 }
                 if (d3.Rows[0][0].ToString() != "")
