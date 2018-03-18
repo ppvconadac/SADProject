@@ -191,12 +191,6 @@
     <Compile Include="UCInventHeader.Designer.cs">
       <DependentUpon>UCInventHeader.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCInventRecords.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCInventRecords.Designer.cs">
-      <DependentUpon>UCInventRecords.cs</DependentUpon>
-    </Compile>
     <Compile Include="UCInventMaint.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -367,9 +361,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCInventHeader.resx">
       <DependentUpon>UCInventHeader.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCInventRecords.resx">
-      <DependentUpon>UCInventRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCInventMaint.resx">
       <DependentUpon>UCInventMaint.cs</DependentUpon>

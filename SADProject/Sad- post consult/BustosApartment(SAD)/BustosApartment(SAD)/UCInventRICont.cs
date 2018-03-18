@@ -37,7 +37,7 @@ namespace BustosApartment_SAD_
 
         public void tablecall()
         {
-            string quer = "select ritem_ID, Room_number, ritem_name, ritem_desc, ritem_price, ritem_roomid, ritem_dmg_stat from room_item inner join room where ritem_roomid = Room_ID ";
+            string quer = "select ritem_ID, Room_number, ritem_name, ritem_desc, ritem_price, ritem_roomid, ritem_dmg_stat from room_item inner join room where ritem_roomid = Room_ID and ritem_void_stat =0";
             dataGridView1.DataSource = c.select(quer);
             dataGridView1.Columns["ritem_ID"].Visible = false;
             dataGridView1.Columns["ritem_roomid"].Visible = false;
@@ -92,7 +92,7 @@ namespace BustosApartment_SAD_
                 string selquer = "select Room_ID from room where Room_number = " + comboBox2.Text + "";
                 DataTable d = c.select(selquer);
                 int r_id = int.Parse(d.Rows[0]["Room_ID"].ToString());
-                string quer = "insert into room_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "','" + textBox3.Text + "'," + r_id+ ",'" + comboBox3.Text + "')";
+                string quer = "insert into room_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "','" + textBox3.Text + "'," + r_id+ ",'" + comboBox3.Text + "',NULL,NULL,0)";
                 c.insert(quer);
                 MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

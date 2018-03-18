@@ -42,16 +42,7 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!panelMain2.Controls.Contains(UCInventBCont.Instance))
-            {
-                panelMain2.Controls.Add(UCInventBCont.Instance);
-                UCInventBCont.Instance.Dock = DockStyle.Fill;
-                UCInventBCont.Instance.BringToFront();
-            }
-            else
-            {
-                UCInventBCont.Instance.BringToFront();
-            }
+           
         }
 
         private void button4_Click(object sender, EventArgs e)

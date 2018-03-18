@@ -35,9 +35,18 @@ namespace BustosApartment_SAD_
         }
         public void tablecall()
         {
-            string quer = "select * from borrowable_item";
+            string quer = "select * from borrowable_item where bitem_void_stat =0";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["bitem_ID"].Visible = false;
+            dataGridView1.Columns["bitem_archive_date"].Visible = false;
+            dataGridView1.Columns["bitem_archive_loggedin"].Visible = false;
+            dataGridView1.Columns["bitem_void_stat"].Visible = false;
+            dataGridView1.Columns["bitem_name"].HeaderText = "Name";
+            dataGridView1.Columns["bitem_desc"].HeaderText = "Description";
+            dataGridView1.Columns["bitem_status"].HeaderText = "Availability";
+            dataGridView1.Columns["bitem_dmg_status"].HeaderText = "Condition";
+            dataGridView1.Columns["bitem_actual"].HeaderText = "Actual Price";
+            dataGridView1.Columns["bitem_rate"].HeaderText = "Rate";
             dataGridView1.ClearSelection();
 
 
@@ -45,7 +54,7 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -59,7 +68,7 @@ namespace BustosApartment_SAD_
                 textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_rate"].Value.ToString();
                 comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_status"].Value.ToString();
                 comboBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["bitem_dmg_status"].Value.ToString();
-                
+
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["bitem_id"].Value.ToString());
 
 
@@ -68,31 +77,39 @@ namespace BustosApartment_SAD_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (txtin.Text== "" || textBox4.Text == "" || comboBox2.Text== "" || comboBox3.Text == "" || textBox3.Text =="" || textBox2.Text == "" ) {
+            if (txtin.Text == "" || textBox4.Text == "" || comboBox2.Text == "" || comboBox3.Text == "" || textBox3.Text == "" || textBox2.Text == "")
+            {
                 MessageBox.Show("No empty fields, try again.");
             }
 
-            else if (comboBox3.Text == "Out of Order" && comboBox2.Text != "Unavailable") {
+            else if (comboBox3.Text == "Out of Order" && comboBox2.Text != "Unavailable")
+            {
                 MessageBox.Show("Out of Order item must be set to Unavailable.");
                 comboBox2.Text = "Unavailable";
             }
 
             else
             {
-                string quer = "insert into borrowable_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + textBox3.Text + "','" + textBox2.Text + "')";
+                string quer = "insert into borrowable_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + textBox3.Text + "','" + textBox2.Text + "',NULL,NULL,0)";
                 c1.insert(quer);
                 MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tablecall();
+                txtin.Text = "";
+                textBox4.Text = "";
+                comboBox2.Text = "";
+                comboBox3.Text = "";
+                textBox3.Text = "";
+                textBox2.Text = "";
             }
 
 
         }
 
 
-        private void UCInventBCont_Load(object sender, EventArgs e)     
+        private void UCInventBCont_Load(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
-        
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -116,14 +133,41 @@ namespace BustosApartment_SAD_
                 c1.insert(quer);
                 MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tablecall();
-            }     
-    
+
+            }
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            if (id == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
 
+            else
+            {
+
+                authorizearch ch = new authorizearch();
+                ch.a3 = this;
+                DialogResult result = ch.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Confirm Void?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string quer = "update borrowable_item set bitem_void_stat = 1 , bitem_archive_date =" +
+                            " '" + DateTime.Now.ToString("yyy-M-d") + "', bitem_archive_loggedin = " + FmLogin.id + " where bitem_ID = " + id + "";
+                        c1.insert(quer);
+
+                        tablecall();
+                    }
+
+                }
+            }
         }
     }
 }
+
     
