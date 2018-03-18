@@ -53,8 +53,9 @@ namespace BustosApartment_SAD_
 
         public UCInventCCont()
         {
-            InitializeComponent();
+            InitializeComponent();    
             tablecall();
+            
         }
         public string id;
 
@@ -383,6 +384,7 @@ namespace BustosApartment_SAD_
             this.Controls.Add(this.panel1);
             this.Name = "UCInventCCont";
             this.Size = new System.Drawing.Size(1104, 619);
+            this.Load += new System.EventHandler(this.UCInventCCont_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -483,6 +485,11 @@ namespace BustosApartment_SAD_
 
 
             }
+        }
+
+        private void UCInventCCont_Load_1(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

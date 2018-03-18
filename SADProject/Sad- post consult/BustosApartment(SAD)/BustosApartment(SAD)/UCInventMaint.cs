@@ -59,9 +59,15 @@ namespace BustosApartment_SAD_
             string quer = "select * from borrowable_item";
             dataGridView5.DataSource = c.select(quer);
             dataGridView5.Columns["bitem_ID"].Visible = false;
-            dataGridView5.Columns["bitem_actual"].Visible = false;
-            dataGridView5.Columns["bitem_rate"].Visible = false;
-            dataGridView5.ClearSelection();
+            dataGridView5.Columns["bitem_archive_date"].Visible = false;
+            dataGridView5.Columns["bitem_archive_loggedin"].Visible = false;
+            dataGridView5.Columns["bitem_void_stat"].Visible = false;
+            dataGridView5.Columns["bitem_name"].HeaderText = "Name";
+            dataGridView5.Columns["bitem_desc"].HeaderText = "Description";
+            dataGridView5.Columns["bitem_status"].HeaderText = "Availability";
+            dataGridView5.Columns["bitem_dmg_status"].HeaderText = "Condition";
+            dataGridView5.Columns["bitem_actual"].HeaderText = "Actual Price";
+            dataGridView5.Columns["bitem_rate"].HeaderText = "Rate";
 
 
         }

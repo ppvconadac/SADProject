@@ -139,5 +139,25 @@ namespace BustosApartment_SAD_
                 nt_quan = dataGridView1.Rows[e.RowIndex].Cells["nt_quantity"].Value.ToString();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (ida == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Confirm archive.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string quer = "update nitem_transaction set nt_trans_stat = 1 where ntrans_ID = " + ida + "";
+                    c1.insert(quer);
+                    tablecall();
+                }
+            }
+        }
     }
 }

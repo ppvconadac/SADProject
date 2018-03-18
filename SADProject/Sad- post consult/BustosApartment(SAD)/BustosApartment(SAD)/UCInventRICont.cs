@@ -41,6 +41,12 @@ namespace BustosApartment_SAD_
             dataGridView1.DataSource = c.select(quer);
             dataGridView1.Columns["ritem_ID"].Visible = false;
             dataGridView1.Columns["ritem_roomid"].Visible = false;
+            dataGridView1.Columns["ritem_name"].HeaderText = "Name";
+            dataGridView1.Columns["ritem_desc"].HeaderText = "Description"; 
+            dataGridView1.Columns["ritem_dmg_stat"].HeaderText = "Condition";
+            dataGridView1.Columns["ritem_price"].HeaderText = "Actual Price";
+            dataGridView1.Columns["Room_number"].HeaderText = "Room Number";
+
             dataGridView1.ClearSelection();
         }
 
@@ -120,6 +126,36 @@ namespace BustosApartment_SAD_
                 c.insert(quer);
                 MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);     
                 tablecall();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+
+                authorizearch ch = new authorizearch();
+                ch.a3 = this;
+                DialogResult result = ch.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Confirm Void?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string quer = "update room_item set ritem_void_stat = 1 , ritem_archive_date =" +
+                            " '" + DateTime.Now.ToString("yyy-M-d") + "', ritem_archive_loggedin = " + FmLogin.id + " where ritem_ID = " + id + "";
+                        c.insert(quer);
+
+                        tablecall();
+                    }
+
+                }
             }
         }
     }

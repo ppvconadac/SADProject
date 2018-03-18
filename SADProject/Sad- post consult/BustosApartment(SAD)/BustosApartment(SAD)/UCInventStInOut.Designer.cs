@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -36,7 +37,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1104, 619);
             this.panel1.TabIndex = 4;
+            // 
+            // button4
+            // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(692, 395);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(398, 53);
+            this.button4.TabIndex = 50;
+            this.button4.Text = "Archive Entry";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -141,16 +152,6 @@
             this.label5.Size = new System.Drawing.Size(173, 25);
             this.label5.TabIndex = 39;
             this.label5.Text = "STOCK-IN/OUT";
-            // 
-            // button4
-            // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(692, 395);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(398, 53);
-            this.button4.TabIndex = 50;
-            this.button4.Text = "Archive Entry";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // UCInventStInOut
             // 
