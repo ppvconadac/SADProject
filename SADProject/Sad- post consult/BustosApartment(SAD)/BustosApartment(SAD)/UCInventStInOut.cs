@@ -97,7 +97,7 @@ namespace BustosApartment_SAD_
                     if (dialogResult == DialogResult.Yes)
                     {
                         string quer = "update nitem_transaction set nt_trans_stat = 2 , nt_archive_date =" +
-                            " '" + DateTime.Now.ToString("yyy-M-d") + "', nt_archived_loggedin = " + FmLogin.id + " where ntrans_ID = " + ida + "";
+                            " '" + DateTime.Now.ToString("yyyy-M-d") + "', nt_archived_loggedin = " + FmLogin.id + " where ntrans_ID = " + ida + "";
                         c1.insert(quer);
 
                        if(type == "Stock-in")

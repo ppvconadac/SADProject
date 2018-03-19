@@ -181,8 +181,9 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(386, 53);
             this.button7.TabIndex = 68;
-            this.button7.Text = "Mark as Resolved";
+            this.button7.Text = "Archive Entry";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -330,8 +331,9 @@
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(386, 53);
             this.button19.TabIndex = 63;
-            this.button19.Text = "Mark as Resolved";
+            this.button19.Text = "Archive Entry";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // panel5
             // 

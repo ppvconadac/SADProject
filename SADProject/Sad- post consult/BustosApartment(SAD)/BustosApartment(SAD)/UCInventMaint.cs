@@ -74,7 +74,7 @@ namespace BustosApartment_SAD_
         public void tablecall2()
         {
 
-            string quer = "select bdtrans_ID, bdt_date, bdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, bitem_name, bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_ID and bdt_trans_stat =0 and bdt_type =0";
+            string quer = "select bdtrans_ID, bdt_date, bdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, bitem_name, bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_ID and bdt_trans_stat =0";
             dataGridView1.DataSource = c.select(quer);
             dataGridView1.Columns["bdtrans_ID"].Visible = false;
             dataGridView1.Columns["Profile_user_ID"].Visible = false;
@@ -100,7 +100,7 @@ namespace BustosApartment_SAD_
 
         public void tablecall5()
         {
-            string quer = "select rdtrans_ID, rdt_date, rdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, ritem_name, rdt_pay_method, rdt_pay_status from ritem_damage_transaction inner join profile inner join room_item where Profile_user_ID = user_ID and ritem_itemID = ritem_ID and rdt_trans_stat =0 and rdt_type =0";
+            string quer = "select rdtrans_ID, rdt_date, rdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, ritem_name, rdt_pay_method, rdt_pay_status from ritem_damage_transaction inner join profile inner join room_item where Profile_user_ID = user_ID and ritem_itemID = ritem_ID and rdt_trans_stat =0";
             dataGridView3.DataSource = c.select(quer);
             dataGridView3.Columns["rdtrans_ID"].Visible = false;
             dataGridView3.ClearSelection();
@@ -115,13 +115,26 @@ namespace BustosApartment_SAD_
             dataGridView3.ClearSelection();
             dataGridView5.ClearSelection();
             dataGridView6.ClearSelection();
-        }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+             bid1 = 0;
+             rid1 = 0;
+             rid2 = 0;
+             rpid2 = 0;
+             ava = "";
+             ava2 = "";
+             dmg = "";
+             dmg2 = "";
+             bid2 = 0;
+             bpid2 = 0;
+             rate = "";
+             paymeth = "";
+             paystat = "";
+             rate2 = "";
+             paymeth2 = "";
+             paystat2 = "";
+    }
 
-        }
-
+   
         private void button1_Click(object sender, EventArgs e)
         {
             tablecall();
@@ -132,10 +145,7 @@ namespace BustosApartment_SAD_
             tablecall2();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+ 
 
         private void button18_Click(object sender, EventArgs e)
         {
@@ -536,6 +546,61 @@ namespace BustosApartment_SAD_
                     {
                         MessageBox.Show("Cannot change payment method of this transaction");
                     }
+                }
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (bid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else if (paystat != "Paid")
+            {
+                MessageBox.Show("Cannot archive unpaid transaction");
+            }
+
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Confirm archive.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    
+                        string quer = "update bitem_damage_transaction set bdt_trans_stat = 1 where bdtrans_ID = " + bid2 + "";
+                        c.insert(quer);
+                        tablecall2();
+                    
+                    
+                }
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if (rid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else if (paystat != "Paid")
+            {
+                MessageBox.Show("Cannot archive unpaid transaction");
+            }
+
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Confirm archive.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    string quer = "update ritem_damage_transaction set rdt_trans_stat = 1 where rdtrans_ID = " + rid2 + "";
+                    c.insert(quer);
+                    tablecall5();
+
                 }
             }
         }

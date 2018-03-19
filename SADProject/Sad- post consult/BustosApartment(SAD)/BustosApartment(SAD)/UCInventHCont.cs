@@ -59,7 +59,7 @@ namespace BustosApartment_SAD_
         public void tablecall3() {
             quer = "select bdtrans_ID, bdt_date, bdt_price, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, bitem_name, " +
                 "bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID " +
-                "= bitem_ID and bdt_trans_stat =1 and bdt_type =0";
+                "= bitem_ID and bdt_trans_stat =1";
             call(quer);
             dataGridView2.Columns["bdtrans_ID"].Visible = false;
             dataGridView2.ClearSelection();
@@ -287,7 +287,7 @@ namespace BustosApartment_SAD_
             {
                 quer = "select bdtrans_ID, bdt_date, bdt_price, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, bitem_name, " +
                 "bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID " +
-                "= bitem_ID and bdt_trans_stat =1 and bdt_type =0 and bdt_date like '" + date + "'";
+                "= bitem_ID and bdt_trans_stat =1 and bdt_date like '" + date + "'";
                 call(quer);
             }
             else if (ch == 5)

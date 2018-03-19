@@ -120,7 +120,7 @@ namespace BustosApartment_SAD_
                 if (dialogResult == DialogResult.Yes)
                 {
                     date = DateTime.Now.ToString("yyyy-M-d");
-                    string quer = "insert into bitem_damage_transaction values(NULL, '" + date + "','" + textBox2.Text + "'," + pid+ "," + id2 + ",'" + comboBox2.Text + "','Pending',  NULL, 0,0 )";
+                    string quer = "insert into bitem_damage_transaction values(NULL, '" + date + "','" + textBox2.Text + "'," + pid+ "," + id2 + ",'" + comboBox2.Text + "','Pending',  NULL, 0 )";
 
                     c.insert(quer);
                     string quer2 = "update borrowable_item set bitem_dmg_status = '" + comboBox3.Text + "' where bitem_ID = " + id2+ "";
@@ -185,7 +185,7 @@ namespace BustosApartment_SAD_
                 if (dialogResult == DialogResult.Yes)
                 {
                     date = DateTime.Now.ToString("yyyy-M-d");
-                    string quer = "insert into ritem_damage_transaction values(NULL, '" + date + "','" + textBox2.Text + "'," + pid + "," + id2 + ",'" + comboBox2.Text + "','Pending',  NULL, 0,0 )";
+                    string quer = "insert into ritem_damage_transaction values(NULL, '" + date + "','" + textBox2.Text + "'," + pid + "," + id2 + ",'" + comboBox2.Text + "','Pending',  NULL, 0 )";
 
                     c.insert(quer);
                     string quer2 = "update room_item set ritem_dmg_stat = '" + comboBox3.Text + "' where ritem_ID = " + id2 + "";
