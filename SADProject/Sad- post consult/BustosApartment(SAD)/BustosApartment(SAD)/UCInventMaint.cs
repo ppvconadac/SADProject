@@ -297,7 +297,7 @@ namespace BustosApartment_SAD_
 
                         string quer = "update bitem_damage_transaction set bdt_pay_status= 'Paid' where bdtrans_ID = " + bid2 + "";
                         c.insert(quer);
-                        string date = date = DateTime.Now.ToString("yyyy/M/d");
+                        string date = date = DateTime.Now.ToString("yyyy-M-d");
                         string quer2 = "update bitem_damage_transaction set bdt_pay_date= '" + date + "' where bdtrans_ID = " + bid2 + "";
                         c.insert(quer2);
 
@@ -475,7 +475,7 @@ namespace BustosApartment_SAD_
 
                         string quer = "update ritem_damage_transaction set rdt_pay_status= 'Paid' where rdtrans_ID = " + rid2 + "";
                         c.insert(quer);
-                        string date = date = DateTime.Now.ToString("yyyy/M/d");
+                        string date = date = DateTime.Now.ToString("yyyy-M-d");
                         string quer2 = "update ritem_damage_transaction set rdt_pay_date= '" + date + "' where rdtrans_ID = " + rid2 + "";
                         c.insert(quer2);
 

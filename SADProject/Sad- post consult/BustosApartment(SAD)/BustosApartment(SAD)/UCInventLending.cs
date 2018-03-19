@@ -109,7 +109,7 @@ namespace BustosApartment_SAD_
                             string date;
                             string quer = "update borrowable_item set bitem_status = 'Available' where bitem_ID = " + id2 + "";
                             c1.insert(quer);
-                            date = DateTime.Now.ToString("yyyy/M/d");
+                            date = DateTime.Now.ToString("yyyy-M-d");
                             string quer2 = "update bitem_transaction set bt_ret= '" + date + "' where btrans_ID = " + id + "";
                             c1.insert(quer2);
                             string quer3 = "update bitem_transaction set bt_trans_stat= 1 where btrans_ID = " + id + "";
@@ -143,7 +143,7 @@ namespace BustosApartment_SAD_
 
                         string quer = "update bitem_transaction set bt_pay_status= 'Paid' where btrans_ID = " + id + "";
                         c1.insert(quer);
-                        string date = date = DateTime.Now.ToString("yyyy/M/d");
+                        string date = date = DateTime.Now.ToString("yyyy-M-d");
                         string quer2 = "update bitem_transaction set bt_pay_date= '" + date + "' where btrans_ID = " + id + "";
                         c1.insert(quer2);
 

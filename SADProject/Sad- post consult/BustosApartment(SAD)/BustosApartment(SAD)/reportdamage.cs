@@ -119,7 +119,7 @@ namespace BustosApartment_SAD_
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    date = DateTime.Now.ToString("yyyy/M/d");
+                    date = DateTime.Now.ToString("yyyy-M-d");
                     string quer = "insert into bitem_damage_transaction values(NULL, '" + date + "','" + textBox2.Text + "'," + pid+ "," + id2 + ",'" + comboBox2.Text + "','Pending',  NULL, 0,0 )";
 
                     c.insert(quer);
@@ -184,7 +184,7 @@ namespace BustosApartment_SAD_
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    date = DateTime.Now.ToString("yyyy/M/d");
+                    date = DateTime.Now.ToString("yyyy-M-d");
                     string quer = "insert into ritem_damage_transaction values(NULL, '" + date + "','" + textBox2.Text + "'," + pid + "," + id2 + ",'" + comboBox2.Text + "','Pending',  NULL, 0,0 )";
 
                     c.insert(quer);
