@@ -82,7 +82,7 @@ namespace BustosApartment_SAD_
                 if (dialogResult == DialogResult.Yes)
                 {
                     string quer;
-                    date = DateTime.Now.ToString("yyyy/M/d");
+                    date = DateTime.Now.ToString("yyyy-M-d");
 
                     quer = "insert into nitem_transaction values(NULL, '" + date + "','" + textBox2.Text + "','" + id2+ "', 'Stock-out', NULL, NULL, '" +id+"',0)";
                     c.insert(quer);

@@ -48,7 +48,7 @@ namespace BustosApartment_SAD_
                     {
                         cb = int.Parse(textBox2.Text);
                         string quer;
-                        string date = DateTime.Now.ToString("yyyy/M/d");
+                        string date = DateTime.Now.ToString("yyyy-M-d");
 
                         quer = "insert into btrans_partial values(NULL, '" + date + "', '" + tendered.ToString() + "', " + tr_id + " )";
                         c.insert(quer);
@@ -84,7 +84,7 @@ namespace BustosApartment_SAD_
                     {
                         cb = int.Parse(textBox2.Text);
                         string quer;
-                        string date = DateTime.Now.ToString("yyyy/M/d");
+                        string date = DateTime.Now.ToString("yyyy-M-d");
 
                         quer = "insert into bdtrans_partial values(NULL, '" + date + "', '" + tendered.ToString() + "', " + tr_id + " )";
                         c.insert(quer);
