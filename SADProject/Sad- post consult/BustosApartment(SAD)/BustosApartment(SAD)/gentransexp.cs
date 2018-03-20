@@ -27,9 +27,9 @@ namespace BustosApartment_SAD_
             if (dialogResult == DialogResult.Yes)
             {
                 string quer;
-                string date = DateTime.Now.ToString("yyyy/M/d");
+                string date = DateTime.Now.ToString("yyyy-M-d");
 
-                quer = "insert into misc_transaction values(NULL, '" + date + "','" + textBox2.Text + "','" + comboBox3.Text + "','" + textBox4.Text +"' )";
+                quer = "insert into misc_transaction values(NULL, '" + date + "','" + textBox2.Text + "','" + comboBox3.Text + "','" + textBox4.Text +"',0, NULL,NULL )";
                 c.insert(quer);
                 this.DialogResult = DialogResult.Yes;
 
