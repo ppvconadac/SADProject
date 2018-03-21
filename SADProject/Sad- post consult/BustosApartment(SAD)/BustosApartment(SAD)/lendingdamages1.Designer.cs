@@ -197,7 +197,7 @@
             this.Controls.Add(this.button1);
             this.Name = "lendingdamages1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "lendingdamages1";
+            this.Text = "Lending - Report Damages";
             this.ResumeLayout(false);
             this.PerformLayout();
 

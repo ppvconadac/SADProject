@@ -61,7 +61,7 @@ namespace BustosApartment_SAD_
                     if (dialogResult == DialogResult.Yes)
                     {
                     string quer;
-                    date = DateTime.Now.ToString("yyyy/M/d");
+                    date = DateTime.Now.ToString("yyyy-M-d");
         
                         quer = "insert into bitem_transaction values(NULL, '" + date + "','Pending','" + comboBox2.Text + "','"+rate+"','" + id + "','" + id2 + "', NULL , NULL, 0, NULL, NULL )";
 
