@@ -17,6 +17,7 @@ namespace BustosApartment_SAD_
         public int id2;
         public int id3;
         public int id4;
+        public static string rcid;
         Class1 c = new Class1();
 
         private static UCRoomAsContent _instance;
@@ -92,7 +93,7 @@ namespace BustosApartment_SAD_
         public void tablecall2()
         {
 
-            String query = "SELECT room_id, room_number, room_time, room_status FROM room  inner join room_classification" +
+            String query = "SELECT room_id, room_number, room_time, room_status, Room_classification_classification_ID FROM room  inner join room_classification" +
                 " where Room_classification_classification_ID = classification_ID ";
             dataGridView1.DataSource = c.select(query);
             dataGridView1.ClearSelection();
@@ -135,6 +136,7 @@ namespace BustosApartment_SAD_
             {
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["room_id"].Value.ToString());
                 id2 = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["room_id"].Value.ToString());
+                rcid = dataGridView1.Rows[e.RowIndex].Cells["Room_classification_classification_ID"].Value.ToString();
             }
         }
 
@@ -282,6 +284,7 @@ namespace BustosApartment_SAD_
                 puid = dataGridView2.Rows[e.RowIndex].Cells["profile_user_id"].Value.ToString();
                 rrid = dataGridView2.Rows[e.RowIndex].Cells["room_room_id"].Value.ToString();
                 rtde = dataGridView2.Rows[e.RowIndex].Cells["rt_date_expire"].Value.ToString(); 
+
             }
 
         }
@@ -340,6 +343,18 @@ namespace BustosApartment_SAD_
                     c.insert(up2);
                     c.insert(up3);
                 }
+                tablecall();
+                tablecall2();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Transfer rs = new Transfer();
+            rs.a3 = this;
+            DialogResult result = rs.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
                 tablecall();
                 tablecall2();
             }
