@@ -54,6 +54,7 @@ namespace BustosApartment_SAD_
             dataGridView2.DataSource = c.select(quer);
 
         }
+     
         private void button1_Click(object sender, EventArgs e)
         {
           
