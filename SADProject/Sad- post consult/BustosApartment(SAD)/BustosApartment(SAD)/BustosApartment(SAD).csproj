@@ -84,6 +84,18 @@
       <DependentUpon>checkin.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="elrecaddchar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="elrecaddchar.Designer.cs">
+      <DependentUpon>elrecaddchar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="elrecmontrans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="elrecmontrans.Designer.cs">
+      <DependentUpon>elrecmontrans.cs</DependentUpon>
+    </Compile>
     <Compile Include="extend.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +328,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="checkin.resx">
       <DependentUpon>checkin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="elrecaddchar.resx">
+      <DependentUpon>elrecaddchar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="elrecmontrans.resx">
+      <DependentUpon>elrecmontrans.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="extend.resx">
       <DependentUpon>extend.cs</DependentUpon>
