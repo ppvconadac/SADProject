@@ -23,6 +23,7 @@ namespace BustosApartment_SAD_
         {
             DialogResult dialogResult = MessageBox.Show("Confirm transaction", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
+            
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -30,10 +31,22 @@ namespace BustosApartment_SAD_
                 string quer;
                 date = DateTime.Now.ToString("yyyy-M-d");
 
-                quer = "insert into utelect_trans values(NULL, '" + date + "','"+textBox4.Text+"','0','" + txtin.Text + "', '0', NULL, NULL )";
+                string quer3 = "select * from utelect_trans where uelect_date = '" + date+ "' and uelect_trans_stat =0";
+                DataTable d = c.select(quer3);
 
-                c.insert(quer);
-                this.DialogResult = DialogResult.Yes;
+                if (d.Rows.Count > 0)
+                {
+                    MessageBox.Show("Transaction already recorded for given date.");
+                }
+                else
+                {
+                    double price = double.Parse(textBox4.Text);
+
+                    quer = "insert into utelect_trans values(NULL, '" + date + "'," + price + ",'0','" + double.Parse(txtin.Text) + "', '0', NULL, NULL )";
+
+                    c.insert(quer);
+                    this.DialogResult = DialogResult.Yes;
+                }
             }
             }
     }

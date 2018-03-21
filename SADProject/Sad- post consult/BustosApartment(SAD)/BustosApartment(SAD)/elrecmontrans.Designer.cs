@@ -42,15 +42,15 @@
             this.dateTimePicker2.Enabled = false;
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(11, 28);
+            this.dateTimePicker2.Location = new System.Drawing.Point(13, 28);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(399, 24);
+            this.dateTimePicker2.Size = new System.Drawing.Size(397, 24);
             this.dateTimePicker2.TabIndex = 138;
             // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox4.Location = new System.Drawing.Point(13, 78);
+            this.textBox4.Location = new System.Drawing.Point(13, 79);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(398, 24);
             this.textBox4.TabIndex = 137;
@@ -58,7 +58,7 @@
             // txtin
             // 
             this.txtin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.txtin.Location = new System.Drawing.Point(13, 128);
+            this.txtin.Location = new System.Drawing.Point(13, 127);
             this.txtin.Name = "txtin";
             this.txtin.Size = new System.Drawing.Size(398, 24);
             this.txtin.TabIndex = 133;

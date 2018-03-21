@@ -50,7 +50,7 @@ namespace BustosApartment_SAD_
                 string quer;
                 string date = DateTime.Now.ToString("yyyy-M-d");
 
-                quer = "insert into in_transaction values(NULL, '" + date + "','" + textBox3.Text + "'," + id+ ",'" + textBox2.Text + "',0, NULL,NULL )";
+                quer = "insert into in_transaction values(NULL, '" + date + "','" + double.Parse(textBox3.Text) + "'," + id+ ",'" + textBox2.Text + "',0, NULL,NULL )";
                 c1.insert(quer);
                 this.DialogResult = DialogResult.Yes;
 

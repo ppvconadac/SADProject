@@ -84,11 +84,11 @@
       <DependentUpon>checkin.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="elrecaddchar.cs">
+    <Compile Include="eladdchar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="elrecaddchar.Designer.cs">
-      <DependentUpon>elrecaddchar.cs</DependentUpon>
+    <Compile Include="eladdchar.Designer.cs">
+      <DependentUpon>eladdchar.cs</DependentUpon>
     </Compile>
     <Compile Include="elrecmontrans.cs">
       <SubType>Form</SubType>
@@ -181,6 +181,12 @@
     </Compile>
     <Compile Include="stinstockout.Designer.cs">
       <DependentUpon>stinstockout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer.Designer.cs">
+      <DependentUpon>Transfer.cs</DependentUpon>
     </Compile>
     <Compile Include="UCIncomeContent.cs">
       <SubType>UserControl</SubType>
@@ -317,11 +323,17 @@
     <Compile Include="UCSummaryCont.Designer.cs">
       <DependentUpon>UCSummaryCont.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCUEContent.cs">
+    <Compile Include="UCManageUEContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCUEContent.Designer.cs">
-      <DependentUpon>UCUEContent.cs</DependentUpon>
+    <Compile Include="UCManageUEContent.Designer.cs">
+      <DependentUpon>UCManageUEContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="utilityselpmeth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilityselpmeth.Designer.cs">
+      <DependentUpon>utilityselpmeth.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ChangeDamageStat.resx">
       <DependentUpon>ChangeDamageStat.cs</DependentUpon>
@@ -329,8 +341,8 @@
     <EmbeddedResource Include="checkin.resx">
       <DependentUpon>checkin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="elrecaddchar.resx">
-      <DependentUpon>elrecaddchar.cs</DependentUpon>
+    <EmbeddedResource Include="eladdchar.resx">
+      <DependentUpon>eladdchar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="elrecmontrans.resx">
       <DependentUpon>elrecmontrans.cs</DependentUpon>
@@ -385,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="stinstockout.resx">
       <DependentUpon>stinstockout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer.resx">
+      <DependentUpon>Transfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCIncomeContent.resx">
       <DependentUpon>UCIncomeContent.cs</DependentUpon>
@@ -455,8 +470,11 @@
     <EmbeddedResource Include="UCSummaryCont.resx">
       <DependentUpon>UCSummaryCont.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCUEContent.resx">
-      <DependentUpon>UCUEContent.cs</DependentUpon>
+    <EmbeddedResource Include="UCManageUEContent.resx">
+      <DependentUpon>UCManageUEContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="utilityselpmeth.resx">
+      <DependentUpon>utilityselpmeth.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
