@@ -33,8 +33,8 @@ namespace BustosApartment_SAD_
             conn = new MySqlConnection("Server=localhost;Database=ba_db;uid=root; pwd =root; ");
             tablecall();
             onload();
-            dates();
-            tablecall2();
+           
+ 
         }
 
         public void onload()
@@ -72,43 +72,7 @@ namespace BustosApartment_SAD_
 
         }
 
-        public void tablecall2() {
-            DateTime d = DateTime.Now;
-            int a = d.Month - 1;
-            string ym = d.Year.ToString() + "-" + a.ToString()+ "-%";
-            try
-            {
-                string quer = "SELECT profile_name, rt_date_start, rt_date_expire from profile inner join room_transaction where user_ID = profile_user_ID " 
-                    + "and rt_type != 'Extend' and rt_type != 'Archive' and rt_date_start like '"+ym+"' and room_room_id = "+id1+"";
-                dataGridView2.DataSource = c.select(quer);
-            }
-            catch {
-            }
-        }
-        public void dates()
-        {
-            DateTime d = DateTime.Now;
-            int baseyear = 2018;
-            int yeargap = d.Year - (baseyear - 1);
-            String[,] date = new String[12, 2] {
-                {"January","31"},{"Febuary","28"},{"March","31"},{"April","30"},{"May","31"},
-                {"June","30"},{"July","31"}, {"August","31"}, {"September","30"},{"October","31"},
-                {"November","30"}, {"December","31"}
-            };
-          
-            comboBox5.Items.Add("");
-            comboBox6.Items.Add("");
-            for (int i = 0; yeargap > i; i++)
-            {
-                comboBox5.Items.Add(baseyear);
-                baseyear++;
-            }
-            for (int j = 0; j < 12; j++)
-            {
-                comboBox6.Items.Add(date[j, 0]);
-            }
-         
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -214,8 +178,7 @@ namespace BustosApartment_SAD_
                 comboBox4.Text = name;
                 comboBox2.Text = day;
                 textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["room_desc"].Value.ToString();
-                label15.Text = dt.Rows[0]["room_number"].ToString();
-                tablecall2();
+               
             }
         }
 
@@ -266,46 +229,7 @@ namespace BustosApartment_SAD_
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int mo;
-            string m = comboBox6.Text;
-            if (m == "January")
-                mo = 1;
-            else if (m == "Febuary")
-                mo = 2;
-            else if (m == "March")
-                mo = 3;
-            else if (m == "April")
-                mo = 4;
-            else if (m == "May")
-                mo = 5;
-            else if (m == "June")
-                mo = 6;
-            else if (m == "July")
-                mo = 7;
-            else if (m == "August")
-                mo = 8;
-            else if (m == "September")
-                mo = 9;
-            else if (m == "October")
-                mo = 10;
-            else if (m == "November")
-                mo = 11;
-            else if (m == "December")
-                mo = 12;
-            else
-                mo = 0;
-
-            string date = "%%";
-            if (comboBox5.Text == "")
-                date = "%-" + mo + "-%";
-            else if (comboBox6.Text ==""){
-                date = comboBox5.Text + "-%";
-            }
-
-           
-            string quer = "SELECT profile_name, rt_date_start, rt_date_expire from profile inner join room_transaction where user_ID = profile_user_ID "
-                     + "and rt_type != 'Extend' and rt_type != 'Archive' and rt_date_start like '" + date + "' and room_room_id = " + id1 + "";
-            dataGridView2.DataSource = c.select(quer);
+            
         }
     }
 }
