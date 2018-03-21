@@ -33,6 +33,7 @@ namespace BustosApartment_SAD_
         {
             InitializeComponent();
             tablecall();
+            tablecall2();
         }
 
         private void UCIncomeContent_Load(object sender, EventArgs e)
@@ -46,7 +47,13 @@ namespace BustosApartment_SAD_
                 " and Room_classification_classification_ID = classification_ID and rt_date_start like '2018-2-%' and rt_type != 'Archived'";
             dataGridView1.DataSource = c.select(quer);
         }
+        public void tablecall2() {
+            string quer = "SELECT profile_name,bt_date, bt_pay_method, bt_price, bitem_name FROM bitem_transaction inner join borrowable_item inner join profile where" +
+                " Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_id " +
+                "and bt_pay_status = 'Paid'";
+            dataGridView2.DataSource = c.select(quer);
 
+        }
         private void button1_Click(object sender, EventArgs e)
         {
           
