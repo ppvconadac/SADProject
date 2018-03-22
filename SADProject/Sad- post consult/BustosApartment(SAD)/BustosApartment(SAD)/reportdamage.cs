@@ -58,7 +58,17 @@ namespace BustosApartment_SAD_
             {
                 string quer = "select * from borrowable_item";
                 dataGridView2.DataSource = c.select(quer);
+               
                 dataGridView2.Columns["bitem_ID"].Visible = false;
+                dataGridView2.Columns["bitem_archive_date"].Visible = false;
+                dataGridView2.Columns["bitem_archive_loggedin"].Visible = false;
+                dataGridView2.Columns["bitem_void_stat"].Visible = false;
+                dataGridView2.Columns["bitem_name"].HeaderText = "Name";
+                dataGridView2.Columns["bitem_desc"].HeaderText = "Description";
+                dataGridView2.Columns["bitem_status"].HeaderText = "Availability";
+                dataGridView2.Columns["bitem_dmg_status"].HeaderText = "Condition";
+                dataGridView2.Columns["bitem_actual"].HeaderText = "Actual Price";
+                dataGridView2.Columns["bitem_rate"].HeaderText = "Rate";
                 dataGridView2.ClearSelection();
             }
 
@@ -66,6 +76,16 @@ namespace BustosApartment_SAD_
             {
                 string quer = "select * from room_item";
                 dataGridView2.DataSource = c.select(quer);
+                dataGridView2.Columns["ritem_ID"].Visible = false;
+                dataGridView2.Columns["ritem_price"].Visible = false;
+                dataGridView2.Columns["ritem_roomid"].Visible = false;
+                dataGridView2.Columns["ritem_archive_date"].Visible = false;
+                dataGridView2.Columns["ritem_archive_loggedin"].Visible = false;
+                dataGridView2.Columns["ritem_void_stat"].Visible = false;
+                dataGridView2.Columns["ritem_name"].HeaderText = "Name";
+                dataGridView2.Columns["ritem_desc"].HeaderText = "Description";
+                dataGridView2.Columns["ritem_dmg_stat"].HeaderText = "Condition";
+                dataGridView2.Columns["ritem_price"].HeaderText = "Actual Price";
             }
         }
 
@@ -109,6 +129,18 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (id2 == 0 || pid == 0 || comboBox2.Text =="" || comboBox3.Text == "")
+            {
+                MessageBox.Show("No Empty Fields");
+            }
+            else if (!double.TryParse(textBox2.Text, out double val))
+            {
+                MessageBox.Show("Invalid format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox2.Text = "";
+            }
+            else
+            {
+            
             if (db == "borrowable_item")
             {
      
@@ -146,9 +178,9 @@ namespace BustosApartment_SAD_
                     {
                         string quer4 = "select Profile_balance from profile where user_ID = '" + pid + "'";
                         DataTable d = c.select(quer4);
-                        int balance = int.Parse(d.Rows[0]["Profile_balance"].ToString());
+                        double balance = double.Parse(d.Rows[0]["Profile_balance"].ToString());
 
-                        int rt = int.Parse(textBox2.Text);
+                        double rt = double.Parse(textBox2.Text);
                         balance = balance + rt;
                         string quer3 = "update profile set Profile_balance = '" + balance.ToString() + "' where User_id = " + pid + "";
                         c.insert(quer3);
@@ -182,44 +214,44 @@ namespace BustosApartment_SAD_
                 DialogResult dialogResult = MessageBox.Show("Confirm report", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
 
-                if (dialogResult == DialogResult.Yes)
-                {
-                    date = DateTime.Now.ToString("yyyy-M-d");
-                    string quer = "insert into ritem_damage_transaction values(NULL, '" + date + "','" + textBox2.Text + "'," + pid + "," + id2 + ",'" + comboBox2.Text + "','Pending',  NULL, 0 )";
-
-                    c.insert(quer);
-                    string quer2 = "update room_item set ritem_dmg_stat = '" + comboBox3.Text + "' where ritem_ID = " + id2 + "";
-                    c.insert(quer2);
-                        
-
-                    if (comboBox2.Text == "Check")
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        string quer4 = "select Profile_balance from profile where user_ID = '" + pid + "'";
-                        DataTable d = c.select(quer4);
-                        int balance = int.Parse(d.Rows[0]["Profile_balance"].ToString());
+                        date = DateTime.Now.ToString("yyyy-M-d");
+                        string quer = "insert into ritem_damage_transaction values(NULL, '" + date + "','" + textBox2.Text + "'," + pid + "," + id2 + ",'" + comboBox2.Text + "','Pending',  NULL, 0 )";
 
-                        int rt = int.Parse(textBox2.Text);
-                        balance = balance + rt;
-                        string quer3 = "update profile set Profile_balance = '" + balance.ToString() + "' where User_id = " + pid + "";
-                        c.insert(quer3);
-                        this.DialogResult = DialogResult.Yes;
+                        c.insert(quer);
+                        string quer2 = "update room_item set ritem_dmg_stat = '" + comboBox3.Text + "' where ritem_ID = " + id2 + "";
+                        c.insert(quer2);
 
-                    }
 
-                    if (comboBox2.Text == "Cash")
-                    {
-                        string quer4 = "select rdtrans_ID from ritem_damage_transaction where Profile_user_ID = " + pid + " and ritem_itemID = " + id2 + " and rdt_pay_status = 'Pending'";
-                        DataTable d = c.select(quer4);
-                        int rdtrans_id = int.Parse(d.Rows[0]["rdtrans_ID"].ToString());
-                        Payment ch = new Payment();
-                        ch.getdeets(textBox2.Text, rdtrans_id, "ritem_damage_transaction", pid);
-                        DialogResult result = ch.ShowDialog();
-                        if (result == DialogResult.Yes)
+                        if (comboBox2.Text == "Check")
                         {
+                            string quer4 = "select Profile_balance from profile where user_ID = '" + pid + "'";
+                            DataTable d = c.select(quer4);
+                            double balance = double.Parse(d.Rows[0]["Profile_balance"].ToString());
+
+                            double rt = double.Parse(textBox2.Text);
+                            balance = balance + rt;
+                            string quer3 = "update profile set Profile_balance = '" + balance.ToString() + "' where User_id = " + pid + "";
+                            c.insert(quer3);
                             this.DialogResult = DialogResult.Yes;
+
+                        }
+
+                        if (comboBox2.Text == "Cash")
+                        {
+                            string quer4 = "select rdtrans_ID from ritem_damage_transaction where Profile_user_ID = " + pid + " and ritem_itemID = " + id2 + " and rdt_pay_status = 'Pending'";
+                            DataTable d = c.select(quer4);
+                            int rdtrans_id = int.Parse(d.Rows[0]["rdtrans_ID"].ToString());
+                            Payment ch = new Payment();
+                            ch.getdeets(textBox2.Text, rdtrans_id, "ritem_damage_transaction", pid);
+                            DialogResult result = ch.ShowDialog();
+                            if (result == DialogResult.Yes)
+                            {
+                                this.DialogResult = DialogResult.Yes;
+                            }
                         }
                     }
-
 
                 }
             }

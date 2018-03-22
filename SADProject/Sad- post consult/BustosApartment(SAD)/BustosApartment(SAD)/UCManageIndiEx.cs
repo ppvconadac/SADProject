@@ -13,7 +13,7 @@ namespace BustosApartment_SAD_
     public partial class UCManageIndiEx : UserControl
     {
         private static UCManageIndiEx _instance;
-        public int id =0;
+        public int id = 0;
         public string desc;
         public static UCManageIndiEx Instance
         {

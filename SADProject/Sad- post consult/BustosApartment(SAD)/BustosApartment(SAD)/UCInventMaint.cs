@@ -51,12 +51,28 @@ namespace BustosApartment_SAD_
 
         }
 
-        
+        public void refresh()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            dataGridView5.DataSource = null;
+            dataGridView5.Rows.Clear();
+            dataGridView3.DataSource = null;
+            dataGridView3.Rows.Clear();
+            dataGridView6.DataSource = null;
+            dataGridView6.Rows.Clear();
+            tablecall();
+            tablecall4();
+            tablecall2();
+            tablecall5();
+        }
+
+
 
         public void tablecall()
         {
 
-            string quer = "select * from borrowable_item";
+            string quer = "select * from borrowable_item where bitem_void_stat =0";
             dataGridView5.DataSource = c.select(quer);
             dataGridView5.Columns["bitem_ID"].Visible = false;
             dataGridView5.Columns["bitem_archive_date"].Visible = false;
@@ -76,10 +92,16 @@ namespace BustosApartment_SAD_
 
             string quer = "select bdtrans_ID, bdt_date, bdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) " +
                 "as full_name, bitem_name, bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join " +
-                "borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_ID and bdt_trans_stat =0";
+                "borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_ID and bdt_trans_stat =0 and bitem_void_stat =0";
             dataGridView1.DataSource = c.select(quer);
             dataGridView1.Columns["bdtrans_ID"].Visible = false;
             dataGridView1.Columns["Profile_user_ID"].Visible = false;
+            dataGridView1.Columns["bdt_date"].HeaderText = "Date";
+            dataGridView1.Columns["bdt_price"].HeaderText = "Price";
+            dataGridView1.Columns["full_name"].HeaderText = "User";
+            dataGridView1.Columns["bitem_name"].HeaderText = "Item";
+            dataGridView1.Columns["bdt_pay_method"].HeaderText = "Payment Method";
+            dataGridView1.Columns["bdt_pay_status"].HeaderText = "Payment Status";
             dataGridView1.ClearSelection();
 
 
@@ -90,11 +112,19 @@ namespace BustosApartment_SAD_
         public void tablecall4()
         {
 
-            string quer = "select * from room_item ";
+            string quer = "select * from room_item where ritem_void_stat =0";
             dataGridView6.DataSource = c.select(quer);
             dataGridView6.Columns["ritem_ID"].Visible = false;
             dataGridView6.Columns["ritem_price"].Visible = false;
             dataGridView6.Columns["ritem_roomid"].Visible = false;
+            dataGridView6.Columns["ritem_archive_date"].Visible = false;
+            dataGridView6.Columns["ritem_archive_loggedin"].Visible = false;
+            dataGridView6.Columns["ritem_void_stat"].Visible = false;
+            dataGridView6.Columns["ritem_name"].HeaderText = "Name";
+            dataGridView6.Columns["ritem_desc"].HeaderText = "Description";
+            dataGridView6.Columns["ritem_dmg_stat"].HeaderText = "Condition";
+            dataGridView6.Columns["ritem_price"].HeaderText = "Actual Price";
+            
             dataGridView6.ClearSelection();
 
 
@@ -105,6 +135,13 @@ namespace BustosApartment_SAD_
             string quer = "select rdtrans_ID, rdt_date, rdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, ritem_name, rdt_pay_method, rdt_pay_status from ritem_damage_transaction inner join profile inner join room_item where Profile_user_ID = user_ID and ritem_itemID = ritem_ID and rdt_trans_stat =0";
             dataGridView3.DataSource = c.select(quer);
             dataGridView3.Columns["rdtrans_ID"].Visible = false;
+            dataGridView3.Columns["Profile_user_ID"].Visible = false;
+            dataGridView3.Columns["rdt_date"].HeaderText = "Date";
+            dataGridView3.Columns["rdt_price"].HeaderText = "Price";
+            dataGridView3.Columns["full_name"].HeaderText = "User";
+            dataGridView3.Columns["ritem_name"].HeaderText = "Item";
+            dataGridView3.Columns["rdt_pay_method"].HeaderText = "Payment Method";
+            dataGridView3.Columns["rdt_pay_status"].HeaderText = "Payment Status";
             dataGridView3.ClearSelection();
         }
 
@@ -296,6 +333,10 @@ namespace BustosApartment_SAD_
             {
                 MessageBox.Show("No Entry Detected");
             }
+            else if (paystat == "Paid")
+            {
+                MessageBox.Show("Already paid");
+            }
 
             else
             {
@@ -316,8 +357,8 @@ namespace BustosApartment_SAD_
                         string quer3 = "select Profile_balance from profile where user_ID = '" + bpid2 + "'";
                         DataTable d = c.select(quer3);
                         string balance = d.Rows[0]["Profile_balance"].ToString();
-                        int bal = int.Parse(balance);
-                        int rt = int.Parse(rate);
+                        double bal = double.Parse(balance);
+                        double rt = double.Parse(rate);
                         bal = bal - rt;
                         string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + bpid2 + "";
                         c.insert(quer4);
@@ -441,7 +482,7 @@ namespace BustosApartment_SAD_
                         amt = d.Rows[0]["SUM(rdp_amount)"].ToString();
                     }
 
-                    int remaining = int.Parse(rate2) - int.Parse(amt);
+                    double remaining = double.Parse(rate2) - double.Parse(amt);
                     Payment ch = new Payment();
                     ch.getdeets(remaining.ToString(), rid2, "ritem_damage_transaction", rpid2);
                     DialogResult result = ch.ShowDialog();
@@ -474,6 +515,10 @@ namespace BustosApartment_SAD_
             {
                 MessageBox.Show("No Entry Detected");
             }
+            else if(paystat2 == "Paid")
+            {
+                MessageBox.Show("Already Paid");
+            }
 
             else
             {
@@ -494,8 +539,8 @@ namespace BustosApartment_SAD_
                         string quer3 = "select Profile_balance from profile where user_ID = '" + rpid2 + "'";
                         DataTable d = c.select(quer3);
                         string balance = d.Rows[0]["Profile_balance"].ToString();
-                        int bal = int.Parse(balance);
-                        int rt = int.Parse(rate);
+                        double bal = double.Parse(balance);
+                        double rt = double.Parse(rate2);
                         bal = bal - rt;
                         string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + rpid2 + "";
                         c.insert(quer4);
@@ -587,7 +632,7 @@ namespace BustosApartment_SAD_
                 MessageBox.Show("No Entry Detected");
             }
 
-            else if (paystat != "Paid")
+            else if (paystat2 != "Paid")
             {
                 MessageBox.Show("Cannot archive unpaid transaction");
             }

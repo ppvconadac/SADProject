@@ -47,6 +47,16 @@ namespace BustosApartment_SAD_
         {
             string quer = "select * from borrowable_item";
             dataGridView2.DataSource = c.select(quer);
+            dataGridView2.Columns["bitem_ID"].Visible = false;
+            dataGridView2.Columns["bitem_archive_date"].Visible = false;
+            dataGridView2.Columns["bitem_archive_loggedin"].Visible = false;
+            dataGridView2.Columns["bitem_void_stat"].Visible = false;
+            dataGridView2.Columns["bitem_actual"].Visible = false;
+            dataGridView2.Columns["bitem_name"].HeaderText = "Item Name";
+            dataGridView2.Columns["bitem_desc"].HeaderText = "Description";
+            dataGridView2.Columns["bitem_status"].HeaderText = "Availability";
+            dataGridView2.Columns["bitem_dmg_status"].HeaderText = "Condition";
+            dataGridView2.Columns["bitem_rate"].HeaderText = "Lending Price";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,8 +84,8 @@ namespace BustosApartment_SAD_
 
                     if(comboBox2.Text == "Check")
                     {
-                        int bal = int.Parse(balance);
-                        int rt = int.Parse(rate);
+                        double bal = double.Parse(balance);
+                        double rt = double.Parse(rate);
                         bal = bal + rt;
                         string quer3 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id + "";
                         c.insert(quer3);

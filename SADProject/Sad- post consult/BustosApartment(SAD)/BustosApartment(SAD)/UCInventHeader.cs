@@ -61,6 +61,7 @@ namespace BustosApartment_SAD_
             else
             {
                 UCInventLending.Instance.BringToFront();
+                UCInventLending.Instance.refresh();
             }
         }
 
@@ -75,6 +76,7 @@ namespace BustosApartment_SAD_
             else
             {
                 UCInventStInOut.Instance.BringToFront();
+                UCInventStInOut.Instance.refresh();
             }
         }
 
@@ -94,6 +96,7 @@ namespace BustosApartment_SAD_
             else
             {
                 UCInventMaint.Instance.BringToFront();
+                UCInventMaint.Instance.refresh();
             }
         }
 
@@ -113,6 +116,8 @@ namespace BustosApartment_SAD_
             else
             {
                 UCInventHCont.Instance.BringToFront();
+                UCInventHCont.Instance.refresh();
+          
             }
         }
     }   

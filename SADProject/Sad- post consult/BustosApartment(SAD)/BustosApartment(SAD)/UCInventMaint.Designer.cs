@@ -93,7 +93,7 @@
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(1079, 560);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Borrowable - Damaged";
+            this.tabPage5.Text = "Borrowable Items";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // button17
@@ -154,7 +154,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1079, 560);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Borrowable - User";
+            this.tabPage1.Text = "Borrowables - Damage Transactions";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -266,7 +266,7 @@
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(1079, 560);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Room Item - Damaged";
+            this.tabPage6.Text = "Room Items";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // button10
@@ -321,7 +321,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1079, 560);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Room Items - User";
+            this.tabPage3.Text = "Room Items - Damage Transactions";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // button19

@@ -30,6 +30,8 @@ namespace BustosApartment_SAD_
             dataGridView1.DataSource = c.select(query);
             dataGridView1.Columns["Room_ID"].Visible = false;
             dataGridView1.Columns["Room_status"].Visible = false;
+            dataGridView1.Columns["Room_number"].HeaderText = "Room number";
+            dataGridView1.Columns["Room_desc"].HeaderText = "Room description";
             dataGridView1.ClearSelection();
 
         }
@@ -41,6 +43,10 @@ namespace BustosApartment_SAD_
             dataGridView2.Columns["nitem_stat"].Visible = false;
             dataGridView2.Columns["nt_archive_date"].Visible = false;
             dataGridView2.Columns["nt_archive_loggedin"].Visible = false;
+            dataGridView2.Columns["nitem_name"].HeaderText = "Name";
+            dataGridView2.Columns["nitem_price"].HeaderText = "Price";
+            dataGridView2.Columns["nitem_desc"].HeaderText = "Description";
+            dataGridView2.Columns["nt_quantity"].HeaderText = "Quantity in-stock";
             dataGridView2.ClearSelection();
         }
 
@@ -74,6 +80,11 @@ namespace BustosApartment_SAD_
             {
                 MessageBox.Show("No empty fields, try again.");
             }
+            else if (!int.TryParse(textBox2.Text, out int val))
+            {
+                MessageBox.Show("Invalid format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox2.Text = "";
+            }
 
             else
             {
@@ -81,21 +92,33 @@ namespace BustosApartment_SAD_
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    string quer;
-                    date = DateTime.Now.ToString("yyyy-M-d");
 
-                    quer = "insert into nitem_transaction values(NULL, '" + date + "','" + textBox2.Text + "','" + id2+ "', 'Stock-out', NULL, NULL, '" +id+"',0)";
-                    c.insert(quer);
-
-                    string quer2 = "select nt_quantity from nonborrowable_item where nitem_ID = '"+id2+"'";
+                    string quer2 = "select nt_quantity from nonborrowable_item where nitem_ID = '" + id2 + "'";
                     DataTable d = c.select(quer2);
                     string quantity = d.Rows[0]["nt_quantity"].ToString();
                     int quan = int.Parse(quantity);
                     quan = quan - int.Parse(textBox2.Text);
-                    string quer3 = "update nonborrowable_item set nt_quantity = '" + quan.ToString() + "' where nitem_ID = " + id2 + "";
-                    c.insert(quer3);
-                    //  this.Close();
-                    this.DialogResult = DialogResult.Yes;
+                    if(quan < 0)
+                    {
+                        MessageBox.Show("Stock-out amount can not exceed quantity in-stock. Stock-out cancelled.");
+                        textBox2.Text = "";
+
+                    }
+                    else
+                    {
+                        string quer;
+                        date = DateTime.Now.ToString("yyyy-M-d");
+
+                        quer = "insert into nitem_transaction values(NULL, '" + date + "','" + textBox2.Text + "','" + id2 + "', 'Stock-out', NULL, NULL, '" + id + "',0)";
+                        c.insert(quer);
+
+
+                        string quer3 = "update nonborrowable_item set nt_quantity = '" + quan.ToString() + "' where nitem_ID = " + id2 + "";
+                        c.insert(quer3);
+                        //  this.Close();
+                        this.DialogResult = DialogResult.Yes;
+                    }
+                   
 
 
                 }
@@ -103,6 +126,12 @@ namespace BustosApartment_SAD_
 
             
 
+        }
+
+        private void stinstockout_Load(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+            dataGridView2.ClearSelection();
         }
     }
 }

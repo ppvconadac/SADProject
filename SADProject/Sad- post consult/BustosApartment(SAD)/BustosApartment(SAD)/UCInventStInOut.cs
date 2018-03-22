@@ -41,7 +41,19 @@ namespace BustosApartment_SAD_
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["ntrans_ID"].Visible = false;
             dataGridView1.Columns["nonborrowable_item_nitem_ID"].Visible = false;
+            dataGridView1.Columns["nt_date"].HeaderText = "Date";
+            dataGridView1.Columns["nitem_name"].HeaderText = "Name";
+            dataGridView1.Columns["nt_quantity"].HeaderText = "Quantity";
+            dataGridView1.Columns["nt_type"].HeaderText = "Transaction Type";
             dataGridView1.ClearSelection();
+        }
+        public void refresh()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+
+            tablecall();
+
         }
 
         private void button2_Click(object sender, EventArgs e)

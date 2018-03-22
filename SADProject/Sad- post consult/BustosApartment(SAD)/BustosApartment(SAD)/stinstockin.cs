@@ -30,6 +30,10 @@ namespace BustosApartment_SAD_
             dataGridView2.Columns["nitem_stat"].Visible = false;
             dataGridView2.Columns["nt_archive_date"].Visible = false;
             dataGridView2.Columns["nt_archive_loggedin"].Visible = false;
+            dataGridView2.Columns["nitem_name"].HeaderText = "Name";
+            dataGridView2.Columns["nitem_price"].HeaderText = "Price";
+            dataGridView2.Columns["nitem_desc"].HeaderText = "Description";
+            dataGridView2.Columns["nt_quantity"].HeaderText = "Quantity in-stock";
             dataGridView2.ClearSelection();
         }
 
@@ -47,12 +51,21 @@ namespace BustosApartment_SAD_
         {
             string date;
 
-
-            if (txtin.Text == "" || textBox2.Text == "")
+            if (id2 == 0)
+            {
+                MessageBox.Show("No entry selected.");
+            }
+            
+            else if (txtin.Text == "" || textBox2.Text == "")
             {
                 MessageBox.Show("No empty fields, try again.");
             }
-
+            else if (!int.TryParse(textBox2.Text, out int val))
+            {
+                MessageBox.Show("Invalid format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox2.Text = "";
+            }
+           
             else
             {
                 DialogResult dialogResult = MessageBox.Show("Confirm stock-in", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -77,6 +90,16 @@ namespace BustosApartment_SAD_
   
                 }
             }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stinstockin_Load(object sender, EventArgs e)
+        {
+            dataGridView2.ClearSelection();
         }
     }
 }

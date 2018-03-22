@@ -32,6 +32,16 @@ namespace BustosApartment_SAD_
                 return _instance;
             }
         }
+
+        public void refresh (){
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            dataGridView2.DataSource = null;
+            dataGridView2.Rows.Clear();
+            tablecall();
+            tablecall4();
+        }
+
         public void tablecall() {
             quer = "select bitem_name, bitem_status,concat(profile_fname,profile_mname,profile_lname) as full" +
                 "_name, btrans_id,bt_date,bt_pay_method,bt_pay_status, bitem_dmg_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID," +

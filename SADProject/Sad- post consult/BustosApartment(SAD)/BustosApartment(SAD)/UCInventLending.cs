@@ -39,6 +39,14 @@ namespace BustosApartment_SAD_
             tablecall();
         }
 
+        public void refresh()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            
+            tablecall();
+           
+        }
 
         public void tablecall()
         {
@@ -53,6 +61,12 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["bt_trans_stat"].Visible = false;
             dataGridView1.Columns["btrans_id"].Visible = false;
             dataGridView1.Columns["bitem_rate"].Visible = false;
+            dataGridView1.Columns["bitem_name"].HeaderText = "Item Name";
+            dataGridView1.Columns["full_name"].HeaderText = "User";
+            dataGridView1.Columns["bt_date"].HeaderText = "Date";
+            dataGridView1.Columns["bt_pay_method"].HeaderText = "Payment Method";
+            dataGridView1.Columns["bt_pay_status"].HeaderText = "Payment Status";
+            dataGridView1.Columns["bitem_dmg_status"].HeaderText = "Item Condition";
             dataGridView1.ClearSelection();
         }
 
@@ -115,6 +129,8 @@ namespace BustosApartment_SAD_
                             string quer3 = "update bitem_transaction set bt_trans_stat= 1 where btrans_ID = " + id + "";
                             c1.insert(quer3);
                             tablecall();
+                           
+
                             MessageBox.Show("Return Completed");
                         }
 
@@ -150,8 +166,8 @@ namespace BustosApartment_SAD_
                         string quer3 = "select Profile_balance from profile where user_ID = '" + id3 + "'";
                         DataTable d = c1.select(quer3);
                         string balance = d.Rows[0]["Profile_balance"].ToString();
-                        int bal = int.Parse(balance);
-                        int rt = int.Parse(rate);
+                        double bal = double.Parse(balance);
+                        double rt = double.Parse(rate);
                         bal = bal - rt;
                         string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id3 + "";
                         c1.insert(quer4);
@@ -256,13 +272,14 @@ namespace BustosApartment_SAD_
                         string quer3 = "select Profile_balance from profile where user_ID = '" + id3 + "'";
                         DataTable d = c1.select(quer3);
                         string balance = d.Rows[0]["Profile_balance"].ToString();
-                        int bal = int.Parse(balance);
-                        int rt = int.Parse(rate);
+                        double bal = double.Parse(balance);
+                        double rt = double.Parse(rate);
                         bal = bal - rt;
                         string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + id3 + "";
                         c1.insert(quer4);
 
                         tablecall();
+                        
                     }
 
                 }
