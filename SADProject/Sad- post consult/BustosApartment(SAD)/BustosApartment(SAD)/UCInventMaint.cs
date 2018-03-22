@@ -74,7 +74,9 @@ namespace BustosApartment_SAD_
         public void tablecall2()
         {
 
-            string quer = "select bdtrans_ID, bdt_date, bdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, bitem_name, bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_ID and bdt_trans_stat =0";
+            string quer = "select bdtrans_ID, bdt_date, bdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) " +
+                "as full_name, bitem_name, bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join " +
+                "borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_ID and bdt_trans_stat =0";
             dataGridView1.DataSource = c.select(quer);
             dataGridView1.Columns["bdtrans_ID"].Visible = false;
             dataGridView1.Columns["Profile_user_ID"].Visible = false;
@@ -88,7 +90,7 @@ namespace BustosApartment_SAD_
         public void tablecall4()
         {
 
-            string quer = "select * from room_item";
+            string quer = "select * from room_item ";
             dataGridView6.DataSource = c.select(quer);
             dataGridView6.Columns["ritem_ID"].Visible = false;
             dataGridView6.Columns["ritem_price"].Visible = false;

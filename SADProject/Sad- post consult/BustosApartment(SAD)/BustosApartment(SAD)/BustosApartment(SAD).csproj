@@ -164,6 +164,12 @@
     <Compile Include="reserve.Designer.cs">
       <DependentUpon>reserve.cs</DependentUpon>
     </Compile>
+    <Compile Include="reviewpayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reviewpayments.Designer.cs">
+      <DependentUpon>reviewpayments.cs</DependentUpon>
+    </Compile>
     <Compile Include="stinlosses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reserve.resx">
       <DependentUpon>reserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reviewpayments.resx">
+      <DependentUpon>reviewpayments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="stinlosses.resx">
       <DependentUpon>stinlosses.cs</DependentUpon>

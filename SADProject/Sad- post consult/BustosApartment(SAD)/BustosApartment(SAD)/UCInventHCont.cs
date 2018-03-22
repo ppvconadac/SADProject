@@ -47,9 +47,36 @@ namespace BustosApartment_SAD_
             dataGridView2.Columns["bitem_rate"].Visible = false;
             dataGridView2.ClearSelection();
         }
+        public void tablecall(string quer1)
+        {
+            quer = "select bitem_name, bitem_status,concat(profile_fname,profile_mname,profile_lname) as full" +
+                "_name, btrans_id,bt_date,bt_pay_method,bt_pay_status, bitem_dmg_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID," +
+                "bitem_rate from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and" +
+                " user_id = profile_user_id and bt_trans_stat =1 "+quer1;
+            call(quer);
+            dataGridView2.Columns["bitem_ID"].Visible = false;
+            dataGridView2.Columns["User_id"].Visible = false;
+            dataGridView2.Columns["bitem_status"].Visible = false;
+            dataGridView2.Columns["Profile_user_ID"].Visible = false;
+            dataGridView2.Columns["borrowable_item_bitem_ID"].Visible = false;
+            dataGridView2.Columns["bt_trans_stat"].Visible = false;
+            dataGridView2.Columns["btrans_id"].Visible = false;
+            dataGridView2.Columns["bitem_rate"].Visible = false;
+            dataGridView2.ClearSelection();
+        }
         public void tablecall2() {
             quer = "select ntrans_ID, nt_date, nitem_name, nitem_transaction.nt_quantity, nonborrowable_item_nitem_ID,nt_type from nonborrowable_item inner " +
               "join nitem_transaction where nitem_ID = nonborrowable_item_nitem_ID and nt_trans_stat =1";
+            call(quer);
+            dataGridView2.Columns["ntrans_ID"].Visible = false;
+            dataGridView2.Columns["nonborrowable_item_nitem_ID"].Visible = false;
+            dataGridView2.ClearSelection();
+
+        }
+        public void tablecall2(string quer1)
+        {
+            quer = "select ntrans_ID, nt_date, nitem_name, nitem_transaction.nt_quantity, nonborrowable_item_nitem_ID,nt_type from nonborrowable_item inner " +
+              "join nitem_transaction where nitem_ID = nonborrowable_item_nitem_ID and nt_trans_stat =1 "+quer1;
             call(quer);
             dataGridView2.Columns["ntrans_ID"].Visible = false;
             dataGridView2.Columns["nonborrowable_item_nitem_ID"].Visible = false;
@@ -65,11 +92,40 @@ namespace BustosApartment_SAD_
             dataGridView2.ClearSelection();
 
         }
+        public void tablecall3(string quer1)
+        {
+            quer = "select bdtrans_ID, bdt_date, bdt_price, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, bitem_name, " +
+                "bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID " +
+                "= bitem_ID and bdt_trans_stat =1 "+quer1;
+            call(quer);
+            dataGridView2.Columns["bdtrans_ID"].Visible = false;
+            dataGridView2.ClearSelection();
+
+        }
         public void tablecall4() {
 
             quer = "select bitem_name, bitem_status,concat(profile_fname,profile_mname,profile_lname) as full" +
                "_name, btrans_id,bt_date, bt_archive_date, bt_archive_loggedin, bt_pay_method,bt_pay_status, bitem_dmg_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID," +
-               "bitem_rate from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and user_id = profile_user_id and bt_trans_stat =2";
+               "bitem_rate from borrowable_item inner join bitem_transaction inner join profile where bitem_id =" +
+               " borrowable_item_bitem_ID and user_id = profile_user_id and bt_trans_stat =2";
+            call2(quer);
+            dataGridView1.Columns["bitem_ID"].Visible = false;
+            dataGridView1.Columns["User_id"].Visible = false;
+            dataGridView1.Columns["bitem_status"].Visible = false;
+            dataGridView1.Columns["Profile_user_ID"].Visible = false;
+            dataGridView1.Columns["borrowable_item_bitem_ID"].Visible = false;
+            dataGridView1.Columns["bt_trans_stat"].Visible = false;
+            dataGridView1.Columns["btrans_id"].Visible = false;
+            dataGridView1.Columns["bitem_rate"].Visible = false;
+            dataGridView1.ClearSelection();
+        }
+        public void tablecall4(string quer1)
+        {
+
+            quer = "select bitem_name, bitem_status,concat(profile_fname,profile_mname,profile_lname) as full" +
+               "_name, btrans_id,bt_date, bt_archive_date, bt_archive_loggedin, bt_pay_method,bt_pay_status, bitem_dmg_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID," +
+               "bitem_rate from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID " +
+               "and user_id = profile_user_id and bt_trans_stat =2 " + quer1;
             call2(quer);
             dataGridView1.Columns["bitem_ID"].Visible = false;
             dataGridView1.Columns["User_id"].Visible = false;
@@ -90,6 +146,16 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["nonborrowable_item_nitem_ID"].Visible = false;
             dataGridView1.ClearSelection();
         }
+        public void tablecall5(string quer1)
+        {
+            quer = "select ntrans_ID, nt_date, nitem_name, nitem_transaction.nt_quantity, nitem_transaction.nt_archive_date, " +
+                "nitem_transaction.nt_archived_loggedin , nonborrowable_item_nitem_ID, nt_type from nonborrowable_item inner " +
+            "join nitem_transaction where nitem_ID = nonborrowable_item_nitem_ID and nt_trans_stat =2 " +quer1;
+            call2(quer);
+            dataGridView1.Columns["ntrans_ID"].Visible = false;
+            dataGridView1.Columns["nonborrowable_item_nitem_ID"].Visible = false;
+            dataGridView1.ClearSelection();
+        }
         public void tablecall6() {
             quer = "select * from nonborrowable_item where nitem_stat = 1";
             dataGridView1.DataSource = c1.select(quer);
@@ -98,6 +164,78 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["nitem_stat"].Visible = false;
             dataGridView1.ClearSelection();
         }
+        public void tablecall6(string quer1)
+        {
+            quer = "select * from nonborrowable_item where nitem_stat = 1 "+quer1;
+            dataGridView1.DataSource = c1.select(quer);
+            dataGridView1.Columns["nitem_ID"].Visible = false;
+            dataGridView1.Columns["nt_quantity"].Visible = false;
+            dataGridView1.Columns["nitem_stat"].Visible = false;
+            dataGridView1.ClearSelection();
+        }
+        public void tablecall7() {
+            string quer = "select * from borrowable_item where bitem_void_stat = 1 ";
+            dataGridView1.DataSource = c1.select(quer);
+            dataGridView1.Columns["bitem_ID"].Visible = false;
+            dataGridView1.Columns["bitem_archive_date"].Visible = false;
+            dataGridView1.Columns["bitem_archive_loggedin"].Visible = false;
+            dataGridView1.Columns["bitem_void_stat"].Visible = false;
+            dataGridView1.Columns["bitem_name"].HeaderText = "Name";
+            dataGridView1.Columns["bitem_desc"].HeaderText = "Description";
+            dataGridView1.Columns["bitem_status"].HeaderText = "Availability";
+            dataGridView1.Columns["bitem_dmg_status"].HeaderText = "Condition";
+            dataGridView1.Columns["bitem_actual"].HeaderText = "Actual Price";
+            dataGridView1.Columns["bitem_rate"].HeaderText = "Rate";
+        }
+        public void tablecall7(string quer1)
+        {
+            string quer = "select * from borrowable_item where bitem_void_stat = 1 " +quer1;
+            dataGridView1.DataSource = c1.select(quer);
+            dataGridView1.Columns["bitem_ID"].Visible = false;
+            dataGridView1.Columns["bitem_archive_date"].Visible = false;
+            dataGridView1.Columns["bitem_archive_loggedin"].Visible = false;
+            dataGridView1.Columns["bitem_void_stat"].Visible = false;
+            dataGridView1.Columns["bitem_name"].HeaderText = "Name";
+            dataGridView1.Columns["bitem_desc"].HeaderText = "Description";
+            dataGridView1.Columns["bitem_status"].HeaderText = "Availability";
+            dataGridView1.Columns["bitem_dmg_status"].HeaderText = "Condition";
+            dataGridView1.Columns["bitem_actual"].HeaderText = "Actual Price";
+            dataGridView1.Columns["bitem_rate"].HeaderText = "Rate";
+        }
+        public void tablecall8() {
+            string quer = "select * from room_item where ritem_void_stat  = 1";
+            dataGridView1.DataSource = c1.select(quer);
+            dataGridView1.Columns["ritem_ID"].Visible = false;
+            dataGridView1.Columns["ritem_price"].Visible = false;
+            dataGridView1.Columns["ritem_roomid"].Visible = false;
+            dataGridView1.ClearSelection();
+        }
+        public void tablecall8(string quer1) {
+            string quer = "select * from room_item where ritem_void_stat  = 1 " + quer1;
+            dataGridView1.DataSource = c1.select(quer);
+            dataGridView1.Columns["ritem_ID"].Visible = false;
+            dataGridView1.Columns["ritem_price"].Visible = false;
+            dataGridView1.Columns["ritem_roomid"].Visible = false;
+            dataGridView1.ClearSelection();
+        }
+        public void tablecall9() {
+            string quer = "select rdtrans_ID, rdt_date, rdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname)" +
+                " as full_name, ritem_name, rdt_pay_method, rdt_pay_status from ritem_damage_transaction inner join profile inner join room_item " +
+                "where Profile_user_ID = user_ID and ritem_itemID = ritem_ID and rdt_trans_stat =1";
+            dataGridView2.DataSource = c1.select(quer);
+            dataGridView2.Columns["rdtrans_ID"].Visible = false;
+            dataGridView2.ClearSelection();
+        }
+        public void tablecall9(string quer1)
+        {
+            string quer = "select rdtrans_ID, rdt_date, rdt_price, Profile_user_ID, concat(profile_fname,' ',profile_mname,' ',profile_lname) " +
+                "as full_name, ritem_name, rdt_pay_method, rdt_pay_status from ritem_damage_transaction inner join profile inner join room_item" +
+                " where Profile_user_ID = user_ID and ritem_itemID = ritem_ID and rdt_trans_stat =1";
+            dataGridView2.DataSource = c1.select(quer);
+            dataGridView2.Columns["rdtrans_ID"].Visible = false;
+            dataGridView2.ClearSelection();
+        }
+
         public void call(string quer)
         {
             dataGridView2.DataSource = c1.select(quer);
@@ -272,44 +410,67 @@ namespace BustosApartment_SAD_
 
             if (ch == 1)
             {
-                quer = "select bitem_name, bitem_status,concat(profile_fname,profile_mname,profile_lname) as full" +
-               "_name, btrans_id,bt_date,bt_pay_method,bt_pay_status, bitem_dmg_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID," +
-               "bitem_rate from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and user_id = profile_user_id and bt_trans_stat =1 and bt_date like '" + date + "'";
-                call(quer);
+                quer = "and bt_date like '" + date + "'";
+                tablecall(quer);
             }
             else if (ch == 2)
             {
-                quer = "select ntrans_ID, nt_date, nitem_name, nitem_transaction.nt_quantity, nonborrowable_item_nitem_ID,nt_type from nonborrowable_item inner " +
-           "join nitem_transaction where nitem_ID = nonborrowable_item_nitem_ID and nt_trans_stat =1 and nt_date like '" + date + "'";
-                call(quer);
+                quer = "and nt_date like '" + date + "'";
+                tablecall2(quer);
             }
             else if (ch == 3)
             {
-                quer = "select bdtrans_ID, bdt_date, bdt_price, concat(profile_fname,' ',profile_mname,' ',profile_lname) as full_name, bitem_name, " +
-                "bdt_pay_method, bdt_pay_status from bitem_damage_transaction inner join profile inner join borrowable_item where Profile_user_ID = user_ID and borrowable_item_bitem_ID " +
-                "= bitem_ID and bdt_trans_stat =1 and bdt_date like '" + date + "'";
-                call(quer);
+                quer = "and bdt_date like '" + date + "'";
+                tablecall3(quer);
             }
             else if (ch == 5)
             {
-                quer = "select ntrans_ID, nt_date, nitem_name, nitem_transaction.nt_quantity, nitem_transaction.nt_archive_date, " +
-                "nitem_transaction.nt_archived_loggedin , nonborrowable_item_nitem_ID, nt_type from nonborrowable_item inner " +
-            "join nitem_transaction where nitem_ID = nonborrowable_item_nitem_ID and nt_trans_stat =2 and nitem_transaction.nt_archive_date like '" + date + "'";
-                call2(quer);
+                quer = "and nitem_transaction.nt_archive_date like '" + date + "'";
+                tablecall5(quer);
             }
             else if (ch == 4)
             {
-                quer = "select bitem_name, bitem_status,concat(profile_fname,profile_mname,profile_lname) as full" +
-               "_name, btrans_id,bt_date, bt_archive_date, bt_archive_loggedin, bt_pay_method,bt_pay_status, bitem_dmg_status,bt_trans_stat,borrowable_item_bitem_ID,bitem_ID,User_id,Profile_user_ID," +
-               "bitem_rate from borrowable_item inner join bitem_transaction inner join profile where bitem_id = borrowable_item_bitem_ID and user_id = profile_user_id and bt_trans_stat =2 and  bt_archive_date like '" + date + "' ";
-                call(quer);
+                quer = "and bt_archive_date like '" + date + "' ";
+                tablecall4(quer);
             }
-            else if (ch == 6) {
-                quer = "select * from nonborrowable_item where nitem_stat = 1 and nt_archive_date like '"+date+"'";
-                call2(quer);
+            else if (ch == 6)
+            {
+                quer = "and nt_archive_date like '" + date + "'";
+                tablecall6(quer);
+            }
+            else if (ch == 7)
+            {
+                quer = "and bitem_archive_date like '" + date + "'";
+                tablecall7();
+            }
+            else if (ch == 8) {
+                quer = "and ritem_archive_date like '" + date + "'";
+                tablecall8();
+            }
+            else if (ch==9) {
+                quer = "and rdt_date like'"+date+"'";
             }
 
             
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ch = 7;
+            tablecall7();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            ch = 8;
+            tablecall8();
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            ch = 9;
+            tablecall9();
         }
     }
 }

@@ -42,7 +42,7 @@ namespace BustosApartment_SAD_
                 {
                     double price = double.Parse(textBox4.Text);
 
-                    quer = "insert into utelect_trans values(NULL, '" + date + "'," + price + ",'0','" + double.Parse(txtin.Text) + "', '0', NULL, NULL )";
+                    quer = "insert into utelect_trans values(NULL, '" + date + "'," + price + ",'0','" + double.Parse(txtin.Text) + "', '0', NULL, NULL,0 )";
 
                     c.insert(quer);
                     this.DialogResult = DialogResult.Yes;

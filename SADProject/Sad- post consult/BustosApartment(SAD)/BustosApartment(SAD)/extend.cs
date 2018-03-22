@@ -50,7 +50,8 @@ namespace BustosApartment_SAD_
             int cou = d.Rows.Count;
             bool b = true;
             string date = "";
-            int pr = int.Parse(d2.Rows[0]["rt_price"].ToString()) * int.Parse(numericUpDown1.Text);
+            float dis = float.Parse(d2.Rows[0]["rt_price"].ToString())-((float.Parse(d2.Rows[0]["rt_discount"].ToString()) / 100) * float.Parse(d2.Rows[0]["rt_price"].ToString()));
+            float pr = dis * int.Parse(numericUpDown1.Text);
             DialogResult dialogResult = MessageBox.Show("Are you sure to assign this person to this room?", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {

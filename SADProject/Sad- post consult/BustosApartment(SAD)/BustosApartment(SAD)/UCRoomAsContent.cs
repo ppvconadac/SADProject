@@ -367,40 +367,44 @@ namespace BustosApartment_SAD_
 
         private void button5_Click(object sender, EventArgs e)
         {
-            DialogResult dia = new DialogResult();
             if (id5 == 0)
             {
                 MessageBox.Show("please select a row", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else {
-                MessageBox.Show("Are you Sure to archive this transaction?", "Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            }
-            if (dia == DialogResult.Yes)
+            else
             {
+               
+                DialogResult dia = MessageBox.Show("Are you Sure to archive this transaction?", "Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                string quer = "SELECT rtrans_id, rt_date_start FROM ba_db.room_transaction where rt_date_expire = '" + rtde + "' and Profile_user_ID = " + puid + " and Room_Room_ID =" + rrid + " and rt_type = 'Extend'";
-                DataTable d = c.select(quer);
-                int iddd;
-                if (d.Rows.Count == 1)
+                if ( dia == DialogResult.Yes)
                 {
 
+                    string quer = "SELECT rtrans_id, rt_date_start FROM ba_db.room_transaction where rt_date_expire = '" + rtde + "' and" +
+                        " Profile_user_ID = " + puid + " and Room_Room_ID =" + rrid + " and rt_type = 'Extend'";
+                    DataTable d = c.select(quer);
+                    int iddd;
+                    if (d.Rows.Count == 1)
+                    {
 
-                    iddd = int.Parse(d.Rows[0]["rtrans_id"].ToString());
-                    string ds = d.Rows[0]["rt_date_start"].ToString();
-                    string up = "update room_transaction set rt_type = 'Archive' where rtrans_id =" + iddd + " ";
-                    string up4 = "update room_transaction set rt_date_expire = '" + ds + "' where rtrans_id =" + id5 + " ";
-                    c.insert(up);
-                    c.insert(up4);
+
+                        iddd = int.Parse(d.Rows[0]["rtrans_id"].ToString());
+                        string ds = d.Rows[0]["rt_date_start"].ToString();
+                        string up = "update room_transaction set rt_type = 'Archive' where rtrans_id =" + iddd + " ";
+                        string up4 = "update room_transaction set rt_date_expire = '" + ds + "' where rtrans_id =" + id5 + " ";
+                        c.insert(up);
+                        c.insert(up4);
+                    }
+                    else
+                    {
+                        string up2 = "update room_transaction set rt_type = 'Archive' where rtrans_id =" + id5 + " ";
+                        string up3 = "update room set room_status = 'Available' where room_id =" + id3 + " ";
+                        c.insert(up2);
+                        c.insert(up3);
+                    }
+               
+                    tablecall();
+                    tablecall2();
                 }
-                else
-                {
-                    string up2 = "update room_transaction set rt_type = 'Archive' where rtrans_id =" + id5 + " ";
-                    string up3 = "update room set room_status = 'Available' where room_id =" + id3 + " ";
-                    c.insert(up2);
-                    c.insert(up3);
-                }
-                tablecall();
-                tablecall2();
             }
         }
 

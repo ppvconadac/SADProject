@@ -55,22 +55,21 @@
             this.label18 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -385,6 +384,19 @@
             this.tabPage3.Text = "Update Price";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // comboBox5
+            // 
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            "Monthly",
+            "Daily"});
+            this.comboBox5.Location = new System.Drawing.Point(20, 32);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(358, 25);
+            this.comboBox5.TabIndex = 78;
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
@@ -421,15 +433,14 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(16, 11);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 18);
+            this.label9.Size = new System.Drawing.Size(94, 18);
             this.label9.TabIndex = 72;
-            this.label9.Text = "Room ID :";
+            this.label9.Text = "Room Type :";
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.textBox1);
             this.tabPage4.Controls.Add(this.label12);
-            this.tabPage4.Controls.Add(this.button4);
             this.tabPage4.Controls.Add(this.button3);
             this.tabPage4.Controls.Add(this.textBox7);
             this.tabPage4.Controls.Add(this.label11);
@@ -437,9 +448,56 @@
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(395, 496);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Initial";
+            this.tabPage4.Text = "Readings";
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.textBox1.Location = new System.Drawing.Point(22, 89);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(358, 23);
+            this.textBox1.TabIndex = 79;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(19, 66);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(152, 18);
+            this.label12.TabIndex = 78;
+            this.label12.Text = "Water Meter Reading:";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(266, 432);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(113, 32);
+            this.button3.TabIndex = 76;
+            this.button3.Text = "Apply";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.textBox7.Location = new System.Drawing.Point(21, 39);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(358, 23);
+            this.textBox7.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 15);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(165, 18);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Electric Meter Reading: ";
             // 
             // panel2
             // 
@@ -492,79 +550,6 @@
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox7.Location = new System.Drawing.Point(21, 39);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(358, 23);
-            this.textBox7.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 15);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(150, 18);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Input Initial Electricity: ";
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(163, 179);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 32);
-            this.button3.TabIndex = 76;
-            this.button3.Text = "Create";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(279, 179);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 32);
-            this.button4.TabIndex = 77;
-            this.button4.Text = "Update";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "Monthly",
-            "Daily"});
-            this.comboBox5.Location = new System.Drawing.Point(20, 32);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(358, 25);
-            this.comboBox5.TabIndex = 78;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox1.Location = new System.Drawing.Point(22, 89);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(358, 23);
-            this.textBox1.TabIndex = 79;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(18, 65);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(120, 18);
-            this.label12.TabIndex = 78;
-            this.label12.Text = "Input Inital Water:";
             // 
             // UCRoomContent
             // 
@@ -628,7 +613,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label11;

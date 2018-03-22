@@ -38,6 +38,7 @@
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -59,7 +60,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -90,6 +91,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.button13);
             this.tabPage5.Controls.Add(this.button2);
             this.tabPage5.Controls.Add(this.button1);
             this.tabPage5.Controls.Add(this.button17);
@@ -107,7 +109,7 @@
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(686, 303);
+            this.button2.Location = new System.Drawing.Point(687, 403);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(386, 53);
             this.button2.TabIndex = 66;
@@ -129,7 +131,7 @@
             // button17
             // 
             this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Location = new System.Drawing.Point(686, 205);
+            this.button17.Location = new System.Drawing.Point(687, 305);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(386, 53);
             this.button17.TabIndex = 64;
@@ -207,6 +209,16 @@
             this.panel1.Size = new System.Drawing.Size(1073, 554);
             this.panel1.TabIndex = 4;
             // 
+            // button12
+            // 
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Location = new System.Drawing.Point(683, 387);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(386, 53);
+            this.button12.TabIndex = 72;
+            this.button12.Text = "Mark as Resolved";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
             // button11
             // 
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -216,6 +228,7 @@
             this.button11.TabIndex = 71;
             this.button11.Text = "Review Payments";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // label1
             // 
@@ -265,6 +278,7 @@
             this.button9.TabIndex = 66;
             this.button9.Text = "Mark as Paid";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button20
             // 
@@ -447,15 +461,16 @@
             this.dataGridView3.Size = new System.Drawing.Size(671, 520);
             this.dataGridView3.TabIndex = 58;
             // 
-            // button12
+            // button13
             // 
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Location = new System.Drawing.Point(683, 387);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(386, 53);
-            this.button12.TabIndex = 72;
-            this.button12.Text = "Mark as Resolved";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Location = new System.Drawing.Point(686, 209);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(386, 53);
+            this.button13.TabIndex = 67;
+            this.button13.Text = "Mark as Resolved";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // UCManageUEContent
             // 
@@ -514,5 +529,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }

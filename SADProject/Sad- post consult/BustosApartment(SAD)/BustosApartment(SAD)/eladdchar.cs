@@ -112,6 +112,8 @@ namespace BustosApartment_SAD_
                                 quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Tenant', 0)";
                                 c.insert(quer);
 
+                                string quer2 = "update room set room_elecreading = '" + textBox4.Text + "' where Room_ID = " + rid + "";
+                                c.insert(quer2);
                                 int pid = int.Parse(d.Rows[0]["Profile_user_ID"].ToString());
                                 utilityselpmeth ch = new utilityselpmeth();
                                 ch.getdeets(id, rid, "Electricity", double.Parse(textBox5.Text),pid);
@@ -120,13 +122,16 @@ namespace BustosApartment_SAD_
                                 {
                                     tablecall();
                                 }
+
+                                
                             }
                             else
                             {
                                 quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0 )";
                                 c.insert(quer);
+                                string quer2 = "update room set room_elecreading = '" + textBox4.Text + "' where Room_ID = " + rid + "";
+                                c.insert(quer2);
 
-                              
                                 this.DialogResult = DialogResult.Yes;
                             }
                         }
@@ -134,8 +139,9 @@ namespace BustosApartment_SAD_
                         {
                             quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0)";
                             c.insert(quer);
+                            string quer2 = "update room set room_elecreading = '" + textBox4.Text + "' where Room_ID = " + rid + "";
+                            c.insert(quer2);
 
-                            
                             this.DialogResult = DialogResult.Yes;
                         }
                     }

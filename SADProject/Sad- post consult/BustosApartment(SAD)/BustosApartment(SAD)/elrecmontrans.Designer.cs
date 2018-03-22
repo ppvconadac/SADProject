@@ -118,6 +118,7 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.button1);
             this.Name = "elrecmontrans";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Electricity - Record Monthly Transaction";
             this.ResumeLayout(false);
             this.PerformLayout();

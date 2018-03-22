@@ -20,6 +20,9 @@ namespace BustosApartment_SAD_
         public string owner_pay;
         public int rid;
         public string pay_meth;
+        public string pay_stat;
+        public int resolved1;
+        public double excess;
         private static UCManageUEContent _instance;
 
         public static UCManageUEContent Instance
@@ -92,6 +95,8 @@ namespace BustosApartment_SAD_
             {
                 tid = int.Parse(dataGridView5.Rows[e.RowIndex].Cells["uelect_ID"].Value.ToString());
                 rate = double.Parse(dataGridView5.Rows[e.RowIndex].Cells["uelect_rate"].Value.ToString());
+                resolved1 = int.Parse(dataGridView5.Rows[e.RowIndex].Cells["uelect_trans_resolved"].Value.ToString());
+                excess = double.Parse(dataGridView5.Rows[e.RowIndex].Cells["uelect_excess"].Value.ToString());
             }
         }
 
@@ -103,11 +108,10 @@ namespace BustosApartment_SAD_
             }
             else
             {
-                string quer = "select * from uelect_trans_specs where uet_uelect_id = " + tid + " and uet_trans_resolved = 0";
-                DataTable d = c1.select(quer);
-                if (d.Rows.Count > 0)
+                
+                if (resolved1 == 0)
                 {
-                    MessageBox.Show("Cannot archive transaction with unresolved charges");
+                    MessageBox.Show("Cannot archive unresolved transaction");
                 }
                 else
                 {
@@ -115,7 +119,7 @@ namespace BustosApartment_SAD_
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                        quer = "update utelect_trans set uelect_trans_stat = 1 where uelect_ID = " + tid + "";
+                        string quer = "update utelect_trans set uelect_trans_stat = 1 where uelect_ID = " + tid + "";
                         c1.insert(quer);
                         tablecall();
                     }
@@ -172,6 +176,7 @@ namespace BustosApartment_SAD_
                 rid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["uet_room_id"].Value.ToString());
                 owner_pay = dataGridView1.Rows[e.RowIndex].Cells["uet_owner_pay"].Value.ToString();
                 pay_meth = dataGridView1.Rows[e.RowIndex].Cells["uet_pay_meth"].Value.ToString();
+                pay_stat = dataGridView1.Rows[e.RowIndex].Cells["uet_pay_stat"].Value.ToString();
 
             }
         }
@@ -256,6 +261,104 @@ namespace BustosApartment_SAD_
         {
             dataGridView1.DataSource = null;
             tablecall2();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (tid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+            else
+            {
+                reviewpayments ch = new reviewpayments();
+                ch.getdeets(tid2, "uespecs_partial");
+                ch.Show();
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (tid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+
+            else
+            {
+                if (pay_stat == "Pending")
+                {
+                    if (pay_meth == "Check")
+                    {
+
+                        DialogResult dialogResult = MessageBox.Show("Mark transaction as paid.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (dialogResult == DialogResult.Yes)
+                        {
+
+                            string quer = "update uelect_trans_specs set uet_pay_stat= 'Paid' where uet_ID = " + tid2 + "";
+                            c1.insert(quer);
+                            string date = date = DateTime.Now.ToString("yyyy-M-d");
+                            string quer2 = "update uelect_trans_specs set uet_pay_date= '" + date + "' where uet_ID = " + tid2 + "";
+                            c1.insert(quer2);
+
+                            string quer3 = "select Profile_user_ID from room_transaction where Room_Room_ID = " + rid + " and rt_type = 'Active'";
+                            DataTable d = c1.select(quer3);
+                            int pid = int.Parse(d.Rows[0]["Profile_user_ID"].ToString());
+                            string quer4 = "select Profile_balance from profile where user_ID = '" + pid + "'";
+                            d = c1.select(quer4);
+                            string balance = d.Rows[0]["Profile_balance"].ToString();
+                            double bal = double.Parse(balance);
+                            double rt = price;
+                            bal = bal - rt;
+                            string quer5 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + pid + "";
+                            c1.insert(quer5);
+
+                            MessageBox.Show("Transaction successfully marked as paid");
+                            tablecall2();
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Option disabled for cash payments");
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Already Paid");
+                }
+
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            string quer = "select * from uelect_trans_specs where uet_uelect_id = " + tid + " and uet_trans_resolved = 0";
+            DataTable d = c1.select(quer);
+            if (d.Rows.Count > 0)
+            {
+                MessageBox.Show("Cannot resolve transaction with unresolved charges");
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Mark as Resolved.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    quer = "update utelect_trans set uelect_trans_resolved = 1 where uelect_ID = " + tid + "";
+                    c1.insert(quer);
+                    tablecall();
+
+                    string quer2;
+                    string date = DateTime.Now.ToString("yyyy-M-d");
+
+                    quer2 = "insert into misc_transaction values(NULL, '" + date + "','" + excess.ToString() + "','General','Electricity - Excess',0, NULL,NULL )";
+                    c1.insert(quer);
+                   
+                }
+            }
         }
     }
 }
