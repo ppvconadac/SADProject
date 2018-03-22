@@ -80,10 +80,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label33 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -544,10 +540,6 @@
             this.tabPage3.Controls.Add(this.label28);
             this.tabPage3.Controls.Add(this.dataGridView2);
             this.tabPage3.Controls.Add(this.label33);
-            this.tabPage3.Controls.Add(this.label27);
-            this.tabPage3.Controls.Add(this.label26);
-            this.tabPage3.Controls.Add(this.label25);
-            this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Controls.Add(this.label23);
             this.tabPage3.Controls.Add(this.label22);
             this.tabPage3.Controls.Add(this.label20);
@@ -575,9 +567,8 @@
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(186, 35);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(97, 18);
+            this.label30.Size = new System.Drawing.Size(0, 18);
             this.label30.TabIndex = 71;
-            this.label30.Text = "Placeholder";
             // 
             // button3
             // 
@@ -608,9 +599,8 @@
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.Location = new System.Drawing.Point(186, 11);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(97, 18);
+            this.label31.Size = new System.Drawing.Size(0, 18);
             this.label31.TabIndex = 70;
-            this.label31.Text = "Placeholder";
             // 
             // label16
             // 
@@ -633,7 +623,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(16, 155);
+            this.label28.Location = new System.Drawing.Point(15, 108);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(63, 18);
             this.label28.TabIndex = 64;
@@ -649,13 +639,13 @@
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(20, 182);
+            this.dataGridView2.Location = new System.Drawing.Point(19, 135);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(358, 135);
+            this.dataGridView2.Size = new System.Drawing.Size(358, 182);
             this.dataGridView2.TabIndex = 63;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -668,53 +658,14 @@
             this.label33.TabIndex = 68;
             this.label33.Text = "Company Name :";
             // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(186, 132);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(97, 18);
-            this.label27.TabIndex = 62;
-            this.label27.Text = "Placeholder";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(16, 131);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(133, 18);
-            this.label26.TabIndex = 61;
-            this.label26.Text = "Check-in Quantity :";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(186, 107);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(97, 18);
-            this.label25.TabIndex = 60;
-            this.label25.Text = "Placeholder";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(16, 107);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(58, 18);
-            this.label24.TabIndex = 59;
-            this.label24.Text = "Status :";
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(186, 83);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(97, 18);
+            this.label23.Size = new System.Drawing.Size(0, 18);
             this.label23.TabIndex = 58;
-            this.label23.Text = "Placeholder";
             // 
             // label22
             // 
@@ -722,9 +673,8 @@
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(186, 60);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(97, 18);
+            this.label22.Size = new System.Drawing.Size(0, 18);
             this.label22.TabIndex = 57;
-            this.label22.Text = "Placeholder";
             // 
             // label20
             // 
@@ -880,10 +830,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label20;

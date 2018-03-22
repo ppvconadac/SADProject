@@ -36,6 +36,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.txtlname = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -49,6 +51,8 @@
             this.txtfname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtlname2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,30 +67,22 @@
             this.label18 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label33 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -188,6 +184,29 @@
             this.tabPage1.Text = "Create Profile";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(16, 255);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(114, 18);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "Employee Type:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Admin",
+            "Owner",
+            "Employee"});
+            this.comboBox1.Location = new System.Drawing.Point(19, 276);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(359, 26);
+            this.comboBox1.TabIndex = 46;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // txtlname
             // 
             this.txtlname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
@@ -235,6 +254,7 @@
             this.txtpass.Location = new System.Drawing.Point(20, 229);
             this.txtpass.MaxLength = 11;
             this.txtpass.Name = "txtpass";
+            this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(358, 23);
             this.txtpass.TabIndex = 7;
             // 
@@ -324,6 +344,28 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Update Profile";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 255);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(114, 18);
+            this.label14.TabIndex = 71;
+            this.label14.Text = "Employee Type:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Admin",
+            "Owner",
+            "Employee"});
+            this.comboBox2.Location = new System.Drawing.Point(19, 276);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(359, 26);
+            this.comboBox2.TabIndex = 70;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -357,6 +399,7 @@
             this.txtpass2.Location = new System.Drawing.Point(20, 229);
             this.txtpass2.MaxLength = 11;
             this.txtpass2.Name = "txtpass2";
+            this.txtpass2.PasswordChar = '*';
             this.txtpass2.Size = new System.Drawing.Size(358, 23);
             this.txtpass2.TabIndex = 66;
             // 
@@ -448,15 +491,12 @@
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.label30);
             this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Controls.Add(this.textBox14);
             this.tabPage3.Controls.Add(this.label31);
             this.tabPage3.Controls.Add(this.label16);
             this.tabPage3.Controls.Add(this.label32);
-            this.tabPage3.Controls.Add(this.label28);
-            this.tabPage3.Controls.Add(this.dataGridView2);
             this.tabPage3.Controls.Add(this.label33);
             this.tabPage3.Controls.Add(this.label22);
             this.tabPage3.Controls.Add(this.label21);
@@ -468,25 +508,14 @@
             this.tabPage3.Text = "Profile Details";
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(186, 83);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(97, 18);
-            this.label11.TabIndex = 72;
-            this.label11.Text = "Placeholder";
-            // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(186, 35);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(97, 18);
+            this.label30.Size = new System.Drawing.Size(0, 18);
             this.label30.TabIndex = 71;
-            this.label30.Text = "Placeholder";
             // 
             // button3
             // 
@@ -505,10 +534,10 @@
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox14.Location = new System.Drawing.Point(20, 271);
+            this.textBox14.Location = new System.Drawing.Point(19, 106);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(358, 94);
+            this.textBox14.Size = new System.Drawing.Size(358, 109);
             this.textBox14.TabIndex = 66;
             // 
             // label31
@@ -517,14 +546,13 @@
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.Location = new System.Drawing.Point(186, 11);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(97, 18);
+            this.label31.Size = new System.Drawing.Size(0, 18);
             this.label31.TabIndex = 70;
-            this.label31.Text = "Placeholder";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(19, 248);
+            this.label16.Location = new System.Drawing.Point(17, 85);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(77, 18);
             this.label16.TabIndex = 65;
@@ -538,34 +566,6 @@
             this.label32.Size = new System.Drawing.Size(85, 18);
             this.label32.TabIndex = 69;
             this.label32.Text = "Username :";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(16, 83);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(136, 18);
-            this.label28.TabIndex = 64;
-            this.label28.Text = "Monthly Summary :";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeColumns = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(20, 110);
-            this.dataGridView2.MultiSelect = false;
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(358, 135);
-            this.dataGridView2.TabIndex = 63;
             // 
             // label33
             // 
@@ -582,9 +582,8 @@
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(186, 60);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(97, 18);
+            this.label22.Size = new System.Drawing.Size(0, 18);
             this.label22.TabIndex = 57;
-            this.label22.Text = "Placeholder";
             // 
             // label21
             // 
@@ -612,47 +611,6 @@
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Owner",
-            "Employee"});
-            this.comboBox1.Location = new System.Drawing.Point(19, 276);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(359, 26);
-            this.comboBox1.TabIndex = 46;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(17, 255);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(114, 18);
-            this.label13.TabIndex = 47;
-            this.label13.Text = "Employee Type:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 255);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(114, 18);
-            this.label14.TabIndex = 71;
-            this.label14.Text = "Employee Type:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Owner",
-            "Employee"});
-            this.comboBox2.Location = new System.Drawing.Point(19, 276);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(359, 26);
-            this.comboBox2.TabIndex = 70;
-            // 
             // UCProfOwnersCont
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -670,7 +628,6 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -707,8 +664,6 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtlname2;
@@ -724,7 +679,6 @@
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox comboBox1;

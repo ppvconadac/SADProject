@@ -55,6 +55,12 @@ namespace BustosApartment_SAD_
             dataGridView2.Columns["bt_trans_stat"].Visible = false;
             dataGridView2.Columns["btrans_id"].Visible = false;
             dataGridView2.Columns["bitem_rate"].Visible = false;
+            dataGridView2.Columns["bitem_name"].HeaderText = "Item Name";
+            dataGridView2.Columns["full_name"].HeaderText = "User";
+            dataGridView2.Columns["bt_date"].HeaderText = "Date";
+            dataGridView2.Columns["bt_pay_method"].HeaderText = "Payment Method";
+            dataGridView2.Columns["bt_pay_status"].HeaderText = "Payment Status";
+            dataGridView2.Columns["bitem_dmg_status"].HeaderText = "Item Condition";
             dataGridView2.ClearSelection();
         }
         public void tablecall(string quer1)
@@ -72,6 +78,13 @@ namespace BustosApartment_SAD_
             dataGridView2.Columns["bt_trans_stat"].Visible = false;
             dataGridView2.Columns["btrans_id"].Visible = false;
             dataGridView2.Columns["bitem_rate"].Visible = false;
+            dataGridView2.Columns["bitem_name"].HeaderText = "Item Name";
+            dataGridView2.Columns["full_name"].HeaderText = "User";
+            dataGridView2.Columns["bt_date"].HeaderText = "Date";
+            dataGridView2.Columns["bt_pay_method"].HeaderText = "Payment Method";
+            dataGridView2.Columns["bt_pay_status"].HeaderText = "Payment Status";
+            dataGridView2.Columns["bitem_dmg_status"].HeaderText = "Item Condition";
+            dataGridView2.Columns["bitem_rate"].Visible = false;
             dataGridView2.ClearSelection();
         }
         public void tablecall2() {
@@ -80,6 +93,11 @@ namespace BustosApartment_SAD_
             call(quer);
             dataGridView2.Columns["ntrans_ID"].Visible = false;
             dataGridView2.Columns["nonborrowable_item_nitem_ID"].Visible = false;
+            dataGridView2.Columns["nitem_name"].HeaderText = "Name";
+            
+            dataGridView2.Columns["nt_date"].HeaderText = "Date";
+            dataGridView2.Columns["nt_quantity"].HeaderText = "Quantity";
+            dataGridView2.Columns["nt_type"].HeaderText = "Type";
             dataGridView2.ClearSelection();
 
         }
@@ -90,6 +108,11 @@ namespace BustosApartment_SAD_
             call(quer);
             dataGridView2.Columns["ntrans_ID"].Visible = false;
             dataGridView2.Columns["nonborrowable_item_nitem_ID"].Visible = false;
+            dataGridView2.Columns["nitem_name"].HeaderText = "Name";
+
+            dataGridView2.Columns["nt_date"].HeaderText = "Date";
+            dataGridView2.Columns["nt_quantity"].HeaderText = "Quantity";
+            dataGridView2.Columns["nt_type"].HeaderText = "Type";
             dataGridView2.ClearSelection();
 
         }
@@ -99,6 +122,12 @@ namespace BustosApartment_SAD_
                 "= bitem_ID and bdt_trans_stat =1";
             call(quer);
             dataGridView2.Columns["bdtrans_ID"].Visible = false;
+            dataGridView2.Columns["bdt_date"].HeaderText = "Date";
+            dataGridView2.Columns["bdt_price"].HeaderText = "Amount";
+            dataGridView2.Columns["bitem_name"].HeaderText = "Item Name";
+            dataGridView2.Columns["full_name"].HeaderText = "User";
+            dataGridView2.Columns["bdt_pay_method"].HeaderText = "Payment Method";
+            dataGridView2.Columns["bdt_pay_status"].HeaderText = "Payment Status";
             dataGridView2.ClearSelection();
 
         }
@@ -109,6 +138,12 @@ namespace BustosApartment_SAD_
                 "= bitem_ID and bdt_trans_stat =1 "+quer1;
             call(quer);
             dataGridView2.Columns["bdtrans_ID"].Visible = false;
+            dataGridView2.Columns["bdt_date"].HeaderText = "Date";
+            dataGridView2.Columns["bdt_price"].HeaderText = "Amount";
+            dataGridView2.Columns["bitem_name"].HeaderText = "Item Name";
+            dataGridView2.Columns["full_name"].HeaderText = "User";
+            dataGridView2.Columns["bdt_pay_method"].HeaderText = "Payment Method";
+            dataGridView2.Columns["bdt_pay_status"].HeaderText = "Payment Status";
             dataGridView2.ClearSelection();
 
         }
@@ -127,6 +162,14 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["bt_trans_stat"].Visible = false;
             dataGridView1.Columns["btrans_id"].Visible = false;
             dataGridView1.Columns["bitem_rate"].Visible = false;
+            dataGridView1.Columns["bt_pay_method"].HeaderText = "Payment Method";
+            dataGridView1.Columns["bt_pay_status"].HeaderText = "Payment Status";
+            dataGridView1.Columns["bt_date"].HeaderText = "Date";
+            dataGridView1.Columns["bt_archive_date"].HeaderText = "Void Date";
+            dataGridView1.Columns["bt_archive_loggedin"].HeaderText = "Void By";
+            dataGridView1.Columns["bitem_dmg_status"].HeaderText = "Item Condition";
+            dataGridView1.Columns["bitem_name"].HeaderText = "Item Name";
+            dataGridView1.Columns["full_name"].HeaderText = "User";
             dataGridView1.ClearSelection();
         }
         public void tablecall4(string quer1)
@@ -145,6 +188,14 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["bt_trans_stat"].Visible = false;
             dataGridView1.Columns["btrans_id"].Visible = false;
             dataGridView1.Columns["bitem_rate"].Visible = false;
+            dataGridView1.Columns["bt_pay_method"].HeaderText = "Payment Method";
+            dataGridView1.Columns["bt_pay_status"].HeaderText = "Payment Status";
+            dataGridView1.Columns["bt_date"].HeaderText = "Date";
+            dataGridView1.Columns["bt_archive_date"].HeaderText = "Void Date";
+            dataGridView1.Columns["bt_archive_loggedin"].HeaderText = "Void By";
+            dataGridView1.Columns["bitem_dmg_status"].HeaderText = "Item Condition";
+            dataGridView1.Columns["bitem_name"].HeaderText = "Item Name";
+            dataGridView1.Columns["full_name"].HeaderText = "User";
             dataGridView1.ClearSelection();
         }
         public void tablecall5() {
@@ -154,6 +205,13 @@ namespace BustosApartment_SAD_
             call2(quer);
             dataGridView1.Columns["ntrans_ID"].Visible = false;
             dataGridView1.Columns["nonborrowable_item_nitem_ID"].Visible = false;
+            dataGridView1.Columns["nitem_name"].HeaderText = "Name";
+            dataGridView1.Columns["nt_date"].HeaderText = "Date";
+            dataGridView1.Columns["nt_quantity"].HeaderText = "Quantity";
+            dataGridView1.Columns["nt_type"].HeaderText = "Type";
+            dataGridView1.Columns["nt_archive_date"].HeaderText = "Void Date";
+            dataGridView1.Columns["nt_archived_loggedin"].HeaderText = "Void By";
+            dataGridView1.Columns["nt_type"].HeaderText = "Type";
             dataGridView1.ClearSelection();
         }
         public void tablecall5(string quer1)
@@ -164,6 +222,13 @@ namespace BustosApartment_SAD_
             call2(quer);
             dataGridView1.Columns["ntrans_ID"].Visible = false;
             dataGridView1.Columns["nonborrowable_item_nitem_ID"].Visible = false;
+            dataGridView1.Columns["nitem_name"].HeaderText = "Name";
+            dataGridView1.Columns["nt_date"].HeaderText = "Date";
+            dataGridView1.Columns["nt_quantity"].HeaderText = "Quantity";
+            dataGridView1.Columns["nt_type"].HeaderText = "Type";
+            dataGridView1.Columns["nt_archive_date"].HeaderText = "Void Date";
+            dataGridView1.Columns["nt_archived_loggedin"].HeaderText = "Void By";
+            dataGridView1.Columns["nt_type"].HeaderText = "Type";
             dataGridView1.ClearSelection();
         }
         public void tablecall6() {
@@ -172,6 +237,11 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["nitem_ID"].Visible = false;
             dataGridView1.Columns["nt_quantity"].Visible = false;
             dataGridView1.Columns["nitem_stat"].Visible = false;
+            dataGridView1.Columns["nitem_name"].HeaderText = "Item Name";
+            dataGridView1.Columns["nitem_price"].HeaderText = "Price";
+            dataGridView1.Columns["nitem_desc"].HeaderText = "Description";
+            dataGridView1.Columns["nt_archive_date"].HeaderText = "Void Date";
+            dataGridView1.Columns["nt_archive_loggedin"].HeaderText = "Void By";
             dataGridView1.ClearSelection();
         }
         public void tablecall6(string quer1)
@@ -181,6 +251,11 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["nitem_ID"].Visible = false;
             dataGridView1.Columns["nt_quantity"].Visible = false;
             dataGridView1.Columns["nitem_stat"].Visible = false;
+            dataGridView1.Columns["nitem_name"].HeaderText = "Item Name";
+            dataGridView1.Columns["nitem_price"].HeaderText = "Price";
+            dataGridView1.Columns["nitem_desc"].HeaderText = "Description";
+            dataGridView1.Columns["nt_archive_date"].HeaderText = "Void Date";
+            dataGridView1.Columns["nt_archive_loggedin"].HeaderText = "Void By";
             dataGridView1.ClearSelection();
         }
         public void tablecall7() {
@@ -196,6 +271,10 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["bitem_dmg_status"].HeaderText = "Condition";
             dataGridView1.Columns["bitem_actual"].HeaderText = "Actual Price";
             dataGridView1.Columns["bitem_rate"].HeaderText = "Rate";
+            dataGridView1.Columns["bitem_archive_date"].HeaderText = "Void Date";
+            dataGridView1.Columns["bitem_archive_loggedin"].HeaderText = "Void By";
+
+
         }
         public void tablecall7(string quer1)
         {
@@ -211,21 +290,37 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["bitem_dmg_status"].HeaderText = "Condition";
             dataGridView1.Columns["bitem_actual"].HeaderText = "Actual Price";
             dataGridView1.Columns["bitem_rate"].HeaderText = "Rate";
+            dataGridView1.Columns["bitem_archive_date"].HeaderText = "Void Date";
+            dataGridView1.Columns["bitem_archive_loggedin"].HeaderText = "Void By";
         }
         public void tablecall8() {
             string quer = "select * from room_item where ritem_void_stat  = 1";
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["ritem_ID"].Visible = false;
-            dataGridView1.Columns["ritem_price"].Visible = false;
-            dataGridView1.Columns["ritem_roomid"].Visible = false;
+            dataGridView1.Columns["ritem_archive_date"].Visible = false;
+            dataGridView1.Columns["ritem_archive_loggedin"].Visible = false;
+            dataGridView1.Columns["ritem_void_stat"].Visible = false;
+            dataGridView1.Columns["ritem_name"].HeaderText = "Name";
+            dataGridView1.Columns["ritem_desc"].HeaderText = "Description";
+            dataGridView1.Columns["ritem_dmg_stat"].HeaderText = "Condition";
+            dataGridView1.Columns["ritem_price"].HeaderText = "Actual Price";
+            dataGridView1.Columns["ritem_archive_date"].HeaderText = "Void Date";
+            dataGridView1.Columns["ritem_archive_loggedin"].HeaderText = "Void By";
             dataGridView1.ClearSelection();
         }
         public void tablecall8(string quer1) {
             string quer = "select * from room_item where ritem_void_stat  = 1 " + quer1;
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["ritem_ID"].Visible = false;
-            dataGridView1.Columns["ritem_price"].Visible = false;
-            dataGridView1.Columns["ritem_roomid"].Visible = false;
+            dataGridView1.Columns["ritem_archive_date"].Visible = false;
+            dataGridView1.Columns["ritem_archive_loggedin"].Visible = false;
+            dataGridView1.Columns["ritem_void_stat"].Visible = false;
+            dataGridView1.Columns["ritem_name"].HeaderText = "Name";
+            dataGridView1.Columns["ritem_desc"].HeaderText = "Description";
+            dataGridView1.Columns["ritem_dmg_stat"].HeaderText = "Condition";
+            dataGridView1.Columns["ritem_price"].HeaderText = "Actual Price";
+            dataGridView1.Columns["ritem_archive_date"].HeaderText = "Void Date";
+            dataGridView1.Columns["ritem_archive_loggedin"].HeaderText = "Void By";
             dataGridView1.ClearSelection();
         }
         public void tablecall9() {
@@ -233,7 +328,16 @@ namespace BustosApartment_SAD_
                 " as full_name, ritem_name, rdt_pay_method, rdt_pay_status from ritem_damage_transaction inner join profile inner join room_item " +
                 "where Profile_user_ID = user_ID and ritem_itemID = ritem_ID and rdt_trans_stat =1";
             dataGridView2.DataSource = c1.select(quer);
+
             dataGridView2.Columns["rdtrans_ID"].Visible = false;
+            dataGridView2.Columns["Profile_user_ID"].Visible = false;
+            dataGridView2.Columns["rdt_date"].HeaderText = "Date";
+            dataGridView2.Columns["rdt_price"].HeaderText = "Amount";
+            dataGridView2.Columns["ritem_name"].HeaderText = "Item Name";
+            dataGridView2.Columns["full_name"].HeaderText = "User";
+            dataGridView2.Columns["rdt_pay_method"].HeaderText = "Payment Method";
+            dataGridView2.Columns["rdt_pay_status"].HeaderText = "Payment Status";
+
             dataGridView2.ClearSelection();
         }
         public void tablecall9(string quer1)
@@ -243,6 +347,13 @@ namespace BustosApartment_SAD_
                 " where Profile_user_ID = user_ID and ritem_itemID = ritem_ID and rdt_trans_stat =1";
             dataGridView2.DataSource = c1.select(quer);
             dataGridView2.Columns["rdtrans_ID"].Visible = false;
+            dataGridView2.Columns["Profile_user_ID"].Visible = false;
+            dataGridView2.Columns["rdt_date"].HeaderText = "Date";
+            dataGridView2.Columns["rdt_price"].HeaderText = "Amount";
+            dataGridView2.Columns["ritem_name"].HeaderText = "Item Name";
+            dataGridView2.Columns["full_name"].HeaderText = "User";
+            dataGridView2.Columns["rdt_pay_method"].HeaderText = "Payment Method";
+            dataGridView2.Columns["rdt_pay_status"].HeaderText = "Payment Status";
             dataGridView2.ClearSelection();
         }
 
