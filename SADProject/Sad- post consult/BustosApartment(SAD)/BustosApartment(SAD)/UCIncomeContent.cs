@@ -44,7 +44,7 @@ namespace BustosApartment_SAD_
 
             string quer = "select profile_name , rt_date_start ,room_number,rc_rate,rt_type from room_transaction inner join room " +
                 "inner join profile inner join room_classification where room_transaction.Profile_user_ID = user_ID and room_transaction.Room_Room_ID = Room_ID" +
-                " and Room_classification_classification_ID = classification_ID and rt_date_start like '2018-2-%' and rt_type != 'Archived'";
+                " and Room_classification_classification_ID = classification_ID and rt_date_start like '2018-2-%' and rt_type != 'Archived' and rt_type != 'Extend'";
             dataGridView1.DataSource = c.select(quer);
         }
         public void tablecall2() {
@@ -79,9 +79,9 @@ namespace BustosApartment_SAD_
                 l.Add(new Paragraph("______________________________________________________________________\n\n"));
                    doc.Add(l);
                 string quer2 = "select room_number, rt_date_start, profile_name, rt_type, rt_price, rt_extend_start from room inner join room_transaction" +
-            " inner join profile where room_id = Room_Room_ID and Profile_user_ID = user_ID and room_number = "+d.Rows[i][0]+" and rt_type != 'Archived' and rt_date_start like '2018-2-%'";
+            " inner join profile where room_id = Room_Room_ID and Profile_user_ID = user_ID and room_number = "+d.Rows[i][0]+ " and rt_type != 'Archived' and rt_type != 'Extend' and rt_date_start like '2018-2-%'";
                 DataTable d2 = c.select(quer2);
-                string quer3 = "SELECT sum(rt_price) FROM ba_db.room_transaction where Room_Room_ID = "+ d.Rows[i][1] + " and rt_type != 'Archived' and rt_date_start like '2018-2-%'";
+                string quer3 = "SELECT sum(rt_price) FROM ba_db.room_transaction where Room_Room_ID = "+ d.Rows[i][1] + " and rt_type != 'Archived' and rt_type != 'Extend' and rt_date_start like '2018-2-%'";
                 DataTable d3 = c.select(quer3);
                 if (d2.Rows.Count == 0) {
 

@@ -48,7 +48,6 @@ C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApa
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCRoomHeader.resources
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCRoomRContent.resources
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCSummaryCont.resources
-C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCUEContent.resources
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).csproj.GenerateResource.Cache
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).csproj.CoreCompileInputs.cache
 C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment(SAD).exe
@@ -180,3 +179,8 @@ D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(
 D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.eladdchar.resources
 D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCManageUEContent.resources
 D:\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.utilityselpmeth.resources
+C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.eladdchar.resources
+C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.elrecmontrans.resources
+C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.Transfer.resources
+C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.UCManageUEContent.resources
+C:\Users\USER\Documents\GitHub\SADProject\SADProject\Sad- post consult\BustosApartment(SAD)\BustosApartment(SAD)\obj\Debug\BustosApartment_SAD_.utilityselpmeth.resources

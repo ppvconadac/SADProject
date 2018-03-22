@@ -106,15 +106,18 @@ namespace BustosApartment_SAD_
 
             if (dialogResult == DialogResult.Yes)
             {
+                float dis = float.Parse(textBox1.Text);
+                
                 
                 string q = "select room_time, RC_rate from room_classification inner join room where room_classification_classification_id = classification_id and room_id = " + a + "";
                 DataTable d = c.select(q);
-           
+          
                     string rc = d.Rows[0]["RC_rate"].ToString();
-                int rc2 = int.Parse(numericUpDown1.Text) * int.Parse(d.Rows[0]["RC_rate"].ToString());
+                float rc2 = float.Parse(numericUpDown1.Text) * float.Parse(d.Rows[0]["RC_rate"].ToString());
+                float rc3 = rc2 - (rc2 *(dis/100));
                     string time = d.Rows[0]["room_time"].ToString();
                     if (time == "Monthly")
-                    { 
+                    {   
                         date = DateTime.Now.AddMonths(int.Parse(numericUpDown1.Text)).ToString("yyy-M-d");
                     }
                     else
@@ -122,8 +125,8 @@ namespace BustosApartment_SAD_
                         date = DateTime.Now.AddDays(int.Parse(numericUpDown1.Text)).ToString("yyy-M-d");
                     }
                     
-                    string quer = "insert into room_transaction values(NULL, '" + "Assigned" + "', '" + DateTime.Now.ToString("yyy-M-d") + "'," +
-                        " '" + date + "','"+rc2+"', '"+textBox1.Text+"',"+pid+","+a+",NULL )";
+                    string quer = "insert into room_transaction values(NULL, '" + "Active" + "', '" + DateTime.Now.ToString("yyy-M-d") + "'," +
+                        " '" + date + "','"+rc3+"', '"+textBox1.Text+"',"+pid+","+a+",NULL )";
 
                 c.insert(quer);
                 string quer2 = "update room set room_status = 'Using' where room_id = " + a + "";
@@ -175,6 +178,11 @@ namespace BustosApartment_SAD_
                 txtrate.Text = c1.ToString();
             }
             lol = numericUpDown1.Value;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

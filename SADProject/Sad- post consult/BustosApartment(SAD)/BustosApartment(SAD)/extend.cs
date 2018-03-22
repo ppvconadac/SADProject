@@ -80,11 +80,11 @@ namespace BustosApartment_SAD_
                 if (b == true)
                 {
                     string q = "insert into room_transaction values(NULL, 'Extend'" +
-                        ", '" + d2.Rows[0]["rt_date_expire"].ToString() + "', '" + date + "', " + pr + " " +
+                        ", '" + d2.Rows[0]["rt_date_expire"].ToString() + "', '" + date + "',  NULL " +
                         "," + int.Parse(d2.Rows[0]["rt_discount"].ToString()) + ", " + int.Parse(d2.Rows[0]["profile_user_id"].ToString()) + ", " +
                         "" + int.Parse(d2.Rows[0]["room_room_id"].ToString()) + ", '" + DateTime.Now.ToString("yyy-M-d") + "' ) ";
                     c.insert(q);
-                    string q2 = "update room_transaction set rt_date_expire = '" + date + "' where rtrans_id = " + UCRoomAsContent.id5 + "";
+                    string q2 = "update room_transaction set rt_date_expire = '" + date + "', rt_price = (rt_price + "+pr+")  where rtrans_id = " + UCRoomAsContent.id5 + "";
                     c.insert(q2);
                     this.DialogResult = DialogResult.Yes;
                 }

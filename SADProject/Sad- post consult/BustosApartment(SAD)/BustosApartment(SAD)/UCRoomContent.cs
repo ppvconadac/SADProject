@@ -96,7 +96,7 @@ namespace BustosApartment_SAD_
                     type = 1;
                 else
                     type = 2;
-                string query1 = "Insert into Room values( NULL, " + idr + ",'" + desc + "', " + type + ",'"+ id +"', 'Available')";
+                string query1 = "Insert into Room values( NULL, " + idr + ",'" + desc + "', " + type + ",'"+ id +"', 'Available', NULL,NULL)";
                 c.insert(query1);
                 MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDesc.Text = "";
@@ -173,7 +173,7 @@ namespace BustosApartment_SAD_
                 string name = dt.Rows[0]["Owner_fname"].ToString(); 
                 string day = dt.Rows[0]["room_time"].ToString();
                 textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells["room_number"].Value.ToString();
-                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["room_number"].Value.ToString();
+                comboBox5.Text = dataGridView1.Rows[e.RowIndex].Cells["room_time"].Value.ToString();
                 textBox4.Text = dt.Rows[0]["rc_rate"].ToString();
                 comboBox4.Text = name;
                 comboBox2.Text = day;
@@ -207,7 +207,7 @@ namespace BustosApartment_SAD_
             catch {
                 MessageBox.Show("Invalid input!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            string quer = "select room_classification_classification_id from room where room_number = " + textBox1.Text + "";
+            string quer = "select room_classification_classification_id from room where room_number = " + comboBox5.Text + "";
             DataTable d = c.select(quer);
             if (d.Rows.Count == 0)
             {
@@ -230,6 +230,11 @@ namespace BustosApartment_SAD_
         private void button3_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace BustosApartment_SAD_
 {
+
     public partial class UCRoomAsContent : UserControl
     {
         public static int id;
@@ -44,13 +45,16 @@ namespace BustosApartment_SAD_
             this.Refresh();
 
         }
+        
+        
+           
         public void check()
         {
             DataTable d = new DataTable();
             int count = 0;
 
             string quer = "SELECT rtrans_id,rt_date_expire, room_number FROM room_transaction inner join room inner join profile where" +
-                " profile_user_id = user_id and room_room_id = room_id and room_status = 'Using' and rt_type = 'Assigned'";
+                " profile_user_id = user_id and room_room_id = room_id and room_status = 'Using' and rt_type = 'Active'";
             d = c.select(quer);
             string[] arr = new string[d.Rows.Count];
             bool b = true;
@@ -82,7 +86,7 @@ namespace BustosApartment_SAD_
 
             String query = "SELECT rtrans_id, room_id, room_number, room_time, room_status, rt_date_start, rt_date_expire, profile_name ,profile_user_id, room_room_id FROM room inner join owner inner join room_classification inner join room_transaction inner" +
                 " join profile" +
-                " where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID and profile_user_id = user_id and room_room_id = room_id and room_status = 'Using' and rt_type = 'Assigned'";
+                " where Owner_ID = Owner_Owner_ID and Room_classification_classification_ID = classification_ID and profile_user_id = user_id and room_room_id = room_id and room_status = 'Using' and rt_type = 'Active'";
             dataGridView2.DataSource = c.select(query);
             dataGridView2.ClearSelection();
             dataGridView2.Columns["room_room_id"].Visible = false;
@@ -183,18 +187,68 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+
             if (id5 == 0)
             {
                 MessageBox.Show("please select a row", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
+                string qq = "select room_time from room_classification inner join room where room_classification_classification_id = classification_id" +
+                    " and room_id = "+id3+"";
+                DataTable dd = c.select(qq);
+                if (dd.Rows[0][0].ToString() == "Monthly") {
+                    string que1 = "select rt_date_expire, rt_discount from room_transaction where room_room_id = " + id3 + " and rt_type = 'Active' ";
+                    DataTable d1 = c.select(que1);
+                    DateTime aa = Convert.ToDateTime(d1.Rows[0]["rt_date_expire"].ToString());
+                    DateTime nw = Convert.ToDateTime(DateTime.Now.ToString("yyy-M-d"));
+                    int mon = ((aa.Year - nw.Year) * 12) + aa.Month - nw.Month;
+                    float dic = int.Parse(d1.Rows[0]["rt_discount"].ToString());
+
+
+                    if (mon > 0)
+                    {
+                        string que = "select rc_rate from room_classification inner join room where room_classification_classification_id  = classification_id" +
+                            " and room_id = " + id3 + " ";
+                        DataTable d2 = c.select(que);
+                        float prx = float.Parse(d2.Rows[0][0].ToString());
+                        float pr =  (prx -(prx * (dic/100)))* mon;
+                        string up = "update room_transaction set rt_price  = (rt_price - " + pr + " ) where room_room_id = " + id3 + " and rt_type = 'Active' and rt_date_expire  = '" + d1.Rows[0][0].ToString() + "' ";
+                        c.insert(up);
+
+                    }
+                }
+                else if (dd.Rows[0][0].ToString() == "Daily") {
+
+                    string que1 = "select rt_date_expire, rt_discount from room_transaction where room_room_id = " + id3 + " and rt_type = 'Active' ";
+                    DataTable d1 = c.select(que1);
+                    DateTime aa = Convert.ToDateTime(d1.Rows[0]["rt_date_expire"].ToString());
+                    DateTime nw = Convert.ToDateTime(DateTime.Now.ToString("yyy-M-d"));
+                    int mon = Convert.ToInt32((aa - nw).TotalDays);
+                    float dic = int.Parse(d1.Rows[0]["rt_discount"].ToString());
+
+                    if (mon > 0)
+                    {
+                        string que = "select rc_rate from room_classification inner join room where room_classification_classification_id  = classification_id" +
+                            " and room_id = " + id3 + " ";
+                        DataTable d2 = c.select(que);
+                        float prx = float.Parse(d2.Rows[0][0].ToString());
+                        float pr = (prx - (prx * (dic / 100))) * mon;
+                        string up = "update room_transaction set rt_price  = (rt_price - " + pr + " ) where room_room_id = " + id3 + " and rt_type = 'Active' and rt_date_expire  = '" + d1.Rows[0][0].ToString() + "' ";
+                        c.insert(up);
+
+                    }
+
+                }
 
                 string q = "select room_status from room where room_id = " + id3 + "";
                 DataTable d = c.select(q);
                 string a = d.Rows[0]["room_status"].ToString();
                 if (a == "Using")
                 {
+
+
                     string quer = "update room set room_status = 'Available' where room_id = " + id3 + "";
                     c.insert(quer);
                     string quer2 = "update room_transaction set rt_type = 'Expire' where rtrans_id = " + id4 + "";
@@ -203,7 +257,9 @@ namespace BustosApartment_SAD_
                     id5 = 0;
                     tablecall();
                     tablecall2();
+                  
                 }
+
                 else
                 {
                     MessageBox.Show("Cannot check out since room is " + a + "", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
