@@ -389,7 +389,7 @@ namespace BustosApartment_SAD_
 
                         iddd = int.Parse(d.Rows[0]["rtrans_id"].ToString());
                         string ds = d.Rows[0]["rt_date_start"].ToString();
-                        string up = "update room_transaction set rt_type = 'Archive' where rtrans_id =" + iddd + " ";
+                        string up = "update room_transaction set rt_type = 'arExtend' where rtrans_id =" + iddd + " ";
                         string up4 = "update room_transaction set rt_date_expire = '" + ds + "' where rtrans_id =" + id5 + " ";
                         c.insert(up);
                         c.insert(up4);
