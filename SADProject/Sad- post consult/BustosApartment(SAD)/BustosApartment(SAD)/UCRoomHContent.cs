@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+
 
 namespace BustosApartment_SAD_
 {
@@ -495,58 +493,7 @@ namespace BustosApartment_SAD_
         {
            
 
-                Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\USER\\Documents\\GitHub\\SADProject\\text2.pdf", FileMode.Create));
-                doc.Open();
-                Paragraph par = new Paragraph("BUSTOS APARTMENT MONTHLY INCOME\n\n");
-                par.Alignment = Element.ALIGN_CENTER;
-                doc.Add(par);
-
-                string quer = "select room_number, room_id from room order by room_number";
-                DataTable d = c1.select(quer);
-
-
-                for (int i = 0; i < d.Rows.Count; i++)
-                {
-                    Paragraph l = new Paragraph();
-                    iTextSharp.text.Font font = new iTextSharp.text.Font(FontFactory.GetFont("Arial", 13, iTextSharp.text.Font.BOLD));
-                    iTextSharp.text.Font font2 = new iTextSharp.text.Font(FontFactory.GetFont("Arial", 9, iTextSharp.text.Font.NORMAL));
-                    l.IndentationLeft = 30f;
-                    l.Add(new Chunk("Room " + d.Rows[i][0], font));
-                    l.Add(new Paragraph("______________________________________________________________________\n\n"));
-                    doc.Add(l);
-                    string quer2 = "select room_number, rt_date_start, profile_name, rt_type, rt_price, rt_date_expire from room inner join room_transaction" +
-                " inner join profile where room_id = Room_Room_ID and Profile_user_ID = user_ID and room_number = " + d.Rows[i][0] + " and rt_type != 'Archived' and rt_date_start like '-2-%' and rt_type != 'Extend'";
-                    DataTable d2 = c1.select(quer2);
-                    if (d2.Rows.Count == 0)
-                    {
-
-                        Paragraph l2 = new Paragraph();
-                        l2.IndentationLeft = 40f;
-                        l2.Add(new Chunk("No Transacions This Month\n\n", font2));
-                        doc.Add(l2);
-                    }
-                    else
-                    {
-                        for (int j = 0; j < d2.Rows.Count; j++)
-                        {
-                            PdfPTable table = new PdfPTable(3);
-                            table.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
-                            string a = d2.Rows[j][2].ToString();
-                            table.AddCell(new Phrase(new Chunk("NAME:  " + a, font2)));
-                            table.AddCell(new Phrase(new Chunk("DATE START:  " + d2.Rows[j][1].ToString(), font2)));
-                            table.AddCell(new Phrase(new Chunk("DATE EXPIRE: " + d2.Rows[j][5].ToString(), font2)));
-
-                            doc.Add(table);
-
-                        }
-                    }
-
-
-                }
-
-                MessageBox.Show("PDF Created, OK!");
-                doc.Close();
+               
 
             }
             
