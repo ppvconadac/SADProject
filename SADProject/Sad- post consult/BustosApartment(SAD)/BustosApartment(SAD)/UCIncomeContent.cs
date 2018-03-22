@@ -44,13 +44,13 @@ namespace BustosApartment_SAD_
 
             string quer = "select profile_name , rt_date_start ,room_number,rc_rate,rt_type from room_transaction inner join room " +
                 "inner join profile inner join room_classification where room_transaction.Profile_user_ID = user_ID and room_transaction.Room_Room_ID = Room_ID" +
-                " and Room_classification_classification_ID = classification_ID and rt_date_start like '2018-2-%' and rt_type != 'Archived' and rt_type != 'Extend'";
+                " and Room_classification_classification_ID = classification_ID and rt_date_start like '"+DateTime.Now.ToString("yyy-M-")+"%' and rt_type != 'Archived' and rt_type != 'Extend'";
             dataGridView1.DataSource = c.select(quer);
         }
         public void tablecall2() {
             string quer = "SELECT profile_name,bt_date, bt_pay_method, bt_price, bitem_name FROM bitem_transaction inner join borrowable_item inner join profile where" +
                 " Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_id " +
-                "and bt_pay_status = 'Paid'";
+                "and bt_pay_status = 'Paid' and bt_date like '" + DateTime.Now.ToString("yyy-M-") + "%'";
             dataGridView2.DataSource = c.select(quer);
 
         }

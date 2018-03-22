@@ -133,11 +133,12 @@ namespace BustosApartment_SAD_
 
 
         }
-
+        string act; 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
+                act = dataGridView1.Rows[e.RowIndex].Cells["room_status"].Value.ToString();
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["room_id"].Value.ToString());
                 id2 = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["room_id"].Value.ToString());
                 rcid = dataGridView1.Rows[e.RowIndex].Cells["Room_classification_classification_ID"].Value.ToString();
@@ -187,82 +188,84 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
-            if (id5 == 0)
-            {
-                MessageBox.Show("please select a row", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                string qq = "select room_time from room_classification inner join room where room_classification_classification_id = classification_id" +
-                    " and room_id = "+id3+"";
-                DataTable dd = c.select(qq);
-                if (dd.Rows[0][0].ToString() == "Monthly") {
-                    string que1 = "select rt_date_expire, rt_discount from room_transaction where room_room_id = " + id3 + " and rt_type = 'Active' ";
-                    DataTable d1 = c.select(que1);
-                    DateTime aa = Convert.ToDateTime(d1.Rows[0]["rt_date_expire"].ToString());
-                    DateTime nw = Convert.ToDateTime(DateTime.Now.ToString("yyy-M-d"));
-                    int mon = ((aa.Year - nw.Year) * 12) + aa.Month - nw.Month;
-                    float dic = int.Parse(d1.Rows[0]["rt_discount"].ToString());
-
-
-                    if (mon > 0)
-                    {
-                        string que = "select rc_rate from room_classification inner join room where room_classification_classification_id  = classification_id" +
-                            " and room_id = " + id3 + " ";
-                        DataTable d2 = c.select(que);
-                        float prx = float.Parse(d2.Rows[0][0].ToString());
-                        float pr =  (prx -(prx * (dic/100)))* mon;
-                        string up = "update room_transaction set rt_price  = (rt_price - " + pr + " ) where room_room_id = " + id3 + " and rt_type = 'Active' and rt_date_expire  = '" + d1.Rows[0][0].ToString() + "' ";
-                        c.insert(up);
-
-                    }
-                }
-                else if (dd.Rows[0][0].ToString() == "Daily") {
-
-                    string que1 = "select rt_date_expire, rt_discount from room_transaction where room_room_id = " + id3 + " and rt_type = 'Active' ";
-                    DataTable d1 = c.select(que1);
-                    DateTime aa = Convert.ToDateTime(d1.Rows[0]["rt_date_expire"].ToString());
-                    DateTime nw = Convert.ToDateTime(DateTime.Now.ToString("yyy-M-d"));
-                    int mon = Convert.ToInt32((aa - nw).TotalDays);
-                    float dic = int.Parse(d1.Rows[0]["rt_discount"].ToString());
-
-                    if (mon > 0)
-                    {
-                        string que = "select rc_rate from room_classification inner join room where room_classification_classification_id  = classification_id" +
-                            " and room_id = " + id3 + " ";
-                        DataTable d2 = c.select(que);
-                        float prx = float.Parse(d2.Rows[0][0].ToString());
-                        float pr = (prx - (prx * (dic / 100))) * mon;
-                        string up = "update room_transaction set rt_price  = (rt_price - " + pr + " ) where room_room_id = " + id3 + " and rt_type = 'Active' and rt_date_expire  = '" + d1.Rows[0][0].ToString() + "' ";
-                        c.insert(up);
-
-                    }
-
-                }
-
-                string q = "select room_status from room where room_id = " + id3 + "";
-                DataTable d = c.select(q);
-                string a = d.Rows[0]["room_status"].ToString();
-                if (a == "Using")
+            DialogResult dia = MessageBox.Show("confirm checkout? ", "", MessageBoxButtons.YesNo);
+            if (dia == DialogResult.Yes) {
+                if (id5 == 0)
                 {
-
-
-                    string quer = "update room set room_status = 'Available' where room_id = " + id3 + "";
-                    c.insert(quer);
-                    string quer2 = "update room_transaction set rt_type = 'Expire' where rtrans_id = " + id4 + "";
-                    c.insert(quer2);
-                    id = 0;
-                    id5 = 0;
-                    tablecall();
-                    tablecall2();
-                  
+                    MessageBox.Show("please select a row", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
                 else
                 {
-                    MessageBox.Show("Cannot check out since room is " + a + "", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string qq = "select room_time from room_classification inner join room where room_classification_classification_id = classification_id" +
+                        " and room_id = " + id3 + "";
+                    DataTable dd = c.select(qq);
+                    if (dd.Rows[0][0].ToString() == "Monthly") {
+                        string que1 = "select rt_date_expire, rt_discount from room_transaction where room_room_id = " + id3 + " and rt_type = 'Active' ";
+                        DataTable d1 = c.select(que1);
+                        DateTime aa = Convert.ToDateTime(d1.Rows[0]["rt_date_expire"].ToString());
+                        DateTime nw = Convert.ToDateTime(DateTime.Now.ToString("yyy-M-d"));
+                        int mon = Convert.ToInt32((aa - nw).TotalDays);
+                        mon = mon / 30;
+                        float dic = int.Parse(d1.Rows[0]["rt_discount"].ToString());
+
+
+                        if (mon > 0)
+                        {
+                            string que = "select rc_rate from room_classification inner join room where room_classification_classification_id  = classification_id" +
+                                " and room_id = " + id3 + " ";
+                            DataTable d2 = c.select(que);
+                            float prx = float.Parse(d2.Rows[0][0].ToString());
+                            float pr = (prx - (prx * (dic / 100))) * mon;
+                            string up = "update room_transaction set rt_price  = (rt_price - " + pr + " ) where room_room_id = " + id3 + " and rt_type = 'Active' and rt_date_expire  = '" + d1.Rows[0][0].ToString() + "' ";
+                            c.insert(up);
+
+                        }
+                    }
+                    else if (dd.Rows[0][0].ToString() == "Daily") {
+
+                        string que1 = "select rt_date_expire, rt_discount from room_transaction where room_room_id = " + id3 + " and rt_type = 'Active' ";
+                        DataTable d1 = c.select(que1);
+                        DateTime aa = Convert.ToDateTime(d1.Rows[0]["rt_date_expire"].ToString());
+                        DateTime nw = Convert.ToDateTime(DateTime.Now.ToString("yyy-M-d"));
+                        int mon = Convert.ToInt32((aa - nw).TotalDays);
+                        float dic = int.Parse(d1.Rows[0]["rt_discount"].ToString());
+
+                        if (mon > 0)
+                        {
+                            string que = "select rc_rate from room_classification inner join room where room_classification_classification_id  = classification_id" +
+                                " and room_id = " + id3 + " ";
+                            DataTable d2 = c.select(que);
+                            float prx = float.Parse(d2.Rows[0][0].ToString());
+                            float pr = (prx - (prx * (dic / 100))) * mon;
+                            string up = "update room_transaction set rt_price  = (rt_price - " + pr + " ) where room_room_id = " + id3 + " and rt_type = 'Active' and rt_date_expire  = '" + d1.Rows[0][0].ToString() + "' ";
+                            c.insert(up);
+
+                        }
+
+                    }
+
+                    string q = "select room_status from room where room_id = " + id3 + "";
+                    DataTable d = c.select(q);
+                    string a = d.Rows[0]["room_status"].ToString();
+                    if (a == "Using")
+                    {
+
+
+                        string quer = "update room set room_status = 'Available' where room_id = " + id3 + "";
+                        c.insert(quer);
+                        string quer2 = "update room_transaction set rt_type = 'Expire' where rtrans_id = " + id4 + "";
+                        c.insert(quer2);
+                        id = 0;
+                        id5 = 0;
+                        tablecall();
+                        tablecall2();
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Cannot check out since room is " + a + "", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
         }
@@ -410,13 +413,48 @@ namespace BustosApartment_SAD_
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Transfer rs = new Transfer();
-            rs.a3 = this;
-            DialogResult result = rs.ShowDialog();
-            if (result == DialogResult.Yes)
+
+            string quer = "select rt_re_pay from room_transaction where rtrans_id = " + id4 + "";
+            DataTable d=  c.select(quer);
+            if (int.Parse(d.Rows[0][0].ToString()) <= 0)
             {
-                tablecall();
-                tablecall2();
+                if (rcid == "1" && act == "Using")
+                {
+                    Transfer rs = new Transfer();
+                    rs.a3 = this;
+                    DialogResult result = rs.ShowDialog();
+                    if (result == DialogResult.Yes)
+                    {
+                        tablecall();
+                        tablecall2();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Cant transfer monthly rooms and vacant rooms", "Error");
+                }
+            }
+            else {
+                MessageBox.Show("Cant transfer user balance = " + d.Rows[0][0].ToString(), "Error");
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string qr = "select rt_pay_type, rt_re_pay, profile_user_id from room_transaction where rtrans_id = "+id4+"";
+            DataTable d = c.select(qr);
+            if (d.Rows[0]["rt_pay_type"].ToString() == "Check")
+            {
+                DialogResult dia = MessageBox.Show("User Credit : "+ d.Rows[0]["rt_re_pay"].ToString() + " Confirm payment?", "Payment Confirmation", MessageBoxButtons.YesNo);
+                if (dia == DialogResult.Yes) {
+                    string quer = "update room_transaction set rt_re_pay ='0', rt_price = "+ d.Rows[0]["rt_re_pay"].ToString() + " where rtrans_id = "+id4+"";
+                    c.insert(quer);
+                    quer = "update profile set profile_balance = (profile_balance - "+ d.Rows[0]["rt_re_pay"].ToString() + ") where profile_id = "+ d.Rows[0]["profile_user_id"].ToString() + " ";
+                    MessageBox.Show("Payment Added!","Done");
+                }
+            }
+            else {
+                MessageBox.Show("Verification is only for Check's ","Error");
             }
         }
     }
