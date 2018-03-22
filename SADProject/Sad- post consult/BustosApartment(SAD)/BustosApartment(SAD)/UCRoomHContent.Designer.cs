@@ -30,7 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -69,7 +68,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.panel2);
@@ -82,20 +80,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "HISTORY";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.SystemColors.Control;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(669, 175);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(398, 53);
-            this.button6.TabIndex = 77;
-            this.button6.Text = "Create Report";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button3
             // 
@@ -176,7 +160,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1080, 551);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "ARCHIVE";
+            this.tabPage2.Text = "VOIDED";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -223,9 +207,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.label4.Location = new System.Drawing.Point(551, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 25);
+            this.label4.Size = new System.Drawing.Size(148, 25);
             this.label4.TabIndex = 78;
-            this.label4.Text = "ARCHIVE";
+            this.label4.Text = "Voided Items";
             // 
             // dataGridView1
             // 
@@ -357,6 +341,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button6;
     }
 }

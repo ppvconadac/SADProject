@@ -410,13 +410,22 @@ namespace BustosApartment_SAD_
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Transfer rs = new Transfer();
-            rs.a3 = this;
-            DialogResult result = rs.ShowDialog();
-            if (result == DialogResult.Yes)
+            string sel = "select room_time from room_classification inner join room where classification_ID = Room_classification_classification_ID" +
+                " and room_id = " + id + " and room_time = 'daily'";
+            DataTable d = c.select(sel);
+            if (d.Rows.Count !=0)
             {
-                tablecall();
-                tablecall2();
+                Transfer rs = new Transfer();
+                rs.a3 = this;
+                DialogResult result = rs.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    tablecall();
+                    tablecall2();
+                }
+            }
+            else {
+                MessageBox.Show("Cannot Transfer from monthly rooms", "Error");
             }
         }
     }

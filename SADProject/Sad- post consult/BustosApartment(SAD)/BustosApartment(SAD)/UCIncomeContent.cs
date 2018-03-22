@@ -72,9 +72,9 @@ namespace BustosApartment_SAD_
           
 
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\USER\\Documents\\GitHub\\SADProject\\"+DateTime.Now.ToString("yyyy-M")+"_Income.pdf", FileMode.Create));
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\USER\\Documents\\GitHub\\SADProject\\"+DateTime.Now.ToString("yyyy-M")+"_Room.pdf", FileMode.Create));
                 doc.Open();
-                Paragraph par = new Paragraph("BUSTOS APARTMENT MONTHLY INCOME\n\n");
+                Paragraph par = new Paragraph("BUSTOS APARTMENT MONTHLY OCCUPATIONAL RECORDS\n\n");
                 par.Alignment = Element.ALIGN_CENTER;
                 doc.Add(par);
             
@@ -107,7 +107,7 @@ namespace BustosApartment_SAD_
 
 
                 for (int j = 0; j < d2.Rows.Count; j++) {
-                    PdfPTable table = new PdfPTable(4);
+                    PdfPTable table = new PdfPTable(2);
                     table.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
 
                     string x;
@@ -120,23 +120,16 @@ namespace BustosApartment_SAD_
                     }
                     table.AddCell(new Phrase(new Chunk("NAME:  " +d2.Rows[j][2].ToString(), font2)));
                     table.AddCell(new Phrase(new Chunk("DATE:  "+d2.Rows[j][1].ToString(), font2)));
-                    table.AddCell(new Phrase(new Chunk("AMOUNT: "+d2.Rows[j][4].ToString(), font2)));
-                    table.AddCell(new Phrase("TYPE:  "+x, font2));
+                  
 
                     doc.Add(table);
                 
                 }
-                if (d3.Rows[0][0].ToString() != "")
-                {
-                    Paragraph l4 = new Paragraph();
-                    l4.IndentationLeft = 40f;
-                    l4.Add(new Chunk("TOTAL AMOUNT : " + d3.Rows[0][0] + "\n\n", font2));
-                    doc.Add(l4);
-                }
+             
 
             }
             
-            MessageBox.Show("PDF Created, OK!");
+            MessageBox.Show("PDF Created", "OK!");
             doc.Close();
 
         }

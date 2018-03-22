@@ -83,9 +83,9 @@ namespace BustosApartment_SAD_
         private void button1_Click(object sender, EventArgs e)
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\USER\\Documents\\GitHub\\SADProject\\"+DateTime.Now.ToString("yyy-M")+".pdf", FileMode.Create));
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\USER\\Documents\\GitHub\\SADProject\\"+DateTime.Now.ToString("yyy-M")+"_sales.pdf", FileMode.Create));
             doc.Open();
-            Paragraph par = new Paragraph("BUSTOS APARTMENT MONTHLY \n\n");
+            Paragraph par = new Paragraph("BUSTOS APARTMENT MONTHLY SUMMARY \n\n");
             par.Alignment = Element.ALIGN_CENTER;
             doc.Add(par);
 
@@ -118,7 +118,13 @@ namespace BustosApartment_SAD_
                 string quer1 = "SELECT sum(rt_price) as sum from owner inner join room inner join room_transaction where owner_id = room.owner_owner_id and Room_ID = room_transaction.Room_Room_ID" +
                 "  and rt_date_start like '" + DateTime.Now.ToString("yyy-M-") + "%' and rt_type != 'Extend' and rt_type != 'Archive' and rt_type != 'arExtend' and emp_status != 2 and owner_id = "+ d.Rows[i]["owner_id"].ToString() + " ";
                 DataTable d1 = c.select(quer1);
-                l.Add(new Chunk("Room Gross: "+d1.Rows[0]["sum"] +"\n", font));
+                if (d1.Rows[0]["sum"].ToString() != "")
+                {
+                    l.Add(new Chunk("Room Gross: " + d1.Rows[0]["sum"] + "\n", font));
+                }
+                else {
+                    l.Add(new Chunk("Room Gross: 0 \n", font));
+                }
                 float ttl;
                 try
                 {
@@ -201,7 +207,7 @@ namespace BustosApartment_SAD_
                 doc.Add(l);
             }
 
-            MessageBox.Show("PDF Created, OK!");
+            MessageBox.Show("PDF Created", "OK!");
             doc.Close();
         }
     }
