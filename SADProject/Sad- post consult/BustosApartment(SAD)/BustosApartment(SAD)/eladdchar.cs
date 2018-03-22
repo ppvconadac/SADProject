@@ -109,7 +109,7 @@ namespace BustosApartment_SAD_
 
                             if (d.Rows.Count > 0)
                             {
-                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Tenant', 0)";
+                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Tenant', 0,0)";
                                 c.insert(quer);
 
                                 string quer2 = "update room set room_elecreading = '" + textBox4.Text + "' where Room_ID = " + rid + "";
@@ -127,7 +127,7 @@ namespace BustosApartment_SAD_
                             }
                             else
                             {
-                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0 )";
+                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0,0 )";
                                 c.insert(quer);
                                 string quer2 = "update room set room_elecreading = '" + textBox4.Text + "' where Room_ID = " + rid + "";
                                 c.insert(quer2);
@@ -137,7 +137,7 @@ namespace BustosApartment_SAD_
                         }
                         else
                         {
-                            quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0)";
+                            quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0,0)";
                             c.insert(quer);
                             string quer2 = "update room set room_elecreading = '" + textBox4.Text + "' where Room_ID = " + rid + "";
                             c.insert(quer2);

@@ -50,7 +50,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button10 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -61,6 +60,11 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -336,6 +340,10 @@
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.button10);
+            this.tabPage6.Controls.Add(this.button14);
+            this.tabPage6.Controls.Add(this.button15);
+            this.tabPage6.Controls.Add(this.button16);
+            this.tabPage6.Controls.Add(this.button21);
             this.tabPage6.Controls.Add(this.panel8);
             this.tabPage6.Controls.Add(this.dataGridView6);
             this.tabPage6.Location = new System.Drawing.Point(4, 30);
@@ -344,16 +352,6 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Water - Recording";
             this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(686, 22);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(386, 53);
-            this.button10.TabIndex = 67;
-            this.button10.Text = "Change Item Damage Status";
-            this.button10.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
@@ -475,6 +473,56 @@
             this.dataGridView3.Size = new System.Drawing.Size(671, 520);
             this.dataGridView3.TabIndex = 58;
             // 
+            // button10
+            // 
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(686, 209);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(386, 53);
+            this.button10.TabIndex = 72;
+            this.button10.Text = "Mark as Resolved";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Location = new System.Drawing.Point(687, 403);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(386, 53);
+            this.button14.TabIndex = 71;
+            this.button14.Text = "Void Entry";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Location = new System.Drawing.Point(686, 116);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(386, 53);
+            this.button15.TabIndex = 70;
+            this.button15.Text = "Add Charges";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.Location = new System.Drawing.Point(687, 305);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(386, 53);
+            this.button16.TabIndex = 69;
+            this.button16.Text = "Archive Entry";
+            this.button16.UseVisualStyleBackColor = true;
+            // 
+            // button21
+            // 
+            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button21.Location = new System.Drawing.Point(686, 22);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(386, 53);
+            this.button21.TabIndex = 68;
+            this.button21.Text = "Record Monthly Transaction";
+            this.button21.UseVisualStyleBackColor = true;
+            // 
             // UCManageUEContent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,7 +563,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.DataGridView dataGridView6;
         private System.Windows.Forms.TabPage tabPage3;
@@ -533,5 +580,10 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button21;
     }
 }

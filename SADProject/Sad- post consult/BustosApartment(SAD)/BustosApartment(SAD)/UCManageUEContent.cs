@@ -25,6 +25,7 @@ namespace BustosApartment_SAD_
         public int res_stat;
         public double excess;
         public int uetid;
+        public double curread;
         private static UCManageUEContent _instance;
 
         public static UCManageUEContent Instance
@@ -47,6 +48,12 @@ namespace BustosApartment_SAD_
             string quer = "select * from utelect_trans";
             dataGridView5.DataSource = c1.select(quer);
             dataGridView5.ClearSelection();
+        }
+        public void tablecall3()
+        {
+            string quer = "select * from utwat_trans";
+            dataGridView6.DataSource = c1.select(quer);
+            dataGridView6.ClearSelection();
         }
 
         private void UCUEContent_Load(object sender, EventArgs e)
@@ -151,7 +158,7 @@ namespace BustosApartment_SAD_
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                        quer = "update utelect_trans set utelect_trans = 2, uelect_void_date = '" + DateTime.Now.ToString("yyyy-M-d") + "', uelect_void_loggedin = " + FmLogin.id + " where uelect_ID = " + tid + "";
+                        quer = "update utelect_trans set utelect_trans_stat = 2, uelect_void_date = '" + DateTime.Now.ToString("yyyy-M-d") + "', uelect_void_loggedin = " + FmLogin.id + " where uelect_ID = " + tid + "";
                         c1.insert(quer);
                         tablecall();
                        
@@ -180,6 +187,7 @@ namespace BustosApartment_SAD_
                 pay_stat = dataGridView1.Rows[e.RowIndex].Cells["uet_pay_stat"].Value.ToString();
                 res_stat = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["uet_trans_resolved"].Value.ToString());
                 uetid = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["uet_uelect_id"].Value.ToString());
+                curread = double.Parse(dataGridView1.Rows[e.RowIndex].Cells["uet_current"].Value.ToString());
             }
         }
 
@@ -192,7 +200,7 @@ namespace BustosApartment_SAD_
 
                 int id = int.Parse(d.Rows[0]["uelect_ID"].ToString());
 
-                string quer2 = "select uet_ID,uet_date,uet_prev,uet_current,uet_total,uet_room_id,Room_number,Room_classification_classification_ID, uet_pay_meth,uet_pay_stat, uet_owner_pay,uet_trans_resolved, uet_uelect_id from uelect_trans_specs inner join room where uet_room_id=Room_ID and uet_uelect_id = " + id + "";
+                string quer2 = "select uet_ID,uet_date,uet_prev,uet_current,uet_total,uet_room_id,Room_number,Room_classification_classification_ID, uet_pay_meth,uet_pay_stat, uet_owner_pay,uet_trans_resolved, uet_uelect_id, from uelect_trans_specs inner join room where uet_room_id=Room_ID and uet_uelect_id = " + id + " and uet_trans_stat =0";
                 dataGridView1.DataSource = c1.select(quer2);
                 dataGridView1.Columns["uet_ID"].Visible = false;
                 dataGridView1.Columns["uet_room_id"].Visible = false;
@@ -256,7 +264,7 @@ namespace BustosApartment_SAD_
 
         private void tabControl1_TabIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = null;
+            
             
         }
 
@@ -344,35 +352,42 @@ namespace BustosApartment_SAD_
 
         private void button13_Click(object sender, EventArgs e)
         {
-            string quer = "select * from uelect_trans_specs where uet_uelect_id = " + tid + " and uet_trans_resolved = 0";
-            DataTable d = c1.select(quer);
-            if (d.Rows.Count > 0)
+            if (tid == 0)
             {
-                MessageBox.Show("Cannot resolve transaction with unresolved charges");
-            }
-            else if(resolved1 == 1)
-            {
-                MessageBox.Show("Already Resolved");
+                MessageBox.Show("No Entry Detected");
             }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Mark as Resolved.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                if (dialogResult == DialogResult.Yes)
+                string quer = "select * from uelect_trans_specs where uet_uelect_id = " + tid + " and uet_trans_resolved = 0";
+                DataTable d = c1.select(quer);
+                if (d.Rows.Count > 0)
                 {
-                    quer = "update utelect_trans set uelect_trans_resolved = 1 where uelect_ID = " + tid + "";
-                    c1.insert(quer);
-                    tablecall();
+                    MessageBox.Show("Cannot resolve transaction with unresolved charges");
+                }
+                else if (resolved1 == 1)
+                {
+                    MessageBox.Show("Already Resolved");
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Mark as Resolved.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                    string quer2;
-                    string date = DateTime.Now.ToString("yyyy-M-d");
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        quer = "update utelect_trans set uelect_trans_resolved = 1 where uelect_ID = " + tid + "";
+                        c1.insert(quer);
+                        tablecall();
 
-                    quer2 = "insert into misc_transaction values(NULL, '" + date + "','" + excess.ToString() + "','General','Electricity - Excess',0, NULL,NULL )";
-                    c1.insert(quer2);
+                        string quer2;
+                        string date = DateTime.Now.ToString("yyyy-M-d");
 
-                    UCManageGTContent uc = new UCManageGTContent();
-                    uc.tablecall();
-                   
+                        quer2 = "insert into misc_transaction values(NULL, '" + date + "','" + excess.ToString() + "','General','Electricity - Excess',0, NULL,NULL )";
+                        c1.insert(quer2);
+
+                        UCManageGTContent uc = new UCManageGTContent();
+                        uc.tablecall();
+
+                    }
                 }
             }
         }
@@ -443,8 +458,13 @@ namespace BustosApartment_SAD_
                         int oid = int.Parse(d.Rows[0]["Owner_Owner_ID"].ToString());
                         string quer2 = "insert into in_transaction values(NULL, '" + date + "', " + price + ", " + oid + ", 'Electrical Bill,0, NULL,NULL )";
                         c1.insert(quer2);
+                        string quer6 = "update room set room_elecreading = '" + curread.ToString() + "' where Room_ID = " + rid + "";
+                        c1.insert(quer6);
                         UCManageIndiEx it = new UCManageIndiEx();
                         it.tablecall();
+                        UCRoomContent ucr = new UCRoomContent();
+                        ucr.tablecall();
+
                     }
 
                 }
@@ -479,6 +499,10 @@ namespace BustosApartment_SAD_
 
                                 string quer4 = "update utelect_trans set uelect_excess ='" + ex.ToString() + "'";
                                 c1.insert(quer4);
+                                string quer6 = "update room set room_elecreading = '" + curread.ToString() + "' where Room_ID = " + rid + "";
+                                c1.insert(quer6);
+                                UCRoomContent ucr = new UCRoomContent();
+                                ucr.tablecall();
                             }
                         }
                     }
@@ -488,7 +512,39 @@ namespace BustosApartment_SAD_
 
         private void button7_Click(object sender, EventArgs e)
         {
+            if (tid2 == 0)
+            {
+                MessageBox.Show("No Entry Detected");
+            }
+            else if (res_stat == 1)
+            {
+                MessageBox.Show("Cannot void resolved charges");
+            }
+            else 
+            {
+                string quer = "select * from uespecs_partial where uesp_uelectspecs_id = " + tid2 + "";
+                DataTable d = c1.select(quer);
+                if(d.Rows.Count > 0)
+                {
+                    MessageBox.Show("Cannot void charges with partial payments");
+                }
 
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Confirm Void.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        quer = "update uelect_trans_specs set uet_trans_stat = 2, uet_void_date = '" + DateTime.Now.ToString("yyyy-M-d") + "', uet_void_loggedin = " + FmLogin.id + " where uet_ID = " + tid2 + "";
+                        c1.insert(quer);
+                        tablecall2();
+
+                    }
+                }
+               
+            }
+
+            
         }
     }
 }
