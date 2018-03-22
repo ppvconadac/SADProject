@@ -147,6 +147,40 @@ namespace BustosApartment_SAD_
                         }
                     }
                 }
+                if (dbase == "uwspecs_partial")
+                {
+                    if (tendered != 0)
+                    {
+                        cb = double.Parse(textBox2.Text);
+                        string quer;
+                        string date = DateTime.Now.ToString("yyyy-M-d");
+
+                        quer = "insert into uwspecs_partial values(NULL, '" + date + "', " + tendered + ", " + tr_id + " )";
+                        c.insert(quer);
+
+                        if (cb >= 0)
+                        {
+                            string quer2 = "update uwat_trans_specs set uwt_pay_stat = 'Paid', uwt_pay_date = '" + date + "' where uwt_ID = " + tr_id + "";
+                            c.insert(quer2);
+                        }
+                        else if (cb < 0)
+                        {
+                            if ((cb * -1) != double.Parse(amount))
+                            {
+                                string quer2 = "update uwat_trans_specs set uwt_pay_stat = 'Partially Paid' where uwt_ID = " + tr_id + "";
+                                c.insert(quer2);
+                            }
+                            string quer3 = "select Profile_balance from profile where user_ID = '" + p_id + "'";
+                            DataTable d = c.select(quer3);
+                            string balance = d.Rows[0]["Profile_balance"].ToString();
+                            double bal = double.Parse(balance);
+                            bal = bal + (cb * -1);
+                            string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + p_id + "";
+                            c.insert(quer4);
+
+                        }
+                    }
+                }
                 this.DialogResult = DialogResult.Yes;
             }
         }

@@ -341,6 +341,12 @@
     <Compile Include="utilityselpmeth.Designer.cs">
       <DependentUpon>utilityselpmeth.cs</DependentUpon>
     </Compile>
+    <Compile Include="watrecmontrans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="watrecmontrans.Designer.cs">
+      <DependentUpon>watrecmontrans.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChangeDamageStat.resx">
       <DependentUpon>ChangeDamageStat.cs</DependentUpon>
     </EmbeddedResource>
@@ -484,6 +490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="utilityselpmeth.resx">
       <DependentUpon>utilityselpmeth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="watrecmontrans.resx">
+      <DependentUpon>watrecmontrans.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

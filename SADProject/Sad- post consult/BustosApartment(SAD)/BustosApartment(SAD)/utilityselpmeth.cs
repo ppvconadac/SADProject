@@ -50,7 +50,9 @@ namespace BustosApartment_SAD_
                     }
                     else
                     {
-
+                        string quer = "update uwat_trans_specs set uwt_pay_meth = 'Check', uwt_pay_stat = 'Pending' where uwt_uwat_id =" + transid + " and uwt_room_id =" + roomid + " and uwt_owner_pay = 'Tenant' and uwt_pay_stat is null ";
+                        c.insert(quer);
+                        this.DialogResult = DialogResult.Yes;
                     }
                 }
                 else
@@ -63,7 +65,9 @@ namespace BustosApartment_SAD_
                     }
                     else
                     {
-
+                        string quer = "update uwat_trans_specs set uwt_pay_meth = 'Cash', uwt_pay_stat = 'Pending' where uwt_uwat_id =" + transid + " and uwt_room_id =" + roomid + " and uwt_owner_pay = 'Tenant' and uwt_pay_stat is null ";
+                        c.insert(quer);
+                        this.DialogResult = DialogResult.Yes;
                     }
                 }
                 

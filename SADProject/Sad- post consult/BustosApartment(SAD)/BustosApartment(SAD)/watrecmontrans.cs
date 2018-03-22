@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace BustosApartment_SAD_
 {
-    public partial class elrecmontrans : Form
+    public partial class watrecmontrans : Form
     {
         Class1 c = new Class1();
         public UserControl a3;
-        public elrecmontrans()
+        public watrecmontrans()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             if (!double.TryParse(textBox4.Text, out double val))
             {
                 MessageBox.Show("Invalid format for bill amount !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -45,7 +46,7 @@ namespace BustosApartment_SAD_
                     string quer;
                     date = DateTime.Now.ToString("yyyy-M-d");
 
-                    string quer3 = "select * from utelect_trans where uelect_date = '" + date + "' and uelect_trans_stat =0";
+                    string quer3 = "select * from utwat_trans where uwat_date = '" + date + "' and uwat_trans_stat =0";
                     DataTable d = c.select(quer3);
 
                     if (d.Rows.Count > 0)
@@ -56,18 +57,13 @@ namespace BustosApartment_SAD_
                     {
                         double price = double.Parse(textBox4.Text);
 
-                        quer = "insert into utelect_trans values(NULL, '" + date + "'," + price + ",'0','" + double.Parse(txtin.Text) + "', '0', NULL, NULL,0 )";
+                        quer = "insert into utwat_trans values(NULL, '" + date + "'," + price + ",'0','" + double.Parse(txtin.Text) + "', '0', NULL, NULL,0 )";
 
                         c.insert(quer);
                         this.DialogResult = DialogResult.Yes;
                     }
                 }
             }
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

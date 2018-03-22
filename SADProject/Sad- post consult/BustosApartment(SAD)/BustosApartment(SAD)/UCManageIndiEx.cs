@@ -14,6 +14,7 @@ namespace BustosApartment_SAD_
     {
         private static UCManageIndiEx _instance;
         public int id =0;
+        public string desc;
         public static UCManageIndiEx Instance
         {
             get
@@ -32,10 +33,17 @@ namespace BustosApartment_SAD_
 
         public void tablecall()
         {
-            string quer = "select * from in_transaction where it_trans_stat = 0";
+            string quer = "select intrans_ID,it_date,it_price,it_owner,it_desc,concat (Owner_fname,' ', owner_mname, ' ', owner_lname) as fullname from in_transaction inner join owner  where it_owner = Owner_ID and it_trans_stat = 0";
             dataGridView1.DataSource = c1.select(quer);
-
+            dataGridView1.Columns["intrans_ID"].Visible = false;
+            dataGridView1.Columns["it_owner"].Visible = false;
+            dataGridView1.Columns["it_date"].HeaderText = "Date";
+            dataGridView1.Columns["it_price"].HeaderText = "Amount";
+            dataGridView1.Columns["fullname"].HeaderText = "Owner";
+            dataGridView1.Columns["it_desc"].HeaderText = "Description";
             dataGridView1.ClearSelection();
+
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,6 +82,7 @@ namespace BustosApartment_SAD_
         {
             if (e.RowIndex > -1) {
                 id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["intrans_id"].Value.ToString());
+                desc = dataGridView1.Rows[e.RowIndex].Cells["it_desc"].Value.ToString();
             }
         }
 
@@ -82,6 +91,10 @@ namespace BustosApartment_SAD_
             if (id == 0)
             {
                 MessageBox.Show("No Entry Detected");
+            }
+            else if (desc == "Electrical Bill" || desc == "Water Bill")
+            {
+                MessageBox.Show("Cannot void this entry");
             }
 
             else
@@ -96,6 +109,11 @@ namespace BustosApartment_SAD_
                     tablecall();
                 }
             }
+        }
+
+        private void UCManageIndiEx_Load(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

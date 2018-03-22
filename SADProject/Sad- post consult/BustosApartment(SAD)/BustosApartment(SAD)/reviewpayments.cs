@@ -27,6 +27,12 @@ namespace BustosApartment_SAD_
                 dataGridView2.ClearSelection();
                
             }
+            else if (db == "uwspecs_partial")
+            {
+                string quer = "select uwsp_date,uwsp_amount from uwspecs_partial where uwsp_uwatspecs_id = " + tid + "";
+                dataGridView2.DataSource = c.select(quer);
+                dataGridView2.ClearSelection();
+            }
             
         }
     }

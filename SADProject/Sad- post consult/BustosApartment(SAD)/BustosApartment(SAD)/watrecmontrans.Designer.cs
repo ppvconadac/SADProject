@@ -1,6 +1,6 @@
 ﻿namespace BustosApartment_SAD_
 {
-    partial class elrecmontrans
+    partial class watrecmontrans
     {
         /// <summary>
         /// Required designer variable.
@@ -45,8 +45,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(13, 28);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(397, 24);
-            this.dateTimePicker2.TabIndex = 138;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.dateTimePicker2.TabIndex = 145;
             // 
             // textBox4
             // 
@@ -54,7 +53,7 @@
             this.textBox4.Location = new System.Drawing.Point(13, 79);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(398, 24);
-            this.textBox4.TabIndex = 137;
+            this.textBox4.TabIndex = 144;
             // 
             // txtin
             // 
@@ -62,7 +61,7 @@
             this.txtin.Location = new System.Drawing.Point(13, 127);
             this.txtin.Name = "txtin";
             this.txtin.Size = new System.Drawing.Size(398, 24);
-            this.txtin.TabIndex = 133;
+            this.txtin.TabIndex = 141;
             // 
             // label3
             // 
@@ -71,7 +70,7 @@
             this.label3.Location = new System.Drawing.Point(8, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 18);
-            this.label3.TabIndex = 136;
+            this.label3.TabIndex = 143;
             this.label3.Text = "Date :";
             // 
             // label14
@@ -81,7 +80,7 @@
             this.label14.Location = new System.Drawing.Point(8, 57);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(90, 18);
-            this.label14.TabIndex = 134;
+            this.label14.TabIndex = 142;
             this.label14.Text = "Bill Amount :";
             // 
             // label15
@@ -91,7 +90,7 @@
             this.label15.Location = new System.Drawing.Point(10, 105);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(47, 18);
-            this.label15.TabIndex = 132;
+            this.label15.TabIndex = 140;
             this.label15.Text = "Rate :";
             // 
             // button1
@@ -101,12 +100,12 @@
             this.button1.Location = new System.Drawing.Point(12, 449);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(398, 53);
-            this.button1.TabIndex = 131;
+            this.button1.TabIndex = 139;
             this.button1.Text = "Process";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // elrecmontrans
+            // watrecmontrans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -118,15 +117,16 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.button1);
-            this.Name = "elrecmontrans";
+            this.Name = "watrecmontrans";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Electricity - Record Monthly Transaction";
+            this.Text = "Water - Record Monthly Transaction";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox txtin;

@@ -72,6 +72,7 @@ namespace BustosApartment_SAD_
             else
             {
                 MessageBox.Show("Invalid format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox4.Text = "";
             }
 
             
@@ -89,11 +90,13 @@ namespace BustosApartment_SAD_
             }
             else
             {
+                
                 DialogResult dialogResult = MessageBox.Show("Confirm transaction", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
 
                 if (dialogResult == DialogResult.Yes)
                 {
+                    
                     string date;
                     string quer;
                     date = DateTime.Now.ToString("yyyy-M-d");
@@ -101,54 +104,106 @@ namespace BustosApartment_SAD_
                    
                     if (type == "Electricity")
                     {
-                
-                        if (classif == 2)
+                        string quer2 = "select * from uelect_trans_specs where uet_room_id = " + rid + " and uet_trans_resolved = 0";
+                        DataTable d = c.select(quer2);
+                        if (d.Rows.Count > 0)
                         {
-                            string quer3 = "select Profile_user_ID from room_transaction where Room_Room_ID = " + rid + " and rt_type = 'Active'";
-                            DataTable d = c.select(quer3);
-
-                            if (d.Rows.Count > 0)
+                            MessageBox.Show("Existing unresolved charges, cannot continue with processing", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else {
+                            if (classif == 2)
                             {
-                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Tenant', 0,0)";
-                                c.insert(quer);
+                                string quer3 = "select Profile_user_ID from room_transaction where Room_Room_ID = " + rid + " and rt_type = 'Active'";
+                                d = c.select(quer3);
 
-                                string quer2 = "update room set room_elecreading = '" + textBox4.Text + "' where Room_ID = " + rid + "";
-                                c.insert(quer2);
-                                int pid = int.Parse(d.Rows[0]["Profile_user_ID"].ToString());
-                                utilityselpmeth ch = new utilityselpmeth();
-                                ch.getdeets(id, rid, "Electricity", double.Parse(textBox5.Text),pid);
-                                DialogResult result = ch.ShowDialog();
-                                if (result == DialogResult.Yes)
+                                if (d.Rows.Count > 0)
                                 {
-                                    tablecall();
-                                }
+                                    quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Tenant', 0,0)";
+                                    c.insert(quer);
 
-                                
+
+                                    int pid = int.Parse(d.Rows[0]["Profile_user_ID"].ToString());
+                                    utilityselpmeth ch = new utilityselpmeth();
+                                    ch.getdeets(id, rid, "Electricity", double.Parse(textBox5.Text), pid);
+                                    DialogResult result = ch.ShowDialog();
+                                    if (result == DialogResult.Yes)
+                                    {
+                                        tablecall();
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0,0 )";
+                                    c.insert(quer);
+
+
+                                    this.DialogResult = DialogResult.Yes;
+                                }
                             }
                             else
                             {
-                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0,0 )";
+                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0,0)";
                                 c.insert(quer);
-                                string quer2 = "update room set room_elecreading = '" + textBox4.Text + "' where Room_ID = " + rid + "";
-                                c.insert(quer2);
+
 
                                 this.DialogResult = DialogResult.Yes;
                             }
-                        }
-                        else
-                        {
-                            quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0,0)";
-                            c.insert(quer);
-                            string quer2 = "update room set room_elecreading = '" + textBox4.Text + "' where Room_ID = " + rid + "";
-                            c.insert(quer2);
-
-                            this.DialogResult = DialogResult.Yes;
                         }
                     }
 
                     else
                     {
-                        
+                        string quer2 = "select * from uwat_trans_specs where uwt_room_id = " + rid + " and uwt_trans_resolved = 0";
+                        DataTable d = c.select(quer2);
+                        if (d.Rows.Count > 0)
+                        {
+                            MessageBox.Show("Existing unresolved charges, cannot continue with processing", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            if (classif == 2)
+                            {
+                                string quer3 = "select Profile_user_ID from room_transaction where Room_Room_ID = " + rid + " and rt_type = 'Active'";
+                                 d = c.select(quer3);
+
+                                if (d.Rows.Count > 0)
+                                {
+                                    quer = "insert into uwat_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Tenant', 0,0)";
+                                    c.insert(quer);
+
+
+                                    int pid = int.Parse(d.Rows[0]["Profile_user_ID"].ToString());
+                                    utilityselpmeth ch = new utilityselpmeth();
+                                    ch.getdeets(id, rid, "Water", double.Parse(textBox5.Text), pid);
+                                    DialogResult result = ch.ShowDialog();
+                                    if (result == DialogResult.Yes)
+                                    {
+                                        tablecall();
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    quer = "insert into uwat_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0,0 )";
+                                    c.insert(quer);
+
+
+                                    this.DialogResult = DialogResult.Yes;
+                                }
+                            }
+                            else
+                            {
+                                quer = "insert into uwatt_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0,0)";
+                                c.insert(quer);
+
+
+                                this.DialogResult = DialogResult.Yes;
+                            }
+                        }
+                       
                     }
                     
                     this.DialogResult = DialogResult.Yes;

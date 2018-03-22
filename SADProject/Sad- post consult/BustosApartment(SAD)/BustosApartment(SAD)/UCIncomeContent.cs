@@ -38,23 +38,35 @@ namespace BustosApartment_SAD_
 
         private void UCIncomeContent_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.ClearSelection();
+            dataGridView2.ClearSelection();
         }
         public void tablecall() {
 
-            string quer = "select profile_name , rt_date_start ,room_number,rc_rate,rt_type from room_transaction inner join room " +
-                "inner join profile inner join room_classification where room_transaction.Profile_user_ID = user_ID and room_transaction.Room_Room_ID = Room_ID" +
+            string quer = "select rt_date_start ,room_number,rc_rate from room_transaction inner join room " +
+                " inner join room_classification where room_transaction.Room_Room_ID = Room_ID" +
                 " and Room_classification_classification_ID = classification_ID and rt_date_start like '2018-2-%' and rt_type != 'Archived' and rt_type != 'Extend'";
             dataGridView1.DataSource = c.select(quer);
-        }
-        public void tablecall2() {
-            string quer = "SELECT profile_name,bt_date, bt_pay_method, bt_price, bitem_name FROM bitem_transaction inner join borrowable_item inner join profile where" +
-                " Profile_user_ID = user_ID and borrowable_item_bitem_ID = bitem_id " +
-                "and bt_pay_status = 'Paid'";
-            dataGridView2.DataSource = c.select(quer);
+            
+            dataGridView1.Columns["rt_date_start"].HeaderText = "Date";
+            dataGridView1.Columns["room_number"].HeaderText = "Room Number";
+            dataGridView1.Columns["rc_rate"].HeaderText = "Amount Earned";
+            dataGridView1.ClearSelection();
+
 
         }
-     
+        public void tablecall2() {
+            string quer = "SELECT bt_date, bt_pay_method, bt_price, bitem_name FROM bitem_transaction inner join borrowable_item  where" +
+                " borrowable_item_bitem_ID = bitem_id " +
+                "and bt_pay_status = 'Paid'";
+            dataGridView2.DataSource = c.select(quer);
+            dataGridView2.Columns["bt_date"].HeaderText = "Date";
+            dataGridView2.Columns["bt_pay_method"].HeaderText = "Payment Method";
+            dataGridView2.Columns["bt_price"].HeaderText = "Amount Earned";
+            dataGridView2.ClearSelection();
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
           
