@@ -40,9 +40,9 @@ namespace BustosApartment_SAD_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string q = "select re_date from reservation where room_room_id = '"+comboBox1.Text+"'";
+            string q = "select re_date from reservation where room_room_id = '"+comboBox1.Text+"' and re_date like '"+ DateTime.Now.ToString("yyy-M-d") + "'";
             DataTable d3 = c.select(q);
-            if (d3.Rows[0][0].ToString() == DateTime.Now.ToString("yyy-M-d"))
+            if (d3.Rows.Count <= 0)
             {
 
                 if (comboBox1.Text == "")
@@ -61,10 +61,10 @@ namespace BustosApartment_SAD_
                         c.insert(qu);
                         string qu1 = "update room set room_status = 'Using' where room_number = '" + comboBox1.Text + "'";
                         c.insert(qu1);
-                        string sel = "SELECT * FROM ba_db.room_transaction where rt_type = 'Assigned' and room_room_id = " + UCRoomAsContent.id + "";
+                        string sel = "SELECT * FROM ba_db.room_transaction where rt_type = 'Active' and room_room_id = " + UCRoomAsContent.id + "";
                         DataTable d1 = c.select(sel);
 
-                        string smth = "select rc_rate from room_classification where room_time = daily";
+                        string smth = "select rc_rate from room_classification where room_time = 'daily'";
                         DataTable dd = c.select(smth);
                         float dis = float.Parse(d1.Rows[0]["rt_discount"].ToString());
                         float rat = float.Parse(dd.Rows[0]["rc_rate"].ToString());
@@ -77,7 +77,7 @@ namespace BustosApartment_SAD_
                         float rat2 = float.Parse(dd.Rows[0]["rc_rate"].ToString()) - rat;
                         string quer3 = "insert into room_transaction values(NULL, '" + "Expire" + "', '" + d1.Rows[0]["rt_date_start"].ToString() + "'," +
                                " '" + d1.Rows[0]["rt_date_expire"].ToString() + "'," + rat2 + ", '" + d1.Rows[0]["rt_discount"].ToString() + "'," + d1.Rows[0]["profile_user_id"].ToString()
-                               + "," + d1.Rows[0]["room_room_id"].ToString() + ",NULL" +
+                               + "," + d1.Rows[0]["room_room_id"].ToString() + ",NULL, " +
                                "'" + d1.Rows[0]["rt_pay_type"].ToString() + "', NULL )";
                         c.insert(quer3);
                         qu1 = "update room_transaction set room_room_id = " + a + ", rt_price = " + rat + " where rt_date_expire = '" + b + "' and room_room_id= " + UCRoomAsContent.id + " ";

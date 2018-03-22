@@ -414,36 +414,46 @@ namespace BustosApartment_SAD_
         private void button4_Click(object sender, EventArgs e)
         {
 
-            string quer = "select rt_re_pay from room_transaction where rtrans_id = " + id4 + "";
+            string quer = "select rt_re_pay from room_transaction inner join room where Room_Room_ID = Room_ID and rt_type ='Active' and room_id = " + id + "";
             DataTable d=  c.select(quer);
-            if (int.Parse(d.Rows[0][0].ToString()) <= 0)
-            {
-                if (rcid == "1" && act == "Using")
+           /* try {*/
+                int.Parse(d.Rows[0][0].ToString());
+
+                if (int.Parse(d.Rows[0][0].ToString()) <= 0)
                 {
-                    Transfer rs = new Transfer();
-                    rs.a3 = this;
-                    DialogResult result = rs.ShowDialog();
-                    if (result == DialogResult.Yes)
+                    if (rcid == "1" && act == "Using")
                     {
-                        tablecall();
-                        tablecall2();
+                        Transfer rs = new Transfer();
+                        rs.a3 = this;
+                        DialogResult result = rs.ShowDialog();
+                        if (result == DialogResult.Yes)
+                        {
+                            tablecall();
+                            tablecall2();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cant transfer monthly rooms and vacant rooms", "Error");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Cant transfer monthly rooms and vacant rooms", "Error");
+                else {
+                    MessageBox.Show("Cant transfer user balance = " + d.Rows[0][0].ToString(), "Error");
                 }
-            }
-            else {
-                MessageBox.Show("Cant transfer user balance = " + d.Rows[0][0].ToString(), "Error");
-            }
+           /* }
+           catch {
+                MessageBox.Show("An Error Has Occured", "Error");
+            }*/
+
+
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             string qr = "select rt_pay_type, rt_re_pay, profile_user_id from room_transaction where rtrans_id = "+id4+"";
             DataTable d = c.select(qr);
-            if (d.Rows[0]["rt_pay_type"].ToString() == "Check")
+            if (d.Rows[0]["rt_re_pay"].ToString() != "0")
             {
                 DialogResult dia = MessageBox.Show("User Credit : "+ d.Rows[0]["rt_re_pay"].ToString() + " Confirm payment?", "Payment Confirmation", MessageBoxButtons.YesNo);
                 if (dia == DialogResult.Yes) {
@@ -454,7 +464,7 @@ namespace BustosApartment_SAD_
                 }
             }
             else {
-                MessageBox.Show("Verification is only for Check's ","Error");
+                MessageBox.Show("There is nothing to verify payment","Error");
             }
         }
     }
