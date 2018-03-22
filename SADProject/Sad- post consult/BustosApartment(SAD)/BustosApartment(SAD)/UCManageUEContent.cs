@@ -91,7 +91,7 @@ namespace BustosApartment_SAD_
 
         private void UCUEContent_Load(object sender, EventArgs e)
         {
-            String query1 = "select uelect_date from utelect_trans where uelect_trans_stat = 0";
+            String query1 = "select uelect_date from utelect_trans where uelect_trans_stat =0";
             foreach (DataRow row in c1.select(query1).Rows)
             {
                 for (int i = 0; i < row.ItemArray.Length; i++)

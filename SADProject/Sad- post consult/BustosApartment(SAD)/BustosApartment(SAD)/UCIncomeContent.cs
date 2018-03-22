@@ -72,7 +72,7 @@ namespace BustosApartment_SAD_
           
 
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\USER\\Documents\\GitHub\\SADProject\\text.pdf", FileMode.Create));
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\USER\\Documents\\GitHub\\SADProject\\"+DateTime.Now.ToString("yyyy-M")+"_Income.pdf", FileMode.Create));
                 doc.Open();
                 Paragraph par = new Paragraph("BUSTOS APARTMENT MONTHLY INCOME\n\n");
                 par.Alignment = Element.ALIGN_CENTER;

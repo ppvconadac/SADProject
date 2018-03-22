@@ -123,7 +123,7 @@ namespace BustosApartment_SAD_
                     if (dialogResult == DialogResult.Yes)
                     {
                         string quer = "update misc_transaction set mt_trans_stat = 2 , mt_void_date =" +
-                            " '" + DateTime.Now.ToString("yyyy-M-d") + "', mt_void_loggedin = " + FmLogin.id + " where mtrans_ID = " + id + "";
+                            " '" + DateTime.Now.ToString("yyyy-M-d") + "',mt_void_loggedin = " + FmLogin.id + " where mtrans_ID = " + id + "";
                         c1.insert(quer);
 
 
