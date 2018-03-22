@@ -225,6 +225,11 @@ namespace BustosApartment_SAD_
                 if (textBox4.Text.Length != 11) {
                     MessageBox.Show("Invalid Input: Must contain 11 Numbers", "Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else if (!int.TryParse(textBox4.Text, out int val))
+                {
+                    MessageBox.Show("Invalid format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBox4.Text = "";
+                }
                 else {
                     string q = "insert into profile values(NULL, '" + textBox1.Text + "','" + textBox2.Text + "', '" + textBox15.Text + "', '" + textBox3.Text + "','" + textBox6.Text + "','" + textBox4.Text + "', 0 , " + idt + ",'" + textBox8.Text + "', '')";
                     c.insert(q);
@@ -262,9 +267,14 @@ namespace BustosApartment_SAD_
             }
             if (textBox13.Text != "" && textBox12.Text != "" && textBox11.Text != "" && textBox10.Text != "" && textBox9.Text != "" && textBox7.Text != "" && comboBox2.Text != "")
             {
-                if (textBox4.Text.Length != 11)
+                if (textBox10.Text.Length != 11)
                 {
                     MessageBox.Show("Invalid Input", "Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!int.TryParse(textBox10.Text, out int val))
+                {
+                    //MessageBox.Show("Invalid number format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    
                 }
                 else
                 {

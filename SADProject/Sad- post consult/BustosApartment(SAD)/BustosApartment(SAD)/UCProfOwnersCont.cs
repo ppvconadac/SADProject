@@ -43,21 +43,36 @@ namespace BustosApartment_SAD_
         {
             if (txtfname.Text != "" && txtmname.Text != "" && txtlname.Text != "" && txtuser.Text != "" && txtpass.Text != "" && comboBox1.Text != "")
             {
-                int typ;
-                if (comboBox1.Text == "Owner")
-                    typ = 1;
-                else
-                    typ = 2;
-                string quer = "insert into owner values(NULL, '" + txtfname.Text + "', '" + txtmname.Text + "'," +
-                    " '" + txtlname.Text + "', '" + txtuser.Text + "', '" + txtpass.Text + "', "+typ+")";
+                string quer = "select * from owner where username ='" + txtuser.Text + "'";
+                DataTable d = c1.select(quer);
 
-                c1.insert(quer);
-                MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtfname.Text = "";
-                txtmname.Text = "";
-                txtlname.Text = "";
-                txtuser.Text = "";
-                txtpass.Text = "";
+                if(d.Rows.Count > 0)
+                {
+                    MessageBox.Show("Username already exists !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    int typ;
+                    if (comboBox1.Text == "Owner")
+                        typ = 1;
+                    else if (comboBox1.Text == "Admin")
+                    {
+                        typ = 0;
+                    }
+                    else { typ = 2; }
+
+                    string quer2 = "insert into owner values(NULL, '" + txtfname.Text + "', '" + txtmname.Text + "'," +
+                        " '" + txtlname.Text + "', '" + txtuser.Text + "', '" + txtpass.Text + "',NULL, " + typ + ")";
+
+                    c1.insert(quer2);
+                    MessageBox.Show("Data Has Been Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tablecall();
+                    txtfname.Text = "";
+                    txtmname.Text = "";
+                    txtlname.Text = "";
+                    txtuser.Text = "";
+                    txtpass.Text = "";
+                }
                 
             }
             else {
@@ -72,9 +87,16 @@ namespace BustosApartment_SAD_
         public void tablecall() {
             string quer = "select * from owner";         
             dataGridView1.DataSource = c1.select(quer);
-            dataGridView1.Columns["username"].Visible = false;
+            dataGridView1.Columns["username"].HeaderText = "Username";
             dataGridView1.Columns["password"].Visible = false;
             dataGridView1.Columns["remarks"].Visible = false;
+            dataGridView1.Columns["emp_status"].Visible = false;
+            dataGridView1.Columns["Owner_ID"].Visible = false;
+            dataGridView1.Columns["Owner_fname"].HeaderText = "First Name";
+            dataGridView1.Columns["owner_mname"].HeaderText = "Middle Name";
+            dataGridView1.Columns["owner_lname"].HeaderText = "Last Name";
+
+
             dataGridView1.ClearSelection();
 
 
@@ -84,22 +106,38 @@ namespace BustosApartment_SAD_
         {
             if (txtfname2.Text != "" && txtmname2.Text != "" && txtlname2.Text != "" && txtuser2.Text != "" && txtpass2.Text != "" && comboBox2.Text != "")
             {
-                int typ;
-                if (comboBox1.Text == "Owner")
-                    typ = 1;
-                else
-                    typ = 2;
 
-                string quer = "update owner set owner_fname = '" + txtfname2.Text + "', owner_manme = '" + txtmname2.Text + "', owner_lname" +
-                    "= '" + txtlname2.Text + "', username = '" + txtuser2.Text + "', password = '" + txtpass2.Text + ", emp_status = "+typ+"' where owner_id= " + id + "";
-                c1.insert(quer);
-                MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtfname2.Text = "";
-                txtmname2.Text = "";
-                txtlname2.Text = "";
-                txtuser2.Text = "";
-                txtpass2.Text = "";
-                tablecall();
+                string quer = "select * from owner where username ='" + txtuser.Text + "'";
+                DataTable d = c1.select(quer);
+
+                if (d.Rows.Count > 0)
+                {
+                    MessageBox.Show("Username already exists !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    int typ;
+                    if (comboBox1.Text == "Owner")
+                        typ = 1;
+                    else if (comboBox1.Text == "Admin")
+                    {
+                        typ = 0;
+                    }
+                    else { typ = 2; }
+
+
+                    string quer2 = "update owner set owner_fname = '" + txtfname2.Text + "', owner_manme = '" + txtmname2.Text + "', owner_lname" +
+                        "= '" + txtlname2.Text + "', username = '" + txtuser2.Text + "', password = '" + txtpass2.Text + ", emp_status = " + typ + "' where owner_id= " + id + "";
+                    c1.insert(quer2);
+                    MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtfname2.Text = "";
+                    txtmname2.Text = "";
+                    txtlname2.Text = "";
+                    txtuser2.Text = "";
+                    txtpass2.Text = "";
+                    tablecall();
+                }
+               
             }
             else {
                 label18.Text = "Incomplete Input: Please Fill the Form";
