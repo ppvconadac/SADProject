@@ -133,5 +133,18 @@ namespace BustosApartment_SAD_
             doc.Close();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            iTextSharp.text.Font font = new iTextSharp.text.Font(FontFactory.GetFont("Arial", 13, iTextSharp.text.Font.BOLD));
+            iTextSharp.text.Font font2 = new iTextSharp.text.Font(FontFactory.GetFont("Arial", 9, iTextSharp.text.Font.NORMAL));
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\USER\\Documents\\GitHub\\SADProject\\" + DateTime.Now.ToString("yyyy-M") + "_Inventory.pdf", FileMode.Create));
+            doc.Open();
+            Paragraph par = new Paragraph("BUSTOS APARTMENT MONTHLY INVENTORY RECORDS\n\n");
+            par.Alignment = Element.ALIGN_CENTER;
+            doc.Add(par);
+
+        }
     }
 }
