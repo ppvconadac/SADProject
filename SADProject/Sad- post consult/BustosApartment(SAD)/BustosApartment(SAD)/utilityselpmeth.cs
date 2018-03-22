@@ -44,7 +44,7 @@ namespace BustosApartment_SAD_
                 {
                     if (type == "Electricity")
                     {
-                        string quer = "update uelect_trans_specs set uet_pay_meth = 'Check', uet_pay_stat = 'Pending' where uet_uelect_id =" + transid + " and uet_room_id =" + roomid + " and uet_owner_pay = 1 and uet_pay_stat is null ";
+                        string quer = "update uelect_trans_specs set uet_pay_meth = 'Check', uet_pay_stat = 'Pending' where uet_uelect_id =" + transid + " and uet_room_id =" + roomid + " and uet_owner_pay = 'Tenant' and uet_pay_stat is null ";
                         c.insert(quer);
                         this.DialogResult = DialogResult.Yes;
                     }
@@ -57,13 +57,9 @@ namespace BustosApartment_SAD_
                 {
                     if (type == "Electricity")
                     {
-                        Payment ch = new Payment();
-                        ch.getdeets(price.ToString(), transid, "uespecs_partial", pid);
-                        DialogResult result = ch.ShowDialog();
-                        if (result == DialogResult.Yes)
-                        {
-                            this.DialogResult = DialogResult.Yes;
-                        }
+                        string quer = "update uelect_trans_specs set uet_pay_meth = 'Cash', uet_pay_stat = 'Pending' where uet_uelect_id =" + transid + " and uet_room_id =" + roomid + " and uet_owner_pay = 'Tenant' and uet_pay_stat is null ";
+                        c.insert(quer);
+                        this.DialogResult = DialogResult.Yes;
                     }
                     else
                     {

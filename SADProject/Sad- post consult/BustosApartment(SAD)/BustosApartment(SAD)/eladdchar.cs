@@ -109,7 +109,7 @@ namespace BustosApartment_SAD_
 
                             if (d.Rows.Count > 0)
                             {
-                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,1,'Tenant' )";
+                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Tenant', 0)";
                                 c.insert(quer);
 
                                 int pid = int.Parse(d.Rows[0]["Profile_user_ID"].ToString());
@@ -123,29 +123,19 @@ namespace BustosApartment_SAD_
                             }
                             else
                             {
-                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,0,'Owner' )";
+                                quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0 )";
                                 c.insert(quer);
 
-                                string quer2 = "select Owner_Owner_ID from room where Room_ID = " + rid + "";
-                                d = c.select(quer2);
-                                int oid = int.Parse(d.Rows[0]["Owner_Owner_ID"].ToString());
-
-                                string quer4 = "insert into in_transaction values(NULL, '" + date + "','" + double.Parse(textBox5.Text) + "'," + oid + ",'Electrical Bill',0, NULL,NULL )";
-                                c.insert(quer4);
+                              
                                 this.DialogResult = DialogResult.Yes;
                             }
                         }
                         else
                         {
-                            quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,0,'Owner' )";
+                            quer = "insert into uelect_trans_specs values(NULL, '" + date + "'," + double.Parse(txtin.Text) + "," + double.Parse(textBox4.Text) + "," + double.Parse(textBox5.Text) + ", " + id + ", " + rid + ", NULL, NULL,NULL,NULL,NULL,'Owner', 0)";
                             c.insert(quer);
 
-                            string quer2 = "select Owner_Owner_ID from room where Room_ID = " + rid + "";
-                            DataTable d = c.select(quer2);
-                            int oid = int.Parse(d.Rows[0]["Owner_Owner_ID"].ToString());
-
-                            string quer4 = "insert into in_transaction values(NULL, '" + date + "','" + double.Parse(textBox5.Text) + "'," + oid + ",'Electrical Bill',0, NULL,NULL )";
-                            c.insert(quer4);
+                            
                             this.DialogResult = DialogResult.Yes;
                         }
                     }
