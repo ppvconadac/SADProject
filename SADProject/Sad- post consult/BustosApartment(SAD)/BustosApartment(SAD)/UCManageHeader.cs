@@ -60,15 +60,15 @@ namespace BustosApartment_SAD_
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (!panelMain2.Controls.Contains(UCOEContent.Instance))
+            if (!panelMain2.Controls.Contains(UCManageGTContent.Instance))
             {
-                panelMain2.Controls.Add(UCOEContent.Instance);
-                UCOEContent.Instance.Dock = DockStyle.Fill;
-                UCOEContent.Instance.BringToFront();
+                panelMain2.Controls.Add(UCManageGTContent.Instance);
+                UCManageGTContent.Instance.Dock = DockStyle.Fill;
+                UCManageGTContent.Instance.BringToFront();
             }
             else
             {
-                UCOEContent.Instance.BringToFront();
+                UCManageGTContent.Instance.BringToFront();
             }
         }
 

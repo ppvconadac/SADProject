@@ -251,11 +251,11 @@
     <Compile Include="UCManageIndiEx.Designer.cs">
       <DependentUpon>UCManageIndiEx.cs</DependentUpon>
     </Compile>
-    <Compile Include="UCOEContent.cs">
+    <Compile Include="UCManageGTContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UCOEContent.Designer.cs">
-      <DependentUpon>UCOEContent.cs</DependentUpon>
+    <Compile Include="UCManageGTContent.Designer.cs">
+      <DependentUpon>UCManageGTContent.cs</DependentUpon>
     </Compile>
     <Compile Include="UCOverStatusCont.cs">
       <SubType>UserControl</SubType>
@@ -440,8 +440,8 @@
     <EmbeddedResource Include="UCManageIndiEx.resx">
       <DependentUpon>UCManageIndiEx.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UCOEContent.resx">
-      <DependentUpon>UCOEContent.cs</DependentUpon>
+    <EmbeddedResource Include="UCManageGTContent.resx">
+      <DependentUpon>UCManageGTContent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UCOverStatusCont.resx">
       <DependentUpon>UCOverStatusCont.cs</DependentUpon>

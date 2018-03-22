@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button13 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
@@ -60,7 +61,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button13 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -105,6 +105,17 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Electricity - Recording";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Location = new System.Drawing.Point(686, 209);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(386, 53);
+            this.button13.TabIndex = 67;
+            this.button13.Text = "Mark as Resolved";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button2
             // 
@@ -218,6 +229,7 @@
             this.button12.TabIndex = 72;
             this.button12.Text = "Mark as Resolved";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -258,6 +270,7 @@
             this.button7.TabIndex = 68;
             this.button7.Text = "Void Entry";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -268,6 +281,7 @@
             this.button8.TabIndex = 67;
             this.button8.Text = "Change Payment Method";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -460,17 +474,6 @@
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView3.Size = new System.Drawing.Size(671, 520);
             this.dataGridView3.TabIndex = 58;
-            // 
-            // button13
-            // 
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Location = new System.Drawing.Point(686, 209);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(386, 53);
-            this.button13.TabIndex = 67;
-            this.button13.Text = "Mark as Resolved";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // UCManageUEContent
             // 
