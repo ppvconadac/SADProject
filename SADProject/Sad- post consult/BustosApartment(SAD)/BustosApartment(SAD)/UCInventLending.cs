@@ -301,7 +301,7 @@ namespace BustosApartment_SAD_
                         amt = d.Rows[0]["SUM(bp_amount)"].ToString();
                     }
 
-                    int remaining = int.Parse(rate) - int.Parse(amt);
+                    double remaining = double.Parse(rate) - double.Parse(amt);
                     Payment ch = new Payment();
                     ch.getdeets(remaining.ToString(), id, "bitem_transaction", id3);
                     DialogResult result = ch.ShowDialog();
