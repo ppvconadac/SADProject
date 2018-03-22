@@ -98,97 +98,47 @@ namespace BustosApartment_SAD_
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            int a = UCRoomAsContent.id;
-            bool no = true;
-            string quer4 = "select re_date from reservation where re_date > now()";
-            DataTable d6 = c.select(quer4);
-            int cou = d6.Rows.Count;
+           
+            int a = UCRoomAsContent.id; 
             string date;
             DialogResult dialogResult = MessageBox.Show("Are you sure to assign this person to this room?", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+         
 
-
-            for (int i = 0; i < cou; i++)
+            if (dialogResult == DialogResult.Yes)
             {
-                for (int j = 0; j < int.Parse(numericUpDown1.Text); j++)
-                {
-                    string dt = d6.Rows[i]["re_date"].ToString();
-                    string dt2 = DateTime.Now.AddDays(j).ToString("yyy-M-d");
-                    if (dt == dt2)
-                    {
-                        MessageBox.Show("Day/s selected had been reserved", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        no = false;
-                    }
-
-                }
-
-            
-
-        }
-            if (no == true)
-            {
-                if (dialogResult == DialogResult.Yes)
-                {
-
-                    float dis = float.Parse(textBox1.Text);
-
-
-
-
-                    string q = "select room_time, RC_rate  from room_classification inner join room where room_classification_classification_id = classification_id and room_id = " + a + "";
-                    DataTable d = c.select(q);
-
+                float dis = float.Parse(textBox1.Text);
+                
+                
+                string q = "select room_time, RC_rate from room_classification inner join room where room_classification_classification_id = classification_id and room_id = " + a + "";
+                DataTable d = c.select(q);
+          
                     string rc = d.Rows[0]["RC_rate"].ToString();
-                    float rc2 = float.Parse(numericUpDown1.Text) * float.Parse(d.Rows[0]["RC_rate"].ToString());
-                    float rc3 = rc2 - (rc2 * (dis / 100));
+                float rc2 = float.Parse(numericUpDown1.Text) * float.Parse(d.Rows[0]["RC_rate"].ToString());
+                float rc3 = rc2 - (rc2 *(dis/100));
                     string time = d.Rows[0]["room_time"].ToString();
                     if (time == "Monthly")
-                    {
+                    {   
                         date = DateTime.Now.AddMonths(int.Parse(numericUpDown1.Text)).ToString("yyy-M-d");
                     }
                     else
                     {
                         date = DateTime.Now.AddDays(int.Parse(numericUpDown1.Text)).ToString("yyy-M-d");
                     }
+                    
+                    string quer = "insert into room_transaction values(NULL, '" + "Active" + "', '" + DateTime.Now.ToString("yyy-M-d") + "'," +
+                        " '" + date + "','"+rc3+"', '"+textBox1.Text+"',"+pid+","+a+",NULL )";
 
-                    if (comboBox1.Text == "Cash")
-                    {
-                        string quer = "insert into room_transaction values(NULL, '" + "Active" + "', '" + DateTime.Now.ToString("yyy-M-d") + "'," +
-                                " '" + date + "','" + rc3 + "', '" + textBox1.Text + "'," + pid + "," + a + ",NULL,'" + comboBox1.Text + "', '0' )";
-
-                        c.insert(quer);
-                        string quer2 = "update room set room_status = 'Using' where room_id = " + a + "";
-                        c.insert(quer2);
-
-                    }
-                    else if (comboBox1.Text == "Check")
-                    {
-
-                        string quer = "insert into room_transaction values(NULL, '" + "Active" + "', '" + DateTime.Now.ToString("yyy-M-d") + "'," +
-                                " '" + date + "',0, '" + textBox1.Text + "'," + pid + "," + a + ",NULL,'" + comboBox1.Text + "', '" + rc3 + "' )";
-
-                        c.insert(quer);
-                        string quer2 = "update room set room_status = 'Using' where room_id = " + a + "";
-                        c.insert(quer2);
-                        string quer3 = "update profile set profile_balance = (profile_balance - " + rc3 + ") where user_id = " + pid + " ";
-                        c.insert(quer3);
+                c.insert(quer);
+                string quer2 = "update room set room_status = 'Using' where room_id = " + a + "";
+                c.insert(quer2);
+              
 
 
-                    }
-                    else
-                    {
-
-                        MessageBox.Show("Please input all Fields", "Error");
-                    }
-
-                    //  this.Close();
-                    this.DialogResult = DialogResult.Yes;
+                //  this.Close();
+                this.DialogResult = DialogResult.Yes;
+        
 
 
-
-                }
-            }
-            else {
-                this.Close();
             }
             
         }
