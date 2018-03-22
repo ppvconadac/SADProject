@@ -95,6 +95,7 @@ namespace BustosApartment_SAD_
             foreach (DataRow row in c1.select(query1).Rows)
             {
                 for (int i = 0; i < row.ItemArray.Length; i++)
+
                 {
                     comboBox1.Items.Add(row.ItemArray[0].ToString());
                     
