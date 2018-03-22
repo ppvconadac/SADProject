@@ -43,16 +43,15 @@ namespace BustosApartment_SAD_
             
             string quer = "select re_date from reservation where re_date > now()";
             DataTable d = c.select(quer);
-            int pp = d.Rows.Count;
-            string quer2 = "select rt_date_start, rt_date_expire, rt_price, room_time, rt_discount, Profile_user_ID, Room_Room_ID, rt_re_pay from room_transaction" +
+            string quer2 = "select rt_date_start, rt_date_expire, rt_price, room_time, rt_discount, Profile_user_ID, Room_Room_ID from room_transaction" +
                 " inner join room inner join room_classification where" +
                 " room_room_id = room_id and room_classification_classification_id = classification_id and rtrans_id = " + UCRoomAsContent.id5 + "";
             DataTable d2 = c.select(quer2);
             int cou = d.Rows.Count;
             bool b = true;
             string date = "";
-            float dis = float.Parse(d2.Rows[0]["rt_discount"].ToString());
-         
+            float dis = float.Parse(d2.Rows[0]["rt_price"].ToString())-((float.Parse(d2.Rows[0]["rt_discount"].ToString()) / 100) * float.Parse(d2.Rows[0]["rt_price"].ToString()));
+            float pr = dis * int.Parse(numericUpDown1.Text);
             DialogResult dialogResult = MessageBox.Show("Are you sure to assign this person to this room?", "Waning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
             {
@@ -60,9 +59,7 @@ namespace BustosApartment_SAD_
                 {
                     for (int j = 0; j < int.Parse(numericUpDown1.Text); j++)
                     {
-                        string dt = d.Rows[i]["re_date"].ToString();
-                        string dt2 = Convert.ToDateTime(d2.Rows[0]["rt_date_expire"].ToString()).AddDays(j).ToString("yyy-M-d");
-                        if (dt ==dt2 )
+                        if (d.Rows[i]["re_date"].ToString() == Convert.ToDateTime(d2.Rows[0]["rt_date_expire"].ToString()).AddDays(j).ToString("yyy-M-d"))
                         {
                             MessageBox.Show("Day/s selected had been reserved", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             b = false;
@@ -78,43 +75,18 @@ namespace BustosApartment_SAD_
                 }
                 else
                 {
-                   
+                    b = true;
                     date = Convert.ToDateTime(d2.Rows[0]["rt_date_expire"].ToString()).AddMonths(int.Parse(numericUpDown1.Text)).ToString("yyy-M-d");
                 }
                 if (b == true)
                 {
-                    if (comboBox1.Text == "Cash") {
-                        string q1 = "select room_time, RC_rate  from room_classification inner join room where room_classification_classification_id = classification_id and room_id = " + d2.Rows[0]["room_room_id"].ToString() + "";
-                        DataTable d3 = c.select(q1);
-
-                        string rc = d3.Rows[0]["RC_rate"].ToString();
-                        float rc2 = float.Parse(numericUpDown1.Text) * float.Parse(d3.Rows[0]["RC_rate"].ToString());
-                        float rc3 = rc2 - (rc2 * (dis / 100));
-                        string q = "insert into room_transaction values(NULL, 'Extend'" +
-                            ", '" + d2.Rows[0]["rt_date_expire"].ToString() + "', '" + date + "',  NULL " +
-                            "," + int.Parse(d2.Rows[0]["rt_discount"].ToString()) + ", " + int.Parse(d2.Rows[0]["profile_user_id"].ToString()) + ", " +
-                            "" + int.Parse(d2.Rows[0]["room_room_id"].ToString()) + ", '" + DateTime.Now.ToString("yyy-M-d") + "','Cash', NULL ) ";
-                        c.insert(q);
-                        string q2 = "update room_transaction set rt_date_expire = '" + date + "', rt_price = (rt_price + " + rc3 + ")  where rtrans_id = " + UCRoomAsContent.id5 + "";
-                        c.insert(q2);
-                    }
-                    else if(comboBox1.Text == "Check") {
-                        string q1 = "select room_time, RC_rate  from room_classification inner join room where room_classification_classification_id = classification_id and room_id = " + d2.Rows[0]["room_room_id"].ToString() + "";
-                        DataTable d3 = c.select(q1);
-
-                        string rc = d3.Rows[0]["RC_rate"].ToString();
-                        float rc2 = float.Parse(numericUpDown1.Text) * float.Parse(d3.Rows[0]["RC_rate"].ToString());
-                        float rc3 = rc2 - (rc2 * (dis / 100));
-                        string q = "insert into room_transaction values(NULL, 'Extend'" +
-                            ", '" + d2.Rows[0]["rt_date_expire"].ToString() + "', '" + date + "',  NULL " +
-                            "," + int.Parse(d2.Rows[0]["rt_discount"].ToString()) + ", " + int.Parse(d2.Rows[0]["profile_user_id"].ToString()) + ", " +
-                            "" + int.Parse(d2.Rows[0]["room_room_id"].ToString()) + ", '" + DateTime.Now.ToString("yyy-M-d") + "','Check', NULL ) ";
-                        c.insert(q);
-                        string q2 = "update room_transaction set rt_date_expire = '" + date + "', rt_re_pay = (rt_re_pay + " + rc3 + ")  where rtrans_id = " + UCRoomAsContent.id5 + "";
-                        c.insert(q2);
-                        string q3 = "update profile set profile_balance = (profile_balance - "+rc3+") where user_id ="+d2.Rows[0]["profile_user_id"].ToString()+"";
-                        c.insert(q3);
-                    }
+                    string q = "insert into room_transaction values(NULL, 'Extend'" +
+                        ", '" + d2.Rows[0]["rt_date_expire"].ToString() + "', '" + date + "',  NULL " +
+                        "," + int.Parse(d2.Rows[0]["rt_discount"].ToString()) + ", " + int.Parse(d2.Rows[0]["profile_user_id"].ToString()) + ", " +
+                        "" + int.Parse(d2.Rows[0]["room_room_id"].ToString()) + ", '" + DateTime.Now.ToString("yyy-M-d") + "' ) ";
+                    c.insert(q);
+                    string q2 = "update room_transaction set rt_date_expire = '" + date + "', rt_price = (rt_price + "+pr+")  where rtrans_id = " + UCRoomAsContent.id5 + "";
+                    c.insert(q2);
                     this.DialogResult = DialogResult.Yes;
                 }
                 else
