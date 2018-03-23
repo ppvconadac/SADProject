@@ -33,6 +33,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -78,11 +79,11 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(378, 565);
+            this.button1.Location = new System.Drawing.Point(89, 567);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(398, 36);
             this.button1.TabIndex = 47;
-            this.button1.Text = "Create Report";
+            this.button1.Text = "Create Report For Room";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -105,10 +106,22 @@
             this.dataGridView2.Size = new System.Drawing.Size(518, 492);
             this.dataGridView2.TabIndex = 48;
             // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(613, 567);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(398, 36);
+            this.button2.TabIndex = 49;
+            this.button2.Text = "Create Report For Inventory";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // UCIncomeContent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
@@ -131,5 +144,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button button2;
     }
 }
