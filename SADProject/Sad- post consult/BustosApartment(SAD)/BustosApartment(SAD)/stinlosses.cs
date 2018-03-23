@@ -15,6 +15,7 @@ namespace BustosApartment_SAD_
 
         Class1 c = new Class1();
         public int id2;
+        public double price;
         public UserControl a3;
 
         public stinlosses()
@@ -45,6 +46,7 @@ namespace BustosApartment_SAD_
             {
                 txtin.Text = dataGridView2.Rows[e.RowIndex].Cells["nitem_name"].Value.ToString();
                 id2 = int.Parse(dataGridView2.Rows[e.RowIndex].Cells["nitem_ID"].Value.ToString());
+                price = double.Parse(dataGridView2.Rows[e.RowIndex].Cells["nitem_price"].Value.ToString());
 
             }
         }
@@ -92,6 +94,10 @@ namespace BustosApartment_SAD_
 
                         string quer3 = "update nonborrowable_item set nt_quantity = '" + quan.ToString() + "' where nitem_ID = " + id2 + "";
                         c.insert(quer3);
+
+                        double total = double.Parse(textBox2.Text) * price;
+                        string quer4 = "insert into misc_transaction values(NULL, '" + date + "'," + total + ",'Transient','Stock-out Loss',0, NULL,NULL )";
+                        c.insert(quer4);
                         //  this.Close();
                         this.DialogResult = DialogResult.Yes;
                     }

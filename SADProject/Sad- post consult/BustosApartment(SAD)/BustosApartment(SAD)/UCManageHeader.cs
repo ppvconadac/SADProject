@@ -55,6 +55,7 @@ namespace BustosApartment_SAD_
             else
             {
                 UCIncomeContent.Instance.BringToFront();
+                UCIncomeContent.Instance.refresh();
             }
         }
 
@@ -69,6 +70,7 @@ namespace BustosApartment_SAD_
             else
             {
                 UCManageGTContent.Instance.BringToFront();
+                UCManageGTContent.Instance.refresh();
             }
         }
 
@@ -88,6 +90,7 @@ namespace BustosApartment_SAD_
             else
             {
                 UCManageUEContent.Instance.BringToFront();
+                UCManageUEContent.Instance.refresh();
             }
         }
 
@@ -107,6 +110,7 @@ namespace BustosApartment_SAD_
             else
             {
                 UCSummaryCont.Instance.BringToFront();
+                UCSummaryCont.Instance.refresh();
             }
         }
 
@@ -122,6 +126,7 @@ namespace BustosApartment_SAD_
             else
             {
                 UCManageIndiEx.Instance.BringToFront();
+                UCManageIndiEx.Instance.refresh();
             }
         }
 
@@ -137,6 +142,7 @@ namespace BustosApartment_SAD_
             else
             {
                 UCManageHCont.Instance.BringToFront();
+                UCManageHCont.Instance.refresh();
             }
         }
     }

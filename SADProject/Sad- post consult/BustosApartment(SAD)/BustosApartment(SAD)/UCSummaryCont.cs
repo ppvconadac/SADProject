@@ -32,6 +32,21 @@ namespace BustosApartment_SAD_
             InitializeComponent();
             tablecall();
         }
+        public void refresh()
+        {
+            dataGridView2.DataSource = null;
+            dataGridView2.Rows.Clear();
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            dataGridView3.DataSource = null;
+            dataGridView3.Rows.Clear();
+            dataGridView4.DataSource = null;
+            dataGridView4.Rows.Clear();
+            dataGridView5.DataSource = null;
+            dataGridView5.Rows.Clear();
+            tablecall();
+
+        }
 
         public void tablecall() {
             string quer = "SELECT concat(owner_fname,' ',owner_mname,' ',owner_lname) as Name, rt_price as sum from owner inner join room inner join room_transaction where owner_id = room.owner_owner_id and Room_ID = room_transaction.Room_Room_ID" +

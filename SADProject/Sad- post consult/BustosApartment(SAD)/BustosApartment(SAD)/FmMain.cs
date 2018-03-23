@@ -12,6 +12,7 @@ namespace BustosApartment_SAD_
 {
     public partial class FmMain : Form
     {
+        public Form prevform { get; set; }
         public FmMain()
         {
             InitializeComponent();
@@ -139,6 +140,13 @@ namespace BustosApartment_SAD_
             {
                 UCInventHeader.Instance.BringToFront();
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            prevform.Show();
+            this.InitializeComponent();
+            this.Hide();
         }
     }
 }

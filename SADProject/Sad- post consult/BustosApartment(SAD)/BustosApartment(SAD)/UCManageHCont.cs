@@ -31,6 +31,16 @@ namespace BustosApartment_SAD_
             tablecall();
             dates();
         }
+        public void refresh()
+        {
+            dataGridView2.DataSource = null;
+            dataGridView2.Rows.Clear();
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            tablecall();        
+
+        }
+
         public void dates()
         {
             DateTime d = DateTime.Now;
