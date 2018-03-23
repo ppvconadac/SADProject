@@ -90,8 +90,15 @@ namespace BustosApartment_SAD_
             dataGridView2.DataSource = c.select(query);
             dataGridView2.ClearSelection();
             dataGridView2.Columns["room_room_id"].Visible = false;
+            dataGridView2.Columns["room_id"].Visible = false;
+            dataGridView2.Columns["rtrans_id"].Visible = false;
             dataGridView2.Columns["profile_user_id"].Visible = false;
-
+            dataGridView2.Columns["room_number"].HeaderText = "Room Number";
+            dataGridView2.Columns["rt_date_start"].HeaderText = "Date Start";
+            dataGridView2.Columns["rt_date_expire"].HeaderText = "Date End";
+            dataGridView2.Columns["room_time"].HeaderText = "Room Type";
+            dataGridView2.Columns["room_status"].HeaderText = "Availability";
+            dataGridView2.Columns["profile_name"].HeaderText = "Company Name";
 
         }
         public void tablecall2()
@@ -100,6 +107,12 @@ namespace BustosApartment_SAD_
             String query = "SELECT room_id, room_number, room_time, room_status, Room_classification_classification_ID FROM room  inner join room_classification" +
                 " where Room_classification_classification_ID = classification_ID ";
             dataGridView1.DataSource = c.select(query);
+            dataGridView1.Columns["room_id"].Visible = false;
+            dataGridView1.Columns["Room_classification_classification_ID"].Visible = false;
+            dataGridView1.Columns["room_number"].HeaderText = "Room Number";
+            dataGridView1.Columns["room_time"].HeaderText = "Room Type";
+            dataGridView1.Columns["room_status"].HeaderText = "Availability";
+
             dataGridView1.ClearSelection();
 
 

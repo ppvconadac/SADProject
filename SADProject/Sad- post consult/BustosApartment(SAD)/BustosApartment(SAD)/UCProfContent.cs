@@ -205,12 +205,8 @@ namespace BustosApartment_SAD_
         {
             // cn -1 fn- 2 ln- 3 nu-4 add- 6 id-8
             int idt;
-            try {
-                int.Parse(textBox4.Text);
-            }
-            catch{
-                MessageBox.Show("Invalid Input: Must Contain Numbers", "Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+
+            
             if (comboBox1.Text =="Passport") {
                 idt = 1;
             }
@@ -222,7 +218,14 @@ namespace BustosApartment_SAD_
             }
             if (textBox1.Text != "" && textBox2.Text != "" && textBox15.Text != "" && textBox3.Text != "" && textBox4.Text != "" && textBox6.Text != "" && textBox8.Text != "" && comboBox1.Text != "")
             {
-                if (textBox4.Text.Length != 11) {
+                string quer = "select * from profile where Profile_name ='" +textBox1.Text + "'";
+                DataTable d = c.select(quer);
+
+                if (d.Rows.Count > 0)
+                {
+                    MessageBox.Show("Already Registered!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (textBox4.Text.Length != 11) {
                     MessageBox.Show("Invalid Input: Must contain 11 Numbers", "Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (!int.TryParse(textBox4.Text, out int val))
@@ -267,13 +270,20 @@ namespace BustosApartment_SAD_
             }
             if (textBox13.Text != "" && textBox12.Text != "" && textBox11.Text != "" && textBox10.Text != "" && textBox9.Text != "" && textBox7.Text != "" && comboBox2.Text != "")
             {
-                if (textBox10.Text.Length != 11)
+                string quer = "select * from profile where Profile_name ='" + textBox13.Text + "'";
+                DataTable d = c.select(quer);
+
+                if (d.Rows.Count > 0)
+                {
+                    MessageBox.Show("Already Registered!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (textBox10.Text.Length != 11)
                 {
                     MessageBox.Show("Invalid Input", "Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (!int.TryParse(textBox10.Text, out int val))
                 {
-                    //MessageBox.Show("Invalid number format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid number format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     
                 }
                 else

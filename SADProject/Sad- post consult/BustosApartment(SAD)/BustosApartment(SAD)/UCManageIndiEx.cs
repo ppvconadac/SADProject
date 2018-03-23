@@ -99,15 +99,22 @@ namespace BustosApartment_SAD_
 
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Confirm Void.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                if (dialogResult == DialogResult.Yes)
+                authorizearch ch = new authorizearch();
+                ch.a3 = this;
+                DialogResult result = ch.ShowDialog();
+                if (result == DialogResult.Yes)
                 {
+                    DialogResult dialogResult = MessageBox.Show("Confirm Void?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                    string quer = "update in_transaction set it_trans_stat = 2, it_void_date = '"+DateTime.Now.ToString("yyyy-M-d")+"', it_void_loggedin = "+FmLogin.id+" where intrans_ID = " + id + "";
-                    c1.insert(quer);
-                    tablecall();
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string quer = "update in_transaction set it_trans_stat = 2, it_void_date = '" + DateTime.Now.ToString("yyyy-M-d") + "', it_void_loggedin = " + FmLogin.id + " where intrans_ID = " + id + "";
+                        c1.insert(quer);
+                        tablecall();
+                    }
+
                 }
+               
             }
         }
 

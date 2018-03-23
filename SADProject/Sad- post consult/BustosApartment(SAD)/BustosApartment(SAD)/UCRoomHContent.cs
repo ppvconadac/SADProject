@@ -37,10 +37,17 @@ namespace BustosApartment_SAD_
         }
         public void tablecall()
         {
-            quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname, profile_mname, profile_lname) as Name" +
+            quer = "select reservation_id, room_number, profile_name, CONCAT(profile_fname,' ', profile_mname,' ', profile_lname) as Name" +
               ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = " +
               "room_id AND re_date < curdate() AND re_status = 0";
             call(quer);
+            dataGridView2.Columns["reservation_id"].Visible = false;
+            dataGridView2.Columns["re_status"].Visible = false;
+            dataGridView2.Columns["room_number"].HeaderText = "Room Number";
+            dataGridView2.Columns["profile_name"].HeaderText = "Company Name";
+            dataGridView2.Columns["Name"].HeaderText = "User";
+            dataGridView2.Columns["re_date"].HeaderText = "Date of Reservation";
+
 
         }
         public void call(string quer)
@@ -51,6 +58,7 @@ namespace BustosApartment_SAD_
         public void call2(string quer)
         {
             dataGridView1.DataSource = c1.select(quer);
+            dataGridView1.ClearSelection();
         }
 
         public void tablecall2()
@@ -58,6 +66,11 @@ namespace BustosApartment_SAD_
             quer = "SELECT room_number, profile_name, rt_date_start, rt_date_expire FROM room_transaction inner join room inner " +
                 "join ba_db.profile where rt_type = 'Expire' and room_room_id =room_id and Profile_user_ID = user_id";
             call(quer);
+            
+            dataGridView2.Columns["room_number"].HeaderText = "Room Number";
+            dataGridView2.Columns["profile_name"].HeaderText = "Company Name";
+            dataGridView2.Columns["rt_date_start"].HeaderText = "Date Start";
+            dataGridView2.Columns["rt_date_expire"].HeaderText = "Date End";
         }
         public void tablecall3()
         {
@@ -65,12 +78,22 @@ namespace BustosApartment_SAD_
               ", re_date, re_status from reservation inner join profile inner join room where Profile_user_ID = user_id AND Room_Room_ID = " +
               "room_id AND re_status = 1";
             call2(quer);
+            dataGridView1.Columns["reservation_id"].Visible = false;
+            dataGridView1.Columns["re_status"].Visible = false;
+            dataGridView1.Columns["room_number"].HeaderText = "Room Number";
+            dataGridView1.Columns["profile_name"].HeaderText = "Company Name";
+            dataGridView1.Columns["Name"].HeaderText = "User";
+            dataGridView1.Columns["re_date"].HeaderText = "Date of Reservation";
         }
         public void tablecall4()
         {
             quer = "SELECT room_number, profile_name, rt_date_start, rt_date_expire FROM room_transaction inner join room inner " +
                "join ba_db.profile where rt_type = 'Archive' and room_room_id =room_id and Profile_user_ID = user_id";
             call2(quer);
+            dataGridView1.Columns["room_number"].HeaderText = "Room Number";
+            dataGridView1.Columns["profile_name"].HeaderText = "Company Name";
+            dataGridView1.Columns["rt_date_start"].HeaderText = "Date Start";
+            dataGridView1.Columns["rt_date_expire"].HeaderText = "Date End";
 
         }
         public void dates()

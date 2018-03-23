@@ -55,10 +55,7 @@ namespace BustosApartment_SAD_
                     int typ;
                     if (comboBox1.Text == "Owner")
                         typ = 1;
-                    else if (comboBox1.Text == "Admin")
-                    {
-                        typ = 0;
-                    }
+                   
                     else { typ = 2; }
 
                     string quer2 = "insert into owner values(NULL, '" + txtfname.Text + "', '" + txtmname.Text + "'," +
@@ -119,10 +116,7 @@ namespace BustosApartment_SAD_
                     int typ;
                     if (comboBox1.Text == "Owner")
                         typ = 1;
-                    else if (comboBox1.Text == "Admin")
-                    {
-                        typ = 0;
-                    }
+                   
                     else { typ = 2; }
 
 

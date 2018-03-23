@@ -630,15 +630,23 @@ namespace BustosApartment_SAD_
 
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Confirm Void.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                    if (dialogResult == DialogResult.Yes)
+                    authorizearch ch = new authorizearch();
+                    ch.a3 = this;
+                    DialogResult result = ch.ShowDialog();
+                    if (result == DialogResult.Yes)
                     {
-                        quer = "update uelect_trans_specs set uet_trans_stat = 2, uet_void_date = '" + DateTime.Now.ToString("yyyy-M-d") + "', uet_void_loggedin = " + FmLogin.id + " where uet_ID = " + tid2 + "";
-                        c1.insert(quer);
-                        tablecall2();
+                        DialogResult dialogResult = MessageBox.Show("Confirm Void?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            quer = "update uelect_trans_specs set uet_trans_stat = 2, uet_void_date = '" + DateTime.Now.ToString("yyyy-M-d") + "', uet_void_loggedin = " + FmLogin.id + " where uet_ID = " + tid2 + "";
+                            c1.insert(quer);
+                            tablecall2();
+
+                        }
 
                     }
+                   
                 }
                
             }
@@ -1091,15 +1099,23 @@ namespace BustosApartment_SAD_
 
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Confirm Void.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                    if (dialogResult == DialogResult.Yes)
+                    authorizearch ch = new authorizearch();
+                    ch.a3 = this;
+                    DialogResult result = ch.ShowDialog();
+                    if (result == DialogResult.Yes)
                     {
-                        quer = "update uwat_trans_specs set uwt_trans_stat = 2, uwt_void_date = '" + DateTime.Now.ToString("yyyy-M-d") + "', uwt_void_loggedin = " + FmLogin.id + " where uwt_ID = " + tid4 + "";
-                        c1.insert(quer);
-                        tablecall4();
+                        DialogResult dialogResult = MessageBox.Show("Confirm Void?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            quer = "update uwat_trans_specs set uwt_trans_stat = 2, uwt_void_date = '" + DateTime.Now.ToString("yyyy-M-d") + "', uwt_void_loggedin = " + FmLogin.id + " where uwt_ID = " + tid4 + "";
+                            c1.insert(quer);
+                            tablecall4();
+
+                        }
 
                     }
+
                 }
 
             }

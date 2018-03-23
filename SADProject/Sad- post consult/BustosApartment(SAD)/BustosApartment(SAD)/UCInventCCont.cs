@@ -16,7 +16,6 @@ namespace BustosApartment_SAD_
         private Panel panel1;
         private Panel panel2;
         private Label label5;
-        private PictureBox pictureBox1;
         private TabControl tabControl1;
         private TabPage tabPage2;
         private TextBox textBox4;
@@ -36,7 +35,6 @@ namespace BustosApartment_SAD_
         private Button button3;
         private Label label21;
         private Label label23;
-        private TextBox textBox5;
 
         Class1 c1 = new Class1();
         private static UCInventCCont _instance;
@@ -66,7 +64,6 @@ namespace BustosApartment_SAD_
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCInventCCont));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -90,14 +87,11 @@ namespace BustosApartment_SAD_
             this.label23 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -127,8 +121,6 @@ namespace BustosApartment_SAD_
             this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.textBox5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -359,26 +351,6 @@ namespace BustosApartment_SAD_
             this.label5.TabIndex = 39;
             this.label5.Text = "COMPLIMENTARY";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(474, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 24);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.textBox5.Location = new System.Drawing.Point(502, 15);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(183, 24);
-            this.textBox5.TabIndex = 14;
-            // 
             // UCInventCCont
             // 
             this.Controls.Add(this.panel1);
@@ -393,7 +365,6 @@ namespace BustosApartment_SAD_
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -406,6 +377,10 @@ namespace BustosApartment_SAD_
             dataGridView1.Columns["nt_archive_date"].Visible = false;
             dataGridView1.Columns["nt_archive_loggedin"].Visible = false;
             dataGridView1.Columns["nitem_stat"].Visible = false;
+            dataGridView1.Columns["nitem_name"].HeaderText = "Name";
+            dataGridView1.Columns["nitem_price"].HeaderText = "Price";
+            dataGridView1.Columns["nitem_desc"].HeaderText = "Description";
+            dataGridView1.Columns["nt_quantity"].HeaderText = "Quantity in-stock";
             dataGridView1.ClearSelection();
         }
 
@@ -414,6 +389,12 @@ namespace BustosApartment_SAD_
             if (txtuin.Text == "" || txtuit.Text == "" || textBox7.Text == "")
             {
                 MessageBox.Show("No empty fields, try again.");
+            }
+          
+            else if (!double.TryParse(textBox7.Text,  out double val))
+            {
+                MessageBox.Show("Invalid Price format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox7.Text = "";
             }
 
             else
@@ -433,7 +414,12 @@ namespace BustosApartment_SAD_
             if (txtin.Text== "" || textBox4.Text == "" || textBox3.Text== "" ) {
                 MessageBox.Show("No empty fields, try again.");
             }
-
+            else if (!double.TryParse(textBox3.Text, out double val))
+            {
+                MessageBox.Show("Invalid Priceformat !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox3.Text = "";
+            }
+            
             else
             {
                 string quer = "insert into nonborrowable_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "', '"+ textBox3.Text+"', 0, NULL,NULL, 0)";

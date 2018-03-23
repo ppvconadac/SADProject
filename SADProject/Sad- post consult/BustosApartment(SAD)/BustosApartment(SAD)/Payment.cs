@@ -112,8 +112,42 @@ namespace BustosApartment_SAD_
                         }
                     }
                 }
+                if (dbase == "ritem_damage_transaction")
+                {
+                    if (tendered != 0)
+                    {
+                        cb = double.Parse(textBox2.Text);
+                        string quer;
+                        string date = DateTime.Now.ToString("yyyy-M-d");
 
-                if(dbase == "uespecs_partial")
+                        quer = "insert into rdtrans_partial values(NULL, '" + date + "', '" + tendered.ToString() + "', " + tr_id + " )";
+                        c.insert(quer);
+
+                        if (cb >= 0)
+                        {
+                            string quer2 = "update ritem_damage_transaction set rdt_pay_status = 'Paid', rdt_pay_date = '" + date + "' where rdtrans_ID = " + tr_id + "";
+                            c.insert(quer2);
+                        }
+                        else if (cb < 0)
+                        {
+                            if ((cb * -1) != double.Parse(amount))
+                            {
+                                string quer2 = "update ritem_damage_transaction set rdt_pay_status = 'Partially Paid' where rdtrans_ID = " + tr_id + "";
+                                c.insert(quer2);
+                            }
+                            string quer3 = "select Profile_balance from profile where user_ID = '" + p_id + "'";
+                            DataTable d = c.select(quer3);
+                            string balance = d.Rows[0]["Profile_balance"].ToString();
+                            double bal = double.Parse(balance);
+                            bal = bal + (cb * -1);
+                            string quer4 = "update profile set Profile_balance = '" + bal.ToString() + "' where User_id = " + p_id + "";
+                            c.insert(quer4);
+
+                        }
+                    }
+                }
+
+                if (dbase == "uespecs_partial")
                 {
                     if (tendered != 0)
                     {

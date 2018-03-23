@@ -89,6 +89,7 @@ namespace BustosApartment_SAD_
             dataGridView2.Columns["bt_date"].HeaderText = "Date";
             dataGridView2.Columns["bt_pay_method"].HeaderText = "Payment Method";
             dataGridView2.Columns["bt_price"].HeaderText = "Amount Earned";
+            dataGridView2.Columns["bitem_name"].HeaderText = "Item Name";
             dataGridView2.ClearSelection();
 
         }
@@ -101,6 +102,7 @@ namespace BustosApartment_SAD_
             dataGridView2.Columns["bt_date"].HeaderText = "Date";
             dataGridView2.Columns["bt_pay_method"].HeaderText = "Payment Method";
             dataGridView2.Columns["bt_price"].HeaderText = "Amount Earned";
+            dataGridView2.Columns["bitem_name"].HeaderText = "Item Name";
             dataGridView2.ClearSelection();
 
         }

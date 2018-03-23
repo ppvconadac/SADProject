@@ -88,6 +88,17 @@ namespace BustosApartment_SAD_
                 comboBox2.Text = "Unavailable";
             }
 
+            else if (!double.TryParse(textBox2.Text, out double val))
+            {
+                MessageBox.Show("Invalid Rate format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox2.Text = "";
+            }
+            else if (!double.TryParse(textBox3.Text, out val))
+            {
+                MessageBox.Show("Invalid Priceformat !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox3.Text = "";
+            }
+
             else
             {
                 string quer = "insert into borrowable_item values(NULL, '" + txtin.Text + "','" + textBox4.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + textBox3.Text + "','" + textBox2.Text + "',NULL,NULL,0)";
@@ -126,6 +137,17 @@ namespace BustosApartment_SAD_
                 comboBox2.Text = "Unavailable";
             }
 
+
+            else if (!double.TryParse(textBox7.Text, out double val))
+            {
+                MessageBox.Show("Invalid Rate format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox7.Text = "";
+            }
+            else if (!double.TryParse(textBox1.Text, out val))
+            {
+                MessageBox.Show("Invalid Priceformat !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox1.Text = "";
+            }
             else
             {
 
