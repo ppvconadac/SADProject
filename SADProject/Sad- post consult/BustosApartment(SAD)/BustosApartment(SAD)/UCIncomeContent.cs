@@ -35,6 +35,17 @@ namespace BustosApartment_SAD_
             tablecall();
             tablecall2();
         }
+        public void refresh()
+        {
+            dataGridView2.DataSource = null;
+            dataGridView2.Rows.Clear();
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+         
+            tablecall();
+            tablecall2();
+
+        }
 
         private void UCIncomeContent_Load(object sender, EventArgs e)
         {

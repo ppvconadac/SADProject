@@ -46,6 +46,7 @@ namespace BustosApartment_SAD_
                 id = dt.Rows[0]["Owner_ID"].ToString();
                 MessageBox.Show("Welcome " + name);
                 nextform.Show();
+                nextform.prevform = this;
                 this.Hide();
 
             }

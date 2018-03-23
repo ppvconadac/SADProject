@@ -36,6 +36,14 @@ namespace BustosApartment_SAD_
         {
             
         }
+        public void refresh()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+
+            tablecall();
+
+        }
 
         public void tablecall()
         {
