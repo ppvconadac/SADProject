@@ -376,6 +376,7 @@
             this.txtpass2.PasswordChar = '*';
             this.txtpass2.Size = new System.Drawing.Size(358, 23);
             this.txtpass2.TabIndex = 66;
+            this.txtpass2.TextChanged += new System.EventHandler(this.txtpass2_TextChanged);
             // 
             // label7
             // 
@@ -393,6 +394,7 @@
             this.txtuser2.Name = "txtuser2";
             this.txtuser2.Size = new System.Drawing.Size(358, 23);
             this.txtuser2.TabIndex = 64;
+            this.txtuser2.TextChanged += new System.EventHandler(this.txtuser2_TextChanged);
             // 
             // label8
             // 

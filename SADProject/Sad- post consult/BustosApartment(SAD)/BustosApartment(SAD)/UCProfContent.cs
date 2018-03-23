@@ -225,9 +225,7 @@ namespace BustosApartment_SAD_
                 {
                     MessageBox.Show("Already Registered!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else if (textBox4.Text.Length != 11) {
-                    MessageBox.Show("Invalid Input: Must contain 11 Numbers", "Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                
                 else if (!int.TryParse(textBox4.Text, out int val))
                 {
                     MessageBox.Show("Invalid format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -270,17 +268,15 @@ namespace BustosApartment_SAD_
             }
             if (textBox13.Text != "" && textBox12.Text != "" && textBox11.Text != "" && textBox10.Text != "" && textBox9.Text != "" && textBox7.Text != "" && comboBox2.Text != "")
             {
-                string quer = "select * from profile where Profile_name ='" + textBox13.Text + "'";
+                string quer = "select * from profile where Profile_name ='" + textBox13.Text + "' and user_ID != "+a+"";
                 DataTable d = c.select(quer);
 
                 if (d.Rows.Count > 0)
                 {
                     MessageBox.Show("Already Registered!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else if (textBox10.Text.Length != 11)
-                {
-                    MessageBox.Show("Invalid Input", "Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+
+             
                 else if (!int.TryParse(textBox10.Text, out int val))
                 {
                     MessageBox.Show("Invalid number format !", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -310,6 +306,11 @@ namespace BustosApartment_SAD_
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
         {
 
         }

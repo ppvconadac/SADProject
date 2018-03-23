@@ -135,7 +135,7 @@ namespace BustosApartment_SAD_
         {
             if (textBox3.Text != "" && textBox6.Text != "" && comboBox2.Text != "" && comboBox4.Text != "")
             {
-                string quer2 = "select * from room where Room_number = '" + textBox6.Text + "'";
+                string quer2 = "select * from room where Room_number = '" + textBox6.Text + "' and Room_ID != "+id1+"";
                 DataTable d = c.select(quer2);
                 if (d.Rows.Count > 0)
                 {

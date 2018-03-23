@@ -82,7 +82,7 @@ namespace BustosApartment_SAD_
 
         }
         public void tablecall() {
-            string quer = "select * from owner";         
+            string quer = "select * from owner where emp_status != 0";         
             dataGridView1.DataSource = c1.select(quer);
             dataGridView1.Columns["username"].HeaderText = "Username";
             dataGridView1.Columns["password"].Visible = false;
@@ -104,7 +104,7 @@ namespace BustosApartment_SAD_
             if (txtfname2.Text != "" && txtmname2.Text != "" && txtlname2.Text != "" && txtuser2.Text != "" && txtpass2.Text != "" && comboBox2.Text != "")
             {
 
-                string quer = "select * from owner where username ='" + txtuser.Text + "'";
+                string quer = "select * from owner where username = '"+txtuser2.Text+"' and Owner_ID != "+id+"";
                 DataTable d = c1.select(quer);
 
                 if (d.Rows.Count > 0)
@@ -120,8 +120,8 @@ namespace BustosApartment_SAD_
                     else { typ = 2; }
 
 
-                    string quer2 = "update owner set owner_fname = '" + txtfname2.Text + "', owner_manme = '" + txtmname2.Text + "', owner_lname" +
-                        "= '" + txtlname2.Text + "', username = '" + txtuser2.Text + "', password = '" + txtpass2.Text + ", emp_status = " + typ + "' where owner_id= " + id + "";
+                    string quer2 = "update owner set owner_fname = '" + txtfname2.Text + "', owner_mname = '" + txtmname2.Text + "', owner_lname" +
+                        "= '" + txtlname2.Text + "', username = '" + txtuser2.Text + "', password = '" + txtpass2.Text + "', emp_status = '" + typ + "' where owner_id= " + id + "";
                     c1.insert(quer2);
                     MessageBox.Show("Data Has Been Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtfname2.Text = "";
@@ -203,6 +203,16 @@ namespace BustosApartment_SAD_
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtpass2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtuser2_TextChanged(object sender, EventArgs e)
         {
 
         }
