@@ -146,7 +146,72 @@ namespace BustosApartment_SAD_
             Paragraph par = new Paragraph("BUSTOS APARTMENT MONTHLY INVENTORY RECORDS\n\n");
             par.Alignment = Element.ALIGN_CENTER;
             doc.Add(par);
+            Paragraph p1 = new Paragraph();
+            string quer = "SELECT profile_name,bitem_name,bt_pay_method,bt_date,bt_price FROM bitem_transaction inner join profile inner join borrowable_item " +
+                "where user_ID = Profile_user_ID and borrowable_item_bitem_ID = bitem_ID and bt_date like '"+DateTime.Now.ToString("yyy-M-")+"%'; ";
+            DataTable d =  c.select(quer);
+    
+            p1.Add(new Chunk("LENDING TRANSACTION\n",font));
+            p1.Add(new Paragraph("______________________________________________________________________\n\n"));
+            doc.Add(p1);
+            for (int i = 0; i < d.Rows.Count; i++)
+            {
+                PdfPTable table = new PdfPTable(5);
+                table.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                table.AddCell(new Phrase(new Chunk("NAME:  " + d.Rows[i][0].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("DATE:  " + d.Rows[i][3].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("ITEM:  " + d.Rows[i][1].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("METHOD:  " + d.Rows[i][2].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("PRICE:  " + d.Rows[i][4].ToString(), font2)));
 
+                doc.Add(table);
+            }
+           
+
+            string quer2 = "SELECT room_number, nitem_transaction.nt_quantity, nt_date, nitem_name, nitem_price FROM nitem_transaction inner join room inner join nonborrowable_item where room_id = nt_roomID " +
+                "and nitem_id = nonborrowable_item_nitem_ID and nt_type = 'Stock-out' and nt_trans_stat != 2 and nt_date like '"+ DateTime.Now.ToString("yyy-M-") + "%'; ";
+            DataTable d1 = c.select(quer2);
+            Paragraph p2 = new Paragraph();
+            p2.Add(new Chunk("\nNON BORROWABLE TRANSACTION\n\n", font));
+            p2.Add(new Chunk("STOCK-OUT\n", font));
+            p2.Add(new Paragraph("______________________________________________________________________\n\n"));
+            doc.Add(p2);
+
+            for (int j = 0; j< d1.Rows.Count; j++) {
+                PdfPTable table = new PdfPTable(5);
+                table.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                table.AddCell(new Phrase(new Chunk("ROOM NUMBER:  " + d1.Rows[j][0].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("DATE:  " + d1.Rows[j][2].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("ITEM:  " + d1.Rows[j][3].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("QUANTITY:  " + d1.Rows[j][1].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("PRICE:  " + d1.Rows[j][4].ToString(), font2)));
+
+                doc.Add(table);
+
+            }
+            
+            Paragraph p3 = new Paragraph();
+            p3.Add(new Chunk("\nSTOCK-IN\n", font));
+            p3.Add(new Paragraph("______________________________________________________________________\n\n"));
+            doc.Add(p3);
+            string quer3 = "SELECT  nitem_transaction.nt_quantity, nt_date, nitem_name, nitem_price FROM nitem_transaction inner join nonborrowable_item where " +
+                " nitem_id = nonborrowable_item_nitem_ID and nt_type  = 'Stock-in' and nt_trans_stat != 2 and nt_date like '" + DateTime.Now.ToString("yyy-M-") + "%'; ";
+            DataTable d2 = c.select(quer3);
+
+
+            for (int k = 0; k < d2.Rows.Count; k++)
+            {
+                PdfPTable table = new PdfPTable(4);
+                table.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                table.AddCell(new Phrase(new Chunk("DATE:  " + d2.Rows[k][1].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("ITEM NAME:  " + d2.Rows[k][2].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("QUANTITY:  " + d2.Rows[k][0].ToString(), font2)));
+                table.AddCell(new Phrase(new Chunk("PRICE:  " + d2.Rows[k][3].ToString(), font2)));
+
+                doc.Add(table);
+            }
+            MessageBox.Show("PDF Created", "OK!");
+            doc.Close();
         }
     }
 }
