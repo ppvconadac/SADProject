@@ -1,2 +1,2 @@
 # SADProject
-SAD Project
+Apartment Management System using Visual Studio.
